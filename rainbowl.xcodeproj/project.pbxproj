@@ -17,6 +17,8 @@
 		AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34429FCBD7D00F10479 /* ContentView.swift */; };
 		AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34729FCD67C00F10479 /* RecordView.swift */; };
 		AA4BB34B29FCE9BE00F10479 /* ColorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34A29FCE9BE00F10479 /* ColorListView.swift */; };
+		AA5D0E982A4417CC002A32DC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E972A4417CC002A32DC /* GameView.swift */; };
+		AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */; };
 		AA8F08832A0005540069D180 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F08822A0005540069D180 /* FoodListView.swift */; };
 		AA8F08882A0171890069D180 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AA8F08872A0171890069D180 /* FirebaseFirestore */; };
 		AA8F088A2A0171890069D180 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = AA8F08892A0171890069D180 /* FirebaseFunctions */; };
@@ -60,6 +62,8 @@
 		AA4BB34429FCBD7D00F10479 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA4BB34729FCD67C00F10479 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		AA4BB34A29FCE9BE00F10479 /* ColorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListView.swift; sourceTree = "<group>"; };
+		AA5D0E972A4417CC002A32DC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AA8F08822A0005540069D180 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		AA8F08922A0173210069D180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA8F08952A0205970069D180 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 		AA4BB34129FCBC6B00F10479 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AA5D0E992A46C54A002A32DC /* Setting */,
 				AAD10A0D2A06810900DB02E3 /* Calendar */,
 				AAD10A0C2A06810100DB02E3 /* Shop */,
 				AAD10A0B2A0680F600DB02E3 /* Collection */,
@@ -217,6 +222,7 @@
 			children = (
 				AA4BB34429FCBD7D00F10479 /* ContentView.swift */,
 				AAD10A152A06B09B00DB02E3 /* MainTabView.swift */,
+				AA5D0E972A4417CC002A32DC /* GameView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -238,6 +244,14 @@
 			children = (
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		AA5D0E992A46C54A002A32DC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		AA8F08942A0205330069D180 /* Authentication */ = {
@@ -393,12 +407,14 @@
 				AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */,
 				AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */,
 				AA8F08962A0205970069D180 /* RegistrationView.swift in Sources */,
+				AA5D0E982A4417CC002A32DC /* GameView.swift in Sources */,
 				AAD10A162A06B09B00DB02E3 /* MainTabView.swift in Sources */,
 				AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */,
 				AAD10A102A0682F200DB02E3 /* CalendarView.swift in Sources */,
 				AA8F08C32A03AFE20069D180 /* AuthViewModel.swift in Sources */,
 				AAAF10552A42D84D00429BF8 /* FetchRecordViewModel.swift in Sources */,
 				AA8F08C02A0342400069D180 /* ResetPasswordView.swift in Sources */,
+				AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */,
 				AA8F089C2A0207970069D180 /* CustomSecureField.swift in Sources */,
 				AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */,
 				AAAF10512A42CDE700429BF8 /* RecordItemView.swift in Sources */,

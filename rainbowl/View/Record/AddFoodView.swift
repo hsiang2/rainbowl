@@ -29,10 +29,12 @@ struct AddFoodView: View {
                             qty -= 0.5
                         }
                     } label: {
-                        Image(systemName: "minus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 15)
+//                        Image(systemName: "minus")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 15)
+                        Text("-")
+                            .font(.system(size: 35, weight: .heavy))
                             .padding()
                             .foregroundColor(Color(red: 179/255, green: 201/255, blue: 192/255))
                     }
@@ -42,10 +44,13 @@ struct AddFoodView: View {
                     Button {
                             qty += 0.5
                     } label: {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 15)
+//                        Image(systemName: "plus")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 15)
+                        Text("+")
+                            .font(.system(size: 25, weight: .heavy))
+
                             .padding()
                             .foregroundColor(Color(red: 179/255, green: 201/255, blue: 192/255))
                     }

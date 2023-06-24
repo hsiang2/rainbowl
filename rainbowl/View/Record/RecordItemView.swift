@@ -11,8 +11,8 @@ struct RecordItemView: View {
     
     @Binding var selectedIndex: String
    
-    @ObservedObject var recordViewModel = RecordViewModel()
-    @ObservedObject var viewModel = FetchRecordViewModel()
+    @ObservedObject var viewModel = RecordViewModel()
+//    @ObservedObject var viewModel = FetchRecordViewModel()
 
     
 //    @State private var allRecord = [Record]()
@@ -27,12 +27,20 @@ struct RecordItemView: View {
 //        })
 //    }
     
+    var records: [Record] {
+        return selectedIndex == "" ? viewModel.records : viewModel.records.filter({
+            $0.color.contains(selectedIndex)
+        })
+    }
+    
     var body: some View {
-//        ScrollView(showsIndicators: false) {
+        //        ScrollView(showsIndicators: false) {
+        if( records.isEmpty ) {
+            Color(red: 245/255, green: 245/255, blue: 245/255)
+                .ignoresSafeArea()
+        } else {
             List {
-                ForEach(selectedIndex == "" ? viewModel.records : viewModel.records.filter({
-                    $0.color.contains(selectedIndex)
-                })) { record in
+                ForEach(records) { record in
                     HStack {
                         Image(record.name).resizable().scaledToFit().frame(width: 45, height: 45)
                         VStack(alignment: .leading) {
@@ -53,36 +61,37 @@ struct RecordItemView: View {
                             .opacity(0.7)
                         
                     }.padding(.horizontal, 40)
-                    .listRowSeparator(.hidden)
-                    .swipeActions(allowsFullSwipe: false) {
-                        Button {
-                            recordViewModel.deleteRecord(id: record.id ?? "")
-                        } label: {
-                            Image(systemName: "trash")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 15)
+                        .listRowSeparator(.hidden)
+                        .swipeActions(allowsFullSwipe: false) {
+                            Button {
+                                viewModel.deleteRecord(id: record.id ?? "", color: record.color, records: records)
+                            } label: {
+                                Image(systemName: "trash")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 15)
+                            }
+                            .tint(Color(red: 228/255, green: 126/255, blue: 83/255))
+                            
+                            //                        Button(role: .destructive) {
+                            //
+                            //                        } label: {
+                            //                            Image(systemName: "pencil")
+                            //                                .resizable()
+                            //                                .scaledToFit()
+                            //                                .frame(width: 13)
+                            //                        }.tint(Color(red: 161/255, green: 197/255, blue: 124/255))
+                            
                         }
-                        .tint(Color(red: 228/255, green: 126/255, blue: 83/255))
-
-//                        Button(role: .destructive) {
-//
-//                        } label: {
-//                            Image(systemName: "pencil")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 13)
-//                        }.tint(Color(red: 161/255, green: 197/255, blue: 124/255))
-
-                    }
                 }.listRowBackground(Color(white: 0, opacity: 0))
+                    .background(Color.clear)
             }.listStyle(.plain)
-            .padding(.vertical, 20)
-            
+                .padding(.vertical, 20)
         }
-    func delete(at offsets: IndexSet) {
-        viewModel.records.remove(atOffsets: offsets)
     }
+//    func delete(at offsets: IndexSet) {
+//        viewModel.records.remove(atOffsets: offsets)
+//    }
 }
 
 

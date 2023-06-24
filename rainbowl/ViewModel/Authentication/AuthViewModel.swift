@@ -47,8 +47,15 @@ class AuthViewModel: ObservableObject {
             let data = [
                 "email": email,
                 "username": username,
-                "uid": user.uid
-            ]
+                "uid": user.uid,
+//                "colors": [0, 0, 0, 0, 0]
+                "red": [0, 0, 0, 0, 0],
+                "orange": [0, 0, 0, 0, 0],
+                "yellow": [0, 0, 0, 0, 0],
+                "green": [0, 0, 0, 0, 0],
+                "purple": [0, 0, 0, 0, 0],
+                "white": [0, 0, 0, 0, 0],
+            ] as [String : Any]
             
             COLLECTION_USERS.document(user.uid).setData(data) { _ in
                 print("successfully uploaded user data...")
@@ -80,5 +87,106 @@ class AuthViewModel: ObservableObject {
             guard let user = try? snapshot?.data(as: User.self) else { return }
             self.currentUser = user
         }
+    }
+    
+    func addColor(color: String) {
+        var colorArray = [Float]()
+        
+        switch color {
+            
+        case "紅":
+            colorArray = self.currentUser?.red ?? []
+            colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["red": colorArray]){ _ in
+                self.fetchUser()
+            }
+        case "橙":
+            colorArray = self.currentUser?.orange ?? []
+            colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["orange": colorArray]){ _ in
+                self.fetchUser()
+            }
+        case "黃":
+            colorArray = self.currentUser?.yellow ?? []
+            colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["yellow": colorArray]){ _ in
+                self.fetchUser()
+            }
+        case "綠":
+            colorArray = self.currentUser?.green ?? []
+            colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["green": colorArray]){ _ in
+                self.fetchUser()
+            }
+        case "紫":
+            colorArray = self.currentUser?.purple ?? []
+            colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["purple": colorArray]){ _ in
+                self.fetchUser()
+            }
+        case "白":
+            colorArray = self.currentUser?.white ?? []
+            colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["white": colorArray]){ _ in
+                self.fetchUser()
+            }
+        default:
+            break
+        }
+    }
+
+    func deleteColor(color: String, records: [Record]) {
+
+        var full = records.filter({
+            $0.color.contains(color)
+        }).count
+        print(full)
+        if (full <= 1) {
+            var colorArray = [Float]()
+            
+            switch color {
+                
+            case "紅":
+                colorArray = self.currentUser?.red ?? []
+                colorArray[4] = 0
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["red": colorArray]){ _ in
+                    self.fetchUser()
+                }
+            case "橙":
+                colorArray = self.currentUser?.orange ?? []
+                colorArray[4] = 0
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["orange": colorArray]){ _ in
+                    self.fetchUser()
+                }
+            case "黃":
+                colorArray = self.currentUser?.yellow ?? []
+                colorArray[4] = 0
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["yellow": colorArray]){ _ in
+                    self.fetchUser()
+                }
+            case "綠":
+                colorArray = self.currentUser?.green ?? []
+                colorArray[4] = 0
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["green": colorArray]){ _ in
+                    self.fetchUser()
+                }
+            case "紫":
+                colorArray = self.currentUser?.purple ?? []
+                colorArray[4] = 0
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["purple": colorArray]){ _ in
+                    self.fetchUser()
+                }
+            case "白":
+                colorArray = self.currentUser?.white ?? []
+                colorArray[4] = 0
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["white": colorArray]){ _ in
+                    self.fetchUser()
+                }
+            default:
+                break
+            }
+            
+        }
+
     }
 }

@@ -51,7 +51,7 @@ struct RecordView: View {
                 RecordItemView(selectedIndex: $selectedBtn)
                
             }.padding(.top, 60)
-        }.presentationDetents([.fraction(0.65)])
+        }.presentationDetents([.fraction(0.8)])
         
     }
 }
