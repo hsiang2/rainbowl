@@ -186,6 +186,7 @@
 		AA4BB34029FCBC6800F10479 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AA5D0E9C2A47F491002A32DC /* Profile */,
 				AA0B41552A4228E700AC1C63 /* Record */,
 				AA8F08C12A03AFA80069D180 /* Authentication */,
 			);
@@ -252,6 +253,13 @@
 				AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		AA5D0E9C2A47F491002A32DC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		AA8F08942A0205330069D180 /* Authentication */ = {

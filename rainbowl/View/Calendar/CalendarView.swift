@@ -22,7 +22,7 @@ struct CalendarView: View {
                             .scaledToFit()
                             .frame(width: 20)
                             .padding()
-                            .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255))
+                            .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
                             
                     }
                 }

@@ -9,11 +9,30 @@
 import SwiftUI
 
 struct GameView: View {
+    let user: User
+    
     @State var currentScaleValue: CGFloat = 0.0
     @State var lastScaleValue: CGFloat = 1.0
     
 //    @GestureState var locationState = CGPoint(x: 100, y: 100)
     @State var location = CGPoint(x: 1050, y: 650)
+    
+    var red: Float
+    var orange: Float
+    var yellow: Float
+    var green: Float
+    var purple: Float
+    var white: Float
+    
+    init(user: User) {
+        self.user = user
+        self.red = user.red?.reduce(0) { $0 + $1 } ?? 0
+        self.orange = user.orange?.reduce(0) { $0 + $1 } ?? 0
+        self.yellow = user.yellow?.reduce(0) { $0 + $1 } ?? 0
+        self.green = user.green?.reduce(0) { $0 + $1 } ?? 0
+        self.purple = user.purple?.reduce(0) { $0 + $1 } ?? 0
+        self.white = user.white?.reduce(0) { $0 + $1 } ?? 0
+    }
     
     var body: some View {
         ScrollView([.horizontal, .vertical], showsIndicators: false)
@@ -23,10 +42,13 @@ struct GameView: View {
                     Image("背景_黑白")
                     Image("背景_藍")
                         .blendMode(.color)
+                        .opacity(Double(purple))
                     Image("背景_黃")
                         .blendMode(.color)
+                        .opacity(Double(yellow))
                     Image("背景_綠")
                         .blendMode(.color)
+                        .opacity(Double(green))
                 }
                  
                 
@@ -38,7 +60,8 @@ struct GameView: View {
                        .scaledToFit()
                        .frame(width: 150)
                        .blendMode(.color)
-
+                       .opacity(Double(orange))
+                    
 //                    Image("測試橘")
 //                        .resizable()
 //                        .scaledToFit()
@@ -182,9 +205,9 @@ struct GameView: View {
 //}
 //
 
-
-struct GameView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView()
-    }
-}
+//
+//struct GameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameView(user: user)
+//    }
+//}

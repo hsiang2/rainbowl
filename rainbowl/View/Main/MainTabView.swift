@@ -17,7 +17,7 @@ struct MainTabView: View {
     
     var body: some View {
         ZStack {
-            GameView()
+            GameView(user: user)
             VStack {
                 HStack {
                     Spacer()

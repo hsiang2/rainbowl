@@ -23,6 +23,7 @@ struct SettingView: View {
                             .frame(width: 20)
                             .padding()
                             .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255))
+                            .padding()
                             
                     }
                 }

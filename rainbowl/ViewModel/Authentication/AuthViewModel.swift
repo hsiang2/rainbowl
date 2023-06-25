@@ -137,7 +137,7 @@ class AuthViewModel: ObservableObject {
 
     func deleteColor(color: String, records: [Record]) {
 
-        var full = records.filter({
+        let full = records.filter({
             $0.color.contains(color)
         }).count
         print(full)
