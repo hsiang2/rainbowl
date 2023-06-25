@@ -11,21 +11,8 @@ struct RecordItemView: View {
     
     @Binding var selectedIndex: String
    
-    @ObservedObject var viewModel = RecordViewModel()
-//    @ObservedObject var viewModel = FetchRecordViewModel()
-
-    
-//    @State private var allRecord = [Record]()
-//
-//    var records: [Record] {
-//        if selectedIndex == "" {
-//            return allRecord
-//        }
-//
-//        return allRecord.filter({
-//            $0.color.contains(selectedIndex)
-//        })
-//    }
+    @ObservedObject var viewModel = FetchRecordViewModel(date: Date())
+    @ObservedObject var recordViewModel = RecordViewModel()
     
     var records: [Record] {
         return selectedIndex == "" ? viewModel.records : viewModel.records.filter({
@@ -64,7 +51,7 @@ struct RecordItemView: View {
                         .listRowSeparator(.hidden)
                         .swipeActions(allowsFullSwipe: false) {
                             Button {
-                                viewModel.deleteRecord(id: record.id ?? "", color: record.color, records: records)
+                                recordViewModel.deleteRecord(id: record.id ?? "", color: record.color, records: records)
                             } label: {
                                 Image(systemName: "trash")
                                     .resizable()

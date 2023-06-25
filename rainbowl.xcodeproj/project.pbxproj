@@ -20,6 +20,7 @@
 		AA5D0E982A4417CC002A32DC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E972A4417CC002A32DC /* GameView.swift */; };
 		AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */; };
 		AA5D0E9E2A481125002A32DC /* DateChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9D2A481125002A32DC /* DateChangeViewModel.swift */; };
+		AA5D0EA02A48B961002A32DC /* FetchRecordViewMode;.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9F2A48B961002A32DC /* FetchRecordViewMode;.swift */; };
 		AA8F08832A0005540069D180 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F08822A0005540069D180 /* FoodListView.swift */; };
 		AA8F08882A0171890069D180 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AA8F08872A0171890069D180 /* FirebaseFirestore */; };
 		AA8F088A2A0171890069D180 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = AA8F08892A0171890069D180 /* FirebaseFunctions */; };
@@ -35,7 +36,6 @@
 		AA8F08C32A03AFE20069D180 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F08C22A03AFE20069D180 /* AuthViewModel.swift */; };
 		AAAF10512A42CDE700429BF8 /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10502A42CDE700429BF8 /* RecordItemView.swift */; };
 		AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10522A42CE8F00429BF8 /* Record.swift */; };
-		AAAF10552A42D84D00429BF8 /* FetchRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10542A42D84D00429BF8 /* FetchRecordViewModel.swift */; };
 		AAD109FB2A05422900DB02E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FA2A05422900DB02E3 /* Constants.swift */; };
 		AAD109FD2A05554200DB02E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FC2A05554200DB02E3 /* User.swift */; };
 		AAD10A002A0570C000DB02E3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AAD109FF2A0570C000DB02E3 /* FirebaseAuth */; };
@@ -66,6 +66,7 @@
 		AA5D0E972A4417CC002A32DC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AA5D0E9D2A481125002A32DC /* DateChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChangeViewModel.swift; sourceTree = "<group>"; };
+		AA5D0E9F2A48B961002A32DC /* FetchRecordViewMode;.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchRecordViewMode;.swift"; sourceTree = "<group>"; };
 		AA8F08822A0005540069D180 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		AA8F08922A0173210069D180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA8F08952A0205970069D180 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		AA8F08C22A03AFE20069D180 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		AAAF10502A42CDE700429BF8 /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
 		AAAF10522A42CE8F00429BF8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		AAAF10542A42D84D00429BF8 /* FetchRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecordViewModel.swift; sourceTree = "<group>"; };
 		AAD109FA2A05422900DB02E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAD109FC2A05554200DB02E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAD10A0F2A0682F200DB02E3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0B41562A422AEA00AC1C63 /* RecordViewModel.swift */,
-				AAAF10542A42D84D00429BF8 /* FetchRecordViewModel.swift */,
+				AA5D0E9F2A48B961002A32DC /* FetchRecordViewMode;.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -407,6 +407,7 @@
 				AA0B41542A41FA9500AC1C63 /* AddFoodView.swift in Sources */,
 				AAD109FD2A05554200DB02E3 /* User.swift in Sources */,
 				AA8F08832A0005540069D180 /* FoodListView.swift in Sources */,
+				AA5D0EA02A48B961002A32DC /* FetchRecordViewMode;.swift in Sources */,
 				AA8F08982A0205AA0069D180 /* LoginView.swift in Sources */,
 				AA0B41522A41A27A00AC1C63 /* JSONFileManager.swift in Sources */,
 				AAD10A122A06830100DB02E3 /* ShopView.swift in Sources */,
@@ -424,7 +425,6 @@
 				AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */,
 				AAD10A102A0682F200DB02E3 /* CalendarView.swift in Sources */,
 				AA8F08C32A03AFE20069D180 /* AuthViewModel.swift in Sources */,
-				AAAF10552A42D84D00429BF8 /* FetchRecordViewModel.swift in Sources */,
 				AA8F08C02A0342400069D180 /* ResetPasswordView.swift in Sources */,
 				AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */,
 				AA8F089C2A0207970069D180 /* CustomSecureField.swift in Sources */,
