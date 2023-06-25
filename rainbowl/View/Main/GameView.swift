@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct GameView: View {
+    
     let user: User
     
     @State var currentScaleValue: CGFloat = 0.0
@@ -115,10 +116,12 @@ struct GameView: View {
             
             .onAppear {
                 UIScrollView.appearance().bounces = false
+            
             }
             .onDisappear {
                 UIScrollView.appearance().bounces = true
             }
+        
             
         
         

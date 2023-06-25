@@ -189,4 +189,50 @@ class AuthViewModel: ObservableObject {
         }
 
     }
+    
+    func updateColors() {
+        guard let uid = userSession?.uid else { return }
+        var redArray = [Float]()
+        var orangeArray = [Float]()
+        var yellowArray = [Float]()
+        var greenArray = [Float]()
+        var purpleArray = [Float]()
+        var whiteArray = [Float]()
+        
+        redArray = self.currentUser?.red ?? []
+        orangeArray = self.currentUser?.orange ?? []
+        yellowArray = self.currentUser?.yellow ?? []
+        greenArray = self.currentUser?.green ?? []
+        purpleArray = self.currentUser?.purple ?? []
+        whiteArray = self.currentUser?.white ?? []
+        
+        redArray = moveArray(array: redArray)
+        orangeArray = moveArray(array: orangeArray)
+        yellowArray = moveArray(array: yellowArray)
+        greenArray = moveArray(array: greenArray)
+        purpleArray = moveArray(array: purpleArray)
+        whiteArray = moveArray(array: whiteArray)
+
+        COLLECTION_USERS.document(uid).updateData([
+            "red": redArray,
+            "orange": orangeArray,
+            "yellow": yellowArray,
+            "green": greenArray,
+            "purple": purpleArray,
+            "white": whiteArray
+        ]){ _ in
+            self.fetchUser()
+        }
+    }
+    func moveArray(array: [Float]) -> [Float] {
+        let n = 5
+        var a = array
+
+        for i in 0...n-2 {
+            a[i] = a[i+1]
+        }
+        a[n-1] = 0
+        
+        return a
+    }
 }
