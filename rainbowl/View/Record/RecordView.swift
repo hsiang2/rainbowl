@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct RecordView: View {
+    let user: User
     @Binding var show: Bool
     @State private var selectedBtn: String = ""
+    
     
     var body: some View {
         ZStack {
@@ -46,7 +48,7 @@ struct RecordView: View {
 //            ScrollView(.vertical) {
             VStack {
 
-                ColorListView(selectedIndex: $selectedBtn)
+                ColorListView(user: user, selectedIndex: $selectedBtn)
                 FoodListView(selectedIndex: $selectedBtn)
                 RecordItemView(selectedIndex: $selectedBtn)
                
@@ -56,8 +58,8 @@ struct RecordView: View {
     }
 }
 
-struct RecordView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordView(show: .constant(true))
-    }
-}
+//struct RecordView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecordView(show: .constant(true))
+//    }
+//}

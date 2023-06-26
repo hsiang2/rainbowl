@@ -99,7 +99,7 @@ struct MainTabView: View {
                             .padding()
                     })
                     .sheet(isPresented: $openRecord) {
-                        RecordView(show: $openRecord)
+                        RecordView(user: user, show: $openRecord)
                     }
                 }
             }
