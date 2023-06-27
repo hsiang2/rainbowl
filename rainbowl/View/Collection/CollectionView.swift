@@ -9,9 +9,63 @@ import SwiftUI
 
 struct CollectionView: View {
     @Binding var show: Bool
+
+    @State var selectedTab = Tabs.FirstTab
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(red: 230/255, green: 229/255, blue: 222/255)
+                .ignoresSafeArea()
+            VStack {
+                HStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image("背包")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 42, height: 42)
+                            .padding()
+                        Spacer()
+                    }
+                    .background(selectedTab == .FirstTab ? Color(red: 230/255, green: 229/255, blue: 222/255) : Color(red: 209/255, green: 206/255, blue: 194/255))
+                    .onTapGesture {
+                        self.selectedTab = .FirstTab
+                    }
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image("圖鑑")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 42, height: 42)
+                            .padding()
+                        Spacer()
+                    }.background(selectedTab == .SecondTab ? Color(red: 230/255, green: 229/255, blue: 222/255) : Color(red: 209/255, green: 206/255, blue: 194/255))
+                    .onTapGesture {
+                        self.selectedTab = .SecondTab
+                    }
+                    Spacer()
+
+                }
+//                .padding(.bottom)
+//                .background(Color.green.edgesIgnoringSafeArea(.all))
+                
+                Spacer()
+                
+                if selectedTab == .FirstTab {
+                    BackpackView()
+                } else if selectedTab == .SecondTab {
+                    BookView()
+                }
+            }
+        }.presentationDetents([.fraction(0.8)])
+        
     }
+}
+
+enum Tabs {
+    case FirstTab
+    case SecondTab
 }
 
 struct CollectionView_Previews: PreviewProvider {

@@ -10,7 +10,59 @@ import SwiftUI
 struct ShopView: View {
     @Binding var show: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(red: 223/255, green: 202/255, blue: 197/255)
+                .ignoresSafeArea()
+                .overlay(alignment: .topTrailing) {
+                    Button {
+                        show = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .padding()
+                            .foregroundColor(Color(red: 239/255, green: 239/255, blue: 239/255)).padding()
+                            
+                    }
+                }
+            VStack {
+                Image("對話框")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 175)
+                    .padding(.trailing, 150)
+                Image("送子鳥")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200)
+                HStack(spacing: 20) {
+                    Button(action: {
+                    
+                    }, label: {
+                        ZStack{
+                            Image("動物框")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 48)
+                            Text("200").font(.system(size: 16)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.bottom, 6)
+                        }
+                    })
+                    Button(action: {
+                    
+                    }, label: {
+                        ZStack{
+                            Image("植物框")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 48)
+                            Text("200").font(.system(size: 16)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.bottom, 6)
+                        }
+                    })
+                    
+                }.padding(.top, 60)
+            }.padding(.top, 70)
+        }
     }
 }
 

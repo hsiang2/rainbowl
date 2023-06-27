@@ -25,6 +25,7 @@ struct ColorListView: View {
         self.opacity[3] = user.green?.reduce(0) { $0 + $1 } ?? 0
         self.opacity[4] = user.purple?.reduce(0) { $0 + $1 } ?? 0
         self.opacity[5] = user.white?.reduce(0) { $0 + $1 } ?? 0
+        print(opacity)
     }
     
     var body: some View {
