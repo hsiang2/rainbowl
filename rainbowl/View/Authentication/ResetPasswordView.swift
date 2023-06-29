@@ -20,12 +20,12 @@ struct ResetPasswordView: View {
         ZStack {
             VStack {
                 VStack(spacing: 20) {
-                    CustomTextField(text: $email, placeholder: Text("信箱"), imageName: "envelope")
-                        .padding()
+//                    CustomTextField(text: $email, placeholder: Text("信箱"), imageName: "envelope")
+//                        .padding()
 //                        .background(Color(.init(white: 1, alpha: 0.15)))
 //                        .cornerRadius(10)
 //                        .foregroundColor(.white)
-                        .padding(.horizontal, 32)
+//                        .padding(.horizontal, 32)
                 }
                 
                 Button(action: {

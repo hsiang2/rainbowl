@@ -54,9 +54,9 @@ struct GameView: View {
                  
                 
                 ZStack {
-                    Image("黑白鹿")
+                    Image("鹿_黑白")
                         .resizable().scaledToFit().frame(width: 150)
-                    Image("彩色鹿")
+                    Image("鹿_橙")
                        .resizable()
                        .scaledToFit()
                        .frame(width: 150)

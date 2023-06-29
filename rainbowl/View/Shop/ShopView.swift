@@ -9,6 +9,17 @@ import SwiftUI
 
 struct ShopView: View {
     @Binding var show: Bool
+    @State private var selectedCategory: String = ""
+    @State private var allcreatures = [CreatureProduct]()
+    @ObservedObject var viewModel = BackpackViewModel()
+    
+    var creatures: [CreatureProduct] {
+        return allcreatures.filter({
+            $0.category.contains(selectedCategory)
+        })
+    }
+    
+    
     var body: some View {
         ZStack {
             Color(red: 223/255, green: 202/255, blue: 197/255)
@@ -38,7 +49,9 @@ struct ShopView: View {
                     .frame(width: 200)
                 HStack(spacing: 20) {
                     Button(action: {
-                    
+                        selectedCategory = "動物"
+                        let randomCreature = creatures.randomElement()!
+                        viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                     }, label: {
                         ZStack{
                             Image("動物框")
@@ -62,6 +75,8 @@ struct ShopView: View {
                     
                 }.padding(.top, 60)
             }.padding(.top, 70)
+        }.onAppear {
+            allcreatures = JSONFileManager.load("creature.json")
         }
     }
 }

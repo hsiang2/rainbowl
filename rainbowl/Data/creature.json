@@ -1,9 +1,8 @@
 [
     {
-        "category": "動物"
+        "category": "動物",
         "name": "鹿",
         "colors": ["橙"],
         "width": 150
-        
     }
 ]

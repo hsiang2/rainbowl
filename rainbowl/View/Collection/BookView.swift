@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct BookView: View {
+    @State var currentTab: Int = 0
+    var selectedCategory: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .top) {
+                    TabView(selection: self.$currentTab) {
+//                        ItemsView(selectedCategory: "動物").tag(0)
+//                        ItemsView(selectedCategory: "植物").tag(1)
+
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .edgesIgnoringSafeArea(.all)
+                    
+                    TabBarView(currentTab: self.$currentTab)
+                
+        }
     }
 }
 

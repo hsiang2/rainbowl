@@ -9,3 +9,4 @@ import Firebase
 
 let COLLECTION_USERS = Firestore.firestore().collection("users")
 let COLLECTION_RECORDS = Firestore.firestore().collection("records")
+let COLLECTION_BACKPACK = Firestore.firestore().collection("backpack")

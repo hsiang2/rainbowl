@@ -9,13 +9,14 @@ import SwiftUI
 
 struct BackpackView: View {
     @State var currentTab: Int = 0
+    var selectedCategory: String = ""
 
     var body: some View {
         ZStack(alignment: .top) {
                     TabView(selection: self.$currentTab) {
-                        ItemsView().tag(0)
-                        ItemsView().tag(1)
-//                        ItemsView().tag(2)
+                        ItemsView(selectedCategory: "動物").tag(0)
+                        ItemsView(selectedCategory: "植物").tag(1)
+
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .edgesIgnoringSafeArea(.all)
