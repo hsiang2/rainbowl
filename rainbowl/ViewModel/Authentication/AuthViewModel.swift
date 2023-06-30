@@ -14,11 +14,14 @@ class AuthViewModel: ObservableObject {
     @Published var currentUser: User?
     @Published var didSendPasswordLink = false
     
+    @Published var creatures = [CreatureInUse]()
+    
     static let shared = AuthViewModel()
     
     init() {
         userSession = Auth.auth().currentUser
         fetchUser()
+        fetchGame()
     }
     
     func login(withEmail email: String, password: String) {
@@ -224,6 +227,7 @@ class AuthViewModel: ObservableObject {
             self.fetchUser()
         }
     }
+    
     func moveArray(array: [Float]) -> [Float] {
         let n = 5
         var a = array
@@ -235,4 +239,47 @@ class AuthViewModel: ObservableObject {
         
         return a
     }
+    
+    func fetchGame() {
+        guard let uid = userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).collection("creatures").addSnapshotListener { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            self.creatures = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
+        }
+    }
+    
+    func addToGame(category: String, name: String, colors: [String], width: Float) {
+//        guard let user = AuthViewModel.shared.currentUser else {
+//            return
+//        }
+        guard let uid = userSession?.uid else { return }
+        
+        let data = [
+                "category": category,
+                "name": name,
+                "colors": colors,
+                "width": width,
+                "locationX": 1050,
+                "locationY":650
+        ] as [String : Any]
+        COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data){ _ in
+            AuthViewModel().fetchGame()
+        }
+
+        BackpackViewModel().deleteBackpack(name: name)
+    }
+    
+    func deleteGame(id: String, category: String, name: String, colors: [String], width: Float) {
+//        guard let user = AuthViewModel.shared.currentUser else {
+//            return
+//        }
+        guard let uid = userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).collection("creatures").document(id).delete()
+//        { _ in
+//            AuthViewModel().fetchGame()
+//        }
+
+        BackpackViewModel().addToBackpack(category: category, name: name, colors: colors, width: width)
+    }
+    
 }

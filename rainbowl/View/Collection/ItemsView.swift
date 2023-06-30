@@ -38,6 +38,9 @@ struct ItemsView: View {
                             .offset(x: 43, y: 43)
                             .foregroundColor(Color(red: 83/255, green: 94/255, blue: 49/255))
                     }.frame(width: width, height: width)
+                        .onTapGesture {
+                            AuthViewModel.shared.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                        }
                    
                 }
             }).padding()

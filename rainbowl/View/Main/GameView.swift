@@ -15,8 +15,12 @@ struct GameView: View {
     @State var currentScaleValue: CGFloat = 0.0
     @State var lastScaleValue: CGFloat = 1.0
     
-//    @GestureState var locationState = CGPoint(x: 100, y: 100)
+    @ObservedObject var viewModel = AuthViewModel()
+    //    @GestureState var locationState = CGPoint(x: 100, y: 100)
     @State var location = CGPoint(x: 1050, y: 650)
+    var creatures: [CreatureInUse] {
+        return viewModel.creatures
+    }
     
     var red: Float
     var orange: Float
@@ -36,177 +40,242 @@ struct GameView: View {
     }
     
     var body: some View {
-        ScrollView([.horizontal, .vertical], showsIndicators: false)
-        {
+        ScrollView([.horizontal, .vertical], showsIndicators: false) {
+            content
+        }
+        .ignoresSafeArea()
+        .onAppear {
+            UIScrollView.appearance().bounces = false
+        }
+        .onDisappear {
+            UIScrollView.appearance().bounces = true
+        }
+    }
+    
+    private var content: some View {
+        ZStack {
+            backgroundImage
+            creatureViews
+        }
+        .scaleEffect(lastScaleValue + currentScaleValue >= 1 ? lastScaleValue + currentScaleValue : 1)
+        .gesture(
+            MagnificationGesture()
+                .onChanged { newScale in
+                    currentScaleValue = newScale
+                }
+                .onEnded { scale in
+                    lastScaleValue = scale
+                    currentScaleValue = 0
+                }
+        )
+    }
+    
+    private var backgroundImage: some View {
+        ZStack {
+            Image("背景_黑白")
+            Image("背景_藍")
+                .blendMode(.color)
+                .opacity(Double(purple))
+            Image("背景_黃")
+                .blendMode(.color)
+                .opacity(Double(yellow))
+            Image("背景_綠")
+                .blendMode(.color)
+                .opacity(Double(green))
+        }
+    }
+    
+    private var creatureViews: some View {
+        ForEach(creatures, id: \.self) { creature in
             ZStack {
-                ZStack {
-                    Image("背景_黑白")
-                    Image("背景_藍")
-                        .blendMode(.color)
-                        .opacity(Double(purple))
-                    Image("背景_黃")
-                        .blendMode(.color)
-                        .opacity(Double(yellow))
-                    Image("背景_綠")
-                        .blendMode(.color)
-                        .opacity(Double(green))
+                Image("\(creature.name)_黑白")
+                    .resizable().scaledToFit().frame(width: CGFloat(creature.width))
+                ForEach(creature.colors, id: \.self) { color in
+                    self.creatureView(for: creature, color: color)
                 }
-                 
-                
-                ZStack {
-                    Image("鹿_黑白")
-                        .resizable().scaledToFit().frame(width: 150)
-                    Image("鹿_橙")
-                       .resizable()
-                       .scaledToFit()
-                       .frame(width: 150)
-                       .blendMode(.color)
-                       .opacity(Double(orange))
-                    
-//                    Image("測試橘")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 150)
-//                        .blendMode(.color)
-//                    Image("測試藍")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 150)
-//                        .blendMode(.color)
-        //
-        //            Color.red.blendMode(.color)
-        //            Color.yellow.blendMode(.screen)
-                }
-                .position(location)
-//                    .gesture(
-//                        DragGesture(
-//                            minimumDistance: 200,
-//                            coordinateSpace: .local
-//                        )
-//                            .onChanged { value in
-//                                self.location = value.location
-//                            }
-//                            .onEnded { value in
-//                                withAnimation {
-//                                    self.location = CGPoint(x: 100, y: 100)
-//
-//                                }
-//                            }
-//                            .updating(
-//                                self.$locationState
-//                            ) { currentState, pastLocation, transaction  in
-//                                pastLocation = currentState.location
-//                                transaction.animation = .easeInOut
-//                            }
-//
-//                    )
-           
-            }.scaleEffect(lastScaleValue + currentScaleValue >= 1 ? lastScaleValue + currentScaleValue : 1)
-                .gesture(
-                    MagnificationGesture()
-                        .onChanged { newScale in
-                            currentScaleValue = newScale
-                        }
-                        .onEnded { scale in
-                            lastScaleValue = scale
-                            currentScaleValue = 0
-                        }
-                )
-        }.ignoresSafeArea()
-            
-            .onAppear {
-                UIScrollView.appearance().bounces = false
-            
-            }
-            .onDisappear {
-                UIScrollView.appearance().bounces = true
-            }
+            }.position(CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0)))
+        }
+    }
+
+    private func creatureView(for creature: CreatureInUse, color: String) -> some View {
+        let imageName: String
+        let opacity: Double
         
+        switch color {
+        case "紅":
+            imageName = "\(creature.name)_紅"
+            opacity = Double(red)
+        case "橙":
+            imageName = "\(creature.name)_橙"
+            opacity = Double(orange)
+        case "黃":
+            imageName = "\(creature.name)_黃"
+            opacity = Double(yellow)
+        case "綠":
+            imageName = "\(creature.name)_綠"
+            opacity = Double(green)
+        case "紫":
+            imageName = "\(creature.name)_紫"
+            opacity = Double(purple)
+        case "白":
+            imageName = "\(creature.name)_白"
+            opacity = Double(white)
+        default:
+            return AnyView(EmptyView())
+        }
+        
+        return AnyView( Image(imageName)
+            .resizable()
+            .scaledToFit()
+            .frame(width: CGFloat(creature.width))
+            .blendMode(.color)
+            .opacity(opacity)
             
-        
-        
+        )
     }
 }
-//import SwiftUI
-//
-//struct GameView: View {
-//    @State private var adjustedImage: Image?
-//
+
+    
 //    var body: some View {
-//        VStack {
-//            if let image = adjustedImage {
-//                image
-//                    .resizable()
-//                    .scaledToFit()
-//            } else {
-//                Text("No image")
+//        ScrollView([.horizontal, .vertical], showsIndicators: false)
+//        {
+//            ZStack {
+//                ZStack {
+//                    Image("背景_黑白")
+//                    Image("背景_藍")
+//                        .blendMode(.color)
+//                        .opacity(Double(purple))
+//                    Image("背景_黃")
+//                        .blendMode(.color)
+//                        .opacity(Double(yellow))
+//                    Image("背景_綠")
+//                        .blendMode(.color)
+//                        .opacity(Double(green))
+//                }
+//                ForEach(creatures, id: \.self) { creature in
+//
+//                    ZStack {
+//                        Image("\(creature.name)_黑白")
+//                            .resizable().scaledToFit().frame(width: CGFloat(creature.width))
+//                        ForEach(creature.colors, id: \.self) { color in
+//                            switch color {
+//
+//                            case "紅":
+//                                Image("\(creature.name)_紅")
+//                                   .resizable()
+//                                   .scaledToFit()
+//                                   .frame(width: CGFloat(creature.width))
+//                                   .blendMode(.color)
+//                                   .opacity(Double(red))
+//                            case "橙":
+//                                Image("\(creature.name)_橙")
+//                                   .resizable()
+//                                   .scaledToFit()
+//                                   .frame(width: CGFloat(creature.width))
+//                                   .blendMode(.color)
+//                                   .opacity(Double(orange))
+//                            case "黃":
+//                                Image("\(creature.name)_黃")
+//                                   .resizable()
+//                                   .scaledToFit()
+//                                   .frame(width: CGFloat(creature.width))
+//                                   .blendMode(.color)
+//                                   .opacity(Double(yellow))
+//                            case "綠":
+//                                Image("\(creature.name)_綠")
+//                                   .resizable()
+//                                   .scaledToFit()
+//                                   .frame(width: CGFloat(creature.width))
+//                                   .blendMode(.color)
+//                                   .opacity(Double(orange))
+//                            case "紫":
+//                                Image("\(creature.name)_紫")
+//                                   .resizable()
+//                                   .scaledToFit()
+//                                   .frame(width: CGFloat(creature.width))
+//                                   .blendMode(.color)
+//                                   .opacity(Double(purple))
+//                            case "白":
+//                                Image("\(creature.name)_白")
+//                                   .resizable()
+//                                   .scaledToFit()
+//                                   .frame(width: CGFloat(creature.width))
+//                                   .blendMode(.color)
+//                                   .opacity(Double(white))                            default:
+//                                break
+//                            }
+////                            Image("\(creature.name)_\(color)")
+////                               .resizable()
+////                               .scaledToFit()
+////                               .frame(width: CGFloat(creature.width))
+////                               .blendMode(.color)
+////                               .opacity(Double(orange))
+//                        }
+//                    }.position(CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0)))
+//                }
+//
+//
+//
+////                ZStack {
+////                    Image("鹿_黑白")
+////                        .resizable().scaledToFit().frame(width: 150)
+////                    Image("鹿_橙")
+////                       .resizable()
+////                       .scaledToFit()
+////                       .frame(width: 150)
+////                       .blendMode(.color)
+////                       .opacity(Double(orange))
+////                }
+////                .position(location)
+////                    .gesture(
+////                        DragGesture(
+////                            minimumDistance: 200,
+////                            coordinateSpace: .local
+////                        )
+////                            .onChanged { value in
+////                                self.location = value.location
+////                            }
+////                            .onEnded { value in
+////                                withAnimation {
+////                                    self.location = CGPoint(x: 100, y: 100)
+////
+////                                }
+////                            }
+////                            .updating(
+////                                self.$locationState
+////                            ) { currentState, pastLocation, transaction  in
+////                                pastLocation = currentState.location
+////                                transaction.animation = .easeInOut
+////                            }
+////
+////                    )
+//
+//            }.scaleEffect(lastScaleValue + currentScaleValue >= 1 ? lastScaleValue + currentScaleValue : 1)
+//                .gesture(
+//                    MagnificationGesture()
+//                        .onChanged { newScale in
+//                            currentScaleValue = newScale
+//                        }
+//                        .onEnded { scale in
+//                            lastScaleValue = scale
+//                            currentScaleValue = 0
+//                        }
+//                )
+//        }.ignoresSafeArea()
+//
+//            .onAppear {
+//                UIScrollView.appearance().bounces = false
+//
 //            }
-//        }
-//        .onAppear {
-//            adjustImageColors()
-//        }
-//    }
-//
-//    private func adjustImageColors() {
-//        guard let originalImage = UIImage(named: "商店") else {
-//            return
-//        }
-//
-//        guard let cgImage = originalImage.cgImage else {
-//            return
-//        }
-//
-//        let width = cgImage.width
-//        let height = cgImage.height
-//
-//        let colorSpace = CGColorSpaceCreateDeviceRGB()
-//        let bytesPerPixel = 4
-//        let bytesPerRow = bytesPerPixel * width
-//        let bitsPerComponent = 8
-//
-//        var pixelData = [UInt8](repeating: 0, count: width * height * bytesPerPixel)
-//
-//        let context = CGContext(
-//            data: &pixelData,
-//            width: width,
-//            height: height,
-//            bitsPerComponent: bitsPerComponent,
-//            bytesPerRow: bytesPerRow,
-//            space: colorSpace,
-//            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
-//        )
-//
-//        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
-//
-//        for y in 0..<height {
-//            for x in 0..<width {
-//                let pixelIndex = y * width + x
-//                let offset = pixelIndex * bytesPerPixel
-//
-//                let red = pixelData[offset]
-//                let green = pixelData[offset + 1]
-//                let blue = pixelData[offset + 2]
-//
-//                // Adjust the percentage of each color component separately
-//                let adjustedRed = UInt8(Double(red) * 0.25) // 25% of the original red
-//                let adjustedGreen = green // 100% of the original green
-//                let adjustedBlue = blue // 100% of the original blue
-//
-//                pixelData[offset] = adjustedRed
-//                pixelData[offset + 1] = adjustedGreen
-//                pixelData[offset + 2] = adjustedBlue
+//            .onDisappear {
+//                UIScrollView.appearance().bounces = true
 //            }
-//        }
 //
-//        guard let newCGImage = context?.makeImage() else {
-//            return
-//        }
 //
-//        let adjustedUIImage = UIImage(cgImage: newCGImage)
-//        adjustedImage = Image(uiImage: adjustedUIImage)
+//
+//
 //    }
-//}
-//
+
 
 //
 //struct GameView_Previews: PreviewProvider {

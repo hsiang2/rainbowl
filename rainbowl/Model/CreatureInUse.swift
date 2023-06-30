@@ -8,11 +8,13 @@
 import FirebaseFirestoreSwift
 import Firebase
 
-struct CreatureInUse: Identifiable, Decodable {
+struct CreatureInUse: Identifiable, Decodable, Hashable {
     @DocumentID var id: String?
 
+    var category: String
     let name: String
     let colors: [String]
     let width: Float
-    let location: CGPoint?
+    let locationX: Float?
+    let locationY: Float?
 }
