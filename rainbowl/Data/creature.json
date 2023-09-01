@@ -4,5 +4,23 @@
         "name": "鹿",
         "colors": ["橙"],
         "width": 150
+    },
+    {
+        "category": "動物",
+        "name": "虎鯨",
+        "colors": ["橙"],
+        "width": 200
+    },
+    {
+        "category": "植物",
+        "name": "樹",
+        "colors": ["橙", "綠"],
+        "width": 180
+    },
+    {
+        "category": "植物",
+        "name": "樹叢",
+        "colors": ["紅", "綠"],
+        "width": 80
     }
 ]

@@ -12,7 +12,6 @@
 		AA0B41572A422AEA00AC1C63 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B41562A422AEA00AC1C63 /* RecordViewModel.swift */; };
 		AA2E6A2D2A08D19500C668AC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E6A2C2A08D19500C668AC /* food.json */; };
 		AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */; };
-		AA4BB33529FCBB9000F10479 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4BB33429FCBB9000F10479 /* Assets.xcassets */; };
 		AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */; };
 		AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34429FCBD7D00F10479 /* ContentView.swift */; };
 		AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34729FCD67C00F10479 /* RecordView.swift */; };
@@ -38,6 +37,7 @@
 		AA8F08C32A03AFE20069D180 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F08C22A03AFE20069D180 /* AuthViewModel.swift */; };
 		AAAF10512A42CDE700429BF8 /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10502A42CDE700429BF8 /* RecordItemView.swift */; };
 		AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10522A42CE8F00429BF8 /* Record.swift */; };
+		AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABBDFB52A53162000FB6CCD /* Assets.xcassets */; };
 		AAD109FB2A05422900DB02E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FA2A05422900DB02E3 /* Constants.swift */; };
 		AAD109FD2A05554200DB02E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FC2A05554200DB02E3 /* User.swift */; };
 		AAD10A002A0570C000DB02E3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AAD109FF2A0570C000DB02E3 /* FirebaseAuth */; };
@@ -65,7 +65,6 @@
 		AA2E6A2C2A08D19500C668AC /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		AA4BB32D29FCBB8D00F10479 /* rainbowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rainbowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbowlApp.swift; sourceTree = "<group>"; };
-		AA4BB33429FCBB9000F10479 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA4BB34429FCBD7D00F10479 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA4BB34729FCD67C00F10479 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		AA8F08C22A03AFE20069D180 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		AAAF10502A42CDE700429BF8 /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
 		AAAF10522A42CE8F00429BF8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		AABBDFB52A53162000FB6CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAD109FA2A05422900DB02E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAD109FC2A05554200DB02E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAD10A0F2A0682F200DB02E3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 				AA4BB33F29FCBC6500F10479 /* API */,
 				AA4BB33E29FCBC6100F10479 /* Utils */,
 				AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */,
+				AABBDFB52A53162000FB6CCD /* Assets.xcassets */,
 				AA8F08922A0173210069D180 /* GoogleService-Info.plist */,
-				AA4BB33429FCBB9000F10479 /* Assets.xcassets */,
 				AA4BB33629FCBB9000F10479 /* Preview Content */,
 			);
 			path = rainbowl;
@@ -414,8 +414,8 @@
 				AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */,
 				AA2E6A2D2A08D19500C668AC /* food.json in Resources */,
 				AAD477052A4AE15900F57A46 /* creature.json in Resources */,
-				AA4BB33529FCBB9000F10479 /* Assets.xcassets in Resources */,
 				AA8F08932A0173210069D180 /* GoogleService-Info.plist in Resources */,
+				AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"rainbowl/Preview Content\"";
+				DEVELOPMENT_TEAM = Q6MF6L9T5V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -616,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"rainbowl/Preview Content\"";
+				DEVELOPMENT_TEAM = Q6MF6L9T5V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

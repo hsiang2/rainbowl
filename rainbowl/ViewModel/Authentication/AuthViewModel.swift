@@ -259,7 +259,7 @@ class AuthViewModel: ObservableObject {
                 "name": name,
                 "colors": colors,
                 "width": width,
-                "locationX": 1050,
+                "locationX": 1160,
                 "locationY":650
         ] as [String : Any]
         COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data){ _ in
@@ -267,6 +267,11 @@ class AuthViewModel: ObservableObject {
         }
 
         BackpackViewModel().deleteBackpack(name: name)
+    }
+    
+    func updateCreaturePosition(id: String, x: Float, y: Float) {
+        guard let uid = userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).collection("creatures").document(id).updateData(["locationX": x, "locationY": y])
     }
     
     func deleteGame(id: String, category: String, name: String, colors: [String], width: Float) {

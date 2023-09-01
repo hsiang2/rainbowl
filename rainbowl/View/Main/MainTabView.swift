@@ -23,6 +23,14 @@ struct MainTabView: View {
             GameView(user: user)
             VStack {
                 HStack {
+                    ZStack {
+                        Image("money_bg")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 110)
+                            .padding()
+                        Text("500")
+                    }
                     Spacer()
                     Button(action: {
                         AuthViewModel.shared.signout()
