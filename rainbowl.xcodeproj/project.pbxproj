@@ -10,6 +10,8 @@
 		AA0B41522A41A27A00AC1C63 /* JSONFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B41512A41A27A00AC1C63 /* JSONFileManager.swift */; };
 		AA0B41542A41FA9500AC1C63 /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B41532A41FA9500AC1C63 /* AddFoodView.swift */; };
 		AA0B41572A422AEA00AC1C63 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B41562A422AEA00AC1C63 /* RecordViewModel.swift */; };
+		AA1A0F682AAC3BE900CCEA09 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A0F672AAC3BE900CCEA09 /* BookViewModel.swift */; };
+		AA1A0F6A2AAC50E300CCEA09 /* CreatureInBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A0F692AAC50E300CCEA09 /* CreatureInBook.swift */; };
 		AA2E6A2D2A08D19500C668AC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E6A2C2A08D19500C668AC /* food.json */; };
 		AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */; };
 		AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */; };
@@ -37,6 +39,7 @@
 		AA8F08C32A03AFE20069D180 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F08C22A03AFE20069D180 /* AuthViewModel.swift */; };
 		AAAF10512A42CDE700429BF8 /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10502A42CDE700429BF8 /* RecordItemView.swift */; };
 		AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF10522A42CE8F00429BF8 /* Record.swift */; };
+		AAB423882AA4AAD30031DADF /* BookItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB423872AA4AAD30031DADF /* BookItemsView.swift */; };
 		AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABBDFB52A53162000FB6CCD /* Assets.xcassets */; };
 		AAD109FB2A05422900DB02E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FA2A05422900DB02E3 /* Constants.swift */; };
 		AAD109FD2A05554200DB02E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FC2A05554200DB02E3 /* User.swift */; };
@@ -62,6 +65,8 @@
 		AA0B41512A41A27A00AC1C63 /* JSONFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileManager.swift; sourceTree = "<group>"; };
 		AA0B41532A41FA9500AC1C63 /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
 		AA0B41562A422AEA00AC1C63 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		AA1A0F672AAC3BE900CCEA09 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		AA1A0F692AAC50E300CCEA09 /* CreatureInBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureInBook.swift; sourceTree = "<group>"; };
 		AA2E6A2C2A08D19500C668AC /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		AA4BB32D29FCBB8D00F10479 /* rainbowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rainbowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbowlApp.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		AA8F08C22A03AFE20069D180 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		AAAF10502A42CDE700429BF8 /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
 		AAAF10522A42CE8F00429BF8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		AAB423872AA4AAD30031DADF /* BookItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemsView.swift; sourceTree = "<group>"; };
 		AABBDFB52A53162000FB6CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAD109FA2A05422900DB02E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAD109FC2A05554200DB02E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -129,6 +135,14 @@
 				AA5D0E9F2A48B961002A32DC /* FetchRecordViewMode.swift */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		AA1A0F662AAC3A9300CCEA09 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				AA1A0F672AAC3BE900CCEA09 /* BookViewModel.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 		AA2E6A2E2A08D37E00C668AC /* Data */ = {
@@ -202,6 +216,7 @@
 		AA4BB34029FCBC6800F10479 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AA1A0F662AAC3A9300CCEA09 /* Book */,
 				AAD477082A4B630100F57A46 /* Backpack */,
 				AA0B41552A4228E700AC1C63 /* Record */,
 				AA8F08C12A03AFA80069D180 /* Authentication */,
@@ -233,6 +248,7 @@
 				AAD477062A4B23AE00F57A46 /* Creature.swift */,
 				AAD4770D2A4CC5C000F57A46 /* CreatureProduct.swift */,
 				AAD4770B2A4BEB8C00F57A46 /* CreatureInUse.swift */,
+				AA1A0F692AAC50E300CCEA09 /* CreatureInBook.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +323,7 @@
 				AA5D0EA32A49F4DD002A32DC /* BookView.swift */,
 				AA5D0EA72A4A17C3002A32DC /* TabBarView.swift */,
 				AA5D0EA92A4A1894002A32DC /* ItemsView.swift */,
+				AAB423872AA4AAD30031DADF /* BookItemsView.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -436,10 +453,12 @@
 				AA0B41522A41A27A00AC1C63 /* JSONFileManager.swift in Sources */,
 				AAD10A122A06830100DB02E3 /* ShopView.swift in Sources */,
 				AA4BB34B29FCE9BE00F10479 /* ColorListView.swift in Sources */,
+				AAB423882AA4AAD30031DADF /* BookItemsView.swift in Sources */,
 				AAD21DB22A41957A00DB1CE7 /* Food.swift in Sources */,
 				AA0B41572A422AEA00AC1C63 /* RecordViewModel.swift in Sources */,
 				AA5D0E9E2A481125002A32DC /* DateChangeViewModel.swift in Sources */,
 				AAD4770C2A4BEB8C00F57A46 /* CreatureInUse.swift in Sources */,
+				AA1A0F682AAC3BE900CCEA09 /* BookViewModel.swift in Sources */,
 				AAD10A142A06831200DB02E3 /* CollectionView.swift in Sources */,
 				AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */,
 				AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */,
@@ -456,6 +475,7 @@
 				AA8F08C02A0342400069D180 /* ResetPasswordView.swift in Sources */,
 				AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */,
 				AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */,
+				AA1A0F6A2AAC50E300CCEA09 /* CreatureInBook.swift in Sources */,
 				AAAF10512A42CDE700429BF8 /* RecordItemView.swift in Sources */,
 				AA5D0EA82A4A17C3002A32DC /* TabBarView.swift in Sources */,
 				AAD109FB2A05422900DB02E3 /* Constants.swift in Sources */,

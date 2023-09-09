@@ -12,6 +12,7 @@ struct ShopView: View {
     @State private var selectedCategory: String = ""
     @State private var allcreatures = [CreatureProduct]()
     @ObservedObject var viewModel = BackpackViewModel()
+    @ObservedObject var bookViewModel = BookViewModel()
     
     @State var animalShown = false
     @State var plantShown = false
@@ -95,6 +96,7 @@ struct ShopView: View {
                         Button(action: {
                             selectedCategory = "動物"
                             let randomCreature = creatures.randomElement()!
+                            bookViewModel.addToBook(name: randomCreature.name)
                             viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                             animalShown = false
                             
@@ -122,6 +124,7 @@ struct ShopView: View {
                         Button(action: {
                             selectedCategory = "植物"
                             let randomCreature = creatures.randomElement()!
+                            bookViewModel.addToBook(name: randomCreature.name)
                             viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                             plantShown = false
                         }) {
