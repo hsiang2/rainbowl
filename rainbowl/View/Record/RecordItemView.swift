@@ -11,8 +11,8 @@ struct RecordItemView: View {
     
     @Binding var selectedIndex: String
    
-    @ObservedObject var viewModel = FetchRecordViewModel(date: Date())
-    @ObservedObject var recordViewModel = RecordViewModel()
+    @StateObject var viewModel = FetchRecordViewModel(date: Date())
+    @StateObject var recordViewModel = RecordViewModel()
     
     var records: [Record] {
         return selectedIndex == "" ? viewModel.records : viewModel.records.filter({

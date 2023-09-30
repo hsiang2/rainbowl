@@ -10,6 +10,8 @@ import FirebaseAuth
 
 
 class AuthViewModel: ObservableObject {
+    @Published var currentColors: [Float] = []
+    
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var didSendPasswordLink = false
@@ -23,6 +25,12 @@ class AuthViewModel: ObservableObject {
         fetchUser()
         fetchGame()
     }
+    
+//    var bookCreatures: [CreatureInBook] {
+//        return BookViewModel.shared.creatures.filter({
+//            $0.status == "initial"
+//        })
+//    }
     
     func login(withEmail email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -86,64 +94,131 @@ class AuthViewModel: ObservableObject {
     
     func fetchUser() {
         guard let uid = userSession?.uid else { return }
-        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+        
+        COLLECTION_USERS.document(uid).addSnapshotListener { snapshot, _ in
             guard let user = try? snapshot?.data(as: User.self) else { return }
             self.currentUser = user
+            
+            self.currentColors = [
+                self.currentUser?.red?.reduce(0) { $0 + $1 } ?? 0,
+                self.currentUser?.orange?.reduce(0) { $0 + $1 } ?? 0,
+                self.currentUser?.yellow?.reduce(0) { $0 + $1 } ?? 0,
+                self.currentUser?.green?.reduce(0) { $0 + $1 } ?? 0,
+                self.currentUser?.purple?.reduce(0) { $0 + $1 } ?? 0,
+                self.currentUser?.white?.reduce(0) { $0 + $1 } ?? 0
+            ]
         }
+        
+        
+//        guard let uid = userSession?.uid else { return }
+//        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+//            guard let user = try? snapshot?.data(as: User.self) else { return }
+//            self.currentUser = user
+//        }
     }
-    
-    func addColor(color: String) {
+//    , completion: (_ success: Bool) -> Void
+    func addColor(color: String, completion: (([Float]?) -> Void)?) {
         var colorArray = [Float]()
         
         switch color {
             
-        case "紅":
-            colorArray = self.currentUser?.red ?? []
-            colorArray[4] = 0.2
-            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["red": colorArray]){ _ in
-                self.fetchUser()
+            case "紅":
+                colorArray = self.currentUser?.red ?? []
+                colorArray[4] = 0.2
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["red": colorArray]){ error in
+                    if let error = error {
+                        print("Error updating color: \(error.localizedDescription)")
+                        completion?(nil)
+                    } else {
+                        self.fetchUser()
+                        // Update the currentColors array
+                        completion?(self.currentColors)
+                    }
+                    
+                }
+            case "橙":
+                colorArray = self.currentUser?.orange ?? []
+                colorArray[4] = 0.2
+            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["orange": colorArray]){ error in
+                if let error = error {
+                    print("Error updating color: \(error.localizedDescription)")
+                    completion?(nil)
+                } else {
+                    self.fetchUser()
+                    // Update the currentColors array
+                    print("add orange", self.currentColors)
+                    completion?(self.currentColors)
+                }
             }
-        case "橙":
-            colorArray = self.currentUser?.orange ?? []
-            colorArray[4] = 0.2
-            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["orange": colorArray]){ _ in
-                self.fetchUser()
-            }
-        case "黃":
-            colorArray = self.currentUser?.yellow ?? []
-            colorArray[4] = 0.2
-            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["yellow": colorArray]){ _ in
-                self.fetchUser()
-            }
-        case "綠":
-            colorArray = self.currentUser?.green ?? []
-            colorArray[4] = 0.2
-            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["green": colorArray]){ _ in
-                self.fetchUser()
-            }
-        case "紫":
-            colorArray = self.currentUser?.purple ?? []
-            colorArray[4] = 0.2
-            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["purple": colorArray]){ _ in
-                self.fetchUser()
-            }
-        case "白":
-            colorArray = self.currentUser?.white ?? []
-            colorArray[4] = 0.2
-            COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["white": colorArray]){ _ in
-                self.fetchUser()
-            }
-        default:
-            break
+//            { _ in
+//                    self.fetchUser()
+//                }
+            case "黃":
+                colorArray = self.currentUser?.yellow ?? []
+                colorArray[4] = 0.2
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["yellow": colorArray]){ error in
+                    if let error = error {
+                        print("Error updating color: \(error.localizedDescription)")
+                        completion?(nil)
+                    } else {
+                        self.fetchUser()
+                        // Update the currentColors array
+                        completion?(self.currentColors)
+                    }
+                }
+            case "綠":
+                colorArray = self.currentUser?.green ?? []
+                colorArray[4] = 0.2
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["green": colorArray]){ error in
+                    if let error = error {
+                        print("Error updating color: \(error.localizedDescription)")
+                        completion?(nil)
+                    } else {
+                        self.fetchUser()
+                        // Update the currentColors array
+                        completion?(self.currentColors)
+                    }
+                }
+            case "紫":
+                colorArray = self.currentUser?.purple ?? []
+                colorArray[4] = 0.2
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["purple": colorArray]){ error in
+                    if let error = error {
+                        print("Error updating color: \(error.localizedDescription)")
+                        completion?(nil)
+                    } else {
+                        self.fetchUser()
+                        // Update the currentColors array
+                        completion?(self.currentColors)
+                    }
+                }
+            case "白":
+                colorArray = self.currentUser?.white ?? []
+                colorArray[4] = 0.2
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["white": colorArray]){ error in
+                    if let error = error {
+                        print("Error updating color: \(error.localizedDescription)")
+                        completion?(nil)
+                    } else {
+                        self.fetchUser()
+                        // Update the currentColors array
+                        completion?(self.currentColors)
+                    }
+                }
+            default:
+                break
         }
+//        completion(true)
+        
     }
+    
 
     func deleteColor(color: String, records: [Record]) {
 
         let full = records.filter({
             $0.color.contains(color)
         }).count
-        print(full)
+//        print(full)
         if (full <= 1) {
             var colorArray = [Float]()
             

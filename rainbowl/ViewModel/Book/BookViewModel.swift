@@ -14,17 +14,27 @@ class BookViewModel: ObservableObject {
 //    @Published var creaturesInUse = [CreatureInUse]()
     @Published var creatures = [CreatureInBook]()
     
+    static let shared = BookViewModel()
+    
     init() {
-        fetchBook()
+        fetchBook() { (success) -> Void in }
+        
     }
     
-    func fetchBook() {
+    func fetchBook(completion: @escaping (_ success: Bool) -> Void) {
         guard let user = AuthViewModel.shared.currentUser else {
+            completion(false)
             return
         }
         COLLECTION_BOOK.document(user.id ?? "").collection("creatures").addSnapshotListener { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
+            guard let documents = snapshot?.documents else {
+                completion(false)
+                return
+                
+            }
             self.creatures = documents.compactMap({ try? $0.data(as: CreatureInBook.self) })
+            
+            completion(true)
         }
 
     }
@@ -54,13 +64,13 @@ class BookViewModel: ObservableObject {
             return
         }
         
-        let docRef = COLLECTION_BACKPACK.document(user.id ?? "").collection("creatures")
+        let docRef = COLLECTION_BOOK.document(user.id ?? "").collection("creatures")
         docRef.whereField("name", isEqualTo: name).getDocuments { snapshot, error in
              guard let snapshot = snapshot else { return }
                  let document = snapshot.documents[0]
                  let documentID = document.documentID
                 
-                COLLECTION_BACKPACK.document(user.id ?? "").collection("creatures").document(documentID).updateData(["status": "completed"])
+                COLLECTION_BOOK.document(user.id ?? "").collection("creatures").document(documentID).updateData(["status": "completed"])
            
         }
     }

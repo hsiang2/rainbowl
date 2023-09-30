@@ -66,7 +66,7 @@ class BackpackViewModel: ObservableObject {
                  let documentID = document.documentID
                  let updatedQty = (document.data()["qty"] as? Int ?? 0) + 1
 
-                 print(updatedQty)
+//                 print(updatedQty)
                 COLLECTION_BACKPACK.document(user.id ?? "").collection("creatures").document(documentID).updateData(["qty": updatedQty])
              }
         }

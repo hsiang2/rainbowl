@@ -4,15 +4,24 @@
 //
 //  Created by 蔡相襄 on 2023/6/20.
 //
-
 import SwiftUI
 
 struct AddFoodView: View {
     var food: Food
+    let user: User
     @State var qty: Float = 1
     @ObservedObject var viewModel = RecordViewModel()
     
+    @StateObject var authViewModel = AuthViewModel()
+    
+    init(user: User, food: Food) {
+        self.food = food
+        self.user = user
+    }
+
+    
     var body: some View {
+        
         VStack {
             HStack {
                 Text(food.name).font(.system(size: 20, weight: .medium)).foregroundColor(Color(red: 120/255, green: 97/255, blue: 61/255))
@@ -29,10 +38,6 @@ struct AddFoodView: View {
                             qty -= 0.5
                         }
                     } label: {
-//                        Image(systemName: "minus")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 15)
                         Text("-")
                             .font(.system(size: 35, weight: .heavy))
                             .padding()
@@ -44,10 +49,6 @@ struct AddFoodView: View {
                     Button {
                             qty += 0.5
                     } label: {
-//                        Image(systemName: "plus")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 15)
                         Text("+")
                             .font(.system(size: 25, weight: .heavy))
 
@@ -57,9 +58,15 @@ struct AddFoodView: View {
                 }
                 Spacer()
                 Button {
-                    viewModel.addRecord(name: food.name, color: food.color, calorie: food.calorie * qty, qty: qty) { _ in
+                    viewModel.addRecord(name: food.name, color: food.color, calorie: food.calorie * qty, qty: qty) { error in
                         qty = 1
+                        
+                        if let error = error {
+                            print("Error adding record: \(error.localizedDescription)")
+                        }
+                                 
                     }
+                    
                 } label: {
                     Text("確認")
                         .font(.system(size: 12))
@@ -72,20 +79,26 @@ struct AddFoodView: View {
         }.padding(.horizontal, 40)
             .padding(.vertical, 20)
         
+//            .onReceive(currentColors.publisher) { newCurrentColors in
+//                    // Call the function to handle updates
+//                    handleCurrentColorsUpdate()
+//                }
+        
     }
-}
 
-struct AddFoodView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddFoodView( food: Food(
-            color: "黃",
-            name: "香蕉",
-            image: "香蕉",
-            size: 0.5,
-            unit: "根",
-            gram: 70,
-            calorie: 60
-        )
-    )
-    }
 }
+    
+    //struct AddFoodView_Previews: PreviewProvider {
+    //    static var previews: some View {
+    //        AddFoodView( food: Food(
+    //            color: "黃",
+    //            name: "香蕉",
+    //            image: "香蕉",
+    //            size: 0.5,
+    //            unit: "根",
+    //            gram: 70,
+    //            calorie: 60
+    //        )
+    //    )
+    //    }
+    //}

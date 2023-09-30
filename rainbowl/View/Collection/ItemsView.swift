@@ -20,7 +20,7 @@ struct ItemsView: View {
                     })
     }
     
-    let tests = ["黑白鹿", "彩色鹿", "虎鯨_黑白", "樹_黑白"]
+//    let tests = ["黑白鹿", "彩色鹿", "虎鯨_黑白", "樹_黑白"]
     
     var body: some View {
         VStack {

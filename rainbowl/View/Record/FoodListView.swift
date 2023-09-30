@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FoodListView: View {
+
+    let user: User
     @Binding var selectedIndex: String
     @State private var selectedBtn: Food?
     
@@ -54,7 +56,7 @@ struct FoodListView: View {
                     }.padding()
                 }
                 if ((selectedBtn != nil) && selectedBtn?.color == selectedIndex) {
-                    AddFoodView(food: (selectedBtn)!)
+                    AddFoodView(user: user, food: (selectedBtn)!)
                 }
             }.background(Color(red: 238/255, green: 238/255, blue: 238/255))
             .onAppear {
@@ -65,8 +67,8 @@ struct FoodListView: View {
     }
 }
 
-struct FoodListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FoodListView(selectedIndex: .constant("紅"))
-    }
-}
+//struct FoodListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FoodListView(selectedIndex: .constant("紅"))
+//    }
+//}

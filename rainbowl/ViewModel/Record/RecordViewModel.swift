@@ -9,67 +9,7 @@ import SwiftUI
 import Firebase
 
 class RecordViewModel: ObservableObject {
-  
-//    @Published var records = [Record]()
-//    var date: Date? = Date()
-//
-//    init(date: Date) {
-//        self.date = date
-//        fetchRecords(date: date)
-//    }
-//
-////    func fetchRecords() {
-////        guard let user = AuthViewModel.shared.currentUser else {
-////            return
-////        }
-////        let calendar = Calendar.current
-////        let components = calendar.dateComponents([.year, .month, .day], from: Date())
-////        let start = calendar.date(from: components)!
-////        let end = calendar.date(byAdding: .day, value: 1, to: start)!
-////
-////        let query = COLLECTION_RECORDS
-////                        .whereField("user", isEqualTo: user.id ?? "")
-////                        .whereField("timestamp", isGreaterThan: start)
-////                        .whereField("timestamp", isLessThan: end)
-////        query.addSnapshotListener { snapshot, _ in
-////            guard let documents = snapshot?.documents else { return }
-////            let records = documents.compactMap({ try? $0.data(as: Record.self) })
-////            self.records = records.sorted(by: { $0.timestamp.dateValue() < $1.timestamp.dateValue() })
-////
-////        }
-////        print("Fetched records: \(self.records)")
-////    }
-//
-//    func fetchRecords(date: Date? = Date()) {
-//        guard let user = AuthViewModel.shared.currentUser else {
-//            return
-//        }
-//
-//        let query = COLLECTION_RECORDS
-//                        .whereField("user", isEqualTo: user.id ?? "")
-//        query.addSnapshotListener { snapshot, _ in
-//            guard let documents = snapshot?.documents else { return }
-//            let records = documents.compactMap({ try? $0.data(as: Record.self) })
-//            self.records = records.sorted(by: { $0.timestamp.dateValue() < $1.timestamp.dateValue() })
-//                .filter({
-//                    self.compareDate(date1: $0.timestamp.dateValue(), date2: date ?? Date())
-//            })
-//
-//
-//        }
-//        print("Fetched records: \(self.records)")
-//    }
-//
-//    func compareDate(date1:Date, date2:Date) -> Bool {
-//        let order = NSCalendar.current.compare(date1, to: date2, toGranularity: .day)
-//        switch order {
-//        case .orderedSame:
-//            return true
-//        default:
-//            return false
-//        }
-//    }
-    
+
     func addRecord(name: String, color: String, calorie: Float, qty: Float, completion: ((Error?) -> Void)?) {
         
         guard let user = AuthViewModel.shared.currentUser else {
@@ -84,8 +24,25 @@ class RecordViewModel: ObservableObject {
                 "qty": qty,
                 "timestamp": Timestamp(date: Date())] as [String : Any]
         
-        COLLECTION_RECORDS.addDocument(data: data, completion: completion)
-        AuthViewModel.shared.addColor(color: color)
+        COLLECTION_RECORDS.addDocument(data: data) { error in
+            if let error = error {
+                       completion?(error)
+            } else {
+                AuthViewModel.shared.addColor(color: color) { updatedColorArray in
+                    if let updatedColorArray = updatedColorArray {
+                        // Handle the updated color array, e.g., update UI
+                        print("updateed in record", updatedColorArray)
+                        self.checkUpdate(colorArray: updatedColorArray)
+                    }
+                }
+            }
+//            {(success) -> Void in
+//                if success {
+//                    self.checkUpdate()
+//                }
+//            }
+        }
+        
     }
     
     func deleteRecord(id: String, color: String, records: [Record]) {
@@ -94,6 +51,59 @@ class RecordViewModel: ObservableObject {
         AuthViewModel.shared.deleteColor(color: color, records: records)
 
     }
+//    
+    func checkUpdate(colorArray: [Float?]) {
+        print("checking...", colorArray)
+        var bookCreatures: [CreatureInBook] = []
+        BookViewModel.shared.fetchBook() { (success) -> Void in
+            if success {
+                bookCreatures = BookViewModel.shared.creatures.filter({
+                                    $0.status == "initial"
+                })
+                
+                print(bookCreatures)
+        //        print(AuthViewModel.shared.creatures)
+        //        print(bookCreatures)
+                for creature in AuthViewModel.shared.creatures {
+                    if (bookCreatures.contains {(bookCreature) -> Bool in
+                        bookCreature.name == creature.name}) {
+                        var isColored = true
+                        for color in creature.colors {
+                            switch color {
+                                case "紅":
+                                    isColored = colorArray[0] ?? 0 >= 1 ? true : false
+                                case "橙":
+                                    isColored = colorArray[1] ?? 0 >= 1 ? true : false
+                                    print(colorArray[1] ?? 0)
+                                case "黃":
+                                    isColored = colorArray[2] ?? 0 >= 1 ? true : false
+                                case "綠":
+                                    isColored = colorArray[3] ?? 0 >= 1 ? true : false
+                                case "紫":
+                                    isColored = colorArray[4] ?? 0 >= 1 ? true : false
+                                case "白":
+                                    isColored = colorArray[5] ?? 0 >= 1 ? true : false
+                                default:
+                                    break
+                                //                                    return AnyView(EmptyView())
+                            }
+                            if(!isColored) {
+                                break
+                            }
+                        }
+                        print(creature.name,isColored)
+                        
+                        if (isColored) {
+                            BookViewModel().updateBook(name: creature.name)
+                        }
+                    }
+                }
+
+            }
+        }
+        
+    }
+
     
 }
 

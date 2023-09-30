@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+class StatusManager: ObservableObject {
+    @Published var status: [CreatureProduct: String] = [:]
+}
+
 struct BookItemsView: View {
     private let items = [GridItem(), GridItem(), GridItem()]
     private let width = UIScreen.main.bounds.width / 3
@@ -15,10 +19,21 @@ struct BookItemsView: View {
     
     @State private var allCreature = [CreatureProduct]()
     
+    @ObservedObject var viewModel = BookViewModel()
+    
+    @StateObject private var statusManager = StatusManager()
+    
     var creatures: [CreatureProduct] {
         return allCreature.filter({
             $0.category.contains(selectedCategory)
         })
+    }
+    
+    var bookCreatures: [CreatureInBook] {
+        return viewModel.creatures
+//            .filter({
+//            $0.category.contains(selectedCategory)
+//        })
     }
 
 //    @ObservedObject var viewModel = BackpackViewModel()
@@ -29,27 +44,13 @@ struct BookItemsView: View {
 //    }
     
     
+    
+    
     var body: some View {
         VStack {
             LazyVGrid(columns: items, spacing: 2, content: {
                 ForEach(creatures, id: \.self) { creature in
-                    ZStack {
-                        Image("box_bg")
-                        Image("\(creature.name)_黑白")
-                           .resizable().scaledToFit().frame(width: 70, height: 70)
-                           .brightness(-1)
-//                        Image("circle_bg")
-//                            .offset(x: 43, y: 43)
-                            
-//                        Text("\(creature.qty)")
-//                            .font(.system(size: 18))
-//                            .offset(x: 43, y: 43)
-//                            .foregroundColor(Color(red: 83/255, green: 94/255, blue: 49/255))
-                    }.frame(width: width, height: width)
-                        .onTapGesture {
-//                            AuthViewModel.shared.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
-                        }
-                   
+                    creatureItem(for: creature)
                 }
             }).padding()
                 .padding(.top, 90)
@@ -57,8 +58,31 @@ struct BookItemsView: View {
         }.onAppear {
             allCreature = JSONFileManager.load("creature.json")
         }
+    }
+    
+    private func creatureItem(for creature: CreatureProduct) -> some View {
+        var status = "locked"
+        if let i = bookCreatures.firstIndex(where: {$0.name == creature.name}) {
+            status = bookCreatures[i].status
+//            print(status)
+        } else {
+            status = "locked"
+        }
         
+//        let status = statusManager.status[creature] ?? "locked"
         
+        return AnyView(
+            ZStack {
+                Image("box_bg")
+                Image("\(creature.name)_彩色")
+                   .resizable().scaledToFit().frame(width: 70, height: 70)
+                   .saturation(status == "completed" ? 1 : 0)
+                   .brightness(status == "locked" ? -1 : 0)
+                   .opacity(status == "locked" ? 0.7 : 1)
+            }.frame(width: width, height: width)
+                .onTapGesture {
+                }
+        )
     }
 }
 

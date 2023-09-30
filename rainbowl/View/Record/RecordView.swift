@@ -49,7 +49,7 @@ struct RecordView: View {
             VStack {
 
                 ColorListView(user: user, selectedIndex: $selectedBtn)
-                FoodListView(selectedIndex: $selectedBtn)
+                FoodListView(user: user, selectedIndex: $selectedBtn)
                 RecordItemView(selectedIndex: $selectedBtn)
                
             }.padding(.top, 60)

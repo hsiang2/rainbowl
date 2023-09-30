@@ -11,9 +11,9 @@ class CreaturePositionManager: ObservableObject {
     @Published var positions: [CreatureInUse: CGPoint] = [:]
 }
 
-class CreatureOpacityManager: ObservableObject {
-    @Published var opacities: [CreatureInUse: Double] = [:]
-}
+//class CreatureOpacityManager: ObservableObject {
+//    @Published var opacities: [CreatureInUse: Double] = [:]
+//}
 
 struct GameView: View {
 
@@ -27,15 +27,23 @@ struct GameView: View {
     
 //    @State private var position = CGPoint(x: 0, y: 0)
     @StateObject private var positionManager = CreaturePositionManager()
-    @StateObject private var opacityManager = CreatureOpacityManager()
+//    @StateObject private var opacityManager = CreatureOpacityManager()
 
 
     @StateObject var viewModel = AuthViewModel()
+    
+//    @StateObject var bookViewModel = BookViewModel()
 
 
     var creatures: [CreatureInUse] {
         return viewModel.creatures
     }
+    
+//    var bookCreatures: [CreatureInBook] {
+//        return bookViewModel.creatures.filter({
+//            $0.status == "initial"
+//        })
+//    }
 
     var red: Float
     var orange: Float
@@ -187,6 +195,8 @@ struct GameView: View {
         }
     }
     
+//    private func colorView(for creature: CreatureInUse, color: String, isColored: inout Bool)
+    
     private func colorView(for creature: CreatureInUse, color: String) -> some View {
         let imageName: String
         let opacity: Double
@@ -195,21 +205,40 @@ struct GameView: View {
         case "紅":
             imageName = "\(creature.name)_紅"
             opacity = Double(red)
+//            if (isColored) {
+//                isColored = red >= 1 ? true : false
+//            }
+            
         case "橙":
             imageName = "\(creature.name)_橙"
             opacity = Double(orange)
+//            if (isColored) {
+//                isColored = orange >= 1 ? true : false
+//            }
         case "黃":
             imageName = "\(creature.name)_黃"
             opacity = Double(yellow)
+//            if (isColored) {
+//                isColored = yellow >= 1 ? true : false
+//            }
         case "綠":
             imageName = "\(creature.name)_綠"
             opacity = Double(green)
+//            if (isColored) {
+//                isColored = green >= 1 ? true : false
+//            }
         case "紫":
             imageName = "\(creature.name)_紫"
             opacity = Double(purple)
+//            if (isColored) {
+//                isColored = purple >= 1 ? true : false
+//            }
         case "白":
             imageName = "\(creature.name)_白"
             opacity = Double(white)
+//            if (isColored) {
+//                isColored = white >= 1 ? true : false
+//            }
         default:
             return AnyView(EmptyView())
         }
@@ -229,7 +258,8 @@ struct GameView: View {
         let initialPosition = CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0))
         let position = positionManager.positions[creature] ?? initialPosition
         
-        let opacity = opacityManager.opacities[creature] ?? 1
+//        let opacity = opacityManager.opacities[creature] ?? 1
+//        var isColored = true
         
         return AnyView(
             ZStack {
@@ -237,6 +267,7 @@ struct GameView: View {
                 Image("\(creature.name)_黑白")
                     .resizable().scaledToFit().frame(width: CGFloat(creature.width))
                 ForEach(creature.colors, id: \.self) { color in
+//                    colorView(for: creature, color: color, isColored: &isColored)
                     colorView(for: creature, color: color)
                 }
                 if (showDelete) {
@@ -251,7 +282,8 @@ struct GameView: View {
                 }
                 
 
-            }.opacity(opacity)
+            }
+//                .opacity(opacity)
                 .position(position)
                 .gesture(
                 LongPressGesture(minimumDuration: 0.5)
@@ -276,7 +308,18 @@ struct GameView: View {
                             viewModel.updateCreaturePosition(id: creature.id ?? "", x: Float(positionManager.positions[creature]?.x ?? 0), y: Float(positionManager.positions[creature]?.y ?? 0))
                         }
                     )
-            )
+                )
+//                .onAppear {
+//
+//                    if (bookCreatures.contains {(bookCreature) -> Bool in
+//                        bookCreature.name == creature.name}) {
+//                        if (isColored) {
+//
+//                            bookViewModel.updateBook(name: creature.name)
+//                        }
+//                    }
+//                }
+                
             
         )
     
