@@ -134,28 +134,31 @@ struct GameView: View {
                 Image("背景_綠")
                     .blendMode(.color)
                     .opacity(Double(green))
+                Image("背景_白")
+                    .blendMode(.color)
+                    .opacity(Double(white))
             }
            
-            ZStack {
-                Image("樹_黑白")
-                    .resizable().scaledToFit().frame(width: 180)
-                Image("樹_橙")
-                    .resizable().scaledToFit().frame(width: 180)
-                    .blendMode(.color)
-                    .opacity(Double(orange))
-                Image("樹_綠")
-                    .resizable().scaledToFit().frame(width: 180)
-                    .blendMode(.color)
-                    .opacity(Double(green))
-            }.position(x: 1110, y: 550)
-            ZStack {
-                Image("鹿_黑白")
-                    .resizable().scaledToFit().frame(width: 150)
-                Image("鹿_橙")
-                    .resizable().scaledToFit().frame(width: 150)
-                    .blendMode(.color)
-                    .opacity(Double(orange))
-            }.position(x: 990, y: 650)
+//            ZStack {
+//                Image("樹_黑白")
+//                    .resizable().scaledToFit().frame(width: 180)
+//                Image("樹_橙")
+//                    .resizable().scaledToFit().frame(width: 180)
+//                    .blendMode(.color)
+//                    .opacity(Double(orange))
+//                Image("樹_綠")
+//                    .resizable().scaledToFit().frame(width: 180)
+//                    .blendMode(.color)
+//                    .opacity(Double(green))
+//            }.position(x: 1110, y: 550)
+//            ZStack {
+//                Image("鹿_黑白")
+//                    .resizable().scaledToFit().frame(width: 150)
+//                Image("鹿_橙")
+//                    .resizable().scaledToFit().frame(width: 150)
+//                    .blendMode(.color)
+//                    .opacity(Double(orange))
+//            }.position(x: 990, y: 650)
         }
         
     }

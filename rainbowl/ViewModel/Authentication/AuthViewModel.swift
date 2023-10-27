@@ -334,8 +334,8 @@ class AuthViewModel: ObservableObject {
                 "name": name,
                 "colors": colors,
                 "width": width,
-                "locationX": 1160,
-                "locationY":650
+                "locationX": 1179,
+                "locationY": 912
         ] as [String : Any]
         COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data){ _ in
             AuthViewModel().fetchGame()

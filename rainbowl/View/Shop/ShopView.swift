@@ -17,6 +17,14 @@ struct ShopView: View {
     @State var animalShown = false
     @State var plantShown = false
     
+    @State var buyAnimalSucceed = false
+    @State var buyPlantSucceed = false
+    
+    @State var showCongratulatoryMessage = false
+    @State var showImage = false
+    
+    @State var name = ""
+    
     var creatures: [CreatureProduct] {
         return allcreatures.filter({
             $0.category.contains(selectedCategory)
@@ -43,6 +51,7 @@ struct ShopView: View {
                         }
                     }
                 VStack {
+                    
                     Image("對話框")
                         .resizable()
                         .scaledToFit()
@@ -79,7 +88,7 @@ struct ShopView: View {
                         
                     }.padding(.top, 60)
                 }.padding(.top, 70)
-            }.brightness(animalShown||plantShown ? -0.3 : 0)
+            }.brightness(animalShown || plantShown ? -0.3 : 0)
             if (animalShown) {
                 VStack {
                     Text("兌換一隻隨機動物 ?")
@@ -94,11 +103,17 @@ struct ShopView: View {
                                 .resizable().scaledToFit().frame(width: 126)
                         }
                         Button(action: {
+                            
+                            
                             selectedCategory = "動物"
                             let randomCreature = creatures.randomElement()!
                             bookViewModel.addToBook(name: randomCreature.name)
                             viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                             animalShown = false
+                            
+                            name = randomCreature.name
+                            buyAnimalSucceed = true
+                            
                             
                         }) {
                             Image("btn_confirm")
@@ -127,6 +142,9 @@ struct ShopView: View {
                             bookViewModel.addToBook(name: randomCreature.name)
                             viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                             plantShown = false
+                            
+                            name = randomCreature.name
+                            buyPlantSucceed = true
                         }) {
                             Image("btn_confirm")
                                 .resizable().scaledToFit().frame(width: 126)
@@ -134,6 +152,70 @@ struct ShopView: View {
                     }
                 }.frame(width: 343, height: 185)
                     .background(Color(red: 226/255, green: 218/255, blue: 219/255)).cornerRadius(34)
+            }
+            
+            if(buyAnimalSucceed || buyPlantSucceed) {
+                ZStack{
+                    Color(red: 0/255, green: 0/255, blue: 0/255)
+                        .opacity(0.6)
+                        .ignoresSafeArea()
+                        .overlay(alignment: .topTrailing) {
+                            Button {
+                                buyAnimalSucceed = false
+                                buyPlantSucceed = false
+                                name = ""
+                                showCongratulatoryMessage = false
+                            } label: {
+                                Image(systemName: "xmark")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20)
+                                    .padding()
+                                    .foregroundColor(Color(red: 239/255, green: 239/255, blue: 239/255)).padding()
+                            }
+                        }.onAppear {
+                            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+                                withAnimation(.easeIn(duration: 0.5)) { // Apply the animation with `withAnimation`
+                                    showImage = true
+                                }
+                            }
+                        }
+                    ZStack{
+                        
+                        if (showImage) {
+                            
+                            Image(buyPlantSucceed ? "送子鳥_植物": "送子鳥_動物")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 200)
+                                .transition(.move(edge: .bottom))
+                                .offset(y: showImage ? 0 : UIScreen.main.bounds.height)
+                                .onAppear {
+                                    Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                                        withAnimation(.easeIn(duration: 0.5)) { // Apply the animation with `withAnimation`
+                                            showImage = false
+                                            showCongratulatoryMessage = true
+                                        }
+                                    }
+                                }
+                        }
+                        
+                        if (showCongratulatoryMessage) {
+                            
+                            VStack {
+                                Image(buyPlantSucceed ? "恭喜獲得植物" : "恭喜獲得動物")
+                                    .resizable().scaledToFit().frame(width: 230)
+                                ZStack {
+                                    Image("selected")
+                                    Image("\(name)_黑白")
+                                        .resizable().scaledToFit().frame(width: 170, height: 170)
+                                    
+                                }
+                            }
+                        }
+                        
+                    }
+                }
             }
             
         }.onAppear {
