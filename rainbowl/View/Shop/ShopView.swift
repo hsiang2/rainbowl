@@ -107,6 +107,7 @@ struct ShopView: View {
                             
                             selectedCategory = "動物"
                             let randomCreature = creatures.randomElement()!
+//                            let randomCreature = creatures[2]
                             bookViewModel.addToBook(name: randomCreature.name)
                             viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                             animalShown = false
@@ -139,6 +140,7 @@ struct ShopView: View {
                         Button(action: {
                             selectedCategory = "植物"
                             let randomCreature = creatures.randomElement()!
+//                            let randomCreature = creatures[9]
                             bookViewModel.addToBook(name: randomCreature.name)
                             viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
                             plantShown = false
@@ -207,8 +209,8 @@ struct ShopView: View {
                                     .resizable().scaledToFit().frame(width: 230)
                                 ZStack {
                                     Image("selected")
-                                    Image("\(name)_黑白")
-                                        .resizable().scaledToFit().frame(width: 170, height: 170)
+                                    Image("\(name)_彩色")
+                                        .resizable().scaledToFit().frame(width: 170, height: 170).saturation(0)
                                     
                                 }
                             }

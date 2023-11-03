@@ -126,16 +126,16 @@ struct GameView: View {
             ZStack {
                 Image("背景_黑白")
                 Image("背景_藍")
-                    .blendMode(.color)
+//                    .blendMode(.color)
                     .opacity(Double(purple))
                 Image("背景_黃")
-                    .blendMode(.color)
+//                    .blendMode(.color)
                     .opacity(Double(yellow))
                 Image("背景_綠")
-                    .blendMode(.color)
+//                    .blendMode(.color)
                     .opacity(Double(green))
                 Image("背景_白")
-                    .blendMode(.color)
+//                    .blendMode(.color)
                     .opacity(Double(white))
             }
            
@@ -267,8 +267,8 @@ struct GameView: View {
         return AnyView(
             ZStack {
 
-                Image("\(creature.name)_黑白")
-                    .resizable().scaledToFit().frame(width: CGFloat(creature.width))
+                Image("\(creature.name)_彩色")
+                    .resizable().scaledToFit().frame(width: CGFloat(creature.width)).saturation(0)
                 ForEach(creature.colors, id: \.self) { color in
 //                    colorView(for: creature, color: color, isColored: &isColored)
                     colorView(for: creature, color: color)

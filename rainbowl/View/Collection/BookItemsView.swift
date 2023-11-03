@@ -47,15 +47,18 @@ struct BookItemsView: View {
     
     
     var body: some View {
-        VStack {
-            LazyVGrid(columns: items, spacing: 2, content: {
-                ForEach(creatures, id: \.self) { creature in
-                    creatureItem(for: creature)
-                }
-            }).padding()
-                .padding(.top, 90)
-            Spacer()
-        }.onAppear {
+        ScrollView {
+            VStack {
+                LazyVGrid(columns: items, spacing: 2, content: {
+                    ForEach(creatures, id: \.self) { creature in
+                        creatureItem(for: creature)
+                    }
+                }).padding()
+                    .padding(.top, 90)
+                Spacer()
+            }
+        }
+        .onAppear {
             allCreature = JSONFileManager.load("creature.json")
         }
     }
@@ -78,7 +81,7 @@ struct BookItemsView: View {
                    .resizable().scaledToFit().frame(width: 70, height: 70)
                    .saturation(status == "completed" ? 1 : 0)
                    .brightness(status == "locked" ? -1 : 0)
-                   .opacity(status == "locked" ? 0.7 : 1)
+                   .opacity(status == "locked" ? 0.8 : 1)
             }.frame(width: width, height: width)
                 .onTapGesture {
                 }

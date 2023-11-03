@@ -21,8 +21,15 @@ struct BookView: View {
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .edgesIgnoringSafeArea(.all)
+            
                     
+            Color(red: 230/255, green: 229/255, blue: 222/255)
+                .ignoresSafeArea()
+                .frame(height: 100)
+                .overlay(alignment: .topTrailing) {
                     TabBarView(currentTab: self.$currentTab)
+                }
+
                 
         }
     }

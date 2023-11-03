@@ -23,29 +23,31 @@ struct ItemsView: View {
 //    let tests = ["黑白鹿", "彩色鹿", "虎鯨_黑白", "樹_黑白"]
     
     var body: some View {
-        VStack {
-            LazyVGrid(columns: items, spacing: 2, content: {
-                ForEach(creatures, id: \.self) { creature in
-                    ZStack {
-                        Image("box_bg")
-                        Image("\(creature.name)_黑白")
-                           .resizable().scaledToFit().frame(width: 70, height: 70)
-                        Image("circle_bg")
-                            .offset(x: 43, y: 43)
+        ScrollView {
+            VStack {
+                LazyVGrid(columns: items, spacing: 2, content: {
+                    ForEach(creatures, id: \.self) { creature in
+                        ZStack {
+                            Image("box_bg")
+                            Image("\(creature.name)_彩色")
+                                .resizable().scaledToFit().frame(width: 70, height: 70).saturation(0)
+                            Image("circle_bg")
+                                .offset(x: 43, y: 43)
                             
-                        Text("\(creature.qty)")
-                            .font(.system(size: 18))
-                            .offset(x: 43, y: 43)
-                            .foregroundColor(Color(red: 83/255, green: 94/255, blue: 49/255))
-                    }.frame(width: width, height: width)
-                        .onTapGesture {
-                            AuthViewModel.shared.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
-                        }
-                   
-                }
-            }).padding()
-                .padding(.top, 90)
-            Spacer()
+                            Text("\(creature.qty)")
+                                .font(.system(size: 18))
+                                .offset(x: 43, y: 43)
+                                .foregroundColor(Color(red: 83/255, green: 94/255, blue: 49/255))
+                        }.frame(width: width, height: width)
+                            .onTapGesture {
+                                AuthViewModel.shared.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                            }
+                        
+                    }
+                }).padding()
+                    .padding(.top, 90)
+                Spacer()
+            }
         }
         
         
