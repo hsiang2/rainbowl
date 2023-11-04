@@ -10,7 +10,7 @@ import Firebase
 
 class RecordViewModel: ObservableObject {
 
-    func addRecord(name: String, color: String, calorie: Float, qty: Float, completion: ((Error?) -> Void)?) {
+    func addRecord(name: String, color: String, calorie: Float, qty: Float, records: [Record], completion: ((Error?) -> Void)?) {
         
         guard let user = AuthViewModel.shared.currentUser else {
             return
@@ -28,7 +28,7 @@ class RecordViewModel: ObservableObject {
             if let error = error {
                        completion?(error)
             } else {
-                AuthViewModel.shared.addColor(color: color) { updatedColorArray in
+                AuthViewModel.shared.addColor(color: color, records: records) { updatedColorArray in
                     if let updatedColorArray = updatedColorArray {
                         // Handle the updated color array, e.g., update UI
                         print("updateed in record", updatedColorArray)

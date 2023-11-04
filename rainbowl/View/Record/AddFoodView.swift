@@ -12,6 +12,8 @@ struct AddFoodView: View {
     @State var qty: Float = 1
     @ObservedObject var viewModel = RecordViewModel()
     
+    @StateObject var recordsViewModel = FetchRecordViewModel(date: Date())
+    
     @StateObject var authViewModel = AuthViewModel()
     
     init(user: User, food: Food) {
@@ -58,7 +60,7 @@ struct AddFoodView: View {
                 }
                 Spacer()
                 Button {
-                    viewModel.addRecord(name: food.name, color: food.color, calorie: food.calorie * qty, qty: qty) { error in
+                    viewModel.addRecord(name: food.name, color: food.color, calorie: food.calorie * qty, qty: qty, records: recordsViewModel.records) { error in
                         qty = 1
                         
                         if let error = error {

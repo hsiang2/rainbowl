@@ -11,6 +11,7 @@ struct MainTabView: View {
     @StateObject private var viewModel = DateChangeViewModel()
     @State private var previousDate = Date()
     
+    
     let user: User
     @State private var openRecord = false
     @State private var openCollection = false
@@ -29,7 +30,7 @@ struct MainTabView: View {
                             .scaledToFit()
                             .frame(width: 110)
                             .padding()
-                        Text("500")
+                        Text(String(AuthViewModel.shared.currentUser?.money ?? 0))
                     }
                     Spacer()
                     Button(action: {

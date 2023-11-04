@@ -25,6 +25,8 @@ struct ShopView: View {
     
     @State var name = ""
     
+    @State var moneyWarnShown = false
+    
     var creatures: [CreatureProduct] {
         return allcreatures.filter({
             $0.category.contains(selectedCategory)
@@ -95,6 +97,14 @@ struct ShopView: View {
                         .font(.system(size: 16))
                         .foregroundColor(Color(red: 33/255, green: 15/255, blue: 17/255))
                         .padding(.bottom, 30)
+                    
+                    if (moneyWarnShown) {
+                        Text("！餘額不足")
+                            .font(.system(size: 16))
+                            .foregroundColor(Color(red: 180/255, green: 84/255, blue: 93/255))
+                            .padding(.top, -30)
+                    }
+                    
                     HStack {
                         Button(action: {
                             animalShown = false
@@ -104,17 +114,22 @@ struct ShopView: View {
                         }
                         Button(action: {
                             
-                            
-                            selectedCategory = "動物"
-                            let randomCreature = creatures.randomElement()!
-//                            let randomCreature = creatures[2]
-                            bookViewModel.addToBook(name: randomCreature.name)
-                            viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
-                            animalShown = false
-                            
-                            name = randomCreature.name
-                            buyAnimalSucceed = true
-                            
+                            if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
+                                
+                                selectedCategory = "動物"
+                                let randomCreature = creatures.randomElement()!
+    //                            let randomCreature = creatures[2]
+                                bookViewModel.addToBook(name: randomCreature.name)
+                                viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
+                                animalShown = false
+                                
+                                name = randomCreature.name
+                                buyAnimalSucceed = true
+                                
+                                AuthViewModel.shared.changeMoney(money: -200)
+                            } else {
+                                moneyWarnShown = true
+                            }
                             
                         }) {
                             Image("btn_confirm")
@@ -130,23 +145,37 @@ struct ShopView: View {
                         .font(.system(size: 16))
                         .foregroundColor(Color(red: 33/255, green: 15/255, blue: 17/255))
                         .padding(.bottom, 30)
+                    if (moneyWarnShown) {
+                        Text("！餘額不足")
+                            .font(.system(size: 16))
+                            .foregroundColor(Color(red: 180/255, green: 84/255, blue: 93/255))
+                            .padding(.top, -30)
+                    }
                     HStack {
                         Button(action: {
                             plantShown = false
+                            
                         }) {
                             Image("btn_cancel")
                                 .resizable().scaledToFit().frame(width: 126)
                         }
                         Button(action: {
-                            selectedCategory = "植物"
-                            let randomCreature = creatures.randomElement()!
-//                            let randomCreature = creatures[9]
-                            bookViewModel.addToBook(name: randomCreature.name)
-                            viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
-                            plantShown = false
                             
-                            name = randomCreature.name
-                            buyPlantSucceed = true
+                            if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
+                                selectedCategory = "植物"
+                                let randomCreature = creatures.randomElement()!
+                                //                            let randomCreature = creatures[9]
+                                bookViewModel.addToBook(name: randomCreature.name)
+                                viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
+                                plantShown = false
+                                
+                                name = randomCreature.name
+                                buyPlantSucceed = true
+                                
+                                AuthViewModel.shared.changeMoney(money: -200)
+                            } else {
+                                moneyWarnShown = true
+                            }
                         }) {
                             Image("btn_confirm")
                                 .resizable().scaledToFit().frame(width: 126)

@@ -12,7 +12,7 @@ struct User: Identifiable, Decodable {
     let email: String
     @DocumentID var id: String?
 //    var colors: [[Float]]
-    
+    var money: Int
     var red: [Float]?
     var orange: [Float]?
     var yellow: [Float]?
