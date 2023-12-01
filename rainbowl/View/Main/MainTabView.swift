@@ -113,13 +113,14 @@ struct MainTabView: View {
                 }
             }
      
-        }.onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
-            if !Calendar.current.isDate(previousDate, inSameDayAs: viewModel.currentDate) {
-                viewModel.handleDateChange()
-                previousDate = viewModel.currentDate
-                print("date change")
-            }
         }
+//        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
+//            if !Calendar.current.isDate(previousDate, inSameDayAs: viewModel.currentDate) {
+//                viewModel.handleDateChange()
+//                previousDate = viewModel.currentDate
+//                print("date change")
+//            }
+//        }
     }
 }
 
