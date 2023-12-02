@@ -18,6 +18,7 @@ struct MainTabView: View {
     @State private var openCalendar = false
     @State private var openShop = false
     @State private var openSetting = false
+    @State private var openSocial = false
     
     var body: some View {
         ZStack {
@@ -33,6 +34,18 @@ struct MainTabView: View {
                         Text(String(AuthViewModel.shared.currentUser?.money ?? 0))
                     }
                     Spacer()
+                    Button(action: {
+                                openSocial.toggle()
+                    }, label: {
+                        Image(systemName: "person.line.dotted.person.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 48, height: 48)
+                            .padding()
+                    })
+                    .fullScreenCover(isPresented: $openSocial) {
+                        SocialView(show: $openSocial)
+                    }
                     Button(action: {
                         AuthViewModel.shared.signout()
 //                                openSetting.toggle()

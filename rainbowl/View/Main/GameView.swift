@@ -84,6 +84,7 @@ struct GameView: View {
                         .frame(width: 70, height: 48)
                         .background(Color(red: 187/255, green: 129/255, blue: 111/255))
                         .cornerRadius(25)
+                        .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
                         .padding(.top, 70)
                 }.offset(x: 145, y: -300)
             }
