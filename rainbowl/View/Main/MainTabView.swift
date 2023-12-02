@@ -37,7 +37,7 @@ struct MainTabView: View {
                     Button(action: {
                                 openSocial.toggle()
                     }, label: {
-                        Image(systemName: "person.line.dotted.person.fill")
+                        Image("社群")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 48, height: 48)

@@ -48,7 +48,7 @@ struct SettingView: View {
                                 .foregroundColor(Color(red: 25/255, green: 50/255, blue: 74/255))
         //                    Text(user.fullname)
         //                        .font(.system(size: 14))
-                            Text(verbatim:"test5@example.com")
+                            Text(verbatim:user.email)
                                 .font(.system(size: 16))
                                 .foregroundColor(Color(red: 25/255, green: 50/255, blue: 74/255).opacity(0.7))
                                 .padding(.top, 0.5)
