@@ -18,7 +18,7 @@ struct SocialView: View {
         NavigationView {
             
             ZStack {
-                Color(red: 225/255, green: 232/255, blue: 234/255)
+                Color(red: 233/255, green: 230/255, blue: 221/255)
                     .ignoresSafeArea()
                     .overlay(alignment: .topTrailing) {
                         Button {

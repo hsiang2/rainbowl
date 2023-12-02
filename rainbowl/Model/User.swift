@@ -10,6 +10,8 @@ import FirebaseFirestoreSwift
 struct User: Identifiable, Decodable {
     let username: String
     let email: String
+    let avatar: String
+    let avatarColor: Int
     @DocumentID var id: String?
 //    var colors: [[Float]]
     var money: Int

@@ -28,10 +28,12 @@ struct UserItem: View {
 //                    .padding(.bottom, -100)
 //
                 HStack {
-                    Image("蛋")
+                    Image("\(user.avatar)_彩色")
                         .resizable()
                         .scaledToFill()
+                        .frame(width: 30, height: 30)
                         .frame(width: 55, height: 55)
+                        .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
                         .clipShape(Circle())
                     VStack(alignment: .leading) {
                         Text(user.username)

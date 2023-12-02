@@ -47,8 +47,8 @@ struct MainTabView: View {
                         SocialView(show: $openSocial)
                     }
                     Button(action: {
-                        AuthViewModel.shared.signout()
-//                                openSetting.toggle()
+//                        AuthViewModel.shared.signout()
+                        openSetting.toggle()
                     }, label: {
                         Image("設定")
                             .resizable()
@@ -56,6 +56,9 @@ struct MainTabView: View {
                             .frame(width: 48, height: 48)
                             .padding()
                     })
+                    .fullScreenCover(isPresented: $openSetting) {
+                        SettingView(user: user, show: $openSetting)
+                    }
                 }
                 Spacer()
                 HStack {

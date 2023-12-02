@@ -13,6 +13,8 @@
 		AA1A0F682AAC3BE900CCEA09 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A0F672AAC3BE900CCEA09 /* BookViewModel.swift */; };
 		AA1A0F6A2AAC50E300CCEA09 /* CreatureInBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1A0F692AAC50E300CCEA09 /* CreatureInBook.swift */; };
 		AA2E6A2D2A08D19500C668AC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E6A2C2A08D19500C668AC /* food.json */; };
+		AA46CD902B1B10C700D32A83 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */; };
+		AA46CD922B1B41C200D32A83 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD912B1B41C200D32A83 /* EditUserView.swift */; };
 		AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */; };
 		AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */; };
 		AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34429FCBD7D00F10479 /* ContentView.swift */; };
@@ -35,6 +37,7 @@
 		AA8CD4EE2B19B22B00F32D63 /* SocialGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4ED2B19B22B00F32D63 /* SocialGameView.swift */; };
 		AA8CD4F02B19C58000F32D63 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4EF2B19C58000F32D63 /* LazyView.swift */; };
 		AA8CD4F22B19D2DB00F32D63 /* GameSnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4F12B19D2DB00F32D63 /* GameSnapshotView.swift */; };
+		AA8CD4F42B1ACE3200F32D63 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4F32B1ACE3200F32D63 /* AvatarView.swift */; };
 		AA8F08832A0005540069D180 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F08822A0005540069D180 /* FoodListView.swift */; };
 		AA8F08882A0171890069D180 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AA8F08872A0171890069D180 /* FirebaseFirestore */; };
 		AA8F088A2A0171890069D180 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = AA8F08892A0171890069D180 /* FirebaseFunctions */; };
@@ -78,6 +81,8 @@
 		AA1A0F692AAC50E300CCEA09 /* CreatureInBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureInBook.swift; sourceTree = "<group>"; };
 		AA2E6A2C2A08D19500C668AC /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		AA3269512B08B21E0038BE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
+		AA46CD912B1B41C200D32A83 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		AA4BB32D29FCBB8D00F10479 /* rainbowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rainbowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbowlApp.swift; sourceTree = "<group>"; };
 		AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 		AA8CD4ED2B19B22B00F32D63 /* SocialGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialGameView.swift; sourceTree = "<group>"; };
 		AA8CD4EF2B19C58000F32D63 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		AA8CD4F12B19D2DB00F32D63 /* GameSnapshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSnapshotView.swift; sourceTree = "<group>"; };
+		AA8CD4F32B1ACE3200F32D63 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		AA8F08822A0005540069D180 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		AA8F08922A0173210069D180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA8F08952A0205970069D180 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -223,6 +229,7 @@
 				AA0B41512A41A27A00AC1C63 /* JSONFileManager.swift */,
 				AA8CD4E52B19811E00F32D63 /* Extensions.swift */,
 				AA8CD4EF2B19C58000F32D63 /* LazyView.swift */,
+				AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -313,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */,
+				AA46CD912B1B41C200D32A83 /* EditUserView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -333,6 +341,7 @@
 				AA8F08952A0205970069D180 /* RegistrationView.swift */,
 				AA8F08972A0205AA0069D180 /* LoginView.swift */,
 				AA8F08BF2A0342400069D180 /* ResetPasswordView.swift */,
+				AA8CD4F32B1ACE3200F32D63 /* AvatarView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -499,8 +508,10 @@
 				AAD21DB22A41957A00DB1CE7 /* Food.swift in Sources */,
 				AA0B41572A422AEA00AC1C63 /* RecordViewModel.swift in Sources */,
 				AA5D0E9E2A481125002A32DC /* DateChangeViewModel.swift in Sources */,
+				AA8CD4F42B1ACE3200F32D63 /* AvatarView.swift in Sources */,
 				AAD4770C2A4BEB8C00F57A46 /* CreatureInUse.swift in Sources */,
 				AA1A0F682AAC3BE900CCEA09 /* BookViewModel.swift in Sources */,
+				AA46CD902B1B10C700D32A83 /* AvatarColors.swift in Sources */,
 				AAD10A142A06831200DB02E3 /* CollectionView.swift in Sources */,
 				AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */,
 				AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */,
@@ -523,6 +534,7 @@
 				AA1A0F6A2AAC50E300CCEA09 /* CreatureInBook.swift in Sources */,
 				AA8CD4F02B19C58000F32D63 /* LazyView.swift in Sources */,
 				AAAF10512A42CDE700429BF8 /* RecordItemView.swift in Sources */,
+				AA46CD922B1B41C200D32A83 /* EditUserView.swift in Sources */,
 				AA5D0EA82A4A17C3002A32DC /* TabBarView.swift in Sources */,
 				AAD109FB2A05422900DB02E3 /* Constants.swift in Sources */,
 			);

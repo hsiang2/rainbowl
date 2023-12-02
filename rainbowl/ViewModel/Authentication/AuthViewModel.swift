@@ -45,7 +45,8 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func register(withEmail email: String, password: String, username: String) {
+    
+    func register(withEmail email: String, password: String, username: String, avatar: String, avatarColor: Int) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -58,6 +59,8 @@ class AuthViewModel: ObservableObject {
             let data = [
                 "email": email,
                 "username": username,
+                "avatar": avatar,
+                "avatarColor": avatarColor,
                 "uid": user.uid,
                 "money": 0,
 //                "colors": [0, 0, 0, 0, 0]
@@ -75,6 +78,24 @@ class AuthViewModel: ObservableObject {
                 self.fetchUser()
             }
         }
+    }
+    
+    func update(withEmail email: String, username: String, avatar: String, avatarColor: Int) {
+        
+        COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData([
+            "email": email,
+            "username": username,
+            "avatar": avatar,
+            "avatarColor": avatarColor
+        ]){ error in
+            if let error = error {
+                print("Error updating color: \(error.localizedDescription)")
+            } else {
+                self.fetchUser()
+                // Update the currentColors array
+            }
+        }
+           
     }
     
     func signout() {

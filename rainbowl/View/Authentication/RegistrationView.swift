@@ -11,8 +11,14 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var username = ""
     @State private var password = ""
+    
+    @State private var avatar = "蛋"
+    @State private var avatarColor = 0
+    
     @Environment(\.presentationMode) var mode
     @EnvironmentObject var viewModel: AuthViewModel
+    
+    @State private var openAvatar = false
     
     var body: some View {
         
@@ -29,13 +35,33 @@ struct RegistrationView: View {
                             .font(.system(size: 18, weight: .semibold))
                     }
                         .foregroundColor(Color(red: 215/255, green: 169/255, blue: 52/255))
-                }).padding(.bottom, 75)
+                }).padding(.bottom, 30)
                 HStack {
                     Text("註冊")
                         .foregroundColor(Color(red: 105/255, green: 120/255, blue: 85/255))
                         .font(.system(size: 36, weight: .medium))
                     Spacer()
                 }
+                ZStack {
+                    Image("\(avatar)_彩色")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 66, height: 66)
+                        .frame(width: 120, height: 120)
+                        .background(Color(red: COLORS[avatarColor][0]/255, green: COLORS[avatarColor][1]/255, blue: COLORS[avatarColor][2]/255))
+                        .clipShape(Circle())
+                    Button(action: {
+                        openAvatar.toggle()
+                    }) {
+                        Image(systemName: "pencil.circle.fill")
+                            .resizable().scaledToFit().frame(width: 30)
+                            .foregroundColor(Color(red: 105/255, green: 120/255, blue: 85/255))
+                    }.offset(x: 50, y: 40)
+                    .sheet(isPresented: $openAvatar) {
+                        AvatarView(show: $openAvatar, avatar: $avatar, avatarColor: $avatarColor
+                        )
+                    }
+                }.padding(.bottom, 40)
                 ZStack(alignment: .leading) {
                     if username.isEmpty {
                         Text("使用者暱稱")
@@ -52,7 +78,7 @@ struct RegistrationView: View {
                             .foregroundColor(Color(red: 101/255, green: 113/255, blue: 85/255))
                         Divider().overlay(Color(red: 100/255, green: 114/255, blue: 93/255))
                     }
-                }.padding(.top, 42)
+                }
                 ZStack(alignment: .leading) {
                     if email.isEmpty {
                         Text("example@mail.com")
@@ -89,7 +115,7 @@ struct RegistrationView: View {
                 }.padding(.top, 20)
 
                 Button(action: {
-                    viewModel.register(withEmail: email, password: password, username: username)
+                    viewModel.register(withEmail: email, password: password, username: username, avatar: avatar, avatarColor: avatarColor)
                 }, label: {
                     Text("建立帳號")
                         .font(.headline)
@@ -99,19 +125,20 @@ struct RegistrationView: View {
                         .cornerRadius(9)
                         .shadow(color: Color(red: 216/255, green: 214/255, blue: 209/255), radius: 6, x: 0, y: 4)
                         .padding(.top, 20)
+                        .padding(.bottom, 20)
                 })
                 Spacer()
-                HStack(spacing: 38) {
-                    Spacer()
-                    Image("送子鳥")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 70)
-                    Image("註冊鹿")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 95)
-                }
+//                HStack(spacing: 38) {
+//                    Spacer()
+//                    Image("送子鳥")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 70)
+//                    Image("註冊鹿")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 95)
+//                }
             }.padding(.top, 10)
             .padding(.horizontal, 40)
         }
