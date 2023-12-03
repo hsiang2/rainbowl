@@ -11,3 +11,5 @@ let COLLECTION_USERS = Firestore.firestore().collection("users")
 let COLLECTION_RECORDS = Firestore.firestore().collection("records")
 let COLLECTION_BACKPACK = Firestore.firestore().collection("backpack")
 let COLLECTION_BOOK = Firestore.firestore().collection("book")
+
+let COLLECTION_FOODTYPE = Firestore.firestore().collection("foodTypes")

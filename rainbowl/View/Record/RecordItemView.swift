@@ -14,6 +14,8 @@ struct RecordItemView: View {
     @StateObject var viewModel = FetchRecordViewModel(date: Date())
     @StateObject var recordViewModel = RecordViewModel()
     
+    let colors = ["紅", "橙", "黃", "綠", "紫", "白"]
+    
     var records: [Record] {
         return selectedIndex == "" ? viewModel.records : viewModel.records.filter({
             $0.color.contains(selectedIndex)
@@ -28,8 +30,28 @@ struct RecordItemView: View {
         } else {
             List {
                 ForEach(records) { record in
+                    
                     HStack {
-                        Image(record.name).resizable().scaledToFit().frame(width: 45, height: 45)
+
+                        
+                        if (UIImage(named: record.name) != nil) {
+                            Image(record.name)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 45, height: 45)
+                        } else {
+                            Text(record.name.prefix(1))
+//                                .font(.system(size: 14))
+                                .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255).opacity(0.6))
+//                                .padding()
+                                .frame(width: 45, height: 45)
+                                .background(Color(red: COLORS[colors.firstIndex(of: record.color) ?? 0][0]/255, green: COLORS[colors.firstIndex(of: record.color) ?? 0][1]/255, blue: COLORS[colors.firstIndex(of: record.color) ?? 0][2]/255))
+                                .cornerRadius(50)
+                                
+//                                .shadow(color: Color(red: 216/255, green: 214/255, blue: 209/255), radius: 6, x: 0, y: 4)
+//                                .padding(.top, 70)
+                        }
+                        
                         VStack(alignment: .leading) {
                             Text(record.name)
                                 .font(.system(size: 14, weight: .medium))

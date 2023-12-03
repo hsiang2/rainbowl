@@ -13,7 +13,20 @@ struct FoodListView: View {
     @Binding var selectedIndex: String
     @State private var selectedBtn: Food?
     
+    @Binding var addFoodType: Bool
+    
     @State private var allFood = [Food]()
+    
+    @State private var allCustomFood = [Food]()
+    
+    
+    @ObservedObject var viewModel = FoodTypeViewModel()
+    
+    var customFood: [Food] {
+        return viewModel.foodTypes.filter({
+            $0.color.contains(selectedIndex)
+        })
+    }
     
     var food: [Food] {
         return allFood.filter({
@@ -28,6 +41,7 @@ struct FoodListView: View {
             VStack {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
+                        //蔬果列
                         ForEach(food, id: \.self) { food in
                             Button(action: {
                                 selectedBtn = food
@@ -43,8 +57,32 @@ struct FoodListView: View {
 
                             }
                         }
+                        
+                        //自訂蔬果列
+                        ForEach(customFood, id: \.self) { food in
+                            Button(action: {
+                                selectedBtn = food
+                            }) {
+
+                                ZStack{
+                                    if (selectedBtn == food) {
+                                        Image("food_bg_focus")
+                                    } else {
+                                        Image("food_bg")
+                                    }
+                                    Text(food.name.prefix(1))
+                                        .font(.system(size: 25))
+                                        .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
+//                                    Image(food.name).resizable().scaledToFit().frame(width: 45, height: 45)
+                                }.padding(.leading, 10)
+
+                            }
+                        }
+                        
+                        //自訂按鈕
                         Button(action: {
 //                            selectedBtn = "custom"
+                            addFoodType = true
                         }) {
                             ZStack{
                                 Image("food_bg")

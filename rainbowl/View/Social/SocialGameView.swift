@@ -68,13 +68,25 @@ struct SocialGameView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
-                        Text(user.username)
-                            .font(.headline)
-                            .foregroundColor(Color(red: 129/255, green: 117/255, blue: 87/255))
-                            .frame(width: 200, height: 48)
+                        HStack {
+                            Image("\(user.avatar)_彩色")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 30, height: 30)
+                                .frame(width: 55, height: 55)
+                                .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
+                                .clipShape(Circle())
+                            Text(user.username)
+                                .font(.headline)
+                                .foregroundColor(Color(red: 129/255, green: 117/255, blue: 87/255))
+                                .padding(.leading, 15)
+                            Spacer()
+                        }.frame(width: 200, height: 55)
                             .background(Color(red: 241/255, green: 239/255, blue: 234/255))
-                            .cornerRadius(20)
+                            .cornerRadius(50)
+        
                             .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
+                        
                         Spacer()
                         Button(action: {
                             dismiss()
@@ -93,7 +105,7 @@ struct SocialGameView: View {
 //                                .padding()
 //                                .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
                         }
-                    }.padding(.top, 10)
+                    }.padding(.top, 30)
                 }
             }.toolbarBackground(.hidden, for: .navigationBar)
 //            Button {

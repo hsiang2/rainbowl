@@ -2,7 +2,6 @@
     {
         "color": "紅",
         "name": "西瓜",
-        "image": "西瓜",
         "size": 0.5,
         "unit": "片",
         "gram": 70,
@@ -11,7 +10,6 @@
     {
         "color": "紅",
         "name": "草莓",
-        "image": "草莓",
         "size": 7,
         "unit": "顆",
         "gram": 70,
@@ -20,7 +18,6 @@
     {
         "color": "紅",
         "name": "番茄",
-        "image": "番茄",
         "size": 0.5,
         "unit": "顆",
         "gram": 70,
@@ -29,7 +26,6 @@
     {
         "color": "紅",
         "name": "紅椒",
-        "image": "紅椒",
         "size": 0.5,
         "unit": "顆",
         "gram": 70,
@@ -38,7 +34,6 @@
     {
         "color": "橙",
         "name": "橘子",
-        "image": "橘子",
         "size": 0.5,
         "unit": "顆",
         "gram": 70,
@@ -47,7 +42,6 @@
     {
         "color": "橙",
         "name": "南瓜",
-        "image": "南瓜",
         "size": 0.5,
         "unit": "碗",
         "gram": 70,
@@ -56,7 +50,6 @@
     {
         "color": "橙",
         "name": "紅蘿蔔",
-        "image": "紅蘿蔔",
         "size": 0.5,
         "unit": "根",
         "gram": 70,
@@ -65,7 +58,6 @@
     {
         "color": "橙",
         "name": "木瓜",
-        "image": "木瓜",
         "size": 0.8,
         "unit": "碗",
         "gram": 150,
@@ -75,7 +67,6 @@
     {
         "color": "黃",
         "name": "鳳梨",
-        "image": "鳳梨",
         "size": 1,
         "unit": "片",
         "gram": 70,
@@ -84,7 +75,6 @@
     {
         "color": "黃",
         "name": "香蕉",
-        "image": "香蕉",
         "size": 0.5,
         "unit": "根",
         "gram": 70,
@@ -93,7 +83,6 @@
     {
         "color": "黃",
         "name": "玉米",
-        "image": "玉米",
         "size": 0.5,
         "unit": "根",
         "gram": 70,
@@ -102,7 +91,6 @@
     {
         "color": "黃",
         "name": "檸檬",
-        "image": "檸檬",
         "size": 0.5,
         "unit": "顆",
         "gram": 70,
@@ -111,7 +99,6 @@
     {
         "color": "綠",
         "name": "綠花椰菜",
-        "image": "綠花椰菜",
         "size": 1,
         "unit": "碗",
         "gram": 70,
@@ -120,7 +107,6 @@
     {
         "color": "綠",
         "name": "奇異果",
-        "image": "奇異果",
         "size": 2,
         "unit": "顆",
         "gram": 70,
@@ -129,7 +115,6 @@
     {
         "color": "綠",
         "name": "小黃瓜",
-        "image": "小黃瓜",
         "size": 0.5,
         "unit": "根",
         "gram": 70,
@@ -138,7 +123,6 @@
     {
         "color": "綠",
         "name": "酪梨",
-        "image": "酪梨",
         "size": 0.5,
         "unit": "顆",
         "gram": 70,
@@ -147,7 +131,6 @@
     {
         "color": "紫",
         "name": "藍莓",
-        "image": "藍莓",
         "size": 0.5,
         "unit": "顆",
         "gram": 70,
@@ -156,7 +139,6 @@
     {
         "color": "紫",
         "name": "茄子",
-        "image": "茄子",
         "size": 0.5,
         "unit": "根",
         "gram": 70,
@@ -165,7 +147,6 @@
     {
         "color": "紫",
         "name": "葡萄",
-        "image": "葡萄",
         "size": 13,
         "unit": "顆",
         "gram": 85,
@@ -174,7 +155,6 @@
     {
         "color": "紫",
         "name": "紫甘藍",
-        "image": "紫甘藍",
         "size": 0.5,
         "unit": "碗",
         "gram": 70,
@@ -183,7 +163,6 @@
     {
         "color": "白",
         "name": "蘑菇",
-        "image": "蘑菇",
         "size": 0.5,
         "unit": "碗",
         "gram": 70,
@@ -192,7 +171,6 @@
     {
         "color": "白",
         "name": "洋蔥",
-        "image": "洋蔥",
         "size": 0.5,
         "unit": "碗",
         "gram": 70,
@@ -201,7 +179,6 @@
     {
         "color": "白",
         "name": "白蘿蔔",
-        "image": "白蘿蔔",
         "size": 0.5,
         "unit": "根",
         "gram": 70,
@@ -210,7 +187,6 @@
     {
         "color": "白",
         "name": "白火龍果",
-        "image": "白火龍果",
         "size": 0.7,
         "unit": "碗",
         "gram": 110,

@@ -10,7 +10,6 @@ import Foundation
 struct Food: Decodable, Hashable {
     var color: String
     var name: String
-    var image: String
     var size: Float
     var unit: String
     var gram: Float

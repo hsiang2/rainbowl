@@ -15,6 +15,10 @@
 		AA2E6A2D2A08D19500C668AC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E6A2C2A08D19500C668AC /* food.json */; };
 		AA46CD902B1B10C700D32A83 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */; };
 		AA46CD922B1B41C200D32A83 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD912B1B41C200D32A83 /* EditUserView.swift */; };
+		AA46CD962B1B83C900D32A83 /* TestContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD952B1B83C900D32A83 /* TestContentView.swift */; };
+		AA46CD982B1B856200D32A83 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD972B1B856200D32A83 /* MyViewController.swift */; };
+		AA46CD9B2B1C079600D32A83 /* AddFoodTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD9A2B1C079600D32A83 /* AddFoodTypeView.swift */; };
+		AA46CD9D2B1C08BE00D32A83 /* FoodTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD9C2B1C08BE00D32A83 /* FoodTypeViewModel.swift */; };
 		AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */; };
 		AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */; };
 		AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34429FCBD7D00F10479 /* ContentView.swift */; };
@@ -83,6 +87,10 @@
 		AA3269512B08B21E0038BE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
 		AA46CD912B1B41C200D32A83 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		AA46CD952B1B83C900D32A83 /* TestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContentView.swift; sourceTree = "<group>"; };
+		AA46CD972B1B856200D32A83 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		AA46CD9A2B1C079600D32A83 /* AddFoodTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTypeView.swift; sourceTree = "<group>"; };
+		AA46CD9C2B1C08BE00D32A83 /* FoodTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeViewModel.swift; sourceTree = "<group>"; };
 		AA4BB32D29FCBB8D00F10479 /* rainbowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rainbowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbowlApp.swift; sourceTree = "<group>"; };
 		AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 			children = (
 				AA0B41562A422AEA00AC1C63 /* RecordViewModel.swift */,
 				AA5D0E9F2A48B961002A32DC /* FetchRecordViewMode.swift */,
+				AA46CD9C2B1C08BE00D32A83 /* FoodTypeViewModel.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -290,6 +299,8 @@
 				AA4BB34429FCBD7D00F10479 /* ContentView.swift */,
 				AAD10A152A06B09B00DB02E3 /* MainTabView.swift */,
 				AA5D0E972A4417CC002A32DC /* GameView.swift */,
+				AA46CD952B1B83C900D32A83 /* TestContentView.swift */,
+				AA46CD972B1B856200D32A83 /* MyViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -302,6 +313,7 @@
 				AA8F08822A0005540069D180 /* FoodListView.swift */,
 				AA0B41532A41FA9500AC1C63 /* AddFoodView.swift */,
 				AAAF10502A42CDE700429BF8 /* RecordItemView.swift */,
+				AA46CD9A2B1C079600D32A83 /* AddFoodTypeView.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -492,6 +504,7 @@
 				AA0B41542A41FA9500AC1C63 /* AddFoodView.swift in Sources */,
 				AA8CD4E22B19787D00F32D63 /* SocialView.swift in Sources */,
 				AA5D0EAA2A4A1894002A32DC /* ItemsView.swift in Sources */,
+				AA46CD9B2B1C079600D32A83 /* AddFoodTypeView.swift in Sources */,
 				AAD109FD2A05554200DB02E3 /* User.swift in Sources */,
 				AA8F08832A0005540069D180 /* FoodListView.swift in Sources */,
 				AAD477072A4B23AE00F57A46 /* Creature.swift in Sources */,
@@ -504,6 +517,7 @@
 				AA8CD4EC2B19AA2200F32D63 /* SearchUserViewModel.swift in Sources */,
 				AA8CD4E82B19A53C00F32D63 /* UserListView.swift in Sources */,
 				AAB423882AA4AAD30031DADF /* BookItemsView.swift in Sources */,
+				AA46CD9D2B1C08BE00D32A83 /* FoodTypeViewModel.swift in Sources */,
 				AA8CD4E42B197EA600F32D63 /* SearchBar.swift in Sources */,
 				AAD21DB22A41957A00DB1CE7 /* Food.swift in Sources */,
 				AA0B41572A422AEA00AC1C63 /* RecordViewModel.swift in Sources */,
@@ -517,6 +531,7 @@
 				AAAF10532A42CE8F00429BF8 /* Record.swift in Sources */,
 				AA8F08962A0205970069D180 /* RegistrationView.swift in Sources */,
 				AAD4770E2A4CC5C000F57A46 /* CreatureProduct.swift in Sources */,
+				AA46CD962B1B83C900D32A83 /* TestContentView.swift in Sources */,
 				AA5D0EA22A49F36B002A32DC /* BackpackView.swift in Sources */,
 				AA8CD4EA2B19A7A600F32D63 /* UserItem.swift in Sources */,
 				AA5D0E982A4417CC002A32DC /* GameView.swift in Sources */,
@@ -526,6 +541,7 @@
 				AA5D0EA42A49F4DD002A32DC /* BookView.swift in Sources */,
 				AAD4770A2A4B6B1D00F57A46 /* BackpackViewModel.swift in Sources */,
 				AA8F08C32A03AFE20069D180 /* AuthViewModel.swift in Sources */,
+				AA46CD982B1B856200D32A83 /* MyViewController.swift in Sources */,
 				AA8CD4EE2B19B22B00F32D63 /* SocialGameView.swift in Sources */,
 				AA8F08C02A0342400069D180 /* ResetPasswordView.swift in Sources */,
 				AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */,

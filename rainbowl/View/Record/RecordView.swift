@@ -12,6 +12,7 @@ struct RecordView: View {
     @Binding var show: Bool
     @State private var selectedBtn: String = ""
     
+    @State var addFoodType: Bool = false
     
     var body: some View {
         ZStack {
@@ -19,9 +20,10 @@ struct RecordView: View {
                 .ignoresSafeArea()
                 .overlay(alignment: .topTrailing) {
                     HStack {
-                        if (selectedBtn != "") {
+                        if (selectedBtn != "" || addFoodType) {
                             Button {
                                 selectedBtn = ""
+                                addFoodType = false
                             } label: {
                                 Image(systemName: "chevron.backward")
                                     .resizable()
@@ -46,13 +48,19 @@ struct RecordView: View {
                     
                 }
 //            ScrollView(.vertical) {
-            VStack {
+            if (addFoodType) {
+                AddFoodTypeView(selectedIndex: $selectedBtn, addFoodType: $addFoodType)
+                    .padding(.top, 60)
+            } else {
+                VStack {
 
-                ColorListView(user: user, selectedIndex: $selectedBtn)
-                FoodListView(user: user, selectedIndex: $selectedBtn)
-                RecordItemView(selectedIndex: $selectedBtn)
-               
-            }.padding(.top, 60)
+                    ColorListView(user: user, selectedIndex: $selectedBtn)
+                    FoodListView(user: user, selectedIndex: $selectedBtn, addFoodType: $addFoodType)
+                    RecordItemView(selectedIndex: $selectedBtn)
+                   
+                }.padding(.top, 60)
+            }
+           
         }.presentationDetents([.fraction(0.8)])
         
     }
