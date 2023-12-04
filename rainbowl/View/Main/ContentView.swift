@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -25,6 +26,7 @@ struct ContentView: View {
     }
 }
 
+@available(iOS 17.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environmentObject(AuthViewModel.shared)

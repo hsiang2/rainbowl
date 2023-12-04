@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct MainTabView: View {
     @StateObject private var viewModel = DateChangeViewModel()
     @State private var previousDate = Date()

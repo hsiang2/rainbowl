@@ -16,6 +16,7 @@ class CreaturePositionManager: ObservableObject {
 //    @Published var opacities: [CreatureInUse: Double] = [:]
 //}
 
+@available(iOS 17.0, *)
 struct GameView: View {
 
     let user: User
@@ -69,7 +70,9 @@ struct GameView: View {
         ZStack {
             ScrollView([.horizontal, .vertical], showsIndicators: false) {
                 content
+                    
             }
+            .defaultScrollAnchor(.center)
             .ignoresSafeArea()
             .onAppear {
                 UIScrollView.appearance().bounces = false
@@ -83,6 +86,7 @@ struct GameView: View {
             .onDisappear {
                 UIScrollView.appearance().bounces = true
             }
+            
             if (showDelete) {
                 Button(action: {
                     showDelete = false
@@ -115,6 +119,7 @@ struct GameView: View {
             backgroundImage
             creatureViews
         }
+        
         .scaleEffect(lastScaleValue + currentScaleValue >= 1 ? lastScaleValue + currentScaleValue : 1)
                 .gesture(
                     MagnificationGesture()
@@ -132,7 +137,7 @@ struct GameView: View {
     }
 
     private var backgroundImage: some View {
-        ZStack {
+//        ZStack {
             ZStack {
                 Image("背景_黑白")
                 Image("背景_藍")
@@ -169,8 +174,8 @@ struct GameView: View {
 //                    .blendMode(.color)
 //                    .opacity(Double(orange))
 //            }.position(x: 990, y: 650)
-        }
-        
+//        }
+//        
     }
 
     @ViewBuilder private var creatureViews: some View {
