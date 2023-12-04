@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 class CreaturePositionManager: ObservableObject {
     @Published var positions: [CreatureInUse: CGPoint] = [:]
@@ -31,6 +32,8 @@ struct GameView: View {
 
 
     @StateObject var viewModel = AuthViewModel()
+    
+    @State var looper: AVPlayerLooper?
     
 //    @StateObject var bookViewModel = BookViewModel()
 
@@ -70,6 +73,12 @@ struct GameView: View {
             .ignoresSafeArea()
             .onAppear {
                 UIScrollView.appearance().bounces = false
+                
+                let musicplayer = AVQueuePlayer()
+                let fileUrl = Bundle.main.url(forResource: "bgmusic", withExtension: "mp3")!
+                let item = AVPlayerItem(url: fileUrl)
+                self.looper = AVPlayerLooper(player: musicplayer, templateItem: item)
+                musicplayer.play()
             }
             .onDisappear {
                 UIScrollView.appearance().bounces = true

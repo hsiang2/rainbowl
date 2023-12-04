@@ -19,6 +19,8 @@
 		AA46CD982B1B856200D32A83 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD972B1B856200D32A83 /* MyViewController.swift */; };
 		AA46CD9B2B1C079600D32A83 /* AddFoodTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD9A2B1C079600D32A83 /* AddFoodTypeView.swift */; };
 		AA46CD9D2B1C08BE00D32A83 /* FoodTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD9C2B1C08BE00D32A83 /* FoodTypeViewModel.swift */; };
+		AA46CDA42B1CDB5200D32A83 /* bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA46CDA32B1CDB5200D32A83 /* bgmusic.mp3 */; };
+		AA46CDA62B1CE16600D32A83 /* EditFoodTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CDA52B1CE16600D32A83 /* EditFoodTypeView.swift */; };
 		AA4BB33129FCBB8D00F10479 /* rainbowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */; };
 		AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */; };
 		AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34429FCBD7D00F10479 /* ContentView.swift */; };
@@ -91,6 +93,8 @@
 		AA46CD972B1B856200D32A83 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		AA46CD9A2B1C079600D32A83 /* AddFoodTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodTypeView.swift; sourceTree = "<group>"; };
 		AA46CD9C2B1C08BE00D32A83 /* FoodTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeViewModel.swift; sourceTree = "<group>"; };
+		AA46CDA32B1CDB5200D32A83 /* bgmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgmusic.mp3; sourceTree = "<group>"; };
+		AA46CDA52B1CE16600D32A83 /* EditFoodTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodTypeView.swift; sourceTree = "<group>"; };
 		AA4BB32D29FCBB8D00F10479 /* rainbowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rainbowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4BB33029FCBB8D00F10479 /* rainbowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbowlApp.swift; sourceTree = "<group>"; };
 		AA4BB33729FCBB9000F10479 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -188,6 +192,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		AA46CDA02B1CDAB500D32A83 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				AA46CDA32B1CDB5200D32A83 /* bgmusic.mp3 */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
 		AA4BB32429FCBB8D00F10479 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 		AA4BB32F29FCBB8D00F10479 /* rainbowl */ = {
 			isa = PBXGroup;
 			children = (
+				AA46CDA02B1CDAB500D32A83 /* music */,
 				AA3269512B08B21E0038BE8B /* Info.plist */,
 				AA2E6A2E2A08D37E00C668AC /* Data */,
 				AA4BB34229FCBC6E00F10479 /* Model */,
@@ -314,6 +327,7 @@
 				AA0B41532A41FA9500AC1C63 /* AddFoodView.swift */,
 				AAAF10502A42CDE700429BF8 /* RecordItemView.swift */,
 				AA46CD9A2B1C079600D32A83 /* AddFoodTypeView.swift */,
+				AA46CDA52B1CE16600D32A83 /* EditFoodTypeView.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -491,6 +505,7 @@
 				AAD477052A4AE15900F57A46 /* creature.json in Resources */,
 				AA8F08932A0173210069D180 /* GoogleService-Info.plist in Resources */,
 				AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */,
+				AA46CDA42B1CDB5200D32A83 /* bgmusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +526,7 @@
 				AA5D0EA02A48B961002A32DC /* FetchRecordViewMode.swift in Sources */,
 				AA8CD4F22B19D2DB00F32D63 /* GameSnapshotView.swift in Sources */,
 				AA8F08982A0205AA0069D180 /* LoginView.swift in Sources */,
+				AA46CDA62B1CE16600D32A83 /* EditFoodTypeView.swift in Sources */,
 				AA0B41522A41A27A00AC1C63 /* JSONFileManager.swift in Sources */,
 				AAD10A122A06830100DB02E3 /* ShopView.swift in Sources */,
 				AA4BB34B29FCE9BE00F10479 /* ColorListView.swift in Sources */,

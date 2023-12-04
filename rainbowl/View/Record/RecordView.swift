@@ -13,6 +13,7 @@ struct RecordView: View {
     @State private var selectedBtn: String = ""
     
     @State var addFoodType: Bool = false
+    @State var editFoodType: FoodCustom?
     
     var body: some View {
         ZStack {
@@ -20,10 +21,11 @@ struct RecordView: View {
                 .ignoresSafeArea()
                 .overlay(alignment: .topTrailing) {
                     HStack {
-                        if (selectedBtn != "" || addFoodType) {
+                        if (selectedBtn != "" || addFoodType || (editFoodType != nil)) {
                             Button {
                                 selectedBtn = ""
                                 addFoodType = false
+                                editFoodType = nil
                             } label: {
                                 Image(systemName: "chevron.backward")
                                     .resizable()
@@ -51,11 +53,14 @@ struct RecordView: View {
             if (addFoodType) {
                 AddFoodTypeView(selectedIndex: $selectedBtn, addFoodType: $addFoodType)
                     .padding(.top, 60)
+            } else if (editFoodType != nil) {
+                EditFoodTypeView(food: editFoodType ?? nil, editFoodType: $editFoodType)
+                
             } else {
                 VStack {
 
                     ColorListView(user: user, selectedIndex: $selectedBtn)
-                    FoodListView(user: user, selectedIndex: $selectedBtn, addFoodType: $addFoodType)
+                    FoodListView(user: user, editFoodType: $editFoodType, selectedIndex: $selectedBtn, addFoodType: $addFoodType)
                     RecordItemView(selectedIndex: $selectedBtn)
                    
                 }.padding(.top, 60)

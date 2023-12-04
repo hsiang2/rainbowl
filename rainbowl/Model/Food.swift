@@ -5,9 +5,19 @@
 //  Created by 蔡相襄 on 2023/6/20.
 //
 
-import Foundation
+import FirebaseFirestoreSwift
+import Firebase
 
-struct Food: Decodable, Hashable {
+protocol FoodProtocol {
+    var color: String { get set }
+    var name: String { get set }
+    var size: Float { get set }
+    var unit: String { get set }
+    var gram: Float { get set }
+    var calorie: Float { get set }
+}
+
+struct Food: FoodProtocol, Decodable, Hashable {
     var color: String
     var name: String
     var size: Float
@@ -15,6 +25,25 @@ struct Food: Decodable, Hashable {
     var gram: Float
     var calorie: Float
 }
+
+struct FoodCustom: FoodProtocol, Decodable, Hashable {
+    var color: String
+    var name: String
+    var size: Float
+    var unit: String
+    var gram: Float
+    var calorie: Float
+    @DocumentID var id: String?
+}
+
+//struct Food: Decodable, Hashable {
+//    var color: String
+//    var name: String
+//    var size: Float
+//    var unit: String
+//    var gram: Float
+//    var calorie: Float
+//}
 
 //extension Food {
 //    static var sampleData: [Food] {

@@ -10,6 +10,9 @@ import SwiftUI
 struct FoodListView: View {
 
     let user: User
+    
+    @Binding var editFoodType: FoodCustom?
+    
     @Binding var selectedIndex: String
     @State private var selectedBtn: Food?
     
@@ -17,12 +20,12 @@ struct FoodListView: View {
     
     @State private var allFood = [Food]()
     
-    @State private var allCustomFood = [Food]()
+    @State private var allCustomFood = [FoodCustom]()
     
     
     @ObservedObject var viewModel = FoodTypeViewModel()
     
-    var customFood: [Food] {
+    var customFood: [FoodCustom] {
         return viewModel.foodTypes.filter({
             $0.color.contains(selectedIndex)
         })
@@ -58,14 +61,19 @@ struct FoodListView: View {
                             }
                         }
                         
+                        
+                        
                         //自訂蔬果列
                         ForEach(customFood, id: \.self) { food in
                             Button(action: {
-                                selectedBtn = food
+//                                selectedBtn = food
                             }) {
 
                                 ZStack{
-                                    if (selectedBtn == food) {
+                                    // Now 'food' can be treated as a Food instance
+
+                                   
+                                    if (selectedBtn == Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie)) {
                                         Image("food_bg_focus")
                                     } else {
                                         Image("food_bg")
@@ -75,8 +83,32 @@ struct FoodListView: View {
                                         .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
 //                                    Image(food.name).resizable().scaledToFit().frame(width: 45, height: 45)
                                 }.padding(.leading, 10)
+                                  
+//                                    .gesture(
+//                                    LongPressGesture(minimumDuration: 0.5)
+//                                        .onEnded { _ in
+//                                            addFoodType = true
+//
+//                                        }
+//
+//                                )
 
-                            }
+                            }.simultaneousGesture(
+                                LongPressGesture()
+                                    .onEnded { _ in
+//                                        print("Loooong")
+                                        editFoodType = food
+//                                        addFoodType = true
+                                    }
+                            )
+                            .highPriorityGesture(
+                                TapGesture()
+                                    .onEnded { _ in
+                                       
+                                            selectedBtn = Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie)
+                                     
+                                    }
+                            )
                         }
                         
                         //自訂按鈕

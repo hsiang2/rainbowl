@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AddFoodView: View {
-    var food: Food
+    var food: Food 
     let user: User
     @State var qty: Float = 1
     @ObservedObject var viewModel = RecordViewModel()
