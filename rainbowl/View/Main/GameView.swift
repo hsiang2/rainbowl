@@ -81,6 +81,7 @@ struct GameView: View {
                 let fileUrl = Bundle.main.url(forResource: "bgmusic", withExtension: "mp3")!
                 let item = AVPlayerItem(url: fileUrl)
                 self.looper = AVPlayerLooper(player: musicplayer, templateItem: item)
+                musicplayer.volume = 0.3
                 musicplayer.play()
             }
             .onDisappear {
@@ -90,6 +91,7 @@ struct GameView: View {
             if (showDelete) {
                 Button(action: {
                     showDelete = false
+                    SoundPlayer.shared.playClickSound()
                 }) {
                     Text("完成")
                         .font(.headline)
@@ -291,6 +293,7 @@ struct GameView: View {
                 if (showDelete) {
                     Button(action: {
                         viewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                        SoundPlayer.shared.playClickSound()
                     }) {
                         Image(systemName: "minus.circle.fill")
                             .resizable().scaledToFit().frame(width: 30)
@@ -303,6 +306,7 @@ struct GameView: View {
             }
 //                .opacity(opacity)
                 .position(position)
+                .zIndex(Double(creature.locationY ?? 1))
                 .gesture(
                 LongPressGesture(minimumDuration: 0.5)
                     .onEnded { _ in

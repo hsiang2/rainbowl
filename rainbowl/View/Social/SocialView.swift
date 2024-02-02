@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct SocialView: View {
      @Binding var show: Bool
 
@@ -23,6 +24,7 @@ struct SocialView: View {
                     .overlay(alignment: .topTrailing) {
                         Button {
                             show = false
+                            SoundPlayer.shared.playCloseSound()
                         } label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -53,6 +55,7 @@ struct SocialView: View {
     }
 }
 
+@available(iOS 17.0, *)
 struct SocialView_Previews: PreviewProvider {
     static var previews: some View {
         SocialView(show: .constant(true))

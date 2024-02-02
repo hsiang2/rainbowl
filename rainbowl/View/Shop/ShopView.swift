@@ -42,6 +42,7 @@ struct ShopView: View {
                     .overlay(alignment: .topTrailing) {
                         Button {
                             show = false
+                            SoundPlayer.shared.playCloseSound()
                         } label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -67,6 +68,7 @@ struct ShopView: View {
                     HStack(spacing: 20) {
                         Button(action: {
                             animalShown = true
+                            SoundPlayer.shared.playClickSound()
                         }, label: {
                             ZStack{
                                 Image("動物框")
@@ -78,6 +80,7 @@ struct ShopView: View {
                         })
                         Button(action: {
                             plantShown = true
+                            SoundPlayer.shared.playClickSound()
                         }, label: {
                             ZStack{
                                 Image("植物框")
@@ -108,12 +111,13 @@ struct ShopView: View {
                     HStack {
                         Button(action: {
                             animalShown = false
+                            SoundPlayer.shared.playClickSound()
                         }) {
                             Image("btn_cancel")
                                 .resizable().scaledToFit().frame(width: 126)
                         }
                         Button(action: {
-                            
+                            SoundPlayer.shared.playClickSound()
                             if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
                                 
                                 selectedCategory = "動物"
@@ -154,13 +158,14 @@ struct ShopView: View {
                     HStack {
                         Button(action: {
                             plantShown = false
+                            SoundPlayer.shared.playClickSound()
                             
                         }) {
                             Image("btn_cancel")
                                 .resizable().scaledToFit().frame(width: 126)
                         }
                         Button(action: {
-                            
+                            SoundPlayer.shared.playClickSound()
                             if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
                                 selectedCategory = "植物"
                                 let randomCreature = creatures.randomElement()!
@@ -196,6 +201,7 @@ struct ShopView: View {
                                 buyPlantSucceed = false
                                 name = ""
                                 showCongratulatoryMessage = false
+                                SoundPlayer.shared.playCloseSound()
                             } label: {
                                 Image(systemName: "xmark")
                                     .resizable()
@@ -241,6 +247,9 @@ struct ShopView: View {
                                     Image("\(name)_彩色")
                                         .resizable().scaledToFit().frame(width: 170, height: 170).saturation(0)
                                     
+                                }
+                                .onAppear {
+                                    SoundPlayer.shared.playSucceedSound()
                                 }
                             }
                         }

@@ -39,6 +39,7 @@ struct AddFoodView: View {
                         if (qty > 0) {
                             qty -= 0.5
                         }
+                        SoundPlayer.shared.playClickSound()
                     } label: {
                         Text("-")
                             .font(.system(size: 35, weight: .heavy))
@@ -50,6 +51,7 @@ struct AddFoodView: View {
                         .foregroundColor(Color(red: 59/255, green: 65/255, blue: 60/255)).opacity(0.69)
                     Button {
                             qty += 0.5
+                        SoundPlayer.shared.playClickSound()
                     } label: {
                         Text("+")
                             .font(.system(size: 25, weight: .heavy))
@@ -68,6 +70,7 @@ struct AddFoodView: View {
                         }
                                  
                     }
+                    SoundPlayer.shared.playClickSound()
                     
                 } label: {
                     Text("確認")

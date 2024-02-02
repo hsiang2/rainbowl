@@ -48,6 +48,7 @@ struct FoodListView: View {
                         ForEach(food, id: \.self) { food in
                             Button(action: {
                                 selectedBtn = food
+                                SoundPlayer.shared.playClickSound()
                             }) {
                                 ZStack{
                                     if (selectedBtn == food) {
@@ -106,6 +107,7 @@ struct FoodListView: View {
                                     .onEnded { _ in
                                        
                                             selectedBtn = Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie)
+                                        SoundPlayer.shared.playClickSound()
                                      
                                     }
                             )
@@ -115,6 +117,7 @@ struct FoodListView: View {
                         Button(action: {
 //                            selectedBtn = "custom"
                             addFoodType = true
+                            SoundPlayer.shared.playClickSound()
                         }) {
                             ZStack{
                                 Image("food_bg")

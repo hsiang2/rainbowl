@@ -26,11 +26,6 @@ class AuthViewModel: ObservableObject {
         fetchGame()
     }
     
-//    var bookCreatures: [CreatureInBook] {
-//        return BookViewModel.shared.creatures.filter({
-//            $0.status == "initial"
-//        })
-//    }
     
     func login(withEmail email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -90,10 +85,11 @@ class AuthViewModel: ObservableObject {
         ]){ error in
             if let error = error {
                 print("Error updating color: \(error.localizedDescription)")
-            } else {
-                self.fetchUser()
-                // Update the currentColors array
-            }
+            } 
+//            else {
+//                self.fetchUser()
+//                // Update the currentColors array
+//            }
         }
            
     }
@@ -158,8 +154,9 @@ class AuthViewModel: ObservableObject {
                     if let error = error {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
-                    } else {
-                        self.fetchUser()
+                    } 
+                    else {
+//                        self.fetchUser()
                         // Update the currentColors array
                         completion?(self.currentColors)
                     }
@@ -173,7 +170,7 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-                        self.fetchUser()
+//                        self.fetchUser()
                         // Update the currentColors array
                         print("add orange", self.currentColors)
                         completion?(self.currentColors)
@@ -190,7 +187,7 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-                        self.fetchUser()
+//                        self.fetchUser()
                         // Update the currentColors array
                         completion?(self.currentColors)
                     }
@@ -203,7 +200,7 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-                        self.fetchUser()
+//                        self.fetchUser()
                         // Update the currentColors array
                         completion?(self.currentColors)
                     }
@@ -216,7 +213,7 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-                        self.fetchUser()
+//                        self.fetchUser()
                         // Update the currentColors array
                         completion?(self.currentColors)
                     }
@@ -229,7 +226,7 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-                        self.fetchUser()
+//                        self.fetchUser()
                         // Update the currentColors array
                         completion?(self.currentColors)
                     }
@@ -260,39 +257,45 @@ class AuthViewModel: ObservableObject {
             case "紅":
                 colorArray = self.currentUser?.red ?? []
                 colorArray[4] = 0
-                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "red": colorArray]){ _ in
-                    self.fetchUser()
-                }
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "red": colorArray])
+//                { _ in
+//                    self.fetchUser()
+//                }
             case "橙":
                 colorArray = self.currentUser?.orange ?? []
                 colorArray[4] = 0
-                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "orange": colorArray]){ _ in
-                    self.fetchUser()
-                }
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "orange": colorArray])
+//                { _ in
+//                    self.fetchUser()
+//                }
             case "黃":
                 colorArray = self.currentUser?.yellow ?? []
                 colorArray[4] = 0
-                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "yellow": colorArray]){ _ in
-                    self.fetchUser()
-                }
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "yellow": colorArray])
+//                { _ in
+//                    self.fetchUser()
+//                }
             case "綠":
                 colorArray = self.currentUser?.green ?? []
                 colorArray[4] = 0
-                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "green": colorArray]){ _ in
-                    self.fetchUser()
-                }
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "green": colorArray])
+//                { _ in
+//                    self.fetchUser()
+//                }
             case "紫":
                 colorArray = self.currentUser?.purple ?? []
                 colorArray[4] = 0
-                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "purple": colorArray]){ _ in
-                    self.fetchUser()
-                }
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "purple": colorArray])
+//                { _ in
+//                    self.fetchUser()
+//                }
             case "白":
                 colorArray = self.currentUser?.white ?? []
                 colorArray[4] = 0
-                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "white": colorArray]){ _ in
-                    self.fetchUser()
-                }
+                COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "white": colorArray])
+//                { _ in
+//                    self.fetchUser()
+//                }
             default:
                 break
             }
@@ -331,9 +334,10 @@ class AuthViewModel: ObservableObject {
             "green": greenArray,
             "purple": purpleArray,
             "white": whiteArray
-        ]){ _ in
-            self.fetchUser()
-        }
+        ])
+//        { _ in
+//            self.fetchUser()
+//        }
     }
     
     func moveArray(array: [Float]) -> [Float] {
@@ -370,9 +374,10 @@ class AuthViewModel: ObservableObject {
                 "locationX": 1179,
                 "locationY": 912
         ] as [String : Any]
-        COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data){ _ in
-            AuthViewModel().fetchGame()
-        }
+        COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data)
+//        { _ in
+//            AuthViewModel().fetchGame()
+//        }
 
         BackpackViewModel().deleteBackpack(name: name)
     }
@@ -402,9 +407,10 @@ class AuthViewModel: ObservableObject {
         
         COLLECTION_USERS.document(uid).updateData([
             "money": money
-        ]){ _ in
-            self.fetchUser()
-        }
+        ])
+//        { _ in
+//            self.fetchUser()
+//        }
     }
     
 }

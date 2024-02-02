@@ -29,13 +29,13 @@ struct rainbowlApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Request permission for notifications
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
 
         // Set the delegate to handle notifications
-        UNUserNotificationCenter.current().delegate = self
+//        UNUserNotificationCenter.current().delegate = self
 
         // Schedule a daily notification
-        scheduleDailyNotification()
+//        scheduleDailyNotification()
 
         // Register background task
         registerBackgroundTask()
@@ -43,25 +43,25 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         return true
     }
 
-    func scheduleDailyNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Daily Update"
-        content.body = "Perform your daily task!"
-        content.sound = .default
-
-        var dateComponents = DateComponents()
-        dateComponents.hour = 12 // Change this to your desired time
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-        let request = UNNotificationRequest(identifier: "dailyNotification", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error)")
-            }
-        }
-    }
+//    func scheduleDailyNotification() {
+//        let content = UNMutableNotificationContent()
+//        content.title = "Daily Update"
+//        content.body = "Perform your daily task!"
+//        content.sound = .default
+//
+//        var dateComponents = DateComponents()
+//        dateComponents.hour = 12 // Change this to your desired time
+//
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+//
+//        let request = UNNotificationRequest(identifier: "dailyNotification", content: content, trigger: trigger)
+//
+//        UNUserNotificationCenter.current().add(request) { error in
+//            if let error = error {
+//                print("Error scheduling notification: \(error)")
+//            }
+//        }
+//    }
 
     // Register background task
     func registerBackgroundTask() {

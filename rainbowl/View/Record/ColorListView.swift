@@ -36,6 +36,8 @@ struct ColorListView: View {
                     
                     Button(action: {
                         selectedIndex = colors[index]
+                        SoundPlayer.shared.playColorSelectedSound()
+
                     }) {
                         ZStack {
                             

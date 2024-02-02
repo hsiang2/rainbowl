@@ -33,6 +33,7 @@ struct AvatarView: View {
                 .overlay(alignment: .topTrailing) {
                     Button {
                         show = false
+                        SoundPlayer.shared.playCloseSound()
                     } label: {
                         Image(systemName: "xmark")
                             .resizable()

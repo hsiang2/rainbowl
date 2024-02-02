@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct UserListView: View {
     @ObservedObject var viewModel = SearchUserViewModel()
     @Binding var searchText: String

@@ -37,6 +37,7 @@ struct CalendarView: View {
                 .overlay(alignment: .topTrailing) {
                     Button {
                         show = false
+                        SoundPlayer.shared.playCloseSound()
                     } label: {
                         Image(systemName: "xmark")
                             .resizable()
@@ -58,6 +59,7 @@ struct CalendarView: View {
                         .cornerRadius(25)
                         .onChange(of: recordDate) { newDate in
                                         recordViewModel.fetchRecords(date: newDate)
+                            SoundPlayer.shared.playDatePickerSound()
                         }
                 if( recordViewModel.records.isEmpty ) {
                     Color(red: 225/255, green: 232/255, blue: 234/255)

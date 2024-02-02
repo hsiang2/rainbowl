@@ -37,6 +37,7 @@ struct EditUserView: View {
                 .overlay(alignment: .topTrailing) {
                     Button(action: {
                         mode.wrappedValue.dismiss()
+                        SoundPlayer.shared.playCloseSound()
                     }, label: {
                         Image(systemName: "xmark")
                             .resizable()
@@ -64,6 +65,7 @@ struct EditUserView: View {
                         .clipShape(Circle())
                     Button(action: {
                         openAvatar.toggle()
+                        
                     }) {
                         Image(systemName: "pencil.circle.fill")
                             .resizable().scaledToFit().frame(width: 30)
@@ -113,6 +115,7 @@ struct EditUserView: View {
                 Button(action: {
                     viewModel.update(withEmail: email, username: username, avatar: avatar, avatarColor: avatarColor)
                     mode.wrappedValue.dismiss()
+                    SoundPlayer.shared.playClickSound()
                 }, label: {
                     Text("儲存編輯")
                         .font(.headline)

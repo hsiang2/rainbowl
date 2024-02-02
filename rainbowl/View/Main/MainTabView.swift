@@ -21,6 +21,8 @@ struct MainTabView: View {
     @State private var openSetting = false
     @State private var openSocial = false
     
+    @State private var openShare = false
+    
     var body: some View {
         ZStack {
             GameView(user: user)
@@ -32,11 +34,12 @@ struct MainTabView: View {
                             .scaledToFit()
                             .frame(width: 110)
                             .padding()
-                        Text(String(AuthViewModel.shared.currentUser?.money ?? 0))
+                        Text(String(AuthViewModel.shared.currentUser?.money ?? 0)).padding(.trailing, 20).padding(.bottom, 3)
                     }
                     Spacer()
                     Button(action: {
                                 openSocial.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("社群")
                             .resizable()
@@ -50,6 +53,7 @@ struct MainTabView: View {
                     Button(action: {
 //                        AuthViewModel.shared.signout()
                         openSetting.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("設定")
                             .resizable()
@@ -65,6 +69,7 @@ struct MainTabView: View {
                 HStack {
                     Button(action: {
                         openCalendar.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("月曆")
                             .resizable()
@@ -77,7 +82,8 @@ struct MainTabView: View {
                     }
                     Spacer()
                     Button(action: {
-    //                            openRecord.toggle()
+                                openShare.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("相機")
                             .resizable()
@@ -85,13 +91,14 @@ struct MainTabView: View {
                             .frame(width: 48, height: 48)
                             .padding()
                     })
-    //                        .sheet(isPresented: $openRecord) {
-    //                            RecordView(show: $openRecord)
-    //                        }
+//                            .fullScreenCover(isPresented: $openShare) {
+//                                ShareView(user: user, show: $openShare)
+//                            }
                 }
                 HStack {
                     Button(action: {
                         openShop.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("商店")
                             .resizable()
@@ -104,6 +111,7 @@ struct MainTabView: View {
                     }
                     Button(action: {
                         openCollection.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("蒐集")
                             .resizable()
@@ -117,6 +125,7 @@ struct MainTabView: View {
                     Spacer()
                     Button(action: {
                         openRecord.toggle()
+                        SoundPlayer.shared.playIconSound()
                     }, label: {
                         Image("調色盤")
                             .resizable()
@@ -139,6 +148,7 @@ struct MainTabView: View {
 //            }
 //        }
     }
+    
 }
 
 //struct MainTabView_Previews: PreviewProvider {

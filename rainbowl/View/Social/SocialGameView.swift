@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct SocialGameView: View {
     @Environment(\.dismiss) var dismiss
     
@@ -62,6 +63,7 @@ struct SocialGameView: View {
                 }
                 
             }
+            .defaultScrollAnchor(.center)
 //            .navigationTitle(user.username)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
@@ -72,8 +74,8 @@ struct SocialGameView: View {
                             Image("\(user.avatar)_彩色")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 30, height: 30)
-                                .frame(width: 55, height: 55)
+                                .frame(width: 19, height: 19)
+                                .frame(width: 35, height: 35)
                                 .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
                                 .clipShape(Circle())
                             Text(user.username)
@@ -81,7 +83,7 @@ struct SocialGameView: View {
                                 .foregroundColor(Color(red: 129/255, green: 117/255, blue: 87/255))
                                 .padding(.leading, 15)
                             Spacer()
-                        }.frame(width: 200, height: 55)
+                        }.frame(width: 150)
                             .background(Color(red: 241/255, green: 239/255, blue: 234/255))
                             .cornerRadius(50)
         
@@ -90,11 +92,12 @@ struct SocialGameView: View {
                         Spacer()
                         Button(action: {
                             dismiss()
+                            SoundPlayer.shared.playClickSound()
                         }) {
                             Text("返回")
                                 .font(.headline)
                                 .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 80, height: 48)
+                                .frame(width: 80, height: 35)
                                 .background(Color(red: 184/255, green: 175/255, blue: 153/255))
                                 .cornerRadius(50)
                                 .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
@@ -105,7 +108,8 @@ struct SocialGameView: View {
 //                                .padding()
 //                                .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
                         }
-                    }.padding(.top, 30)
+                    }
+//                    .padding(.top, 30)
                 }
             }.toolbarBackground(.hidden, for: .navigationBar)
 //            Button {
@@ -223,6 +227,7 @@ struct SocialGameView: View {
                     colorView(for: creature, color: color)
                 }
             }
+                .zIndex(Double(creature.locationY ?? 1))
                 .position(initialPosition)
             
         )

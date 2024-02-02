@@ -126,6 +126,7 @@ struct GameSnapshotView: View {
                     colorView(for: creature, color: color)
                 }
             }
+                .zIndex(Double(creature.locationY ?? 1))
                 .position(initialPosition)
             
         )

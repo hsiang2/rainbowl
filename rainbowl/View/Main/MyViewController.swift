@@ -30,7 +30,7 @@ class MyViewController: UIViewController {
         setupBackgroundMusic()
         
         // 添加背景圖片
-        backgroundImageView = UIImageView(image: UIImage(named: "島"))
+        backgroundImageView = UIImageView(image: UIImage(named: "背景_黑白"))
         backgroundImageView.frame = view.bounds
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.layer.zPosition = -1

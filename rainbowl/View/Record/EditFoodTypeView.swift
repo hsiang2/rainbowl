@@ -81,7 +81,7 @@ struct EditFoodTypeView: View {
                                 .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
                             TextField("0.8", text: $size)
                                 .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
-                                .keyboardType(.numberPad)
+                                .keyboardType(.decimalPad)
                             Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                         }
                     }
@@ -118,7 +118,7 @@ struct EditFoodTypeView: View {
                 
                         VStack(alignment: .leading) {
                             TextField("", text: $gram)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.decimalPad)
                                 .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
                             Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                         }
@@ -141,7 +141,7 @@ struct EditFoodTypeView: View {
                         
                         VStack(alignment: .leading) {
                             TextField("", text: $calorie)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.decimalPad)
                                 .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
                             Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                         }
@@ -154,7 +154,7 @@ struct EditFoodTypeView: View {
                     Button {
                         viewModel.deleteFoodType(id: food?.id ?? "")
                         editFoodType = nil
-                        
+                        SoundPlayer.shared.playClickSound()
                     } label: {
                         Text("刪除")
                             .font(.headline)
@@ -173,6 +173,7 @@ struct EditFoodTypeView: View {
                             }
                         }
                         editFoodType = nil
+                        SoundPlayer.shared.playClickSound()
                         
                     } label: {
                         Text("確認")
