@@ -75,18 +75,18 @@ class MyViewController: UIViewController {
            // Call the addAnimal method with the deer type
            addAnimal(type: .deer)
        }
-    func animatedImages(for name: String) -> [UIImage] {
-        var i = 0
-        var images = [UIImage]()
-        
-        while let image = UIImage(named: "\(name)\(i)") {
-            images.append(image)
-            i += 1
+        func animatedImages(for name: String) -> [UIImage] {
+            var i = 0
+            var images = [UIImage]()
+            
+            while let image = UIImage(named: "\(name)\(i)") {
+                images.append(image)
+                i += 1
+            }
+            // Add this print statement
+            print("Loaded \(images.count) images for \(name)")
+            return images
         }
-        // Add this print statement
-        print("Loaded \(images.count) images for \(name)")
-        return images
-    }
     
     func startAnimation(for imageView: UIImageView)  {
         // 設置左右移動的範圍
