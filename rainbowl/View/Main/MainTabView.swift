@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct MainTabView: View {
-    @StateObject private var viewModel = DateChangeViewModel()
+//    @StateObject private var viewModel = DateChangeViewModel()
     @State private var previousDate = Date()
     
     
@@ -139,6 +139,11 @@ struct MainTabView: View {
                 }
             }
      
+        }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name.NSCalendarDayChanged).receive(on: DispatchQueue.main)) { _ in
+            // do what you want as soon as the day changes (23:59:59 --> 00:00:00)
+            print("換日！")
+            AuthViewModel.shared.updateColors()
         }
 //        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
 //            if !Calendar.current.isDate(previousDate, inSameDayAs: viewModel.currentDate) {
