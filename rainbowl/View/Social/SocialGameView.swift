@@ -11,7 +11,7 @@ import SwiftUI
 struct SocialGameView: View {
     @Environment(\.dismiss) var dismiss
     
-    @ObservedObject var viewModel = SearchUserViewModel()
+    @ObservedObject var viewModel = SocialViewModel()
     
     let user: User
 

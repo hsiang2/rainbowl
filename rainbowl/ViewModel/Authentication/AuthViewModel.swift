@@ -56,7 +56,7 @@ class AuthViewModel: ObservableObject {
                 "username": username,
                 "avatar": avatar,
                 "avatarColor": avatarColor,
-                "uid": user.uid,
+                "id": user.uid,
                 "money": 0,
 //                "colors": [0, 0, 0, 0, 0]
                 "red": [0, 0, 0, 0, 0],
@@ -411,6 +411,10 @@ class AuthViewModel: ObservableObject {
 //        { _ in
 //            self.fetchUser()
 //        }
+    }
+    
+    func sendInvitation() {
+
     }
     
 }

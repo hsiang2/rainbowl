@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameSnapshotView: View {
-    @ObservedObject var viewModel = SearchUserViewModel()
+    @ObservedObject var viewModel = SocialViewModel()
     
     let user: User
     

@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct UserItem: View {
+    @StateObject var viewModel = SocialViewModel()
     let user: User
         
+    var status: String {
+        return viewModel.fetchFriendStatus(user: user.id ?? "")
+    }
+    
+//    init(viewModel: SocialViewModel = SocialViewModel(), user: User) {
+////        self.viewModel = viewModel
+//        self.user = user
+//        self.status = viewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
+//
+//    }
         var body: some View {
             VStack {
 //                KFImage(URL(string: user.profileImageUrl))
@@ -44,7 +55,50 @@ struct UserItem: View {
                     }.padding(.leading, 10)
 //                    .padding(.bottom, 50)
                     Spacer()
-                }.padding(.leading, 50)
+                    Button(action: {
+                        if (status == "") {
+                            viewModel.sendInvitation(invitee: user.id ?? "")
+                            SoundPlayer.shared.playIconSound()
+                            
+                        } else if (status == "request") {
+                            viewModel.acceptInvitation(inviter: user.id ?? "")
+                            SoundPlayer.shared.playIconSound()
+                        }
+                            
+                        
+                    }, label: {
+                        if (status == "") {
+                            Text("加入好友")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                                .frame(width: 90, height: 50)
+                                .background(Color(red: 187/255, green: 129/255, blue: 111/255))
+                                .cornerRadius(50)
+                        } else if  (status == "request") {
+                            Text("接受邀請")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                                .frame(width: 90, height: 50)
+                                .background(Color(red: 187/255, green: 129/255, blue: 111/255))
+                                .cornerRadius(50)
+                        } else if (status == "pending") {
+                            Text("已邀請")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                                .frame(width: 90, height: 50)
+                                .background(Color(red: 167/255, green: 165/255, blue: 165/255))
+                                .cornerRadius(50)
+                        } 
+                        else {
+                            Text("好友")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                                .frame(width: 90, height: 50)
+                                .background(Color(red: 167/255, green: 165/255, blue: 165/255))
+                                .cornerRadius(50)
+                        }
+                    })
+                }.padding(.init(top: 0, leading: 50, bottom: 0, trailing: 50))
                 
 
             

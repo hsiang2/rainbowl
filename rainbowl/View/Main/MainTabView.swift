@@ -11,7 +11,7 @@ import SwiftUI
 struct MainTabView: View {
 //    @StateObject private var viewModel = DateChangeViewModel()
     @State private var previousDate = Date()
-    
+    @StateObject var socialViewMode = SocialViewModel()
     
     let user: User
     @State private var openRecord = false
@@ -20,6 +20,8 @@ struct MainTabView: View {
     @State private var openShop = false
     @State private var openSetting = false
     @State private var openSocial = false
+    @State private var openMailbox = false
+    
     
     @State private var openShare = false
     
@@ -37,6 +39,29 @@ struct MainTabView: View {
                         Text(String(AuthViewModel.shared.currentUser?.money ?? 0)).padding(.trailing, 20).padding(.bottom, 3)
                     }
                     Spacer()
+                    Button(action: {
+                                openMailbox.toggle()
+                        SoundPlayer.shared.playIconSound()
+                    }, label: {
+                        ZStack {
+                            Image(systemName: "envelope")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 48, height: 48)
+                                .padding()
+                            Text("\(socialViewMode.fetchNotificationNumber())")
+                                .font(.system(size: 14))
+                                .frame(width: 25, height: 25)
+//                                .padding(10)
+                                      .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                                      .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
+                                .offset(x: 18, y: -10)
+                        }
+                       
+                    })
+                    .fullScreenCover(isPresented: $openMailbox) {
+                        MailboxView(show: $openMailbox)
+                    }
                     Button(action: {
                                 openSocial.toggle()
                         SoundPlayer.shared.playIconSound()

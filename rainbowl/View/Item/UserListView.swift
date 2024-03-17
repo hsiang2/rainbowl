@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct UserListView: View {
-    @ObservedObject var viewModel = SearchUserViewModel()
+    @ObservedObject var viewModel = SocialViewModel()
     @Binding var searchText: String
     
     var users: [User] {
