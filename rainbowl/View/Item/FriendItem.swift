@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct FriendItem: View {
-    @StateObject var viewModel = SocialViewModel()
+    @ObservedObject var backpackViewModel: BackpackViewModel
+    @ObservedObject var socialViewModel: SocialViewModel
     let user: User
         
 //    let status: String
+    @State private var openSendGift = false
     
-    init(viewModel: SocialViewModel = SocialViewModel(), user: User) {
+    
+    init(socialViewModel: SocialViewModel,  backpackViewModel: BackpackViewModel, user: User) {
+        self.socialViewModel = socialViewModel
+        self.backpackViewModel = backpackViewModel
         self.user = user
 //        self.status = viewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
     }
         var body: some View {
             VStack {
-                GameSnapshotView(user: user)
+                GameSnapshotView(user: user, socialViewModel: socialViewModel)
                     .frame(width: 2358, height: 1825)
                     .cornerRadius(350)
                     .scaleEffect(0.12)
@@ -43,7 +48,8 @@ struct FriendItem: View {
 //                    .padding(.bottom, 50)
                     Spacer()
                     Button(action: {
-                        // 未完成
+                        openSendGift.toggle()
+                        
                     }, label: {
                             Text("送禮")
                                 .font(.system(size: 16, weight: .semibold))
@@ -52,9 +58,11 @@ struct FriendItem: View {
                                 .background(Color(red: 187/255, green: 129/255, blue: 111/255))
                                 .cornerRadius(50)
 
-                    })
+                    }).sheet(isPresented: $openSendGift) {
+                        SendGiftView(show: $openSendGift, friendId: user.id ?? "", friendName: user.username, backpackViewModel: backpackViewModel, socialViewModel: socialViewModel)
+                    }
                     Button(action: {
-                        viewModel.deleteFriend(friendId: user.id ?? "")
+                        socialViewModel.deleteFriend(friendId: user.id ?? "")
                     }, label: {
                             Text("解除")
                                 .font(.system(size: 16, weight: .semibold))

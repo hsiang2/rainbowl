@@ -9,11 +9,12 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct FriendListView: View {
-    @ObservedObject var viewModel = SocialViewModel()
+    @ObservedObject var socialViewModel: SocialViewModel
+    @ObservedObject var backpackViewModel: BackpackViewModel
     @Binding var searchText: String
     
     var friendList: [User] {
-        return searchText.isEmpty ? viewModel.fetchRealFriendList() : viewModel.filteredFriends(searchText)
+        return searchText.isEmpty ? socialViewModel.fetchRealFriendList() : socialViewModel.filteredFriends(searchText)
     }
     
     var body: some View {
@@ -22,8 +23,8 @@ struct FriendListView: View {
             LazyVStack {
                 ForEach(friendList) { friend in
                     
-                    NavigationLink(destination: LazyView(SocialGameView(user: friend)), label: {
-                        FriendItem(user: friend)
+                    NavigationLink(destination: LazyView(SocialGameView(user: friend, viewModel: socialViewModel)), label: {
+                        FriendItem(socialViewModel: socialViewModel, backpackViewModel: backpackViewModel, user: friend)
                             .padding(.leading)
                     })
                 }

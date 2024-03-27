@@ -13,6 +13,8 @@ struct UserNotification: Identifiable, Decodable, Hashable {
     
     let sender: String
     let type: String
+    let creatureName: String?
+    let message: String?
     
     let timestamp: Timestamp
 }

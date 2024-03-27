@@ -8,36 +8,27 @@
 import SwiftUI
 
 struct UserItem: View {
-    @StateObject var viewModel = SocialViewModel()
+    @ObservedObject var socialViewModel: SocialViewModel
     let user: User
         
-    var status: String {
-        return viewModel.fetchFriendStatus(user: user.id ?? "")
-    }
-    
-//    init(viewModel: SocialViewModel = SocialViewModel(), user: User) {
-////        self.viewModel = viewModel
-//        self.user = user
-//        self.status = viewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
-//
+    var status: String 
+//    {
+//        return socialViewModel.fetchFriendStatus(user: user.id ?? "")
 //    }
+    
+    init(socialViewModel: SocialViewModel, user: User) {
+        self.socialViewModel = socialViewModel
+        self.user = user
+        self.status = socialViewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
+
+    }
         var body: some View {
             VStack {
-//                KFImage(URL(string: user.profileImageUrl))
-//                Image("刺蝟_彩色")
-//                    .resizable()
-//                    .scaledToFill()
-//                    .frame(width: 48, height: 48)
-//                    .clipShape(Circle())
-                GameSnapshotView(user: user)
+                GameSnapshotView(user: user, socialViewModel: socialViewModel)
                     .frame(width: 2358, height: 1825)
                     .cornerRadius(350)
                     .scaleEffect(0.12)
                     .frame(height: 250)
-//                    .padding(0)
-//                    .scaledToFit()
-//                    .padding(.bottom, -100)
-//
                 HStack {
                     Image("\(user.avatar)_彩色")
                         .resizable()
@@ -57,11 +48,11 @@ struct UserItem: View {
                     Spacer()
                     Button(action: {
                         if (status == "") {
-                            viewModel.sendInvitation(invitee: user.id ?? "")
+                            socialViewModel.sendInvitation(invitee: user.id ?? "")
                             SoundPlayer.shared.playIconSound()
                             
                         } else if (status == "request") {
-                            viewModel.acceptInvitation(inviter: user.id ?? "")
+                            socialViewModel.acceptInvitation(inviter: user.id ?? "")
                             SoundPlayer.shared.playIconSound()
                         }
                             

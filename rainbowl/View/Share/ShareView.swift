@@ -12,8 +12,11 @@ struct ShareView: View {
     let user: User
     @Binding var show: Bool
     
+    @ObservedObject var socialViewModel: SocialViewModel
+    
     @State private var renderedImage = Image(systemName: "photo")
         @Environment(\.displayScale) var displayScale
+    
 
     var body: some View {
         ZStack {
@@ -57,7 +60,7 @@ struct ShareView: View {
 //        }
     
     @MainActor func render() {
-            let renderer = ImageRenderer(content:GameSnapshotView(user: user))
+        let renderer = ImageRenderer(content:GameSnapshotView(user: user, socialViewModel: socialViewModel))
 //        let renderer = ImageRenderer(content:Text("hi"))
 
             // make sure and use the correct display scale for this device

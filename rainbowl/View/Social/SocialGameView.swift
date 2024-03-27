@@ -11,7 +11,7 @@ import SwiftUI
 struct SocialGameView: View {
     @Environment(\.dismiss) var dismiss
     
-    @ObservedObject var viewModel = SocialViewModel()
+    @ObservedObject var viewModel: SocialViewModel
     
     let user: User
 
@@ -21,14 +21,12 @@ struct SocialGameView: View {
 
     @StateObject private var positionManager = CreaturePositionManager()
 
+    @State private var creatures: [CreatureInUse] = []
 
-//    @StateObject var viewModel = AuthViewModel()
-
-
-    var creatures: [CreatureInUse] {
-        viewModel.fetchCreatures(uid: user.id ?? "")
-        return viewModel.creatures
-    }
+//    var creatures: [CreatureInUse] {
+//        return viewModel.fetchCreatures(uid: user.id ?? "")
+////        return viewModel.creatures
+//    }
     
 
     var red: Float
@@ -38,8 +36,9 @@ struct SocialGameView: View {
     var purple: Float
     var white: Float
 
-    init(user: User) {
+    init(user: User, viewModel: SocialViewModel) {
         self.user = user
+        self.viewModel = viewModel
         self.red = user.red?.reduce(0) { $0 + $1 } ?? 0
         self.orange = user.orange?.reduce(0) { $0 + $1 } ?? 0
         self.yellow = user.yellow?.reduce(0) { $0 + $1 } ?? 0
@@ -142,6 +141,9 @@ struct SocialGameView: View {
                             currentScaleValue = 0
                         }
                 )
+                .onAppear {
+                               fetchCreatures()
+                           }
             
         
 
@@ -232,6 +234,11 @@ struct SocialGameView: View {
             
         )
     }
+    func fetchCreatures() {
+            viewModel.fetchCreatures(uid: user.id ?? "") { fetchedCreatures in
+                self.creatures = fetchedCreatures
+            }
+        }
 }
 
 

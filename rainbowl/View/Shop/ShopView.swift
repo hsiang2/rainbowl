@@ -11,7 +11,7 @@ struct ShopView: View {
     @Binding var show: Bool
     @State private var selectedCategory: String = ""
     @State private var allcreatures = [CreatureProduct]()
-    @ObservedObject var viewModel = BackpackViewModel()
+    @ObservedObject var backpackViewModel: BackpackViewModel
     @ObservedObject var bookViewModel = BookViewModel()
     
     @State var animalShown = false
@@ -124,7 +124,7 @@ struct ShopView: View {
                                 let randomCreature = creatures.randomElement()!
     //                            let randomCreature = creatures[2]
                                 bookViewModel.addToBook(name: randomCreature.name)
-                                viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
+                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, friend: nil)
                                 animalShown = false
                                 
                                 name = randomCreature.name
@@ -171,7 +171,7 @@ struct ShopView: View {
                                 let randomCreature = creatures.randomElement()!
                                 //                            let randomCreature = creatures[9]
                                 bookViewModel.addToBook(name: randomCreature.name)
-                                viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
+                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, friend: nil)
                                 plantShown = false
                                 
                                 name = randomCreature.name
@@ -264,8 +264,8 @@ struct ShopView: View {
     }
 }
 
-struct ShopView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopView(show: .constant(true))
-    }
-}
+//struct ShopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopView(show: .constant(true))
+//    }
+//}

@@ -13,7 +13,8 @@ struct SocialView: View {
 
     @State var searchText = ""
     @State var inSearchMode = false
-    @StateObject var viewModel = SocialViewModel()
+    @ObservedObject var socialViewModel: SocialViewModel
+    @ObservedObject var backpackViewModel: BackpackViewModel
     
     @State var currentTab: Int = 0
 
@@ -45,14 +46,14 @@ struct SocialView: View {
                 
                             SearchBar(text: $searchText, isEditing: $inSearchMode)
                                .padding()
-                           FriendListView(viewModel: viewModel, searchText: $searchText)
+                            FriendListView(socialViewModel: socialViewModel, backpackViewModel: backpackViewModel, searchText: $searchText)
                           }.tag(0)
                         ScrollView {
                 
                               SearchBar(text: $searchText, isEditing: $inSearchMode)
                                   .padding()
                 
-                                UserListView(viewModel: viewModel, searchText: $searchText)
+                            UserListView(socialViewModel: socialViewModel, searchText: $searchText)
                           }.tag(1)
                         
                     }.padding(.top, 200)

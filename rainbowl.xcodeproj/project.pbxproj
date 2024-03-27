@@ -19,6 +19,9 @@
 		AA1BF5D62BA57DA400690768 /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF5D52BA57DA400690768 /* FriendListView.swift */; };
 		AA1BF5D82BA585D900690768 /* FriendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF5D72BA585D900690768 /* FriendItem.swift */; };
 		AA1BF5DA2BA58D5600690768 /* SocialTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF5D92BA58D5600690768 /* SocialTabBarView.swift */; };
+		AA1BF5DC2BA6D98500690768 /* SendGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF5DB2BA6D98500690768 /* SendGiftView.swift */; };
+		AA1BF5DE2BAD759A00690768 /* PostcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF5DD2BAD759A00690768 /* PostcardView.swift */; };
+		AA1BF5E02BAEB17800690768 /* SendGiftConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF5DF2BAEB17800690768 /* SendGiftConfirmView.swift */; };
 		AA2E6A2D2A08D19500C668AC /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E6A2C2A08D19500C668AC /* food.json */; };
 		AA46CD902B1B10C700D32A83 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */; };
 		AA46CD922B1B41C200D32A83 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46CD912B1B41C200D32A83 /* EditUserView.swift */; };
@@ -108,6 +111,9 @@
 		AA1BF5D52BA57DA400690768 /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
 		AA1BF5D72BA585D900690768 /* FriendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendItem.swift; sourceTree = "<group>"; };
 		AA1BF5D92BA58D5600690768 /* SocialTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTabBarView.swift; sourceTree = "<group>"; };
+		AA1BF5DB2BA6D98500690768 /* SendGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendGiftView.swift; sourceTree = "<group>"; };
+		AA1BF5DD2BAD759A00690768 /* PostcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostcardView.swift; sourceTree = "<group>"; };
+		AA1BF5DF2BAEB17800690768 /* SendGiftConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendGiftConfirmView.swift; sourceTree = "<group>"; };
 		AA2E6A2C2A08D19500C668AC /* food.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		AA3269512B08B21E0038BE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA46CD8F2B1B10C700D32A83 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
@@ -421,6 +427,9 @@
 				AA8CD4F12B19D2DB00F32D63 /* GameSnapshotView.swift */,
 				AA1BF5CC2BA1CCE700690768 /* MailboxView.swift */,
 				AA1BF5D92BA58D5600690768 /* SocialTabBarView.swift */,
+				AA1BF5DB2BA6D98500690768 /* SendGiftView.swift */,
+				AA1BF5DF2BAEB17800690768 /* SendGiftConfirmView.swift */,
+				AA1BF5DD2BAD759A00690768 /* PostcardView.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -590,11 +599,13 @@
 				AA0B41542A41FA9500AC1C63 /* AddFoodView.swift in Sources */,
 				AA8CD4E22B19787D00F32D63 /* SocialView.swift in Sources */,
 				AA5D0EAA2A4A1894002A32DC /* ItemsView.swift in Sources */,
+				AA1BF5E02BAEB17800690768 /* SendGiftConfirmView.swift in Sources */,
 				AA1BF5DA2BA58D5600690768 /* SocialTabBarView.swift in Sources */,
 				AA46CD9B2B1C079600D32A83 /* AddFoodTypeView.swift in Sources */,
 				AAD109FD2A05554200DB02E3 /* User.swift in Sources */,
 				AA8F08832A0005540069D180 /* FoodListView.swift in Sources */,
 				AAD477072A4B23AE00F57A46 /* Creature.swift in Sources */,
+				AA1BF5DE2BAD759A00690768 /* PostcardView.swift in Sources */,
 				AA1BF5D42BA34DBB00690768 /* Friend.swift in Sources */,
 				AA5D0EA02A48B961002A32DC /* FetchRecordViewMode.swift in Sources */,
 				AA8CD4F22B19D2DB00F32D63 /* GameSnapshotView.swift in Sources */,
@@ -639,6 +650,7 @@
 				AA46CD982B1B856200D32A83 /* MyViewController.swift in Sources */,
 				AA8CD4EE2B19B22B00F32D63 /* SocialGameView.swift in Sources */,
 				AA8F08C02A0342400069D180 /* ResetPasswordView.swift in Sources */,
+				AA1BF5DC2BA6D98500690768 /* SendGiftView.swift in Sources */,
 				AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */,
 				AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */,
 				AA8CD4E62B19811E00F32D63 /* Extensions.swift in Sources */,

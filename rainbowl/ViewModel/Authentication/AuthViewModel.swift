@@ -44,7 +44,7 @@ class AuthViewModel: ObservableObject {
     func register(withEmail email: String, password: String, username: String, avatar: String, avatarColor: Int) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print(error.localizedDescription)
+                print("Registration error: \(error.localizedDescription)")
                 return
             }
             
@@ -67,8 +67,12 @@ class AuthViewModel: ObservableObject {
                 "white": [0, 0, 0, 0, 0],
             ] as [String : Any]
             
-            COLLECTION_USERS.document(user.uid).setData(data) { _ in
-                print("successfully uploaded user data...")
+            COLLECTION_USERS.document(user.uid).setData(data) { error in
+                if let error = error {
+                    print("Error uploading user data: \(error.localizedDescription)")
+                    return
+                }
+                print("Successfully uploaded user data...")
                 self.userSession = user
                 self.fetchUser()
             }
@@ -360,45 +364,39 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func addToGame(category: String, name: String, colors: [String], width: Float) {
-//        guard let user = AuthViewModel.shared.currentUser else {
-//            return
-//        }
-        guard let uid = userSession?.uid else { return }
-        
-        let data = [
-                "category": category,
-                "name": name,
-                "colors": colors,
-                "width": width,
-                "locationX": 1179,
-                "locationY": 912
-        ] as [String : Any]
-        COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data)
-//        { _ in
-//            AuthViewModel().fetchGame()
-//        }
-
-        BackpackViewModel().deleteBackpack(name: name)
-    }
+//    func addToGame(category: String, name: String, colors: [String], width: Float) {
+//        guard let uid = userSession?.uid else { return }
+//        
+//        let data = [
+//                "category": category,
+//                "name": name,
+//                "colors": colors,
+//                "width": width,
+//                "locationX": 1179,
+//                "locationY": 912
+//        ] as [String : Any]
+//        COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data)
+//
+//        BackpackViewModel().deleteBackpack(name: name)
+//    }
     
     func updateCreaturePosition(id: String, x: Float, y: Float) {
         guard let uid = userSession?.uid else { return }
         COLLECTION_USERS.document(uid).collection("creatures").document(id).updateData(["locationX": x, "locationY": y])
     }
     
-    func deleteGame(id: String, category: String, name: String, colors: [String], width: Float) {
-//        guard let user = AuthViewModel.shared.currentUser else {
-//            return
-//        }
-        guard let uid = userSession?.uid else { return }
-        COLLECTION_USERS.document(uid).collection("creatures").document(id).delete()
-//        { _ in
-//            AuthViewModel().fetchGame()
-//        }
-
-        BackpackViewModel().addToBackpack(category: category, name: name, colors: colors, width: width)
-    }
+//    func deleteGame(id: String, category: String, name: String, colors: [String], width: Float) {
+////        guard let user = AuthViewModel.shared.currentUser else {
+////            return
+////        }
+//        guard let uid = userSession?.uid else { return }
+//        COLLECTION_USERS.document(uid).collection("creatures").document(id).delete()
+////        { _ in
+////            AuthViewModel().fetchGame()
+////        }
+//
+//        BackpackViewModel().addToBackpack(category: category, name: name, colors: colors, width: width, friend: nil)
+//    }
     
     func changeMoney(money: Int) {
         guard let uid = userSession?.uid else { return }
@@ -411,10 +409,6 @@ class AuthViewModel: ObservableObject {
 //        { _ in
 //            self.fetchUser()
 //        }
-    }
-    
-    func sendInvitation() {
-
     }
     
 }

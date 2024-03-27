@@ -34,20 +34,14 @@ struct GameView: View {
 
     @StateObject var viewModel = AuthViewModel()
     
+    @ObservedObject var backpackViewModel: BackpackViewModel
+    
+    
     @State var looper: AVPlayerLooper?
     
-//    @StateObject var bookViewModel = BookViewModel()
-
-
     var creatures: [CreatureInUse] {
         return viewModel.creatures
     }
-    
-//    var bookCreatures: [CreatureInBook] {
-//        return bookViewModel.creatures.filter({
-//            $0.status == "initial"
-//        })
-//    }
 
     var red: Float
     var orange: Float
@@ -56,7 +50,8 @@ struct GameView: View {
     var purple: Float
     var white: Float
 
-    init(user: User) {
+    init(user: User, backpackViewModel: BackpackViewModel) {
+        self.backpackViewModel = backpackViewModel
         self.user = user
         self.red = user.red?.reduce(0) { $0 + $1 } ?? 0
         self.orange = user.orange?.reduce(0) { $0 + $1 } ?? 0
@@ -292,7 +287,7 @@ struct GameView: View {
                 }
                 if (showDelete) {
                     Button(action: {
-                        viewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                        backpackViewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
                         SoundPlayer.shared.playClickSound()
                     }) {
                         Image(systemName: "minus.circle.fill")

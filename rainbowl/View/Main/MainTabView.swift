@@ -10,10 +10,12 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct MainTabView: View {
 //    @StateObject private var viewModel = DateChangeViewModel()
-    @State private var previousDate = Date()
-    @StateObject var socialViewMode = SocialViewModel()
     
+    @ObservedObject var backpackViewModel: BackpackViewModel
+    @ObservedObject var socialViewModel: SocialViewModel
+//    @StateObject var socialViewModel = SocialViewModel(backpackViewModel: backpackViewModel)
     let user: User
+    @State private var previousDate = Date()
     @State private var openRecord = false
     @State private var openCollection = false
     @State private var openCalendar = false
@@ -25,9 +27,17 @@ struct MainTabView: View {
     
     @State private var openShare = false
     
+    init(user: User) {
+        self.user = user
+        let sharedBackpackViewModel = BackpackViewModel()
+        self.backpackViewModel = sharedBackpackViewModel
+        self.socialViewModel = SocialViewModel(backpackViewModel: sharedBackpackViewModel)
+    }
+
+    
     var body: some View {
         ZStack {
-            GameView(user: user)
+            GameView(user: user, backpackViewModel: backpackViewModel)
             VStack {
                 HStack {
                     ZStack {
@@ -49,18 +59,18 @@ struct MainTabView: View {
                                 .scaledToFit()
                                 .frame(width: 48, height: 48)
                                 .padding()
-                            Text("\(socialViewMode.fetchNotificationNumber())")
-                                .font(.system(size: 14))
-                                .frame(width: 25, height: 25)
-//                                .padding(10)
-                                      .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                      .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
-                                .offset(x: 18, y: -10)
+//                            Text("\(socialViewMode.fetchNotificationNumber())")
+//                                .font(.system(size: 14))
+//                                .frame(width: 25, height: 25)
+////                                .padding(10)
+//                                      .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+//                                      .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
+//                                .offset(x: 18, y: -10)
                         }
                        
                     })
                     .fullScreenCover(isPresented: $openMailbox) {
-                        MailboxView(show: $openMailbox)
+                        MailboxView(show: $openMailbox, socialViewModel: socialViewModel)
                     }
                     Button(action: {
                                 openSocial.toggle()
@@ -73,10 +83,9 @@ struct MainTabView: View {
                             .padding()
                     })
                     .fullScreenCover(isPresented: $openSocial) {
-                        SocialView(show: $openSocial)
+                        SocialView(show: $openSocial, socialViewModel: socialViewModel, backpackViewModel: backpackViewModel)
                     }
                     Button(action: {
-//                        AuthViewModel.shared.signout()
                         openSetting.toggle()
                         SoundPlayer.shared.playIconSound()
                     }, label: {
@@ -132,7 +141,7 @@ struct MainTabView: View {
                             .padding()
                     })
                     .fullScreenCover(isPresented: $openShop) {
-                        ShopView(show: $openShop)
+                        ShopView(show: $openShop, backpackViewModel: backpackViewModel)
                     }
                     Button(action: {
                         openCollection.toggle()
@@ -145,7 +154,7 @@ struct MainTabView: View {
                             .padding()
                     })
                     .sheet(isPresented: $openCollection) {
-                        CollectionView(show: $openCollection)
+                        CollectionView(show: $openCollection, backpackViewModel: backpackViewModel)
                     }
                     Spacer()
                     Button(action: {

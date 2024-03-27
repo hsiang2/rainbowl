@@ -9,36 +9,58 @@ import SwiftUI
 import Firebase
 
 class SocialViewModel: ObservableObject {
+    @ObservedObject var backpackViewModel: BackpackViewModel
+    
     @Published var notificationList = [UserNotification]()
     @Published var friendList = [Friend]()
     // 分隔線
     @Published var users = [User]()
-    @Published var creatures = [CreatureInUse]()
+//    @Published var creatures = [CreatureInUse]()
     
-    init() {
+    init(backpackViewModel: BackpackViewModel) {
+        self.backpackViewModel = backpackViewModel
         fetchNotificationList()
         fetchUsers()
         fetchFriendList()
     }
     
     func fetchUsers() {
-        guard let user = AuthViewModel.shared.currentUser else {
-            return
-        }
-        COLLECTION_USERS.getDocuments{ snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
+        guard let user = Auth.auth().currentUser else { return }
+        COLLECTION_USERS.getDocuments { snapshot, error in
+            guard let documents = snapshot?.documents else {
+                print("Error fetching user documents: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
             let users = documents.compactMap({ try? $0.data(as: User.self) })
             self.users = users.filter({
-                $0.id != user.id
+                $0.id != user.uid
             })
         }
     }
     
-    func fetchCreatures(uid: String) {
-        COLLECTION_USERS.document(uid).collection("creatures").addSnapshotListener { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
-            self.creatures = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
+    func fetchCreatures(uid: String, completion: @escaping ([CreatureInUse]) -> Void) {
+        var creatureList: [CreatureInUse] = []
+        COLLECTION_USERS.document(uid).collection("creatures").addSnapshotListener { snapshot, error in
+            if let error = error {
+                       // Handle error
+                       print("Error fetching creatures: \(error.localizedDescription)")
+                       completion([])
+                       return
+                   }
+                   
+                   guard let documents = snapshot?.documents else {
+                       // Handle no documents
+                       completion([])
+                       return
+                   }
+                   
+                   creatureList = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
+                   completion(creatureList)
+//            guard let documents = snapshot?.documents else { return }
+//            creatureList = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
+////            self.creatures = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
         }
+//        return creatureList
     }
     
     func filteredUsers(_ query: String) -> [User] {
@@ -67,7 +89,6 @@ class SocialViewModel: ObservableObject {
             guard let documents = snapshot?.documents else { return }
             let notifications = documents.compactMap({ try? $0.data(as: UserNotification.self) })
             self.notificationList = notifications.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
-            print(notifications)
         }
     }
     
@@ -184,6 +205,26 @@ class SocialViewModel: ObservableObject {
 //        COLLECTION_FRIENDSLIST.document(user.id ?? "").collection("friendsList").addDocument(data: ["id": inviter, "status":"friend"])
         
         COLLECTION_NOTIFICATION.document(inviter).collection("notification").addDocument(data: notificationData)
+    }
+    
+    //送禮物
+    
+    func sendGift(friend: String, creature: Creature, message: String) {
+        guard let user = AuthViewModel.shared.currentUser else {
+            return
+        }
+        let data = [
+                "sender": user.id ?? "",
+                "type": "gift",
+                "timestamp": Timestamp(date: Date()),
+                "creatureName": creature.name,
+                "message": message
+        ] as [String : Any]
+        
+        backpackViewModel.deleteBackpack(name: creature.name)
+        backpackViewModel.addToBackpack(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width, friend: friend)
+        
+        COLLECTION_NOTIFICATION.document(friend).collection("notification").addDocument(data: data)
     }
 
     func deleteNotification(id: String) {

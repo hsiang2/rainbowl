@@ -189,7 +189,7 @@ struct AddFoodTypeView: View {
 //                        .frame(width: 85, height: 30)
 //                        .background(Color(red: 188/255, green: 209/255, blue: 208/255))
 //                        .cornerRadius(9)
-                }
+                }.disabled(name == "" || size == "" || unit == "" || gram == "" || calorie == "")
                
 //            }.padding(.top, 42)
         }.padding(.horizontal, 30)
