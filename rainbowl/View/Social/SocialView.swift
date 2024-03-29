@@ -23,7 +23,7 @@ struct SocialView: View {
             
             
             ZStack {
-                Color(red: 233/255, green: 230/255, blue: 221/255)
+                Color(red: 241/255, green: 231/255, blue: 224/255)
                     .ignoresSafeArea()
                     .overlay(alignment: .topTrailing) {
                         Button {
@@ -43,7 +43,6 @@ struct SocialView: View {
                 ZStack(alignment: .top) {
                     TabView(selection: self.$currentTab) {
                         ScrollView {
-                
                             SearchBar(text: $searchText, isEditing: $inSearchMode)
                                .padding()
                             FriendListView(socialViewModel: socialViewModel, backpackViewModel: backpackViewModel, searchText: $searchText)

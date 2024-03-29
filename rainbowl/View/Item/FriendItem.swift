@@ -24,57 +24,70 @@ struct FriendItem: View {
     }
         var body: some View {
             VStack {
-                GameSnapshotView(user: user, socialViewModel: socialViewModel)
-                    .frame(width: 2358, height: 1825)
-                    .cornerRadius(350)
-                    .scaleEffect(0.12)
-                    .frame(height: 250)
-
-                HStack {
-                    Image("\(user.avatar)_彩色")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 30, height: 30)
-                        .frame(width: 55, height: 55)
-                        .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
-                        .clipShape(Circle())
-                    VStack(alignment: .leading) {
+                ZStack(alignment: .topLeading) {
+                    
+                    GameSnapshotView(user: user, socialViewModel: socialViewModel)
+    //                    .frame(width: 2358, height: 1825)
+                        .scaleEffect(0.2)
+                        .scaledToFit()
+                        .frame(width: 318, height: 217)
+                        .cornerRadius(35)
+                    HStack {
+                        Image("\(user.avatar)_彩色")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 30, height: 30)
+                            .frame(width: 55, height: 55)
+                            .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
+                            .clipShape(Circle())
                         Text(user.username)
                             .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(Color(red: 87/255, green: 87/255, blue: 87/255))
-    //                    Text(user.fullname)
-    //                        .font(.system(size: 14))
+                          .foregroundColor(Color(red: 87/255, green: 87/255, blue: 87/255))
+                          .padding(.trailing, 25)
                     }
-//                    .padding(.bottom, 50)
+                    .frame(height: 55)
+                    .background(.ultraThinMaterial)
+                        .cornerRadius(50)
+                        .padding(11)
+                }.frame(width: 318, height: 217)
+                    .cornerRadius(35)
+          
+
+                HStack {
                     Spacer()
                     Button(action: {
                         openSendGift.toggle()
                         
                     }, label: {
+                        ZStack {
+                            Image("按鈕_查看接受送禮")
+                                .resizable()
+                                .scaledToFit()
                             Text("送禮")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 50, height: 50)
-                                .background(Color(red: 187/255, green: 129/255, blue: 111/255))
-                                .cornerRadius(50)
-
+                                .font(.system(size: 15, weight: .medium))
+                                .foregroundColor(Color(red: 83/255, green: 83/255, blue: 83/255))
+                                .padding(.bottom, 3)
+                        }.frame(width: 77, height: 33)
                     }).sheet(isPresented: $openSendGift) {
                         SendGiftView(show: $openSendGift, friendId: user.id ?? "", friendName: user.username, backpackViewModel: backpackViewModel, socialViewModel: socialViewModel)
                     }
                     Button(action: {
                         socialViewModel.deleteFriend(friendId: user.id ?? "")
                     }, label: {
-                            Text("解除")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 50, height: 50)
-                                .background(Color(red: 167/255, green: 165/255, blue: 165/255))
-                                .cornerRadius(50)
+                        ZStack {
+                            Image("按鈕_移除")
+                                .resizable()
+                                .scaledToFit()
+                            Text("移除")
+                                .font(.system(size: 15, weight: .medium))
+                                .foregroundColor(Color(red: 83/255, green: 83/255, blue: 83/255))
+                                .padding(.bottom, 3)
+                        }.frame(width: 77, height: 33)
 
                     })
-                }.padding(.init(top: 0, leading: 50, bottom: 0, trailing: 50))
+                }.padding(.init(top: 20, leading: 55, bottom: 0, trailing: 55))
             
-            }.padding(.bottom, 30)
+            }.padding(.vertical, 25)
         }
 }
 

@@ -25,7 +25,7 @@ struct FriendListView: View {
                     
                     NavigationLink(destination: LazyView(SocialGameView(user: friend, viewModel: socialViewModel)), label: {
                         FriendItem(socialViewModel: socialViewModel, backpackViewModel: backpackViewModel, user: friend)
-                            .padding(.leading)
+//                            .padding(.leading)
                     })
                 }
             }

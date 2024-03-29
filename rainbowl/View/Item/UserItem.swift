@@ -26,10 +26,14 @@ struct UserItem: View {
         var body: some View {
             VStack {
                 GameSnapshotView(user: user, socialViewModel: socialViewModel)
-                    .frame(width: 2358, height: 1825)
-                    .cornerRadius(350)
-                    .scaleEffect(0.12)
-                    .frame(height: 250)
+                    .scaleEffect(0.2)
+                    .scaledToFit()
+                    .frame(width: 318, height: 217)
+                    .cornerRadius(35)
+//                    .frame(width: 2358, height: 1825)
+//                    .cornerRadius(350)
+//                    .scaleEffect(0.12)
+//                    .frame(height: 250)
                 HStack {
                     Image("\(user.avatar)_彩色")
                         .resizable()
@@ -40,12 +44,9 @@ struct UserItem: View {
                         .clipShape(Circle())
                     VStack(alignment: .leading) {
                         Text(user.username)
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(Color(red: 87/255, green: 87/255, blue: 87/255))
-    //                    Text(user.fullname)
-    //                        .font(.system(size: 14))
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(Color(red: 59/255, green: 65/255, blue: 60/255))
                     }.padding(.leading, 10)
-//                    .padding(.bottom, 50)
                     Spacer()
                     Button(action: {
                         if (status == "") {
@@ -60,41 +61,47 @@ struct UserItem: View {
                         
                     }, label: {
                         if (status == "") {
-                            Text("加入好友")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 90, height: 50)
-                                .background(Color(red: 187/255, green: 129/255, blue: 111/255))
-                                .cornerRadius(50)
+                            ZStack {
+                                Image("按鈕_查看接受送禮")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("加好友")
+                                    .font(.system(size: 15, weight: .medium))
+                                    .foregroundColor(Color(red: 83/255, green: 83/255, blue: 83/255))
+                                    .padding(.bottom, 3)
+                            }.frame(width: 77, height: 33)
                         } else if  (status == "request") {
-                            Text("接受邀請")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 90, height: 50)
-                                .background(Color(red: 187/255, green: 129/255, blue: 111/255))
-                                .cornerRadius(50)
+                            ZStack {
+                                Image("按鈕_接受")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("接受")
+                                    .font(.system(size: 15, weight: .medium))
+                                    .foregroundColor(Color(red: 83/255, green: 83/255, blue: 83/255))
+                                    .padding(.bottom, 3)
+                            }.frame(width: 77, height: 33)
                         } else if (status == "pending") {
                             Text("已邀請")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 90, height: 50)
-                                .background(Color(red: 167/255, green: 165/255, blue: 165/255))
-                                .cornerRadius(50)
-                        } 
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(Color(red: 189/255, green: 177/255, blue: 170/255))
+                            .frame(width: 77, height: 30)
+                            .background(Color(red: 227/255, green: 218/255, blue: 212/255))
+                            .cornerRadius(9)
+                        }
                         else {
                             Text("好友")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                .frame(width: 90, height: 50)
-                                .background(Color(red: 167/255, green: 165/255, blue: 165/255))
-                                .cornerRadius(50)
+                                .font(.system(size: 15, weight: .medium))
+                                .foregroundColor(Color(red: 213/255, green: 168/255, blue: 143/255))
+                                .frame(width: 77, height: 30)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 9)
+                                        .stroke(Color(red: 213/255, green: 168/255, blue: 143/255), lineWidth: 1.3)
+                                )
                         }
                     })
-                }.padding(.init(top: 0, leading: 50, bottom: 0, trailing: 50))
+                }.padding(.init(top: 20, leading: 55, bottom: 0, trailing: 55))
                 
-
-            
-            }.padding(.bottom, 30)
+            }.padding(.vertical, 25)
         }
 //            HStack {
 ////                KFImage(URL(string: user.profileImageUrl))

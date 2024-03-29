@@ -150,7 +150,7 @@ struct MailboxView: View {
                         
                         
                     }.listStyle(.plain)
-                        .environment(\.defaultMinListRowHeight, 70)
+                        .environment(\.defaultMinListRowHeight, 82)
                         .padding(.top, 80)
                         .padding(.horizontal, 16)
             }

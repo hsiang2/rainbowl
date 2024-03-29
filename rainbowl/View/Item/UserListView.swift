@@ -23,7 +23,6 @@ struct UserListView: View {
                 ForEach(users) { user in
                     NavigationLink(destination: LazyView(SocialGameView(user: user, viewModel: socialViewModel)), label: {
                         UserItem(socialViewModel: socialViewModel, user: user)
-                            .padding(.leading)
                     })
                 }
             }
