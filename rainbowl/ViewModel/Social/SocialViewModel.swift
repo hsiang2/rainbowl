@@ -75,11 +75,18 @@ class SocialViewModel: ObservableObject {
         return users.first {$0.id == user}?.username ?? ""
     }
     
+    func fetchAvatarById(user: String) -> String {
+        return users.first {$0.id == user}?.avatar ?? ""
+    }
+    
+    func fetchAvatarColorById(user: String) -> Int {
+        return users.first {$0.id == user}?.avatarColor ?? 0
+    }
+    
+    
     func fetchUserById(user: String) -> User? {
         return users.first {$0.id == user}
-        
     }
-    // 分隔線
     
     func fetchNotificationList() {
         guard let user = AuthViewModel.shared.currentUser else {
@@ -89,11 +96,9 @@ class SocialViewModel: ObservableObject {
             guard let documents = snapshot?.documents else { return }
             let notifications = documents.compactMap({ try? $0.data(as: UserNotification.self) })
             self.notificationList = notifications.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
-        }
-        print(notificationList)
-    }
+        }    }
     
-    //
+    //拿新通知數
     func newNotificationsCount() -> Int {
         var count = 0
         for notification in notificationList {
@@ -105,6 +110,7 @@ class SocialViewModel: ObservableObject {
         return count
     }
     
+    //標示為已讀
     func markUnreadNotificationsAsRead() {
         for index in notificationList.indices {
             if !notificationList[index].isRead {
@@ -113,6 +119,7 @@ class SocialViewModel: ObservableObject {
         }
     }
 
+    //更新已讀通知
     func updateNotificationInFirebase(_ notification: UserNotification) {
         guard let user = AuthViewModel.shared.currentUser else {
             return
@@ -132,33 +139,6 @@ class SocialViewModel: ObservableObject {
         }
     }
 
-
-    // Update the notification in Firebase
-//    func readNotification(notificationId: String) {
-//        guard let user = AuthViewModel.shared.currentUser else {
-//            return
-//        }
-//
-//        let notificationRef = COLLECTION_NOTIFICATION
-//            .document(user.id ?? "")
-//            .collection("notification")
-//            .document(notificationId)
-//
-//        // Update the isRead property in Firebase
-//        notificationRef.updateData(["isRead": true]) { error in
-//            if let error = error {
-//                print("Error updating notification: \(error.localizedDescription)")
-//            } else {
-//                print("Notification updated successfully in Firebase")
-//            }
-//        }
-//    }
-
-    
-    // 拿有幾則通知
-//    func fetchNotificationNumber() -> Int {
-//        return notificationList.count
-//    }
     
     // 拿好友列表（含邀請中）
     func fetchFriendList() {

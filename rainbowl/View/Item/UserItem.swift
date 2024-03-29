@@ -19,7 +19,8 @@ struct UserItem: View {
     init(socialViewModel: SocialViewModel, user: User) {
         self.socialViewModel = socialViewModel
         self.user = user
-        self.status = socialViewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
+//        self.status = socialViewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
+        self.status = socialViewModel.fetchFriendStatus(user: user.id ?? "")
 
     }
         var body: some View {
