@@ -66,6 +66,17 @@ struct MainTabView: View {
 //                                      .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
 //                                      .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
 //                                .offset(x: 18, y: -10)
+                            let unreadCount = socialViewModel.newNotificationsCount()
+                                   if unreadCount > 0 {
+                                       Text("\(unreadCount)")
+                                           .font(.system(size: 12))
+                                           .fontWeight(.bold)
+                                           .foregroundColor(.red)
+                                           .padding(6)
+                                           .background(Color.white)
+                                           .clipShape(Circle())
+                                           .offset(x: 12, y: -12)
+                                   }
                         }
                        
                     })

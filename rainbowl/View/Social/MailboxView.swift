@@ -14,14 +14,10 @@ class SelectedNotificationManager: ObservableObject {
 struct MailboxView: View {
     @Binding var show: Bool
     @State private var openPostCard = false
-    
-//    @State private var selectedNotification: UserNotification? = nil
     @ObservedObject var selectedNotificationManager = SelectedNotificationManager()
-    
     @ObservedObject var socialViewModel: SocialViewModel
     
     var notificationList: [UserNotification] {
-        
         return socialViewModel.notificationList
     }
 
@@ -86,14 +82,6 @@ struct MailboxView: View {
                                 Button {
                                     selectedNotificationManager.selectedNotification = notification
                                        openPostCard = true
-//                                    selectedNotification = notification
-//                                           openPostCard = true
-//                                    print("creatureName: \(selectedNotification?.creatureName ?? "Empty")")
-//                                        print("message: \(selectedNotification?.message ?? "Empty")")
-                                 
-//                                    openPostCard = true
-//                                    openPostCard.toggle()
-                                    
                                 } label: {
                                 Text("查看")
                                     .font(.system(size: 16, weight: .semibold))
@@ -127,6 +115,10 @@ struct MailboxView: View {
                     .environment(\.defaultMinListRowHeight, 70)
                     .padding(.top, 80)
             }
+            .onAppear {
+                           // Mark unread notifications as read when the mailbox view appears
+                socialViewModel.markUnreadNotificationsAsRead()
+            }
             .fullScreenCover(isPresented: $openPostCard) {
                 ZStack {
                     Color(red: 225/255, green: 232/255, blue: 234/255)
@@ -145,20 +137,12 @@ struct MailboxView: View {
                                 
                             }
                         }
-                    //                    PostcardView(creatureName: selectedNotification?.creatureName ?? "", message: selectedNotification?.message ?? "")
-                    //
-                    //                   }
                     PostcardView(creatureName: selectedNotificationManager.selectedNotification?.creatureName ?? "", message: selectedNotificationManager.selectedNotification?.message ?? "")
                 }
             }
             
         }
        
-//        .onChange(of: selectedNotification) { newValue in
-//                   if newValue != nil {
-//                       openPostCard = true
-//                   }
-//               }
     }
 }
 

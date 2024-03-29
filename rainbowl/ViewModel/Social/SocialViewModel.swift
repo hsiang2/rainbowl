@@ -90,12 +90,75 @@ class SocialViewModel: ObservableObject {
             let notifications = documents.compactMap({ try? $0.data(as: UserNotification.self) })
             self.notificationList = notifications.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
         }
+        print(notificationList)
     }
     
-    // 拿有幾則通知
-    func fetchNotificationNumber() -> Int {
-        return notificationList.count
+    //
+    func newNotificationsCount() -> Int {
+        var count = 0
+        for notification in notificationList {
+            if !notification.isRead {
+                count += 1
+            }
+        }
+        
+        return count
     }
+    
+    func markUnreadNotificationsAsRead() {
+        for index in notificationList.indices {
+            if !notificationList[index].isRead {
+                updateNotificationInFirebase(notificationList[index])
+            }
+        }
+    }
+
+    func updateNotificationInFirebase(_ notification: UserNotification) {
+        guard let user = AuthViewModel.shared.currentUser else {
+            return
+        }
+
+        let notificationRef = COLLECTION_NOTIFICATION
+            .document(user.id ?? "")
+            .collection("notification")
+            .document(notification.id ?? "")
+
+        notificationRef.updateData(["isRead": true]) { error in
+            if let error = error {
+                print("Error updating notification: \(error.localizedDescription)")
+            } else {
+                print("Notification updated successfully in Firebase")
+            }
+        }
+    }
+
+
+    // Update the notification in Firebase
+//    func readNotification(notificationId: String) {
+//        guard let user = AuthViewModel.shared.currentUser else {
+//            return
+//        }
+//
+//        let notificationRef = COLLECTION_NOTIFICATION
+//            .document(user.id ?? "")
+//            .collection("notification")
+//            .document(notificationId)
+//
+//        // Update the isRead property in Firebase
+//        notificationRef.updateData(["isRead": true]) { error in
+//            if let error = error {
+//                print("Error updating notification: \(error.localizedDescription)")
+//            } else {
+//                print("Notification updated successfully in Firebase")
+//            }
+//        }
+//    }
+
+    
+    // 拿有幾則通知
+//    func fetchNotificationNumber() -> Int {
+//        return notificationList.count
+//    }
     
     // 拿好友列表（含邀請中）
     func fetchFriendList() {
@@ -161,7 +224,8 @@ class SocialViewModel: ObservableObject {
         let data = [
                 "sender": user.id ?? "",
                 "type": "friendInvitation",
-                "timestamp": Timestamp(date: Date())
+                "timestamp": Timestamp(date: Date()),
+                "isRead": false
         ] as [String : Any]
         
         
@@ -180,7 +244,8 @@ class SocialViewModel: ObservableObject {
         let notificationData = [
                 "sender": user.id ?? "",
                 "type": "friendAccept",
-                "timestamp": Timestamp(date: Date())
+                "timestamp": Timestamp(date: Date()),
+                "isRead": false
         ] as [String : Any]
         
         let inviterDocRef = COLLECTION_FRIENDSLIST.document(inviter).collection("friendsList")
@@ -218,7 +283,8 @@ class SocialViewModel: ObservableObject {
                 "type": "gift",
                 "timestamp": Timestamp(date: Date()),
                 "creatureName": creature.name,
-                "message": message
+                "message": message,
+                "isRead": false
         ] as [String : Any]
         
         backpackViewModel.deleteBackpack(name: creature.name)
