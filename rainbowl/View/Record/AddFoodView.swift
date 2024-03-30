@@ -62,7 +62,7 @@ struct AddFoodView: View {
                 }
                 Spacer()
                 Button {
-                    viewModel.addRecord(name: food.name, color: food.color, calorie: food.calorie * qty, qty: qty, records: recordsViewModel.records) { error in
+                    viewModel.addRecord(name: food.name, category: food.category, color: food.color, calorie: food.calorie * qty, qty: qty, records: recordsViewModel.records) { error in
                         qty = 1
                         
                         if let error = error {

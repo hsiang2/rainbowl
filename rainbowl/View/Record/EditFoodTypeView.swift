@@ -11,6 +11,7 @@ struct EditFoodTypeView: View {
         let food: FoodCustom?
         @Binding var editFoodType: FoodCustom?
         
+        @State private var category: String = ""
         
         @State private var name: String = ""
         @State private var size: String = ""
@@ -28,12 +29,27 @@ struct EditFoodTypeView: View {
         _unit = State(initialValue: food?.unit ?? "")
         _gram = State(initialValue: String(food?.gram ?? 0))
         _calorie = State(initialValue: String(food?.calorie ?? 0))
+        _category = State(initialValue: food?.category ?? "")
     }
         
         var body: some View {
             VStack {
                 HStack {
                     Text("編輯").font(.system(size: 20, weight: .medium)).foregroundColor(Color(red: 120/255, green: 97/255, blue: 61/255))
+                    Spacer()
+                }
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("種類")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
+                       //TODO
+                        HStack (spacing: 20) {
+                            RadioButtonView(category: "蔬菜", selectedCategory: $category)
+                            RadioButtonView(category: "水果", selectedCategory: $category)
+                        }.padding(.top, 10)
+                    }.padding(.top, 30)
                     Spacer()
                 }
                 
@@ -167,7 +183,7 @@ struct EditFoodTypeView: View {
                     }
                     Spacer()
                     Button {
-                        viewModel.updateFoodType(id: food?.id ?? "",name: name, size: Float(size) ?? 0, unit: unit, gram: Float(gram) ?? 0, calorie: Float(calorie) ?? 0) { error in
+                        viewModel.updateFoodType(id: food?.id ?? "",name: name, size: Float(size) ?? 0, unit: unit, gram: Float(gram) ?? 0, calorie: Float(calorie) ?? 0, category: category) { error in
                             if let error = error {
                                 print("Error adding record: \(error.localizedDescription)")
                             }
@@ -187,7 +203,7 @@ struct EditFoodTypeView: View {
                    
                 }.padding(.top, 42)
             }.padding(.horizontal, 30)
-            .padding(.vertical, 20)
+            .padding(.top, 55)
             
         }
 

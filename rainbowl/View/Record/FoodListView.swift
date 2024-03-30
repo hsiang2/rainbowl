@@ -74,7 +74,7 @@ struct FoodListView: View {
                                     // Now 'food' can be treated as a Food instance
 
                                    
-                                    if (selectedBtn == Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie)) {
+                                    if (selectedBtn == Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie, category: food.category)) {
                                         Image("food_bg_focus")
                                     } else {
                                         Image("food_bg")
@@ -106,7 +106,7 @@ struct FoodListView: View {
                                 TapGesture()
                                     .onEnded { _ in
                                        
-                                            selectedBtn = Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie)
+                                        selectedBtn = Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie, category: food.category)
                                         SoundPlayer.shared.playClickSound()
                                      
                                     }
