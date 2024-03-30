@@ -12,7 +12,9 @@ struct FoodPlate {
     var name: String
 }
 
+@available(iOS 17.0, *)
 struct RecordView: View {
+    @Binding var isEarnedMoney: Bool
     let user: User
     @Binding var show: Bool
     @State private var selectedBtn: String = ""
@@ -182,8 +184,24 @@ struct RecordView: View {
             }
            
         }.presentationDetents([.fraction(0.8)])
+            .onChange(of: records) {
+                print(isPlateFull(), isEarnedMoney)
+                if(isPlateFull() && !isEarnedMoney) {
+                    AuthViewModel.shared.changeMoney(money: 50)
+                    isEarnedMoney = true
+                }
+            }
         
     }
+    
+    private func isPlateFull() -> Bool {
+             for food in plate {
+                 if food.name.isEmpty {
+                     return false
+                 }
+             }
+             return true
+         }
 }
 
 private func plateItemImage(food: FoodPlate) -> some View {

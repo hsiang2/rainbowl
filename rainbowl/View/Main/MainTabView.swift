@@ -24,8 +24,9 @@ struct MainTabView: View {
     @State private var openSocial = false
     @State private var openMailbox = false
     
-    
     @State private var openShare = false
+    
+    @State private var isEarnedMoney = false
     
     init(user: User) {
         self.user = user
@@ -179,7 +180,7 @@ struct MainTabView: View {
                             .padding()
                     })
                     .sheet(isPresented: $openRecord) {
-                        RecordView(user: user, show: $openRecord)
+                        RecordView(isEarnedMoney: $isEarnedMoney, user: user, show: $openRecord)
                     }
                 }
             }
@@ -189,6 +190,7 @@ struct MainTabView: View {
             // do what you want as soon as the day changes (23:59:59 --> 00:00:00)
             print("換日！")
             AuthViewModel.shared.updateColors()
+            isEarnedMoney = false
         }
 //        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
 //            if !Calendar.current.isDate(previousDate, inSameDayAs: viewModel.currentDate) {

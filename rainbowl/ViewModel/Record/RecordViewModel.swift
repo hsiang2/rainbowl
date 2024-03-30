@@ -57,7 +57,6 @@ class RecordViewModel: ObservableObject {
                                     $0.status == "initial"
                 })
                 
-                print(bookCreatures)
                 for creature in AuthViewModel.shared.creatures {
                     if (bookCreatures.contains {(bookCreature) -> Bool in
                         bookCreature.name == creature.name}) {
