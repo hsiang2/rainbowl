@@ -341,19 +341,10 @@ struct GameView: View {
         )
     }
     
-
-//    private func creatureAnimationView(for creature: CreatureInUse) -> some View {
-//            let imageNames = (0...2).map { "\(creature.name)\($0)" } // Adjust the range based on the number of frames
-//
-//            return ImageSequenceView(imageNames: imageNames, duration: 1.0)
-//                .frame(width: CGFloat(creature.width))
-//        }
     
     private func creatureItem(for creature: CreatureInUse) -> some View {
         let initialPosition = CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0))
         let position = positionManager.positions[creature] ?? initialPosition
-        
-        
         
 //        let opacity = opacityManager.opacities[creature] ?? 1
         
@@ -364,7 +355,7 @@ struct GameView: View {
                 }
                 if (showDelete) {
                     Button(action: {
-                        backpackViewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                        backpackViewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width, isMoving: creature.isMoving)
                         SoundPlayer.shared.playClickSound()
                     }) {
                         Image(systemName: "minus.circle.fill")
@@ -417,10 +408,8 @@ struct GameView: View {
 //                }
             //目前
                 .onChange(of: showDelete, initial: true) { oldValue, newValue in
-//                           updateAnimation(for: creature, at: position)
               
-                    if creature.category == "動物" {
-//                        if !newValue {
+                    if creature.isMoving {
                         startAnimation(for: creature, at: position, initialPosition: initialPosition)
                         }
                    

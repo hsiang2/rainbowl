@@ -268,7 +268,7 @@ class SocialViewModel: ObservableObject {
         ] as [String : Any]
         
         backpackViewModel.deleteBackpack(name: creature.name)
-        backpackViewModel.addToBackpack(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width, friend: friend)
+        backpackViewModel.addToBackpack(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width, isMoving: creature.isMoving, friend: friend)
         
         COLLECTION_NOTIFICATION.document(friend).collection("notification").addDocument(data: data)
     }

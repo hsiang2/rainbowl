@@ -124,7 +124,7 @@ struct ShopView: View {
                                 let randomCreature = creatures.randomElement()!
     //                            let randomCreature = creatures[2]
                                 bookViewModel.addToBook(name: randomCreature.name)
-                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, friend: nil)
+                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, isMoving: randomCreature.isMoving, friend: nil)
                                 animalShown = false
                                 
                                 name = randomCreature.name
@@ -171,7 +171,7 @@ struct ShopView: View {
                                 let randomCreature = creatures.randomElement()!
                                 //                            let randomCreature = creatures[9]
                                 bookViewModel.addToBook(name: randomCreature.name)
-                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, friend: nil)
+                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, isMoving: randomCreature.isMoving, friend: nil)
                                 plantShown = false
                                 
                                 name = randomCreature.name

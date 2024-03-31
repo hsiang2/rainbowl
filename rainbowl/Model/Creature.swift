@@ -16,5 +16,5 @@ struct Creature: Identifiable, Decodable, Hashable {
     let colors: [String]
     let width: Float
     let qty: Int
-    
+    let isMoving: Bool
 }

@@ -3,277 +3,323 @@
         "category": "動物",
         "name": "鹿",
         "colors": ["橙"],
-        "width": 92
+        "width": 92,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "鹿_紅",
         "colors": ["紅"],
-        "width": 92
+        "width": 92,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "刺蝟",
         "colors": ["橙"],
-        "width": 45
+        "width": 45,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "刺蝟_白",
         "colors": ["紅", "白"],
-        "width": 45
+        "width": 45,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "狼",
         "colors": ["黃"],
-        "width": 92
+        "width": 92,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "狼_藍",
         "colors": ["紫"],
-        "width": 92
+        "width": 92,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "鴨子",
         "colors": ["黃"],
-        "width": 53
+        "width": 53,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "大嘴鳥",
         "colors": ["橙", "紫"],
-        "width": 70
+        "width": 70,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "大嘴鳥_紅",
         "colors": ["紅", "綠"],
-        "width": 70
+        "width": 70,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "老虎",
         "colors": ["橙"],
-        "width": 155
+        "width": 155,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "獅子",
         "colors": ["橙"],
-        "width": 155
+        "width": 155,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "獵豹",
         "colors": ["黃"],
-        "width": 145
+        "width": 145,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "長頸鹿",
         "colors": ["黃"],
-        "width": 160
+        "width": 160,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "駱駝",
         "colors": ["黃"],
-        "width": 150
+        "width": 150,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "蠍子",
         "colors": ["紫"],
-        "width": 50
+        "width": 50,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "北極熊",
         "colors": ["白"],
-        "width": 165
+        "width": 165,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "海象",
         "colors": ["橙"],
-        "width": 165
+        "width": 165,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "皇帝企鵝",
         "colors": ["黃"],
-        "width": 50
+        "width": 50,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "鵜鶘",
         "colors": ["黃"],
-        "width": 90
+        "width": 90,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "鵜鶘_粉",
         "colors": ["紅","黃"],
-        "width": 90
+        "width": 90,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "螃蟹",
         "colors": ["紅"],
-        "width": 55
+        "width": 55,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "螃蟹_藍",
         "colors": ["紫"],
-        "width": 55
+        "width": 55,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "海星",
         "colors": ["橙"],
-        "width": 43
+        "width": 43,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "海星_藍",
         "colors": ["紫"],
-        "width": 43
+        "width": 43,
+        "isMoving": false
     },
     {
         "category": "動物",
         "name": "虎鯨",
         "colors": ["白"],
-        "width": 250
+        "width": 250,
+        "isMoving": true
     },
     {
         "category": "動物",
         "name": "獨角鯨",
         "colors": ["紫", "白"],
-        "width": 230
+        "width": 230,
+        "isMoving": true
     },
     {
         "category": "植物",
         "name": "樹",
         "colors": ["橙", "綠"],
-        "width": 190
+        "width": 190,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "樹_紅",
         "colors": ["紅"],
-        "width": 190
+        "width": 190,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "樹_紫",
         "colors": ["紅", "紫"],
-        "width": 190
+        "width": 190,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "針葉樹",
         "colors": ["橙", "綠"],
-        "width": 160
+        "width": 160,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "針葉樹_紅",
         "colors": ["紅", "橙"],
-        "width": 160
+        "width": 160,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "針葉樹_藍",
         "colors": ["橙", "紫"],
-        "width": 160
+        "width": 160,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "樹叢",
         "colors": ["紅", "綠"],
-        "width": 80
+        "width": 80,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "樹叢_藍",
         "colors": ["綠", "紫"],
-        "width": 80
+        "width": 80,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "樹叢_黃",
         "colors": ["黃", "綠"],
-        "width": 80
+        "width": 80,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "矢車菊",
         "colors": ["綠", "紫"],
-        "width": 50
+        "width": 50,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "矢車菊_粉",
         "colors": ["紅", "綠"],
-        "width": 50
+        "width": 50,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "蘑菇",
         "colors": ["紅", "黃"],
-        "width": 50
+        "width": 50,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "蘑菇_黃",
         "colors": ["黃"],
-        "width": 50
+        "width": 50,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "刺羽耳蕨",
         "colors": ["綠"],
-        "width": 100
+        "width": 100,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "刺羽耳蕨_紅",
         "colors": ["紅"],
-        "width": 100
+        "width": 100,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "猴麵包樹",
         "colors": ["黃", "綠"],
-        "width": 180
+        "width": 180,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "金合歡",
         "colors": ["橙", "綠"],
-        "width": 270
+        "width": 270,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "金合歡_黃",
         "colors": ["橙", "黃"],
-        "width": 270
+        "width": 270,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "樹形仙人掌",
         "colors": ["綠"],
-        "width": 100
+        "width": 100,
+        "isMoving": false
     },
     {
         "category": "植物",
         "name": "椰子樹",
         "colors": ["黃", "綠"],
-        "width": 180
+        "width": 180,
+        "isMoving": false
     }
 
 ]

@@ -53,7 +53,7 @@ struct ItemsView: View {
                             .onTapGesture {
                                
                                 if (mode == "backpack") {
-                                    backpackViewModel.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                                    backpackViewModel.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width, isMoving: creature.isMoving)
                                 } else {
                                     targetCreature = creature
                                     show = false

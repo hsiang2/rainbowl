@@ -17,4 +17,5 @@ struct CreatureInUse: Identifiable, Decodable, Hashable {
     let width: Float
     let locationX: Float?
     let locationY: Float?
+    let isMoving: Bool
 }

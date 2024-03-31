@@ -12,4 +12,5 @@ struct CreatureProduct: Decodable, Hashable {
     var name: String
     var colors: [String]
     var width: Float
+    let isMoving: Bool
 }
