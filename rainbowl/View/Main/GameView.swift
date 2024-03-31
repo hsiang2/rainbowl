@@ -70,10 +70,6 @@ struct GifView: UIViewRepresentable {
 }
 
 
-
-
-
-
 class CreaturePositionManager: ObservableObject {
     @Published var positions: [CreatureInUse: CGPoint] = [:]
 }
@@ -109,10 +105,6 @@ struct GameView: View {
     
     @State var looper: AVPlayerLooper?
     
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     var creatures: [CreatureInUse] {
         return viewModel.creatures
     }
@@ -175,12 +167,9 @@ struct GameView: View {
 //            }
             
                 Button(action: {
-<<<<<<< HEAD
                     showDelete = !showDelete
-=======
-                    showDelete = false
                     SoundPlayer.shared.playClickSound()
->>>>>>> main
+
                 }) {
                     if (!showDelete) {
                         Text("編輯")
@@ -307,10 +296,6 @@ struct GameView: View {
                 .scaleEffect(x: CGFloat(directionManager.directions[creature] ?? 1), y: 1)
                 .frame(width: CGFloat(creature.width), height: CGFloat(creature.width))
                 .saturation(opacity)
-                
-//                .scaleEffect(x: directionManager.directions[creature] ?? true ? 1 : -1 , y: 1)
-            
-//                .scaleEffect(x: CGFloat(directionManager.directions[creature] ?? 1), y: 1)
         )
     }
     
@@ -332,17 +317,6 @@ struct GameView: View {
         
         return AnyView(
             ZStack {
-//                creatureAnimationView(for: creature)
-//                GifView(imageName: "\(creature.name)")
-//                    .frame(width: CGFloat(creature.width), height: CGFloat(creature.width))
-//                    .saturation(0)
-//                ForEach(creature.colors, id: \.self) { color in
-//                                   colorView(for: creature, color: color)
-//                               }
-
-//
-//                Image("\(creature.name)_彩色")
-//                    .resizable().scaledToFit().frame(width: CGFloat(creature.width)).saturation(0)
                 ForEach(creature.colors, id: \.self) { color in
                     colorView(for: creature, color: color)
                 }
@@ -362,10 +336,6 @@ struct GameView: View {
             }
 //                .opacity(opacity)
                 .position(position)
-<<<<<<< HEAD
-//                .scaleEffect(x: directionManager.directions[creature] ?? true ? 1 : -1, y: 1)
-=======
->>>>>>> main
                 .zIndex(Double(creature.locationY ?? 1))
                 .gesture(
                    
@@ -410,37 +380,6 @@ struct GameView: View {
                     if creature.category == "動物" {
 //                        if !newValue {
                         startAnimation(for: creature, at: position, initialPosition: initialPosition)
-                            
-//                        } 
-                       
-//                            withAnimation(
-//                                Animation.linear(duration: 5) // Adjust duration as needed
-//                                    .repeatForever(autoreverses: true)
-//                            ) {
-//                                
-//                               
-//                                positionManager.positions[creature] = CGPoint(x: position.x + CGFloat(creature.width), y: position.y)
-////                                withAnimation(
-////                                    Animation.linear(duration: 0.1) // Adjust duration as needed
-////                                        .repeatForever()
-////                                ) {
-////                                    directionManager.directions[creature] =  directionManager.directions[creature] ?? true ? false:true
-////                                }
-//                            }
-                           
-
-//                        }  
-//                        else {
-//                            withAnimation(
-//                                Animation.linear(duration: 0) // Adjust duration as needed
-//                            ) {
-//                               
-//                                    positionManager.positions[creature] = CGPoint(x: position.x + CGFloat(creature.width), y: position.y)
-//                                positionManager.positions[creature] = initialPosition
-//
-//                               
-//                               
-//                            }
                         }
                    
             }
@@ -452,9 +391,7 @@ struct GameView: View {
         if !showDelete {
             withAnimation(
              Animation.linear(duration: 5)
- //            .repeatForever(autoreverses: true)
             ) {
- //               isAnimating = true
                 positionManager.positions[creature] = CGPoint(x: position.x + CGFloat(creature.width) * CGFloat(directionManager.directions[creature] ?? 1), y: position.y)
                 
             } completion: {
@@ -462,14 +399,6 @@ struct GameView: View {
                 directionManager.directions[creature] =  (directionManager.directions[creature] ?? 1) * -1
                 
                 startAnimation(for: creature, at: position, initialPosition: initialPosition)
-                // Pause animation if needed
- //               isPaused = true
- //               // Resume animation after 1 second (adjust as needed)
- //               DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
- //                   isPaused = false
- //                   // Repeat the process
- //                   startAnimation()
- //               }
             }
         } else {
             withAnimation(
@@ -486,38 +415,6 @@ struct GameView: View {
          
         
        }
-    
-    
-
-//    private func updateAnimation(for creature: CreatureInUse, at position: CGPoint) {
-//        if creature.category == "動物" {
-//            if showDelete {
-//                // If showDelete is true, set the initial position without animation
-//                positionManager.positions[creature] = position
-//            } else {
-//                // If showDelete is false, animate the right-left motion
-//                withAnimation(
-//                    Animation.linear(duration: 2) // Adjust duration as needed
-//                        .repeatForever(autoreverses: true)
-////                        .delay(2) // Delay before starting the animation
-//                ) {
-//                    // Update the creature's position for right-left motion
-//                    positionManager.positions[creature] = CGPoint(x: position.x + 50, y: position.y)
-//                }
-//            }
-//        }
-//    }
-
-
-
-
-
-//    private func newPositionX(for creature: CreatureInUse) -> Double {
-//        let currentX = positionManager.positions[creature]?.x ?? 0
-//        let distance: Double = 50 // Adjust the distance as needed
-//        return currentX + distance
-//    }
-    
 }
 
 
