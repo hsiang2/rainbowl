@@ -34,13 +34,46 @@ import ImageIO
 
 
 
+//struct GifView: UIViewRepresentable {
+//    var imageName: String
+//
+//    func makeUIView(context: Context) -> UIImageView {
+//        let imageView = UIImageView()
+////        imageView.frame = CGRect(
+////          x: 0, y: 0, width: 10, height: 10)
+//        imageView.contentMode = .scaleAspectFit
+//        return imageView
+//    }
+//
+//    func updateUIView(_ uiView: UIImageView, context: Context) {
+//        if let gifURL = Bundle.main.url(forResource: imageName, withExtension: "gif"),
+//           let imageData = try? Data(contentsOf: gifURL),
+//           let source = CGImageSourceCreateWithData(imageData as CFData, nil) {
+//
+//            let images = (0..<CGImageSourceGetCount(source)).compactMap {
+//                CGImageSourceCreateImageAtIndex(source, $0, nil)
+//            }
+//
+//            let uiImages = images.map { UIImage(cgImage: $0) }
+//
+//            uiView.animationImages = uiImages
+//            uiView.animationDuration = TimeInterval(uiImages.count) * 0.1
+//            uiView.animationRepeatCount = 0 // 0 for infinite loop, adjust as needed
+//
+//            // Set the frame with the given width, preserving the aspect ratio
+////            uiView.frame.size.width = 0
+////            uiView.sizeToFit()
+//
+//            uiView.startAnimating()
+//        }
+//    }
+//}
+
 struct GifView: UIViewRepresentable {
     var imageName: String
 
     func makeUIView(context: Context) -> UIImageView {
         let imageView = UIImageView()
-//        imageView.frame = CGRect(
-//          x: 0, y: 0, width: 10, height: 10)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }
@@ -50,24 +83,33 @@ struct GifView: UIViewRepresentable {
            let imageData = try? Data(contentsOf: gifURL),
            let source = CGImageSourceCreateWithData(imageData as CFData, nil) {
 
-            let images = (0..<CGImageSourceGetCount(source)).compactMap {
+            var frameDuration: TimeInterval = 0.0
+            let frameCount = CGImageSourceGetCount(source)
+
+            for i in 0..<frameCount {
+                guard let frameProperties = CGImageSourceCopyPropertiesAtIndex(source, i, nil) as? [String: Any],
+                      let gifProperties = frameProperties[kCGImagePropertyGIFDictionary as String] as? [String: Any],
+                      let delayTime = gifProperties[kCGImagePropertyGIFDelayTime as String] as? TimeInterval else {
+                    continue
+                }
+                frameDuration += delayTime
+            }
+
+            let images = (0..<frameCount).compactMap {
                 CGImageSourceCreateImageAtIndex(source, $0, nil)
             }
 
             let uiImages = images.map { UIImage(cgImage: $0) }
 
             uiView.animationImages = uiImages
-            uiView.animationDuration = TimeInterval(uiImages.count) * 0.1
+            uiView.animationDuration = frameDuration
             uiView.animationRepeatCount = 0 // 0 for infinite loop, adjust as needed
-
-            // Set the frame with the given width, preserving the aspect ratio
-//            uiView.frame.size.width = 0
-//            uiView.sizeToFit()
 
             uiView.startAnimating()
         }
     }
 }
+
 
 
 class CreaturePositionManager: ObservableObject {
@@ -390,7 +432,7 @@ struct GameView: View {
         
         if !showDelete {
             withAnimation(
-             Animation.linear(duration: 5)
+             Animation.linear(duration: 8)
             ) {
                 positionManager.positions[creature] = CGPoint(x: position.x + CGFloat(creature.width) * CGFloat(directionManager.directions[creature] ?? 1), y: position.y)
                 

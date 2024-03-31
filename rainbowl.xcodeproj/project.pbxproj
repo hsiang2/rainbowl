@@ -36,7 +36,6 @@
 		AA4BB34529FCBD7D00F10479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34429FCBD7D00F10479 /* ContentView.swift */; };
 		AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34729FCD67C00F10479 /* RecordView.swift */; };
 		AA4BB34B29FCE9BE00F10479 /* ColorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34A29FCE9BE00F10479 /* ColorListView.swift */; };
-		AA579E472B81FE2300B94AD9 /* 鹿_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA579E462B81FE2300B94AD9 /* 鹿_橙.gif */; };
 		AA5D0E982A4417CC002A32DC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E972A4417CC002A32DC /* GameView.swift */; };
 		AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */; };
 		AA5D0E9E2A481125002A32DC /* DateChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9D2A481125002A32DC /* DateChangeViewModel.swift */; };
@@ -97,6 +96,7 @@
 		AAD4770A2A4B6B1D00F57A46 /* BackpackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD477092A4B6B1D00F57A46 /* BackpackViewModel.swift */; };
 		AAD4770C2A4BEB8C00F57A46 /* CreatureInUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4770B2A4BEB8C00F57A46 /* CreatureInUse.swift */; };
 		AAD4770E2A4CC5C000F57A46 /* CreatureProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4770D2A4CC5C000F57A46 /* CreatureProduct.swift */; };
+		AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5022BB9A48D00761056 /* 鹿_橙.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,7 +131,6 @@
 		AA4BB34429FCBD7D00F10479 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA4BB34729FCD67C00F10479 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		AA4BB34A29FCE9BE00F10479 /* ColorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListView.swift; sourceTree = "<group>"; };
-		AA579E462B81FE2300B94AD9 /* 鹿_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "鹿_橙.gif"; sourceTree = "<group>"; };
 		AA5D0E972A4417CC002A32DC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AA5D0E9D2A481125002A32DC /* DateChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChangeViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +180,7 @@
 		AAD477092A4B6B1D00F57A46 /* BackpackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackpackViewModel.swift; sourceTree = "<group>"; };
 		AAD4770B2A4BEB8C00F57A46 /* CreatureInUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureInUse.swift; sourceTree = "<group>"; };
 		AAD4770D2A4CC5C000F57A46 /* CreatureProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureProduct.swift; sourceTree = "<group>"; };
+		AAEED5022BB9A48D00761056 /* 鹿_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "鹿_橙.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +276,7 @@
 		AA4BB32F29FCBB8D00F10479 /* rainbowl */ = {
 			isa = PBXGroup;
 			children = (
-				AA579E462B81FE2300B94AD9 /* 鹿_橙.gif */,
+				AAEED4F92BB99E3800761056 /* GIF */,
 				AA46CDA02B1CDAB500D32A83 /* music */,
 				AA3269512B08B21E0038BE8B /* Info.plist */,
 				AA2E6A2E2A08D37E00C668AC /* Data */,
@@ -500,6 +500,14 @@
 			path = Backpack;
 			sourceTree = "<group>";
 		};
+		AAEED4F92BB99E3800761056 /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				AAEED5022BB9A48D00761056 /* 鹿_橙.gif */,
+			);
+			path = GIF;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -576,8 +584,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */,
 				AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */,
-				AA579E472B81FE2300B94AD9 /* 鹿_橙.gif in Resources */,
 				AA2E6A2D2A08D19500C668AC /* food.json in Resources */,
 				AAB616082B1E0BD400A372E0 /* color.mp3 in Resources */,
 				AAB6160B2B1E0BD400A372E0 /* click.mp3 in Resources */,
