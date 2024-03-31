@@ -10,7 +10,7 @@ import Firebase
 
 class RecordViewModel: ObservableObject {
 
-    func addRecord(name: String, color: String, calorie: Float, qty: Float, records: [Record], completion: ((Error?) -> Void)?) {
+    func addRecord(name: String, category: String, color: String, calorie: Float, qty: Float, records: [Record], completion: ((Error?) -> Void)?) {
         
         guard let user = AuthViewModel.shared.currentUser else {
             return
@@ -19,6 +19,7 @@ class RecordViewModel: ObservableObject {
         let data = [
                 "user": user.id ?? "",
                 "name": name,
+                "category": category,
                 "color": color,
                 "calorie": calorie,
                 "qty": qty,
@@ -36,11 +37,6 @@ class RecordViewModel: ObservableObject {
                     }
                 }
             }
-//            {(success) -> Void in
-//                if success {
-//                    self.checkUpdate()
-//                }
-//            }
         }
         
     }
@@ -51,7 +47,7 @@ class RecordViewModel: ObservableObject {
         AuthViewModel.shared.deleteColor(color: color, records: records)
 
     }
-//    
+
     func checkUpdate(colorArray: [Float?]) {
         print("checking...", colorArray)
         var bookCreatures: [CreatureInBook] = []
@@ -61,9 +57,6 @@ class RecordViewModel: ObservableObject {
                                     $0.status == "initial"
                 })
                 
-                print(bookCreatures)
-        //        print(AuthViewModel.shared.creatures)
-        //        print(bookCreatures)
                 for creature in AuthViewModel.shared.creatures {
                     if (bookCreatures.contains {(bookCreature) -> Bool in
                         bookCreature.name == creature.name}) {

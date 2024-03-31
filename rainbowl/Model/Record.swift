@@ -11,6 +11,7 @@ import Firebase
 struct Record: Identifiable, Decodable, Hashable {
     @DocumentID var id: String?
     let user: String
+    let category: String
     let name: String
     let color: String
     let calorie: Float

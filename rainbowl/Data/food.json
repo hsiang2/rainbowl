@@ -1,5 +1,6 @@
 [
     {
+        "category": "水果",
         "color": "紅",
         "name": "西瓜",
         "size": 0.5,
@@ -8,6 +9,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "紅",
         "name": "草莓",
         "size": 7,
@@ -16,6 +18,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "紅",
         "name": "番茄",
         "size": 0.5,
@@ -24,6 +27,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "紅",
         "name": "紅椒",
         "size": 0.5,
@@ -32,6 +36,7 @@
         "calorie": 30
     },
     {
+        "category": "水果",
         "color": "橙",
         "name": "橘子",
         "size": 0.5,
@@ -40,6 +45,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "橙",
         "name": "南瓜",
         "size": 0.5,
@@ -48,6 +54,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "橙",
         "name": "紅蘿蔔",
         "size": 0.5,
@@ -56,6 +63,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "橙",
         "name": "木瓜",
         "size": 0.8,
@@ -65,6 +73,7 @@
     },
     
     {
+        "category": "水果",
         "color": "黃",
         "name": "鳳梨",
         "size": 1,
@@ -73,6 +82,7 @@
         "calorie": 50
     },
     {
+        "category": "水果",
         "color": "黃",
         "name": "香蕉",
         "size": 0.5,
@@ -81,6 +91,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "黃",
         "name": "玉米",
         "size": 0.5,
@@ -89,6 +100,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "黃",
         "name": "檸檬",
         "size": 0.5,
@@ -97,6 +109,7 @@
         "calorie": 31
     },
     {
+        "category": "蔬菜",
         "color": "綠",
         "name": "綠花椰菜",
         "size": 1,
@@ -105,6 +118,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "綠",
         "name": "奇異果",
         "size": 2,
@@ -113,6 +127,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "綠",
         "name": "小黃瓜",
         "size": 0.5,
@@ -121,6 +136,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "綠",
         "name": "酪梨",
         "size": 0.5,
@@ -129,6 +145,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "紫",
         "name": "藍莓",
         "size": 0.5,
@@ -137,6 +154,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "紫",
         "name": "茄子",
         "size": 0.5,
@@ -145,6 +163,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "紫",
         "name": "葡萄",
         "size": 13,
@@ -153,6 +172,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "紫",
         "name": "紫甘藍",
         "size": 0.5,
@@ -161,6 +181,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "白",
         "name": "蘑菇",
         "size": 0.5,
@@ -169,6 +190,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "白",
         "name": "洋蔥",
         "size": 0.5,
@@ -177,6 +199,7 @@
         "calorie": 60
     },
     {
+        "category": "蔬菜",
         "color": "白",
         "name": "白蘿蔔",
         "size": 0.5,
@@ -185,6 +208,7 @@
         "calorie": 60
     },
     {
+        "category": "水果",
         "color": "白",
         "name": "白火龍果",
         "size": 0.7,

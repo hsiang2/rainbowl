@@ -90,10 +90,6 @@ class AuthViewModel: ObservableObject {
             if let error = error {
                 print("Error updating color: \(error.localizedDescription)")
             } 
-//            else {
-//                self.fetchUser()
-//                // Update the currentColors array
-//            }
         }
            
     }
@@ -130,20 +126,12 @@ class AuthViewModel: ObservableObject {
                 self.currentUser?.white?.reduce(0) { $0 + $1 } ?? 0
             ]
         }
-        
-        
-//        guard let uid = userSession?.uid else { return }
-//        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
-//            guard let user = try? snapshot?.data(as: User.self) else { return }
-//            self.currentUser = user
-//        }
     }
-//    , completion: (_ success: Bool) -> Void
+    
     func addColor(color: String, records: [Record], completion: (([Float]?) -> Void)?) {
         let full = records.filter({
             $0.color.contains(color)
         }).count
-//        print(full)
         if (full == 0) {
             
             var colorArray = [Float]()
@@ -160,8 +148,6 @@ class AuthViewModel: ObservableObject {
                         completion?(nil)
                     } 
                     else {
-//                        self.fetchUser()
-                        // Update the currentColors array
                         completion?(self.currentColors)
                     }
                     
@@ -174,15 +160,10 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-//                        self.fetchUser()
-                        // Update the currentColors array
                         print("add orange", self.currentColors)
                         completion?(self.currentColors)
                     }
                 }
-                //            { _ in
-                //                    self.fetchUser()
-                //                }
             case "黃":
                 colorArray = self.currentUser?.yellow ?? []
                 colorArray[4] = 0.2
@@ -191,8 +172,6 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-//                        self.fetchUser()
-                        // Update the currentColors array
                         completion?(self.currentColors)
                     }
                 }
@@ -204,8 +183,6 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-//                        self.fetchUser()
-                        // Update the currentColors array
                         completion?(self.currentColors)
                     }
                 }
@@ -217,8 +194,6 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-//                        self.fetchUser()
-                        // Update the currentColors array
                         completion?(self.currentColors)
                     }
                 }
@@ -230,8 +205,6 @@ class AuthViewModel: ObservableObject {
                         print("Error updating color: \(error.localizedDescription)")
                         completion?(nil)
                     } else {
-//                        self.fetchUser()
-                        // Update the currentColors array
                         completion?(self.currentColors)
                     }
                 }
@@ -251,7 +224,6 @@ class AuthViewModel: ObservableObject {
         let full = records.filter({
             $0.color.contains(color)
         }).count
-//        print(full)
         if (full <= 1) {
             var colorArray = [Float]()
             let money = (self.currentUser?.money ?? 0) - 5 <= 0 ? 0 : (self.currentUser?.money ?? 0) - 5
@@ -262,44 +234,26 @@ class AuthViewModel: ObservableObject {
                 colorArray = self.currentUser?.red ?? []
                 colorArray[4] = 0
                 COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "red": colorArray])
-//                { _ in
-//                    self.fetchUser()
-//                }
             case "橙":
                 colorArray = self.currentUser?.orange ?? []
                 colorArray[4] = 0
                 COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "orange": colorArray])
-//                { _ in
-//                    self.fetchUser()
-//                }
             case "黃":
                 colorArray = self.currentUser?.yellow ?? []
                 colorArray[4] = 0
                 COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "yellow": colorArray])
-//                { _ in
-//                    self.fetchUser()
-//                }
             case "綠":
                 colorArray = self.currentUser?.green ?? []
                 colorArray[4] = 0
                 COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "green": colorArray])
-//                { _ in
-//                    self.fetchUser()
-//                }
             case "紫":
                 colorArray = self.currentUser?.purple ?? []
                 colorArray[4] = 0
                 COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "purple": colorArray])
-//                { _ in
-//                    self.fetchUser()
-//                }
             case "白":
                 colorArray = self.currentUser?.white ?? []
                 colorArray[4] = 0
                 COLLECTION_USERS.document(self.currentUser?.id ?? "").updateData(["money": money, "white": colorArray])
-//                { _ in
-//                    self.fetchUser()
-//                }
             default:
                 break
             }
@@ -339,9 +293,6 @@ class AuthViewModel: ObservableObject {
             "purple": purpleArray,
             "white": whiteArray
         ])
-//        { _ in
-//            self.fetchUser()
-//        }
     }
     
     func moveArray(array: [Float]) -> [Float] {
@@ -364,39 +315,10 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-//    func addToGame(category: String, name: String, colors: [String], width: Float) {
-//        guard let uid = userSession?.uid else { return }
-//        
-//        let data = [
-//                "category": category,
-//                "name": name,
-//                "colors": colors,
-//                "width": width,
-//                "locationX": 1179,
-//                "locationY": 912
-//        ] as [String : Any]
-//        COLLECTION_USERS.document(uid).collection("creatures").addDocument(data: data)
-//
-//        BackpackViewModel().deleteBackpack(name: name)
-//    }
-    
     func updateCreaturePosition(id: String, x: Float, y: Float) {
         guard let uid = userSession?.uid else { return }
         COLLECTION_USERS.document(uid).collection("creatures").document(id).updateData(["locationX": x, "locationY": y])
     }
-    
-//    func deleteGame(id: String, category: String, name: String, colors: [String], width: Float) {
-////        guard let user = AuthViewModel.shared.currentUser else {
-////            return
-////        }
-//        guard let uid = userSession?.uid else { return }
-//        COLLECTION_USERS.document(uid).collection("creatures").document(id).delete()
-////        { _ in
-////            AuthViewModel().fetchGame()
-////        }
-//
-//        BackpackViewModel().addToBackpack(category: category, name: name, colors: colors, width: width, friend: nil)
-//    }
     
     func changeMoney(money: Int) {
         guard let uid = userSession?.uid else { return }
@@ -406,9 +328,6 @@ class AuthViewModel: ObservableObject {
         COLLECTION_USERS.document(uid).updateData([
             "money": money
         ])
-//        { _ in
-//            self.fetchUser()
-//        }
     }
     
 }

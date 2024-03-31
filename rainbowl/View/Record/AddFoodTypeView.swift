@@ -16,6 +16,7 @@ struct AddFoodTypeView: View {
     
     @Binding var addFoodType: Bool
     
+    @State private var category: String = ""
     @State private var name: String = ""
     @State private var size: String = ""
     @State private var unit: String = ""
@@ -40,6 +41,21 @@ struct AddFoodTypeView: View {
                 Spacer()
             }
             
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("種類")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
+                   //TODO
+                    HStack (spacing: 20) {
+                        RadioButtonView(category: "蔬菜", selectedCategory: $category)
+                        RadioButtonView(category: "水果", selectedCategory: $category)
+                    }.padding(.top, 10)
+                }.padding(.top, 30)
+                Spacer()
+            }
+            
+            
             ZStack(alignment: .leading) {
                 if name.isEmpty {
                     Text("")
@@ -49,7 +65,7 @@ struct AddFoodTypeView: View {
         
                 VStack(alignment: .leading) {
                     Text("蔬果名稱")
-                        .font(.system(size: 18))
+                        .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
                     TextField("", text: $name)
                         .textInputAutocapitalization(.never)
@@ -107,13 +123,11 @@ struct AddFoodTypeView: View {
                 }
                 
             }.padding(.top, 10)
-//                .padding(.horizontal, 30)
             
             HStack {
                 Text(" ＝ ")
                     .font(.system(size: 18))
                     .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-//                    .padding(.top, 30)
                 ZStack(alignment: .leading) {
                     if gram.isEmpty {
                         Text("")
@@ -122,9 +136,6 @@ struct AddFoodTypeView: View {
                     }
             
                     VStack(alignment: .leading) {
-//                        Text("公克")
-//                            .font(.system(size: 18))
-//                            .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
                         TextField("", text: $gram)
                             .keyboardType(.decimalPad)
                             .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
@@ -134,7 +145,6 @@ struct AddFoodTypeView: View {
                 Text("公克 (g)")
                     .font(.system(size: 18))
                     .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-//                    .padding(.top, 30)
             }.padding(.top, 10)
            
             HStack {
@@ -162,12 +172,7 @@ struct AddFoodTypeView: View {
 //            HStack {
 //                Spacer()
                 Button {
-                    viewModel.addFoodType(color: selectedIndex, name: name, size: Float(size) ?? 0, unit: unit, gram: Float(gram) ?? 0, calorie: Float(calorie) ?? 0) { error in
-//                        name = ""
-//                        size = 0
-//                        unit = ""
-//                        gram = 0
-//                        calorie = 0
+                    viewModel.addFoodType(color: selectedIndex, category: category, name: name, size: Float(size) ?? 0, unit: unit, gram: Float(gram) ?? 0, calorie: Float(calorie) ?? 0) { error in
                         if let error = error {
                             print("Error adding record: \(error.localizedDescription)")
                         }
@@ -183,20 +188,30 @@ struct AddFoodTypeView: View {
                         .cornerRadius(9)
                         .shadow(color: Color(red: 216/255, green: 214/255, blue: 209/255), radius: 6, x: 0, y: 4)
                         .padding(.top, 42)
-//                        .padding(.top, 70)
-//                        .font(.system(size: 12))
-//                        .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255))
-//                        .frame(width: 85, height: 30)
-//                        .background(Color(red: 188/255, green: 209/255, blue: 208/255))
-//                        .cornerRadius(9)
                 }.disabled(name == "" || size == "" || unit == "" || gram == "" || calorie == "")
-               
-//            }.padding(.top, 42)
         }.padding(.horizontal, 30)
         .padding(.vertical, 20)
         
     }
 
+}
+
+struct RadioButtonView: View {
+    var category: String
+    @Binding var selectedCategory: String
+    var body: some View {
+        Button(action: {
+            selectedCategory = category
+        }) {
+            HStack {
+                Image(systemName: selectedCategory == category ? "largecircle.fill.circle" : "circle")
+                    .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
+                Text(category)
+                    .font(.system(size: 18))
+                    .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
+            }
+        }
+    }
 }
     
 //    struct AddFoodTypeView_Previews: PreviewProvider {

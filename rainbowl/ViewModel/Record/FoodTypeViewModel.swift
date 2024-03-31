@@ -34,7 +34,7 @@ class FoodTypeViewModel: ObservableObject {
 
     }
     
-    func addFoodType(color: String, name: String, size: Float, unit: String, gram: Float, calorie: Float, completion: ((Error?) -> Void)?) {
+    func addFoodType(color: String, category: String, name: String, size: Float, unit: String, gram: Float, calorie: Float, completion: ((Error?) -> Void)?) {
         
         guard let user = AuthViewModel.shared.currentUser else {
             return
@@ -47,6 +47,7 @@ class FoodTypeViewModel: ObservableObject {
             "unit": unit,
             "gram": gram,
             "calorie": calorie,
+            "category": category
         ] as [String : Any]
         
         let docRef = COLLECTION_FOODTYPE.document(user.id ?? "").collection("foodTypes")
@@ -63,29 +64,15 @@ class FoodTypeViewModel: ObservableObject {
         guard let user = AuthViewModel.shared.currentUser else {
             return
         }
-        
-//        let docRef = COLLECTION_FOODTYPE.document(user.id ?? "").collection("foodTypes")
-//        docRef.whereField("name", isEqualTo: name).getDocuments { snapshot, error in
-//             guard let snapshot = snapshot else { return }
-//                 let document = snapshot.documents[0]
-//                 let documentID = document.documentID
 
             COLLECTION_FOODTYPE.document(user.id ?? "").collection("foodTypes").document(id).delete()
-//        }
     }
     
         
-    func updateFoodType( id: String, name: String, size: Float, unit: String, gram: Float, calorie: Float, completion: ((Error?) -> Void)?) {
+    func updateFoodType( id: String, name: String, size: Float, unit: String, gram: Float, calorie: Float, category: String, completion: ((Error?) -> Void)?) {
         guard let user = AuthViewModel.shared.currentUser else {
             return
         }
-        
-//        let docRef = COLLECTION_FOODTYPE.document(user.id ?? "").collection("foodTypes")
-//        docRef.whereField("name", isEqualTo: name).getDocuments { snapshot, error in
-//             guard let snapshot = snapshot else { return }
-//
-//            if let document = snapshot.documents.first {
-//                let documentID = document.documentID
                 
                 
                 COLLECTION_FOODTYPE.document(user.id ?? "").collection("foodTypes").document(id).updateData([
@@ -94,11 +81,9 @@ class FoodTypeViewModel: ObservableObject {
                     "unit": unit,
                     "gram": gram,
                     "calorie": calorie,
+                    "category": category,
                 ])
-                
-//                completion?(nil)
-//            }
-//        }
+            
     }
     
 }

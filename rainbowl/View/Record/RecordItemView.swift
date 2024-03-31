@@ -9,18 +9,19 @@ import SwiftUI
 
 struct RecordItemView: View {
     
-    @Binding var selectedIndex: String
+//    @Binding var selectedIndex: String
    
-    @StateObject var viewModel = FetchRecordViewModel(date: Date())
+//    @StateObject var viewModel = FetchRecordViewModel(date: Date())
     @StateObject var recordViewModel = RecordViewModel()
     
     let colors = ["紅", "橙", "黃", "綠", "紫", "白"]
     
-    var records: [Record] {
-        return selectedIndex == "" ? viewModel.records : viewModel.records.filter({
-            $0.color.contains(selectedIndex)
-        })
-    }
+    var records: [Record] 
+//    {
+//        return selectedIndex == "" ? viewModel.records : viewModel.records.filter({
+//            $0.color.contains(selectedIndex)
+//        })
+//    }
     
     var body: some View {
         //        ScrollView(showsIndicators: false) {
@@ -41,15 +42,10 @@ struct RecordItemView: View {
                                 .frame(width: 45, height: 45)
                         } else {
                             Text(record.name.prefix(1))
-//                                .font(.system(size: 14))
                                 .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255).opacity(0.6))
-//                                .padding()
                                 .frame(width: 45, height: 45)
                                 .background(Color(red: COLORS[colors.firstIndex(of: record.color) ?? 0][0]/255, green: COLORS[colors.firstIndex(of: record.color) ?? 0][1]/255, blue: COLORS[colors.firstIndex(of: record.color) ?? 0][2]/255))
                                 .cornerRadius(50)
-                                
-//                                .shadow(color: Color(red: 216/255, green: 214/255, blue: 209/255), radius: 6, x: 0, y: 4)
-//                                .padding(.top, 70)
                         }
                         
                         VStack(alignment: .leading) {
@@ -82,14 +78,7 @@ struct RecordItemView: View {
                             }
                             .tint(Color(red: 228/255, green: 126/255, blue: 83/255))
                             
-                            //                        Button(role: .destructive) {
-                            //
-                            //                        } label: {
-                            //                            Image(systemName: "pencil")
-                            //                                .resizable()
-                            //                                .scaledToFit()
-                            //                                .frame(width: 13)
-                            //                        }.tint(Color(red: 161/255, green: 197/255, blue: 124/255))
+                         
                             
                         }
                 }.listRowBackground(Color(white: 0, opacity: 0))
@@ -98,16 +87,13 @@ struct RecordItemView: View {
                 .padding(.vertical, 20)
         }
     }
-//    func delete(at offsets: IndexSet) {
-//        viewModel.records.remove(atOffsets: offsets)
+}
+
+
+
+
+//struct RecordItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecordItemView(selectedIndex: .constant("黃"))
 //    }
-}
-
-
-
-
-struct RecordItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordItemView(selectedIndex: .constant("黃"))
-    }
-}
+//}
