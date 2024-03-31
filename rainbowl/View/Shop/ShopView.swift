@@ -11,7 +11,7 @@ struct ShopView: View {
     @Binding var show: Bool
     @State private var selectedCategory: String = ""
     @State private var allcreatures = [CreatureProduct]()
-    @ObservedObject var viewModel = BackpackViewModel()
+    @ObservedObject var backpackViewModel: BackpackViewModel
     @ObservedObject var bookViewModel = BookViewModel()
     
     @State var animalShown = false
@@ -42,6 +42,7 @@ struct ShopView: View {
                     .overlay(alignment: .topTrailing) {
                         Button {
                             show = false
+                            SoundPlayer.shared.playCloseSound()
                         } label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -67,6 +68,7 @@ struct ShopView: View {
                     HStack(spacing: 20) {
                         Button(action: {
                             animalShown = true
+                            SoundPlayer.shared.playClickSound()
                         }, label: {
                             ZStack{
                                 Image("動物框")
@@ -78,6 +80,7 @@ struct ShopView: View {
                         })
                         Button(action: {
                             plantShown = true
+                            SoundPlayer.shared.playClickSound()
                         }, label: {
                             ZStack{
                                 Image("植物框")
@@ -108,19 +111,20 @@ struct ShopView: View {
                     HStack {
                         Button(action: {
                             animalShown = false
+                            SoundPlayer.shared.playClickSound()
                         }) {
                             Image("btn_cancel")
                                 .resizable().scaledToFit().frame(width: 126)
                         }
                         Button(action: {
-                            
+                            SoundPlayer.shared.playClickSound()
                             if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
                                 
                                 selectedCategory = "動物"
                                 let randomCreature = creatures.randomElement()!
     //                            let randomCreature = creatures[2]
                                 bookViewModel.addToBook(name: randomCreature.name)
-                                viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
+                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, friend: nil)
                                 animalShown = false
                                 
                                 name = randomCreature.name
@@ -154,19 +158,20 @@ struct ShopView: View {
                     HStack {
                         Button(action: {
                             plantShown = false
+                            SoundPlayer.shared.playClickSound()
                             
                         }) {
                             Image("btn_cancel")
                                 .resizable().scaledToFit().frame(width: 126)
                         }
                         Button(action: {
-                            
+                            SoundPlayer.shared.playClickSound()
                             if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
                                 selectedCategory = "植物"
                                 let randomCreature = creatures.randomElement()!
                                 //                            let randomCreature = creatures[9]
                                 bookViewModel.addToBook(name: randomCreature.name)
-                                viewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width)
+                                backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, friend: nil)
                                 plantShown = false
                                 
                                 name = randomCreature.name
@@ -196,6 +201,7 @@ struct ShopView: View {
                                 buyPlantSucceed = false
                                 name = ""
                                 showCongratulatoryMessage = false
+                                SoundPlayer.shared.playCloseSound()
                             } label: {
                                 Image(systemName: "xmark")
                                     .resizable()
@@ -242,6 +248,9 @@ struct ShopView: View {
                                         .resizable().scaledToFit().frame(width: 170, height: 170).saturation(0)
                                     
                                 }
+                                .onAppear {
+                                    SoundPlayer.shared.playSucceedSound()
+                                }
                             }
                         }
                         
@@ -255,8 +264,8 @@ struct ShopView: View {
     }
 }
 
-struct ShopView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopView(show: .constant(true))
-    }
-}
+//struct ShopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopView(show: .constant(true))
+//    }
+//}

@@ -33,6 +33,7 @@ struct AvatarView: View {
                 .overlay(alignment: .topTrailing) {
                     Button {
                         show = false
+                        SoundPlayer.shared.playCloseSound()
                     } label: {
                         Image(systemName: "xmark")
                             .resizable()
@@ -42,7 +43,7 @@ struct AvatarView: View {
                             .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
                     }
                 }
-            VStack {
+            ScrollView {
                 HStack {
                     Text("選擇頭像底色")
                         .font(.system(size: 18))

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CollectionView: View {
     @Binding var show: Bool
+    @ObservedObject var backpackViewModel: BackpackViewModel
 
     @State var selectedTab = Tabs.FirstTab
     var body: some View {
@@ -53,7 +54,7 @@ struct CollectionView: View {
                 Spacer()
                 
                 if selectedTab == .FirstTab {
-                    BackpackView()
+                    BackpackView(backpackViewModel: backpackViewModel, mode: "backpack", targetCreature: nil, show: nil)
                 } else if selectedTab == .SecondTab {
                     BookView()
                 }
@@ -68,8 +69,8 @@ enum Tabs {
     case SecondTab
 }
 
-struct CollectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        CollectionView(show: .constant(true))
-    }
-}
+//struct CollectionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CollectionView(show: .constant(true))
+//    }
+//}

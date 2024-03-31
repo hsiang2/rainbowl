@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct UserListView: View {
-    @ObservedObject var viewModel = SearchUserViewModel()
+    @ObservedObject var socialViewModel: SocialViewModel
     @Binding var searchText: String
     
     var users: [User] {
-        return searchText.isEmpty ? viewModel.users : viewModel.filteredUsers(searchText)
+        return searchText.isEmpty ? socialViewModel.users : socialViewModel.filteredUsers(searchText)
     }
     
     var body: some View {
@@ -20,9 +21,8 @@ struct UserListView: View {
         ScrollView {
             LazyVStack {
                 ForEach(users) { user in
-                    NavigationLink(destination: LazyView(SocialGameView(user: user)), label: {
-                        UserItem(user: user)
-                            .padding(.leading)
+                    NavigationLink(destination: LazyView(SocialGameView(user: user, viewModel: socialViewModel)), label: {
+                        UserItem(socialViewModel: socialViewModel, user: user)
                     })
                 }
             }

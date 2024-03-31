@@ -84,7 +84,7 @@ struct AddFoodTypeView: View {
                             .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
                         TextField("0.8", text: $size)
                             .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                         Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                     }
                 }
@@ -126,7 +126,7 @@ struct AddFoodTypeView: View {
 //                            .font(.system(size: 18))
 //                            .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
                         TextField("", text: $gram)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                             .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
                         Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                     }
@@ -150,7 +150,7 @@ struct AddFoodTypeView: View {
                     
                     VStack(alignment: .leading) {
                         TextField("", text: $calorie)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                             .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
                         Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                     }
@@ -173,7 +173,7 @@ struct AddFoodTypeView: View {
                         }
                     }
                     addFoodType = false
-                    
+                    SoundPlayer.shared.playClickSound()
                 } label: {
                     Text("確認")
                         .font(.headline)
@@ -189,7 +189,7 @@ struct AddFoodTypeView: View {
 //                        .frame(width: 85, height: 30)
 //                        .background(Color(red: 188/255, green: 209/255, blue: 208/255))
 //                        .cornerRadius(9)
-                }
+                }.disabled(name == "" || size == "" || unit == "" || gram == "" || calorie == "")
                
 //            }.padding(.top, 42)
         }.padding(.horizontal, 30)

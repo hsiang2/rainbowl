@@ -48,6 +48,7 @@ struct TabBarItem: View {
     var body: some View {
         Button {
             self.currentTab = tab
+            SoundPlayer.shared.playClickSound()
         } label: {
             VStack {
                 Spacer()

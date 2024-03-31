@@ -50,7 +50,7 @@ class FetchRecordViewModel: ObservableObject {
         query.addSnapshotListener { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             let records = documents.compactMap({ try? $0.data(as: Record.self) })
-            self.records = records.sorted(by: { $0.timestamp.dateValue() < $1.timestamp.dateValue() })
+            self.records = records.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
                 .filter({
                     self.compareDate(date1: $0.timestamp.dateValue(), date2: date ?? Date())
             })

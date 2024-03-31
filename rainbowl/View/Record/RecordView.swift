@@ -26,6 +26,7 @@ struct RecordView: View {
                                 selectedBtn = ""
                                 addFoodType = false
                                 editFoodType = nil
+                                SoundPlayer.shared.playClickSound()
                             } label: {
                                 Image(systemName: "chevron.backward")
                                     .resizable()
@@ -38,6 +39,7 @@ struct RecordView: View {
                         Spacer()
                         Button {
                             show = false
+                            SoundPlayer.shared.playCloseSound()
                         } label: {
                             Image(systemName: "xmark")
                                 .resizable()

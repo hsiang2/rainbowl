@@ -19,6 +19,8 @@ struct SettingView: View {
                     .overlay(alignment: .topTrailing) {
                         Button {
                             show = false
+                            
+                            SoundPlayer.shared.playCloseSound()
                         } label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -72,6 +74,7 @@ struct SettingView: View {
     //                Spacer()
                     Button(action: {
                         AuthViewModel.shared.signout()
+                        SoundPlayer.shared.playClickSound()
                     }, label: {
                         Text("登出")
                             .font(.system(size: 20))

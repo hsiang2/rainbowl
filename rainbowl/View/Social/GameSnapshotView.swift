@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct GameSnapshotView: View {
-    @ObservedObject var viewModel = SearchUserViewModel()
+    @ObservedObject var socialViewModel: SocialViewModel
     
     let user: User
     
 
     @StateObject private var positionManager = CreaturePositionManager()
 
-    var creatures: [CreatureInUse] {
-        viewModel.fetchCreatures(uid: user.id ?? "")
-        return viewModel.creatures
-    }
+    @State private var creatures: [CreatureInUse] = []
+//    var creatures: [CreatureInUse] {
+//        return socialViewModel.fetchCreatures(uid: user.id ?? "")
+////        return socialViewModel.creatures
+//    }
     
 
     var red: Float
@@ -28,8 +29,9 @@ struct GameSnapshotView: View {
     var purple: Float
     var white: Float
 
-    init(user: User) {
+    init(user: User, socialViewModel: SocialViewModel) {
         self.user = user
+        self.socialViewModel = socialViewModel
         self.red = user.red?.reduce(0) { $0 + $1 } ?? 0
         self.orange = user.orange?.reduce(0) { $0 + $1 } ?? 0
         self.yellow = user.yellow?.reduce(0) { $0 + $1 } ?? 0
@@ -42,6 +44,8 @@ struct GameSnapshotView: View {
         ZStack {
             backgroundImage
             creatureViews
+        }.onAppear {
+            fetchCreatures()
         }
                
     }
@@ -126,8 +130,14 @@ struct GameSnapshotView: View {
                     colorView(for: creature, color: color)
                 }
             }
+                .zIndex(Double(creature.locationY ?? 1))
                 .position(initialPosition)
             
         )
     }
+    func fetchCreatures() {
+            socialViewModel.fetchCreatures(uid: user.id ?? "") { fetchedCreatures in
+                self.creatures = fetchedCreatures
+            }
+        }
 }

@@ -104,9 +104,15 @@ struct GameView: View {
 
     @StateObject var viewModel = AuthViewModel()
     
+    @ObservedObject var backpackViewModel: BackpackViewModel
+    
+    
     @State var looper: AVPlayerLooper?
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     var creatures: [CreatureInUse] {
         return viewModel.creatures
     }
@@ -118,7 +124,8 @@ struct GameView: View {
     var purple: Float
     var white: Float
 
-    init(user: User) {
+    init(user: User, backpackViewModel: BackpackViewModel) {
+        self.backpackViewModel = backpackViewModel
         self.user = user
         self.red = user.red?.reduce(0) { $0 + $1 } ?? 0
         self.orange = user.orange?.reduce(0) { $0 + $1 } ?? 0
@@ -143,6 +150,7 @@ struct GameView: View {
                 let fileUrl = Bundle.main.url(forResource: "bgmusic", withExtension: "mp3")!
                 let item = AVPlayerItem(url: fileUrl)
                 self.looper = AVPlayerLooper(player: musicplayer, templateItem: item)
+                musicplayer.volume = 0.3
                 musicplayer.play()
             }
             .onDisappear {
@@ -167,7 +175,12 @@ struct GameView: View {
 //            }
             
                 Button(action: {
+<<<<<<< HEAD
                     showDelete = !showDelete
+=======
+                    showDelete = false
+                    SoundPlayer.shared.playClickSound()
+>>>>>>> main
                 }) {
                     if (!showDelete) {
                         Text("編輯")
@@ -335,7 +348,8 @@ struct GameView: View {
                 }
                 if (showDelete) {
                     Button(action: {
-                        viewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                        backpackViewModel.deleteGame(id: creature.id ?? "", category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                        SoundPlayer.shared.playClickSound()
                     }) {
                         Image(systemName: "minus.circle.fill")
                             .resizable().scaledToFit().frame(width: 30)
@@ -348,7 +362,10 @@ struct GameView: View {
             }
 //                .opacity(opacity)
                 .position(position)
+<<<<<<< HEAD
 //                .scaleEffect(x: directionManager.directions[creature] ?? true ? 1 : -1, y: 1)
+=======
+>>>>>>> main
                 .zIndex(Double(creature.locationY ?? 1))
                 .gesture(
                    

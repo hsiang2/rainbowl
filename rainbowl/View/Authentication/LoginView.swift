@@ -82,6 +82,7 @@ struct LoginView: View {
 
                     Button(action: {
                         viewModel.login(withEmail: email, password: password)
+                        SoundPlayer.shared.playEnterSound()
                     }, label: {
                         Text("登入")
                             .font(.headline)

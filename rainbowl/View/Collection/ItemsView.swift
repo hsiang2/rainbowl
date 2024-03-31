@@ -13,11 +13,22 @@ struct ItemsView: View {
     
     var selectedCategory: String
 
-    @ObservedObject var viewModel = BackpackViewModel()
+    @ObservedObject var backpackViewModel: BackpackViewModel
     var creatures: [Creature] {
-        return viewModel.creatures.filter({
+        return backpackViewModel.creatures.filter({
                         $0.category.contains(selectedCategory)
                     })
+    }
+    var mode: String
+    @Binding var targetCreature: Creature?
+    @Binding var show: Bool?
+
+    init(currentTab: Int = 0, selectedCategory: String = "", backpackViewModel: BackpackViewModel, mode: String, targetCreature: Binding<Creature?>?, show: Binding<Bool?>?) {
+        self.selectedCategory = selectedCategory
+        self.backpackViewModel = backpackViewModel
+        self.mode = mode
+        self._targetCreature = targetCreature ?? .constant(nil)
+        self._show = show ?? .constant(nil)
     }
     
 //    let tests = ["黑白鹿", "彩色鹿", "虎鯨_黑白", "樹_黑白"]
@@ -40,7 +51,15 @@ struct ItemsView: View {
                                 .foregroundColor(Color(red: 83/255, green: 94/255, blue: 49/255))
                         }.frame(width: width, height: width)
                             .onTapGesture {
-                                AuthViewModel.shared.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                               
+                                if (mode == "backpack") {
+                                    backpackViewModel.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width)
+                                } else {
+                                    targetCreature = creature
+                                    show = false
+                                    
+                                }
+                               
                             }
                         
                     }

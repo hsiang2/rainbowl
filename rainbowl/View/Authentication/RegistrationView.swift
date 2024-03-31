@@ -116,6 +116,7 @@ struct RegistrationView: View {
 
                 Button(action: {
                     viewModel.register(withEmail: email, password: password, username: username, avatar: avatar, avatarColor: avatarColor)
+                    SoundPlayer.shared.playEnterSound()
                 }, label: {
                     Text("建立帳號")
                         .font(.headline)

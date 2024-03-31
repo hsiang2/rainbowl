@@ -35,13 +35,6 @@ struct BookItemsView: View {
 //            $0.category.contains(selectedCategory)
 //        })
     }
-
-//    @ObservedObject var viewModel = BackpackViewModel()
-//    var creatures: [Creature] {
-//        return viewModel.creatures.filter({
-//                        $0.category.contains(selectedCategory)
-//                    })
-//    }
     
     
     
