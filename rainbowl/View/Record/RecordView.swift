@@ -184,6 +184,7 @@ struct RecordView: View {
             }
            
         }.presentationDetents([.fraction(0.8)])
+            .presentationCornerRadius(45)
             .onChange(of: records) {
                 print(isPlateFull(), isEarnedMoney)
                 if(isPlateFull() && !isEarnedMoney) {

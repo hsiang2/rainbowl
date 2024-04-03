@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.4, *)
 struct CollectionView: View {
     @Binding var show: Bool
     @ObservedObject var backpackViewModel: BackpackViewModel
@@ -60,7 +61,7 @@ struct CollectionView: View {
                 }
             }
         }.presentationDetents([.fraction(0.8)])
-        
+            .presentationCornerRadius(30)
     }
 }
 

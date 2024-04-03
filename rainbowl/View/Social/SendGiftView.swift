@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.4, *)
 struct SendGiftView: View {
     @Binding var show: Bool
     let friendId: String
@@ -95,6 +96,7 @@ struct SendGiftView: View {
             }
             
         }.presentationDetents([.fraction(0.8)])
+            .presentationCornerRadius(24)
         
     }
 }

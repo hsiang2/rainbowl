@@ -97,6 +97,14 @@
 		AAD4770C2A4BEB8C00F57A46 /* CreatureInUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4770B2A4BEB8C00F57A46 /* CreatureInUse.swift */; };
 		AAD4770E2A4CC5C000F57A46 /* CreatureProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4770D2A4CC5C000F57A46 /* CreatureProduct.swift */; };
 		AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5022BB9A48D00761056 /* 鹿_橙.gif */; };
+		AAEED50A2BBAF18600761056 /* 樹_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5082BBAF18600761056 /* 樹_橙.gif */; };
+		AAEED50B2BBAF18600761056 /* 樹_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5092BBAF18600761056 /* 樹_綠.gif */; };
+		AAEED50E2BBAF78A00761056 /* 樹叢_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED50C2BBAF78A00761056 /* 樹叢_紅.gif */; };
+		AAEED50F2BBAF78A00761056 /* 樹叢_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED50D2BBAF78A00761056 /* 樹叢_綠.gif */; };
+		AAEED5112BBC514F00761056 /* 針葉樹_藍_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5102BBC514E00761056 /* 針葉樹_藍_橙.gif */; };
+		AAEED5132BBC515400761056 /* 針葉樹_藍_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5122BBC515400761056 /* 針葉樹_藍_紫.gif */; };
+		AAEED5162BBC57C600761056 /* 矢車菊_粉_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5142BBC57C600761056 /* 矢車菊_粉_紅.gif */; };
+		AAEED5172BBC57C600761056 /* 矢車菊_粉_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAEED5152BBC57C600761056 /* 矢車菊_粉_綠.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +189,14 @@
 		AAD4770B2A4BEB8C00F57A46 /* CreatureInUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureInUse.swift; sourceTree = "<group>"; };
 		AAD4770D2A4CC5C000F57A46 /* CreatureProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureProduct.swift; sourceTree = "<group>"; };
 		AAEED5022BB9A48D00761056 /* 鹿_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "鹿_橙.gif"; sourceTree = "<group>"; };
+		AAEED5082BBAF18600761056 /* 樹_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹_橙.gif"; sourceTree = "<group>"; };
+		AAEED5092BBAF18600761056 /* 樹_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹_綠.gif"; sourceTree = "<group>"; };
+		AAEED50C2BBAF78A00761056 /* 樹叢_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹叢_紅.gif"; sourceTree = "<group>"; };
+		AAEED50D2BBAF78A00761056 /* 樹叢_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹叢_綠.gif"; sourceTree = "<group>"; };
+		AAEED5102BBC514E00761056 /* 針葉樹_藍_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "針葉樹_藍_橙.gif"; sourceTree = "<group>"; };
+		AAEED5122BBC515400761056 /* 針葉樹_藍_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "針葉樹_藍_紫.gif"; sourceTree = "<group>"; };
+		AAEED5142BBC57C600761056 /* 矢車菊_粉_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "矢車菊_粉_紅.gif"; sourceTree = "<group>"; };
+		AAEED5152BBC57C600761056 /* 矢車菊_粉_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "矢車菊_粉_綠.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,8 +292,8 @@
 		AA4BB32F29FCBB8D00F10479 /* rainbowl */ = {
 			isa = PBXGroup;
 			children = (
-				AAEED4F92BB99E3800761056 /* GIF */,
 				AA46CDA02B1CDAB500D32A83 /* music */,
+				AAEED4F92BB99E3800761056 /* GIF */,
 				AA3269512B08B21E0038BE8B /* Info.plist */,
 				AA2E6A2E2A08D37E00C668AC /* Data */,
 				AA4BB34229FCBC6E00F10479 /* Model */,
@@ -503,6 +519,14 @@
 		AAEED4F92BB99E3800761056 /* GIF */ = {
 			isa = PBXGroup;
 			children = (
+				AAEED50C2BBAF78A00761056 /* 樹叢_紅.gif */,
+				AAEED5142BBC57C600761056 /* 矢車菊_粉_紅.gif */,
+				AAEED5152BBC57C600761056 /* 矢車菊_粉_綠.gif */,
+				AAEED50D2BBAF78A00761056 /* 樹叢_綠.gif */,
+				AAEED5092BBAF18600761056 /* 樹_綠.gif */,
+				AAEED5082BBAF18600761056 /* 樹_橙.gif */,
+				AAEED5102BBC514E00761056 /* 針葉樹_藍_橙.gif */,
+				AAEED5122BBC515400761056 /* 針葉樹_藍_紫.gif */,
 				AAEED5022BB9A48D00761056 /* 鹿_橙.gif */,
 			);
 			path = GIF;
@@ -584,19 +608,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEED50F2BBAF78A00761056 /* 樹叢_綠.gif in Resources */,
 				AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */,
 				AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */,
 				AA2E6A2D2A08D19500C668AC /* food.json in Resources */,
+				AAEED50B2BBAF18600761056 /* 樹_綠.gif in Resources */,
 				AAB616082B1E0BD400A372E0 /* color.mp3 in Resources */,
+				AAEED50E2BBAF78A00761056 /* 樹叢_紅.gif in Resources */,
 				AAB6160B2B1E0BD400A372E0 /* click.mp3 in Resources */,
 				AAB6160F2B1E10B200A372E0 /* close.mp3 in Resources */,
 				AAD477052A4AE15900F57A46 /* creature.json in Resources */,
 				AAB6160A2B1E0BD400A372E0 /* login.mp3 in Resources */,
 				AA8F08932A0173210069D180 /* GoogleService-Info.plist in Resources */,
+				AAEED5172BBC57C600761056 /* 矢車菊_粉_綠.gif in Resources */,
+				AAEED5162BBC57C600761056 /* 矢車菊_粉_紅.gif in Resources */,
 				AAB616092B1E0BD400A372E0 /* dateselected.mp3 in Resources */,
 				AAB616052B1E0BD400A372E0 /* success.mp3 in Resources */,
 				AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */,
+				AAEED50A2BBAF18600761056 /* 樹_橙.gif in Resources */,
+				AAEED5132BBC515400761056 /* 針葉樹_藍_紫.gif in Resources */,
 				AA46CDA42B1CDB5200D32A83 /* bgmusic.mp3 in Resources */,
+				AAEED5112BBC514F00761056 /* 針葉樹_藍_橙.gif in Resources */,
 				AAB616072B1E0BD400A372E0 /* iconclick.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

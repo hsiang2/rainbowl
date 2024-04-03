@@ -130,7 +130,6 @@ struct AvatarView: View {
                 }
             }.padding(.top, 60)
         }.presentationDetents([.fraction(0.8)])
-        
     }
     
 }

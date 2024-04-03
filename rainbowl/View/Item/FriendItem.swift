@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.4, *)
 struct FriendItem: View {
     @ObservedObject var backpackViewModel: BackpackViewModel
     @ObservedObject var socialViewModel: SocialViewModel
