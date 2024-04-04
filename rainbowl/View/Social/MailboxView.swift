@@ -13,6 +13,7 @@ class SelectedNotificationManager: ObservableObject {
     @Published var selectedNotification: UserNotification?
 }
 
+@available(iOS 16.4, *)
 struct MailboxView: View {
     @Binding var show: Bool
     @State private var openPostCard = false
@@ -159,25 +160,42 @@ struct MailboxView: View {
                 socialViewModel.markUnreadNotificationsAsRead()
             }
             .fullScreenCover(isPresented: $openPostCard) {
-                ZStack {
-                    Color(red: 225/255, green: 232/255, blue: 234/255)
-                        .ignoresSafeArea()
-                        .overlay(alignment: .topTrailing) {
-                            Button {
-                                openPostCard = false
-                                SoundPlayer.shared.playCloseSound()
-                            } label: {
-                                Image(systemName: "xmark")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20)
-                                    .padding()
-                                    .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
+                VStack {
+//                    Color(red: 225/255, green: 232/255, blue: 234/255)
+//                        .ignoresSafeArea()
+//                        .overlay(alignment: .topTrailing) {
+//                            Button {
+//                                openPostCard = false
+//                                SoundPlayer.shared.playCloseSound()
+//                            } label: {
+//                                Image(systemName: "xmark")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 20)
+//                                    .padding()
+//                                    .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
+//                                
+//                            }
+//                        }
+                    HStack {
+                        Spacer()
+                        Button {
+                            show = false
+                            SoundPlayer.shared.playCloseSound()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .padding()
+                                .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
                                 
-                            }
                         }
-                    PostcardView(creatureName: selectedNotificationManager.selectedNotification?.creatureName ?? "", message: selectedNotificationManager.selectedNotification?.message ?? "")
-                }
+                    }
+                    Spacer()
+                    PostcardView(creatureName: selectedNotificationManager.selectedNotification?.creatureName ?? "", message: selectedNotificationManager.selectedNotification?.message ?? "", receiver: AuthViewModel.shared.currentUser?.username ?? "")
+                    Spacer()
+                }.presentationBackground(Color(red: 8/255, green: 8/255, blue: 8/255).opacity(0.64))
             }
             
         }

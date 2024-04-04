@@ -10,35 +10,41 @@ import SwiftUI
 struct PostcardView: View {
     let creatureName: String
     let message: String
+    let receiver: String
     
     var body: some View {
-//        ZStack {
-//            Color(red: 230/255, green: 229/255, blue: 222/255)
-//                .ignoresSafeArea()
-                VStack(alignment: .leading) {
-                    
-                    
-                    Text("禮物")
-                        .font(.system(size: 18))
-                        .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-                    if !creatureName.isEmpty {
-                                   ZStack {
-                                       Image("\(creatureName)_彩色")
-                                           .resizable()
-                                           .scaledToFit()
-                                           .frame(width: 70, height: 70)
-                                           .saturation(0)
-                                   }
-                               }
-                    Text("留言")
-                        .font(.system(size: 18))
-                        .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-                    Text(message)
-                        .font(.system(size: 18))
-                        .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-                }
+        ZStack(alignment: .top) {
+            Image("卡片")
+                 .resizable().scaledToFit().frame(width: 354, height: 529)
+            VStack {
+                ZStack {
+                   Image("卡片_內層")
+                        .resizable().scaledToFit().frame(width: 316, height: 353)
+                    VStack(alignment: .leading) {
+                        if !creatureName.isEmpty {
+                           Image("\(creatureName)_彩色")
+                               .resizable()
+                               .scaledToFit()
+                               .frame(width: 193, height: 193)
+                               .saturation(0)
+
+                        }
+                    }
+                }.padding(.vertical, 32)
+                Text("To: \(receiver)")
+                    .font(.system(size: 18, design: .serif))
+                    .foregroundStyle(LinearGradient(
+                        stops: [.init(color: Color(red: 57/255, green: 57/255, blue: 57/255), location: 0.42), .init(color: Color(red: 155/255, green: 155/255, blue: 155/255), location: 0.74), .init(color:  Color(red: 83/255, green: 83/255, blue: 83/255), location: 1)], startPoint: .topLeading, endPoint: .bottomTrailing))
+//                    .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
+                    .padding(.bottom, 10)
+                Text(message)
+                    .font(.system(size: 14))
+                    .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
+                    .frame(width: 314)
+            }
         }
-//    }
+        
+    }
 }
 
 //#Preview {

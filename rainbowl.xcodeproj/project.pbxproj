@@ -45,6 +45,8 @@
 		AA5D0EA82A4A17C3002A32DC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0EA72A4A17C3002A32DC /* TabBarView.swift */; };
 		AA5D0EAA2A4A1894002A32DC /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0EA92A4A1894002A32DC /* ItemsView.swift */; };
 		AA654B8F2B6CDEFD006CC1D0 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA654B8E2B6CDEFD006CC1D0 /* ShareView.swift */; };
+		AA81B4F52BBED6E30039B7BC /* 矢車菊_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B4F42BBED6E30039B7BC /* 矢車菊_紫.gif */; };
+		AA81B4F72BBED6E70039B7BC /* 矢車菊_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B4F62BBED6E70039B7BC /* 矢車菊_綠.gif */; };
 		AA8CD4E22B19787D00F32D63 /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4E12B19787D00F32D63 /* SocialView.swift */; };
 		AA8CD4E42B197EA600F32D63 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4E32B197EA600F32D63 /* SearchBar.swift */; };
 		AA8CD4E62B19811E00F32D63 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4E52B19811E00F32D63 /* Extensions.swift */; };
@@ -148,6 +150,8 @@
 		AA5D0EA72A4A17C3002A32DC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		AA5D0EA92A4A1894002A32DC /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		AA654B8E2B6CDEFD006CC1D0 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		AA81B4F42BBED6E30039B7BC /* 矢車菊_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "矢車菊_紫.gif"; sourceTree = "<group>"; };
+		AA81B4F62BBED6E70039B7BC /* 矢車菊_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "矢車菊_綠.gif"; sourceTree = "<group>"; };
 		AA8CD4E12B19787D00F32D63 /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		AA8CD4E32B197EA600F32D63 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		AA8CD4E52B19811E00F32D63 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -520,11 +524,13 @@
 			isa = PBXGroup;
 			children = (
 				AAEED50C2BBAF78A00761056 /* 樹叢_紅.gif */,
-				AAEED5142BBC57C600761056 /* 矢車菊_粉_紅.gif */,
-				AAEED5152BBC57C600761056 /* 矢車菊_粉_綠.gif */,
 				AAEED50D2BBAF78A00761056 /* 樹叢_綠.gif */,
 				AAEED5092BBAF18600761056 /* 樹_綠.gif */,
 				AAEED5082BBAF18600761056 /* 樹_橙.gif */,
+				AA81B4F42BBED6E30039B7BC /* 矢車菊_紫.gif */,
+				AA81B4F62BBED6E70039B7BC /* 矢車菊_綠.gif */,
+				AAEED5142BBC57C600761056 /* 矢車菊_粉_紅.gif */,
+				AAEED5152BBC57C600761056 /* 矢車菊_粉_綠.gif */,
 				AAEED5102BBC514E00761056 /* 針葉樹_藍_橙.gif */,
 				AAEED5122BBC515400761056 /* 針葉樹_藍_紫.gif */,
 				AAEED5022BB9A48D00761056 /* 鹿_橙.gif */,
@@ -610,6 +616,7 @@
 			files = (
 				AAEED50F2BBAF78A00761056 /* 樹叢_綠.gif in Resources */,
 				AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */,
+				AA81B4F52BBED6E30039B7BC /* 矢車菊_紫.gif in Resources */,
 				AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */,
 				AA2E6A2D2A08D19500C668AC /* food.json in Resources */,
 				AAEED50B2BBAF18600761056 /* 樹_綠.gif in Resources */,
@@ -617,6 +624,7 @@
 				AAEED50E2BBAF78A00761056 /* 樹叢_紅.gif in Resources */,
 				AAB6160B2B1E0BD400A372E0 /* click.mp3 in Resources */,
 				AAB6160F2B1E10B200A372E0 /* close.mp3 in Resources */,
+				AA81B4F72BBED6E70039B7BC /* 矢車菊_綠.gif in Resources */,
 				AAD477052A4AE15900F57A46 /* creature.json in Resources */,
 				AAB6160A2B1E0BD400A372E0 /* login.mp3 in Resources */,
 				AA8F08932A0173210069D180 /* GoogleService-Info.plist in Resources */,

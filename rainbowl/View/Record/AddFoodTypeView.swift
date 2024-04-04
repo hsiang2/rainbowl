@@ -51,7 +51,7 @@ struct AddFoodTypeView: View {
                         RadioButtonView(category: "蔬菜", selectedCategory: $category)
                         RadioButtonView(category: "水果", selectedCategory: $category)
                     }.padding(.top, 10)
-                }.padding(.top, 30)
+                }.padding(.top, 20)
                 Spacer()
             }
             
@@ -72,7 +72,7 @@ struct AddFoodTypeView: View {
                         .foregroundColor(Color(red: 171/255, green: 147/255, blue: 84/255))
                     Divider().overlay(Color(red: 139/255, green: 128/255, blue: 101/255))
                 }
-            }.padding(.top, 30)
+            }.padding(.top, 20)
             HStack {
                 Text("定義份量")
                     .font(.system(size: 18, weight: .semibold))
@@ -187,9 +187,9 @@ struct AddFoodTypeView: View {
                         .background(Color(red: 184/255, green: 175/255, blue: 153/255))
                         .cornerRadius(9)
                         .shadow(color: Color(red: 216/255, green: 214/255, blue: 209/255), radius: 6, x: 0, y: 4)
-                        .padding(.top, 42)
+                        .padding(.top, 30)
                 }.disabled(name == "" || size == "" || unit == "" || gram == "" || calorie == "")
-        }.padding(.horizontal, 30)
+        }.padding(.horizontal, 40)
         .padding(.vertical, 20)
         
     }
