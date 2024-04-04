@@ -28,7 +28,7 @@ struct SocialTabBarView: View {
                         
                     })
                 }
-                .padding(.horizontal, 60)
+                .padding(.horizontal, 139)
                 .frame(height: 80)
         }
 }
@@ -50,18 +50,18 @@ struct SocialTabBarItem: View {
                 HStack {
                     Spacer()
                     Text(tabBarItemName)
-//                    Image(tabBarItemName)
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 42, height: 42)
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundColor(Color(red: 59/255, green: 48/255, blue: 41/255))
+                        .opacity(currentTab == tab ? 1 : 0.35)
                     Spacer()
                 }
                 
                 ZStack {
-                    Color(red: 142/255, green: 135/255, blue: 129/255).frame(height: 5)
+//                    Color(red: 142/255, green: 135/255, blue: 129/255).frame(height: 5)       .cornerRadius(50)
                     if currentTab == tab {
                         Color(red: 217/255, green: 187/255, blue: 137/255)
-                            .frame(height: 5)
+                            .frame(width: 24, height: 5)
+                            .cornerRadius(50)
                             .matchedGeometryEffect(id: "underline",
                                                    in: namespace,
                                                    properties: .frame)
