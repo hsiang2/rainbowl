@@ -71,6 +71,7 @@ import ImageIO
 
 struct GifView: UIViewRepresentable {
     var imageName: String
+    
 
     func makeUIView(context: Context) -> UIImageView {
         let imageView = UIImageView()
@@ -79,6 +80,7 @@ struct GifView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIImageView, context: Context) {
+        
         if let gifURL = Bundle.main.url(forResource: imageName, withExtension: "gif"),
            let imageData = try? Data(contentsOf: gifURL),
            let source = CGImageSourceCreateWithData(imageData as CFData, nil) {
@@ -106,9 +108,12 @@ struct GifView: UIViewRepresentable {
             uiView.animationRepeatCount = 0 // 0 for infinite loop, adjust as needed
 
             uiView.startAnimating()
+            
+            
         }
     }
 }
+
 
 
 
@@ -214,24 +219,33 @@ struct GameView: View {
 
                 }) {
                     if (!showDelete) {
-                        Text("編輯")
-                            .font(.headline)
-                            .foregroundColor(Color(red: 247/255, green: 244/255, blue: 237/255))
-                            .frame(width: 70, height: 48)
-                            .background(Color(red: 187/255, green: 129/255, blue: 111/255))
-                            .cornerRadius(25)
-                            .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
-                            .padding(.top, 70)
+                        ZStack {
+                            Image("按鈕_主頁編輯")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 78)
+                            Text("編輯")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundColor(.white)
+                                .padding(.top, 10)
+                                .padding(.trailing, 7)
+                        }
+//                        .padding(.top, 70)
+                       
                     }
                     else {
-                        Text("完成")
-                            .font(.headline)
-                            .foregroundColor(Color(red: 247/255, green: 244/255, blue: 237/255))
-                            .frame(width: 70, height: 48)
-                            .background(Color(red: 187/255, green: 129/255, blue: 111/255))
-                            .cornerRadius(25)
-                            .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
-                            .padding(.top, 70)
+                        ZStack {
+                            Image("按鈕_主頁完成")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 78)
+                            Text("完成")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundColor(.white)
+                                .padding(.top, 10)
+                                .padding(.trailing, 7)
+                        }
+                      
                     }
                 }.offset(x: 145, y: -300)
             
@@ -421,7 +435,7 @@ struct GameView: View {
         
         if !showDelete {
             withAnimation(
-             Animation.linear(duration: 8)
+                Animation.linear(duration: Double(creature.width) * 0.1)
             ) {
                 positionManager.positions[creature] = CGPoint(x: position.x + CGFloat(creature.width) * CGFloat(directionManager.directions[creature] ?? 1), y: position.y)
                 

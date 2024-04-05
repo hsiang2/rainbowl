@@ -42,48 +42,14 @@ struct MainTabView: View {
             VStack {
                 HStack {
                     ZStack {
-                        Image("money_bg")
+                        Image("錢框")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 110)
+                            .frame(width: 89)
                             .padding()
-                        Text(String(AuthViewModel.shared.currentUser?.money ?? 0)).padding(.trailing, 20).padding(.bottom, 3)
+                        Text(String(AuthViewModel.shared.currentUser?.money ?? 0)).font(.system(size: 16)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.trailing, 20)
                     }
                     Spacer()
-                    Button(action: {
-                                openMailbox.toggle()
-                        SoundPlayer.shared.playIconSound()
-                    }, label: {
-                        ZStack {
-                            Image(systemName: "envelope")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 48, height: 48)
-                                .padding()
-//                            Text("\(socialViewMode.fetchNotificationNumber())")
-//                                .font(.system(size: 14))
-//                                .frame(width: 25, height: 25)
-////                                .padding(10)
-//                                      .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-//                                      .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
-//                                .offset(x: 18, y: -10)
-                            let unreadCount = socialViewModel.newNotificationsCount()
-                                   if unreadCount > 0 {
-                                       Text("\(unreadCount)")
-                                           .font(.system(size: 12))
-                                           .fontWeight(.bold)
-                                           .foregroundColor(.red)
-                                           .padding(6)
-                                           .background(Color.white)
-                                           .clipShape(Circle())
-                                           .offset(x: 12, y: -12)
-                                   }
-                        }
-                       
-                    })
-                    .fullScreenCover(isPresented: $openMailbox) {
-                        MailboxView(show: $openMailbox, socialViewModel: socialViewModel)
-                    }
                     Button(action: {
                                 openSocial.toggle()
                         SoundPlayer.shared.playIconSound()
@@ -128,15 +94,42 @@ struct MainTabView: View {
                     }
                     Spacer()
                     Button(action: {
-                                openShare.toggle()
+                                openMailbox.toggle()
                         SoundPlayer.shared.playIconSound()
                     }, label: {
-                        Image("相機")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 48, height: 48)
-                            .padding()
+                        ZStack {
+                            Image("信箱")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 48, height: 48)
+                                .padding()
+                            let unreadCount = socialViewModel.newNotificationsCount()
+                                   if unreadCount > 0 {
+                                       Text("\(unreadCount)")
+                                           .font(.system(size: 12))
+                                           .fontWeight(.bold)
+                                           .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                                           .padding(6)
+                                           .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
+                                           .clipShape(Circle())
+                                           .offset(x: 12, y: -12)
+                                   }
+                        }
+                       
                     })
+                    .fullScreenCover(isPresented: $openMailbox) {
+                        MailboxView(show: $openMailbox, socialViewModel: socialViewModel)
+                    }
+//                    Button(action: {
+//                                openShare.toggle()
+//                        SoundPlayer.shared.playIconSound()
+//                    }, label: {
+//                        Image("相機")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 48, height: 48)
+//                            .padding()
+//                    })
 //                            .fullScreenCover(isPresented: $openShare) {
 //                                ShareView(user: user, show: $openShare)
 //                            }
@@ -183,7 +176,7 @@ struct MainTabView: View {
                         RecordView(isEarnedMoney: $isEarnedMoney, user: user, show: $openRecord)
                     }
                 }
-            }
+            }.padding(.horizontal, 10)
      
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name.NSCalendarDayChanged).receive(on: DispatchQueue.main)) { _ in
