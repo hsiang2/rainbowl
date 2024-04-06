@@ -106,13 +106,13 @@ struct MainTabView: View {
                             let unreadCount = socialViewModel.newNotificationsCount()
                                    if unreadCount > 0 {
                                        Text("\(unreadCount)")
-                                           .font(.system(size: 12))
+                                           .font(.system(size: 16))
                                            .fontWeight(.bold)
                                            .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
-                                           .padding(6)
-                                           .background(Circle().fill(Color(red: 187/255, green: 129/255, blue: 111/255)))
+                                           .padding(8)
+                                           .background(Circle().fill(Color(red: 205/255, green: 93/255, blue: 57/255)))
                                            .clipShape(Circle())
-                                           .offset(x: 12, y: -12)
+                                           .offset(x: 22, y: -22)
                                    }
                         }
                        

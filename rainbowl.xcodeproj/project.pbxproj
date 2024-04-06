@@ -57,6 +57,7 @@
 		AA81B5132BBFEBEF0039B7BC /* 樹叢_藍_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B5112BBFEBEF0039B7BC /* 樹叢_藍_紫.gif */; };
 		AA81B5152BC0128C0039B7BC /* 大嘴鳥_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B5142BC0128C0039B7BC /* 大嘴鳥_紫.gif */; };
 		AA81B5172BC012900039B7BC /* 大嘴鳥_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B5162BC012900039B7BC /* 大嘴鳥_橙.gif */; };
+		AA81B51B2BC0E6430039B7BC /* 北極熊_白.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B51A2BC0E6430039B7BC /* 北極熊_白.gif */; };
 		AA8CD4E22B19787D00F32D63 /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4E12B19787D00F32D63 /* SocialView.swift */; };
 		AA8CD4E42B197EA600F32D63 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4E32B197EA600F32D63 /* SearchBar.swift */; };
 		AA8CD4E62B19811E00F32D63 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD4E52B19811E00F32D63 /* Extensions.swift */; };
@@ -172,6 +173,7 @@
 		AA81B5112BBFEBEF0039B7BC /* 樹叢_藍_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹叢_藍_紫.gif"; sourceTree = "<group>"; };
 		AA81B5142BC0128C0039B7BC /* 大嘴鳥_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "大嘴鳥_紫.gif"; sourceTree = "<group>"; };
 		AA81B5162BC012900039B7BC /* 大嘴鳥_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "大嘴鳥_橙.gif"; sourceTree = "<group>"; };
+		AA81B51A2BC0E6430039B7BC /* 北極熊_白.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "北極熊_白.gif"; sourceTree = "<group>"; };
 		AA8CD4E12B19787D00F32D63 /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		AA8CD4E32B197EA600F32D63 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		AA8CD4E52B19811E00F32D63 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				AA81B5022BBFD0810039B7BC /* 虎鯨_白.gif */,
 				AA81B5162BC012900039B7BC /* 大嘴鳥_橙.gif */,
 				AA81B5142BC0128C0039B7BC /* 大嘴鳥_紫.gif */,
+				AA81B51A2BC0E6430039B7BC /* 北極熊_白.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				AA81B5092BBFDF240039B7BC /* 針葉樹_紅_紅.gif in Resources */,
 				AA81B5062BBFDCD40039B7BC /* 針葉樹_綠.gif in Resources */,
 				AA81B5152BC0128C0039B7BC /* 大嘴鳥_紫.gif in Resources */,
+				AA81B51B2BC0E6430039B7BC /* 北極熊_白.gif in Resources */,
 				AAB616082B1E0BD400A372E0 /* color.mp3 in Resources */,
 				AAEED50E2BBAF78A00761056 /* 樹叢_紅.gif in Resources */,
 				AAB6160B2B1E0BD400A372E0 /* click.mp3 in Resources */,

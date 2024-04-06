@@ -70,7 +70,7 @@ struct MailboxView: View {
                                         Text(timeAgo(timestamp: notification.timestamp))
                                             .font(.system(size: 11, weight: .medium))
                                             .foregroundColor(Color(red: 160/255, green: 168/255, blue: 161/255))
-                                        
+                                        Spacer()
                                         if (notification.type == "friendInvitation") {
                                             Button {
                                                 if(socialViewModel.fetchFriendStatus(user: notification.sender) == "request") {
@@ -153,7 +153,7 @@ struct MailboxView: View {
                     }.listStyle(.plain)
                         .environment(\.defaultMinListRowHeight, 82)
                         .padding(.top, 80)
-                        .padding(.horizontal, 16)
+//                        .padding(.horizontal, 16)
             }
             .onAppear {
                            // Mark unread notifications as read when the mailbox view appears

@@ -175,7 +175,7 @@ struct GameView: View {
     }
 
     var body: some View {
-        ZStack {
+        ZStack (alignment: .topTrailing) {
             ScrollView([.horizontal, .vertical], showsIndicators: false) {
                 content
 //                ViewControllerWrapper()
@@ -230,7 +230,6 @@ struct GameView: View {
                                 .padding(.top, 10)
                                 .padding(.trailing, 7)
                         }
-//                        .padding(.top, 70)
                        
                     }
                     else {
@@ -247,7 +246,8 @@ struct GameView: View {
                         }
                       
                     }
-                }.offset(x: 145, y: -300)
+                } .padding(.top, 85)
+                .padding(.trailing, 25)
             
         }
         
