@@ -44,7 +44,27 @@ struct MailboxView: View {
                             
                         }
                     }
-           
+                
+                if (notificationList.count == 0) {
+                    VStack {
+                        Image("尚無通知")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 168)
+                            .padding(.bottom, 47)
+                            .padding(.top, 170)
+                        
+                        Text("尚無通知")
+                            .font(.system(size: 24, weight: .medium))
+                            .foregroundColor(Color(red:126/255, green: 96/255, blue: 86/255))
+                            .padding(.bottom, 18)
+                        
+                        Text("信箱會顯示您與好友互動的最新消息")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color(red:126/255, green: 96/255, blue: 86/255).opacity(0.75))
+                        Spacer()
+                    }
+                } else {
                     List {
                         ForEach (notificationList) { notification in
                             let color = socialViewModel.fetchAvatarColorById(user: notification.sender)
@@ -153,6 +173,9 @@ struct MailboxView: View {
                     }.listStyle(.plain)
                         .environment(\.defaultMinListRowHeight, 82)
                         .padding(.top, 80)
+                }
+           
+                   
 //                        .padding(.horizontal, 16)
             }
             .onAppear {
@@ -161,22 +184,6 @@ struct MailboxView: View {
             }
             .fullScreenCover(isPresented: $openPostCard) {
                 VStack {
-//                    Color(red: 225/255, green: 232/255, blue: 234/255)
-//                        .ignoresSafeArea()
-//                        .overlay(alignment: .topTrailing) {
-//                            Button {
-//                                openPostCard = false
-//                                SoundPlayer.shared.playCloseSound()
-//                            } label: {
-//                                Image(systemName: "xmark")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 20)
-//                                    .padding()
-//                                    .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
-//                                
-//                            }
-//                        }
                     HStack {
                         Spacer()
                         Button {

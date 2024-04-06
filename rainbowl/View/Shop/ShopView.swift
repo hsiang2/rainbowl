@@ -216,6 +216,11 @@ struct ShopView: View {
                                     showImage = true
                                 }
                             }
+                        }.onTapGesture {
+                            buyAnimalSucceed = false
+                            buyPlantSucceed = false
+                            name = ""
+                            showCongratulatoryMessage = false
                         }
                     ZStack{
                         
