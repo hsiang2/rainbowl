@@ -54,6 +54,7 @@ struct ItemsView: View {
                                
                                 if (mode == "backpack") {
                                     backpackViewModel.addToGame(category: creature.category, name: creature.name, colors: creature.colors, width: creature.width, isMoving: creature.isMoving)
+                                    show = false
                                 } else {
                                     targetCreature = creature
                                     show = false

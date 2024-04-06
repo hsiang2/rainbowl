@@ -55,7 +55,7 @@ struct CollectionView: View {
                 Spacer()
                 
                 if selectedTab == .FirstTab {
-                    BackpackView(backpackViewModel: backpackViewModel, mode: "backpack", targetCreature: nil, show: nil)
+                    BackpackView(backpackViewModel: backpackViewModel, mode: "backpack", targetCreature: nil, show: Binding<Bool?>(get: { self.show }, set: { self.show = $0 ?? false }))
                 } else if selectedTab == .SecondTab {
                     BookView()
                 }
