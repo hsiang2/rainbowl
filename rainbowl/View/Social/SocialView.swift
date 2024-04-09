@@ -59,108 +59,12 @@ struct SocialView: View {
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .edgesIgnoringSafeArea(.all)
                     SocialTabBarView(currentTab: self.$currentTab).padding(.top, 40)
-//                    Color(red: 230/255, green: 229/255, blue: 222/255)
-//                        .ignoresSafeArea()
-//                        .frame(height: 100)
-//                        .overlay(alignment: .topTrailing) {
-//                           
-//                        }
                 }
                 
             }
-                
-               
-                
-//                VStack {
-//                    HStack {
-//                        Spacer()
-//                        HStack {
-//                            Spacer()
-//                            Text("好友")
-////                            Image("背包")
-////                                .resizable()
-////                                .scaledToFit()
-////                                .frame(width: 42, height: 42)
-////                                .padding()
-//                            Spacer()
-//                        }
-//                        .background(selectedTab == .FirstTab ? Color(red: 230/255, green: 229/255, blue: 222/255) : Color(red: 209/255, green: 206/255, blue: 194/255))
-//                        .onTapGesture {
-//                            self.selectedTab = .FirstTab
-//                        }
-//                        Spacer()
-//                        HStack {
-//                            Spacer()
-//                            Text("探索")
-////                            Image("圖鑑")
-////                                .resizable()
-////                                .scaledToFit()
-////                                .frame(width: 42, height: 42)
-////                                .padding()
-//                            Spacer()
-//                        }.background(selectedTab == .SecondTab ? Color(red: 230/255, green: 229/255, blue: 222/255) : Color(red: 209/255, green: 206/255, blue: 194/255))
-//                        .onTapGesture {
-//                            self.selectedTab = .SecondTab
-//                        }
-//                        Spacer()
-//
-//                    }
-//    //                .padding(.bottom)
-//    //                .background(Color.green.edgesIgnoringSafeArea(.all))
-//                    
-//                    Spacer()
-//                    
-//                    if selectedTab == .FirstTab {
-//                        ScrollView {
-//                            
-//                            SearchBar(text: $searchText, isEditing: $inSearchMode)
-//                                .padding()
-//                            FriendListView(viewModel: viewModel, searchText: $searchText)
-//                        }
-//                    } else if selectedTab == .SecondTab {
-//                        ScrollView {
-//                            
-//                            SearchBar(text: $searchText, isEditing: $inSearchMode)
-//                                .padding()
-//                            UserListView(viewModel: viewModel, searchText: $searchText)
-//                        }
-//                    }
-//                }.padding(.top, 70)
-//            }
         }
     }
 }
-
-//@available(iOS 17.0, *)
-//struct FriendView: View {
-//    @State var searchText = ""
-//    @State var inSearchMode = false
-//    @StateObject var viewModel = SocialViewModel()
-//    var body: some View {
-//        ScrollView {
-//
-//           SearchBar(text: $searchText, isEditing: $inSearchMode)
-//               .padding()
-//           FriendListView(viewModel: viewModel, searchText: $searchText)
-//       }
-//    }
-//}
-//
-//@available(iOS 17.0, *)
-//struct ExploreView: View {
-//    @State var searchText = ""
-//    @State var inSearchMode = false
-//    @StateObject var viewModel = SocialViewModel()
-//    var body: some View {
-//        ScrollView {
-//
-//              SearchBar(text: $searchText, isEditing: $inSearchMode)
-//                  .padding()
-//  
-//                UserListView(viewModel: viewModel, searchText: $searchText)
-//          }
-//    }
-//}
 
 //@available(iOS 17.0, *)
 //struct SocialView_Previews: PreviewProvider {

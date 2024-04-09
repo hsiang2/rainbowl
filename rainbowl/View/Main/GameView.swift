@@ -8,66 +8,7 @@
 import SwiftUI
 import UIKit
 import AVFoundation
-
-//struct ImageSequenceView: View {
-//    var imageNames: [String]
-//    var duration: Double
-//
-//    @State private var currentImageIndex: Int = 0
-//
-//    var body: some View {
-//        Image(imageNames[currentImageIndex])
-//            .resizable()
-//            .scaledToFit()
-//            .onAppear {
-//                let timer = Timer.scheduledTimer(withTimeInterval: duration / Double(imageNames.count), repeats: true) { _ in
-//                    withAnimation {
-//                        currentImageIndex = (currentImageIndex + 1) % imageNames.count
-//                    }
-//                }
-//                RunLoop.current.add(timer, forMode: .common)
-//            }
-//    }
-//}
-
 import ImageIO
-
-
-
-//struct GifView: UIViewRepresentable {
-//    var imageName: String
-//
-//    func makeUIView(context: Context) -> UIImageView {
-//        let imageView = UIImageView()
-////        imageView.frame = CGRect(
-////          x: 0, y: 0, width: 10, height: 10)
-//        imageView.contentMode = .scaleAspectFit
-//        return imageView
-//    }
-//
-//    func updateUIView(_ uiView: UIImageView, context: Context) {
-//        if let gifURL = Bundle.main.url(forResource: imageName, withExtension: "gif"),
-//           let imageData = try? Data(contentsOf: gifURL),
-//           let source = CGImageSourceCreateWithData(imageData as CFData, nil) {
-//
-//            let images = (0..<CGImageSourceGetCount(source)).compactMap {
-//                CGImageSourceCreateImageAtIndex(source, $0, nil)
-//            }
-//
-//            let uiImages = images.map { UIImage(cgImage: $0) }
-//
-//            uiView.animationImages = uiImages
-//            uiView.animationDuration = TimeInterval(uiImages.count) * 0.1
-//            uiView.animationRepeatCount = 0 // 0 for infinite loop, adjust as needed
-//
-//            // Set the frame with the given width, preserving the aspect ratio
-////            uiView.frame.size.width = 0
-////            uiView.sizeToFit()
-//
-//            uiView.startAnimating()
-//        }
-//    }
-//}
 
 struct GifView: UIViewRepresentable {
     var imageName: String
@@ -178,7 +119,6 @@ struct GameView: View {
         ZStack (alignment: .topTrailing) {
             ScrollView([.horizontal, .vertical], showsIndicators: false) {
                 content
-//                ViewControllerWrapper()
             }
             .defaultScrollAnchor(.center)
             .ignoresSafeArea()
@@ -195,23 +135,6 @@ struct GameView: View {
             .onDisappear {
                 UIScrollView.appearance().bounces = true
             }
-            
-//            if (showDelete) {
-//                Button(action: {
-//                    showDelete = false
-//                }) {
-//                    
-//                    Text("完成")
-//                        .font(.headline)
-//                        .foregroundColor(Color(red: 247/255, green: 244/255, blue: 237/255))
-//                        .frame(width: 70, height: 48)
-//                        .background(Color(red: 187/255, green: 129/255, blue: 111/255))
-//                        .cornerRadius(25)
-//                        .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
-//                        .padding(.top, 70)
-//                    
-//                }.offset(x: 145, y: -300)
-//            }
             
                 Button(action: {
                     showDelete = !showDelete
@@ -344,9 +267,6 @@ struct GameView: View {
 //            .scaledToFit()
 //            .frame(width: CGFloat(creature.width))
 //            .saturation(opacity)
-            //下面不用
-//            .blendMode(.color)
-//            .opacity(opacity)
             
             GifView(imageName: "\(imageName)")
                 .scaleEffect(x: CGFloat(directionManager.directions[creature] ?? 1), y: 1)
@@ -387,14 +307,6 @@ struct GameView: View {
                 .gesture(
                    
                         LongPressGesture(minimumDuration: 0.5)
-        //                    .onEnded { _ in
-        //                        if (!showDelete) {
-        //                            showDelete = true
-        //
-        //                        }
-        //
-        ////                        opacityManager.opacities[creature] = 0.5
-        //                    }
                             .sequenced(before: DragGesture()
                                 .onChanged { gesture in
                                     positionManager.positions[creature] = gesture.location
@@ -408,19 +320,6 @@ struct GameView: View {
                 
                 )
                 .allowsHitTesting(showDelete)
-            //下面這段正常
-//                .onAppear {
-////                           updateAnimation(for: creature, at: position)
-//                    if creature.category == "動物" {
-//                            withAnimation(
-//                                Animation.linear(duration: 2) // Adjust duration as needed
-//                                    .repeatForever(autoreverses: true)
-//                            ) {
-//                                positionManager.positions[creature] = CGPoint(x: position.x + 50, y: position.y)
-//                            }
-//                    }
-//                }
-            //目前
                 .onChange(of: showDelete, initial: true) { oldValue, newValue in
               
                     if creature.isMoving {
