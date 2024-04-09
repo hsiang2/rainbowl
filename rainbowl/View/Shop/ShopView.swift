@@ -169,7 +169,7 @@ struct ShopView: View {
                             if (AuthViewModel.shared.currentUser?.money ?? 0 >= 200) {
                                 selectedCategory = "植物"
                                 let randomCreature = creatures.randomElement()!
-//                                                            let randomCreature = creatures[10]
+//                                                            let randomCreature = creatures[12]
                                 bookViewModel.addToBook(name: randomCreature.name)
                                 backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, isMoving: randomCreature.isMoving, friend: nil)
                                 plantShown = false
@@ -221,6 +221,7 @@ struct ShopView: View {
                             buyPlantSucceed = false
                             name = ""
                             showCongratulatoryMessage = false
+                            SoundPlayer.shared.playCloseSound()
                         }
                     ZStack{
                         
