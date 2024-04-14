@@ -48,6 +48,32 @@
 		AA75D8742BC428590030267E /* 蘑菇_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8722BC428590030267E /* 蘑菇_紅.gif */; };
 		AA75D8752BC428590030267E /* 蘑菇_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8732BC428590030267E /* 蘑菇_黃.gif */; };
 		AA75D8772BC42D2E0030267E /* 蘑菇_黃_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8762BC42D2E0030267E /* 蘑菇_黃_黃.gif */; };
+		AA75D8792BC577FC0030267E /* 樹形仙人掌_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8782BC577FC0030267E /* 樹形仙人掌_綠.gif */; };
+		AA75D87D2BC5841B0030267E /* 猴麵包樹_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D87C2BC5841B0030267E /* 猴麵包樹_綠.gif */; };
+		AA75D87F2BC584230030267E /* 猴麵包樹_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D87E2BC584230030267E /* 猴麵包樹_黃.gif */; };
+		AA75D8822BC6CD0D0030267E /* 金合歡_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8802BC6CD0D0030267E /* 金合歡_橙.gif */; };
+		AA75D8832BC6CD0D0030267E /* 金合歡_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8812BC6CD0D0030267E /* 金合歡_綠.gif */; };
+		AA75D8862BC6D34F0030267E /* 金合歡_黃_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8842BC6D34F0030267E /* 金合歡_黃_橙.gif */; };
+		AA75D88F2BC8FF4D0030267E /* 螃蟹_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D88E2BC8FF4D0030267E /* 螃蟹_紅.gif */; };
+		AA75D8912BC900530030267E /* 螃蟹_藍_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8902BC900530030267E /* 螃蟹_藍_紫.gif */; };
+		AA75D8932BC918AB0030267E /* 駱駝_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8922BC918AB0030267E /* 駱駝_黃.gif */; };
+		AA75D8952BC91D4D0030267E /* 金合歡_黃_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8942BC91D4D0030267E /* 金合歡_黃_黃.gif */; };
+		AA75D8982BC920240030267E /* 大嘴鳥_紅_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8962BC920230030267E /* 大嘴鳥_紅_綠.gif */; };
+		AA75D8992BC920240030267E /* 大嘴鳥_紅_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8972BC920240030267E /* 大嘴鳥_紅_紅.gif */; };
+		AA75D89B2BC92E3F0030267E /* 獅子_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D89A2BC92E3F0030267E /* 獅子_橙.gif */; };
+		AA75D89D2BC939B80030267E /* 老虎_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D89C2BC939B80030267E /* 老虎_橙.gif */; };
+		AA75D89F2BC982C10030267E /* 獵豹_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D89E2BC982C10030267E /* 獵豹_黃.gif */; };
+		AA75D8A32BC9860C0030267E /* 長頸鹿_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8A22BC9860C0030267E /* 長頸鹿_黃.gif */; };
+		AA75D8A52BC9896E0030267E /* 刺羽耳蕨_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8A42BC9896E0030267E /* 刺羽耳蕨_綠.gif */; };
+		AA75D8A72BC98B590030267E /* 刺羽耳蕨_紅_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8A62BC98B590030267E /* 刺羽耳蕨_紅_紅.gif */; };
+		AA75D8AA2BCBCC650030267E /* 樹_紫_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8A82BCBCC650030267E /* 樹_紫_紫.gif */; };
+		AA75D8AB2BCBCC650030267E /* 樹_紫_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8A92BCBCC650030267E /* 樹_紫_紅.gif */; };
+		AA75D8AD2BCBD32C0030267E /* 樹_紅_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8AC2BCBD32C0030267E /* 樹_紅_紅.gif */; };
+		AA75D8AF2BCBD6200030267E /* 鹿_紅_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8AE2BCBD61F0030267E /* 鹿_紅_紅.gif */; };
+		AA75D8B12BCBDBFE0030267E /* 海象_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8B02BCBDBFE0030267E /* 海象_橙.gif */; };
+		AA75D8B52BCBE0F40030267E /* 蠍子_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8B42BCBE0F40030267E /* 蠍子_紫.gif */; };
+		AA75D8B82BCBE3410030267E /* 刺蝟_白_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8B62BCBE3410030267E /* 刺蝟_白_紅.gif */; };
+		AA75D8B92BCBE3410030267E /* 刺蝟_白_白.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA75D8B72BCBE3410030267E /* 刺蝟_白_白.gif */; };
 		AA81B4F52BBED6E30039B7BC /* 矢車菊_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B4F42BBED6E30039B7BC /* 矢車菊_紫.gif */; };
 		AA81B4F72BBED6E70039B7BC /* 矢車菊_綠.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B4F62BBED6E70039B7BC /* 矢車菊_綠.gif */; };
 		AA81B4FB2BBF0AE80039B7BC /* 刺蝟_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AA81B4FA2BBF0AE80039B7BC /* 刺蝟_橙.gif */; };
@@ -169,6 +195,32 @@
 		AA75D8722BC428590030267E /* 蘑菇_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "蘑菇_紅.gif"; sourceTree = "<group>"; };
 		AA75D8732BC428590030267E /* 蘑菇_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "蘑菇_黃.gif"; sourceTree = "<group>"; };
 		AA75D8762BC42D2E0030267E /* 蘑菇_黃_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "蘑菇_黃_黃.gif"; sourceTree = "<group>"; };
+		AA75D8782BC577FC0030267E /* 樹形仙人掌_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹形仙人掌_綠.gif"; sourceTree = "<group>"; };
+		AA75D87C2BC5841B0030267E /* 猴麵包樹_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "猴麵包樹_綠.gif"; sourceTree = "<group>"; };
+		AA75D87E2BC584230030267E /* 猴麵包樹_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "猴麵包樹_黃.gif"; sourceTree = "<group>"; };
+		AA75D8802BC6CD0D0030267E /* 金合歡_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "金合歡_橙.gif"; sourceTree = "<group>"; };
+		AA75D8812BC6CD0D0030267E /* 金合歡_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "金合歡_綠.gif"; sourceTree = "<group>"; };
+		AA75D8842BC6D34F0030267E /* 金合歡_黃_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "金合歡_黃_橙.gif"; sourceTree = "<group>"; };
+		AA75D88E2BC8FF4D0030267E /* 螃蟹_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "螃蟹_紅.gif"; sourceTree = "<group>"; };
+		AA75D8902BC900530030267E /* 螃蟹_藍_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "螃蟹_藍_紫.gif"; sourceTree = "<group>"; };
+		AA75D8922BC918AB0030267E /* 駱駝_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "駱駝_黃.gif"; sourceTree = "<group>"; };
+		AA75D8942BC91D4D0030267E /* 金合歡_黃_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "金合歡_黃_黃.gif"; sourceTree = "<group>"; };
+		AA75D8962BC920230030267E /* 大嘴鳥_紅_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "大嘴鳥_紅_綠.gif"; sourceTree = "<group>"; };
+		AA75D8972BC920240030267E /* 大嘴鳥_紅_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "大嘴鳥_紅_紅.gif"; sourceTree = "<group>"; };
+		AA75D89A2BC92E3F0030267E /* 獅子_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "獅子_橙.gif"; sourceTree = "<group>"; };
+		AA75D89C2BC939B80030267E /* 老虎_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "老虎_橙.gif"; sourceTree = "<group>"; };
+		AA75D89E2BC982C10030267E /* 獵豹_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "獵豹_黃.gif"; sourceTree = "<group>"; };
+		AA75D8A22BC9860C0030267E /* 長頸鹿_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "長頸鹿_黃.gif"; sourceTree = "<group>"; };
+		AA75D8A42BC9896E0030267E /* 刺羽耳蕨_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "刺羽耳蕨_綠.gif"; sourceTree = "<group>"; };
+		AA75D8A62BC98B590030267E /* 刺羽耳蕨_紅_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "刺羽耳蕨_紅_紅.gif"; sourceTree = "<group>"; };
+		AA75D8A82BCBCC650030267E /* 樹_紫_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹_紫_紫.gif"; sourceTree = "<group>"; };
+		AA75D8A92BCBCC650030267E /* 樹_紫_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹_紫_紅.gif"; sourceTree = "<group>"; };
+		AA75D8AC2BCBD32C0030267E /* 樹_紅_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "樹_紅_紅.gif"; sourceTree = "<group>"; };
+		AA75D8AE2BCBD61F0030267E /* 鹿_紅_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "鹿_紅_紅.gif"; sourceTree = "<group>"; };
+		AA75D8B02BCBDBFE0030267E /* 海象_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "海象_橙.gif"; sourceTree = "<group>"; };
+		AA75D8B42BCBE0F40030267E /* 蠍子_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "蠍子_紫.gif"; sourceTree = "<group>"; };
+		AA75D8B62BCBE3410030267E /* 刺蝟_白_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "刺蝟_白_紅.gif"; sourceTree = "<group>"; };
+		AA75D8B72BCBE3410030267E /* 刺蝟_白_白.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "刺蝟_白_白.gif"; sourceTree = "<group>"; };
 		AA81B4F42BBED6E30039B7BC /* 矢車菊_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "矢車菊_紫.gif"; sourceTree = "<group>"; };
 		AA81B4F62BBED6E70039B7BC /* 矢車菊_綠.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "矢車菊_綠.gif"; sourceTree = "<group>"; };
 		AA81B4FA2BBF0AE80039B7BC /* 刺蝟_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "刺蝟_橙.gif"; sourceTree = "<group>"; };
@@ -561,6 +613,9 @@
 				AA81B5102BBFEBEE0039B7BC /* 樹叢_藍_綠.gif */,
 				AAEED5092BBAF18600761056 /* 樹_綠.gif */,
 				AAEED5082BBAF18600761056 /* 樹_橙.gif */,
+				AA75D8AC2BCBD32C0030267E /* 樹_紅_紅.gif */,
+				AA75D8A92BCBCC650030267E /* 樹_紫_紅.gif */,
+				AA75D8A82BCBCC650030267E /* 樹_紫_紫.gif */,
 				AA81B4F42BBED6E30039B7BC /* 矢車菊_紫.gif */,
 				AA81B4F62BBED6E70039B7BC /* 矢車菊_綠.gif */,
 				AAEED5142BBC57C600761056 /* 矢車菊_粉_紅.gif */,
@@ -576,12 +631,35 @@
 				AA81B50A2BBFDF370039B7BC /* 針葉樹_紅_橙.gif */,
 				AA75D86F2BC421F00030267E /* 椰子樹_黃.gif */,
 				AA75D86E2BC421F00030267E /* 椰子樹_綠.gif */,
+				AA75D8782BC577FC0030267E /* 樹形仙人掌_綠.gif */,
+				AA75D87E2BC584230030267E /* 猴麵包樹_黃.gif */,
+				AA75D87C2BC5841B0030267E /* 猴麵包樹_綠.gif */,
+				AA75D8812BC6CD0D0030267E /* 金合歡_綠.gif */,
+				AA75D8802BC6CD0D0030267E /* 金合歡_橙.gif */,
+				AA75D8942BC91D4D0030267E /* 金合歡_黃_黃.gif */,
+				AA75D8842BC6D34F0030267E /* 金合歡_黃_橙.gif */,
+				AA75D8A42BC9896E0030267E /* 刺羽耳蕨_綠.gif */,
+				AA75D8A62BC98B590030267E /* 刺羽耳蕨_紅_紅.gif */,
+				AA75D8922BC918AB0030267E /* 駱駝_黃.gif */,
+				AA75D8B42BCBE0F40030267E /* 蠍子_紫.gif */,
+				AA75D88E2BC8FF4D0030267E /* 螃蟹_紅.gif */,
+				AA75D8902BC900530030267E /* 螃蟹_藍_紫.gif */,
+				AA75D89C2BC939B80030267E /* 老虎_橙.gif */,
+				AA75D89A2BC92E3F0030267E /* 獅子_橙.gif */,
+				AA75D89E2BC982C10030267E /* 獵豹_黃.gif */,
 				AA81B4FA2BBF0AE80039B7BC /* 刺蝟_橙.gif */,
+				AA75D8B72BCBE3410030267E /* 刺蝟_白_白.gif */,
+				AA75D8B62BCBE3410030267E /* 刺蝟_白_紅.gif */,
 				AAEED5022BB9A48D00761056 /* 鹿_橙.gif */,
+				AA75D8AE2BCBD61F0030267E /* 鹿_紅_紅.gif */,
 				AA81B5022BBFD0810039B7BC /* 虎鯨_白.gif */,
 				AA81B5162BC012900039B7BC /* 大嘴鳥_橙.gif */,
 				AA81B5142BC0128C0039B7BC /* 大嘴鳥_紫.gif */,
+				AA75D8972BC920240030267E /* 大嘴鳥_紅_紅.gif */,
+				AA75D8962BC920230030267E /* 大嘴鳥_紅_綠.gif */,
+				AA75D8A22BC9860C0030267E /* 長頸鹿_黃.gif */,
 				AA81B51A2BC0E6430039B7BC /* 北極熊_白.gif */,
+				AA75D8B02BCBDBFE0030267E /* 海象_橙.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -664,11 +742,16 @@
 			files = (
 				AAEED50F2BBAF78A00761056 /* 樹叢_綠.gif in Resources */,
 				AA81B5172BC012900039B7BC /* 大嘴鳥_橙.gif in Resources */,
+				AA75D8792BC577FC0030267E /* 樹形仙人掌_綠.gif in Resources */,
 				AA81B5132BBFEBEF0039B7BC /* 樹叢_藍_紫.gif in Resources */,
+				AA75D8A52BC9896E0030267E /* 刺羽耳蕨_綠.gif in Resources */,
 				AA81B50E2BBFE4D20039B7BC /* 樹叢_黃_綠.gif in Resources */,
 				AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */,
 				AA81B5032BBFD0810039B7BC /* 虎鯨_白.gif in Resources */,
+				AA75D87D2BC5841B0030267E /* 猴麵包樹_綠.gif in Resources */,
+				AA75D8AD2BCBD32C0030267E /* 樹_紅_紅.gif in Resources */,
 				AA81B4F52BBED6E30039B7BC /* 矢車菊_紫.gif in Resources */,
+				AA75D8912BC900530030267E /* 螃蟹_藍_紫.gif in Resources */,
 				AA4BB33829FCBB9000F10479 /* Preview Assets.xcassets in Resources */,
 				AA75D8752BC428590030267E /* 蘑菇_黃.gif in Resources */,
 				AA75D8742BC428590030267E /* 蘑菇_紅.gif in Resources */,
@@ -676,29 +759,50 @@
 				AA2E6A2D2A08D19500C668AC /* food.json in Resources */,
 				AAEED50B2BBAF18600761056 /* 樹_綠.gif in Resources */,
 				AA81B5092BBFDF240039B7BC /* 針葉樹_紅_紅.gif in Resources */,
+				AA75D8992BC920240030267E /* 大嘴鳥_紅_紅.gif in Resources */,
 				AA81B5062BBFDCD40039B7BC /* 針葉樹_綠.gif in Resources */,
 				AA81B5152BC0128C0039B7BC /* 大嘴鳥_紫.gif in Resources */,
 				AA81B51B2BC0E6430039B7BC /* 北極熊_白.gif in Resources */,
 				AAB616082B1E0BD400A372E0 /* color.mp3 in Resources */,
+				AA75D89F2BC982C10030267E /* 獵豹_黃.gif in Resources */,
 				AAEED50E2BBAF78A00761056 /* 樹叢_紅.gif in Resources */,
+				AA75D8932BC918AB0030267E /* 駱駝_黃.gif in Resources */,
+				AA75D8B52BCBE0F40030267E /* 蠍子_紫.gif in Resources */,
+				AA75D8A32BC9860C0030267E /* 長頸鹿_黃.gif in Resources */,
 				AAB6160B2B1E0BD400A372E0 /* click.mp3 in Resources */,
+				AA75D8832BC6CD0D0030267E /* 金合歡_綠.gif in Resources */,
 				AA81B50F2BBFE4D20039B7BC /* 樹叢_黃_黃.gif in Resources */,
 				AAB6160F2B1E10B200A372E0 /* close.mp3 in Resources */,
 				AA81B5122BBFEBEF0039B7BC /* 樹叢_藍_綠.gif in Resources */,
+				AA75D87F2BC584230030267E /* 猴麵包樹_黃.gif in Resources */,
+				AA75D8862BC6D34F0030267E /* 金合歡_黃_橙.gif in Resources */,
+				AA75D8A72BC98B590030267E /* 刺羽耳蕨_紅_紅.gif in Resources */,
 				AA81B5072BBFDCD40039B7BC /* 針葉樹_橙.gif in Resources */,
+				AA75D8AA2BCBCC650030267E /* 樹_紫_紫.gif in Resources */,
+				AA75D88F2BC8FF4D0030267E /* 螃蟹_紅.gif in Resources */,
 				AA81B4F72BBED6E70039B7BC /* 矢車菊_綠.gif in Resources */,
 				AAD477052A4AE15900F57A46 /* creature.json in Resources */,
+				AA75D89D2BC939B80030267E /* 老虎_橙.gif in Resources */,
 				AA75D8702BC421F00030267E /* 椰子樹_綠.gif in Resources */,
 				AA81B4FB2BBF0AE80039B7BC /* 刺蝟_橙.gif in Resources */,
 				AA75D8772BC42D2E0030267E /* 蘑菇_黃_黃.gif in Resources */,
+				AA75D8AB2BCBCC650030267E /* 樹_紫_紅.gif in Resources */,
 				AAB6160A2B1E0BD400A372E0 /* login.mp3 in Resources */,
 				AA81B50B2BBFDF370039B7BC /* 針葉樹_紅_橙.gif in Resources */,
+				AA75D8B12BCBDBFE0030267E /* 海象_橙.gif in Resources */,
 				AA8F08932A0173210069D180 /* GoogleService-Info.plist in Resources */,
+				AA75D8952BC91D4D0030267E /* 金合歡_黃_黃.gif in Resources */,
+				AA75D8822BC6CD0D0030267E /* 金合歡_橙.gif in Resources */,
 				AAEED5172BBC57C600761056 /* 矢車菊_粉_綠.gif in Resources */,
+				AA75D8AF2BCBD6200030267E /* 鹿_紅_紅.gif in Resources */,
 				AAEED5162BBC57C600761056 /* 矢車菊_粉_紅.gif in Resources */,
+				AA75D8B82BCBE3410030267E /* 刺蝟_白_紅.gif in Resources */,
 				AAB616092B1E0BD400A372E0 /* dateselected.mp3 in Resources */,
 				AAB616052B1E0BD400A372E0 /* success.mp3 in Resources */,
+				AA75D8B92BCBE3410030267E /* 刺蝟_白_白.gif in Resources */,
 				AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */,
+				AA75D89B2BC92E3F0030267E /* 獅子_橙.gif in Resources */,
+				AA75D8982BC920240030267E /* 大嘴鳥_紅_綠.gif in Resources */,
 				AAEED50A2BBAF18600761056 /* 樹_橙.gif in Resources */,
 				AAEED5132BBC515400761056 /* 針葉樹_藍_紫.gif in Resources */,
 				AA46CDA42B1CDB5200D32A83 /* bgmusic.mp3 in Resources */,

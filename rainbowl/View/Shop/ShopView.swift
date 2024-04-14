@@ -122,7 +122,7 @@ struct ShopView: View {
                                 
                                 selectedCategory = "動物"
                                 let randomCreature = creatures.randomElement()!
-//                                let randomCreature = creatures[15]
+//                                let randomCreature = creatures[13]
                                 bookViewModel.addToBook(name: randomCreature.name)
                                 backpackViewModel.addToBackpack(category: randomCreature.category, name: randomCreature.name, colors: randomCreature.colors, width: randomCreature.width, isMoving: randomCreature.isMoving, friend: nil)
                                 animalShown = false
