@@ -33,7 +33,7 @@ struct EditFoodTypeView: View {
     }
         
         var body: some View {
-            VStack {
+            ScrollView {
                 HStack {
                     Text("編輯").font(.system(size: 20, weight: .medium)).foregroundColor(Color(red: 120/255, green: 97/255, blue: 61/255))
                     Spacer()
@@ -203,7 +203,8 @@ struct EditFoodTypeView: View {
                    
                 }.padding(.top, 35)
             }.padding(.horizontal, 40)
-            .padding(.top, 55)
+            .padding(.top, 80)
+            .scrollIndicators(.hidden)
             
         }
 

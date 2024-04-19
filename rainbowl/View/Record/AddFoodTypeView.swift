@@ -35,7 +35,7 @@ struct AddFoodTypeView: View {
 
     
     var body: some View {
-        VStack {
+        ScrollView {
             HStack {
                 Text("自訂\(selectedIndex)色蔬果").font(.system(size: 20, weight: .medium)).foregroundColor(Color(red: 120/255, green: 97/255, blue: 61/255))
                 Spacer()
@@ -191,6 +191,7 @@ struct AddFoodTypeView: View {
                 }.disabled(name == "" || size == "" || unit == "" || gram == "" || calorie == "")
         }.padding(.horizontal, 40)
         .padding(.vertical, 20)
+        .scrollIndicators(.hidden)
         
     }
 
