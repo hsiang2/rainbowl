@@ -177,9 +177,9 @@
     {
         "category": "動物",
         "name": "獨角鯨",
-        "colors": ["紫", "白"],
+        "colors": ["紫"],
         "width": 230,
-        "isMoving": true
+        "isMoving": false
     },
     {
         "category": "植物",
