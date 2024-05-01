@@ -122,6 +122,16 @@
 		AAB6160D2B1E0C2B00A372E0 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6160C2B1E0C2B00A372E0 /* SoundPlayer.swift */; };
 		AAB6160F2B1E10B200A372E0 /* close.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAB6160E2B1E10B200A372E0 /* close.mp3 */; };
 		AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AABBDFB52A53162000FB6CCD /* Assets.xcassets */; };
+		AAC2C56C2BE2428D00A9F6F7 /* 皇帝企鵝_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C56B2BE2428D00A9F6F7 /* 皇帝企鵝_黃.gif */; };
+		AAC2C56E2BE2429300A9F6F7 /* 海星_橙.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C56D2BE2429300A9F6F7 /* 海星_橙.gif */; };
+		AAC2C5702BE2429700A9F6F7 /* 海星_藍_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C56F2BE2429700A9F6F7 /* 海星_藍_紫.gif */; };
+		AAC2C5722BE2429E00A9F6F7 /* 獨角鯨_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C5712BE2429E00A9F6F7 /* 獨角鯨_紫.gif */; };
+		AAC2C5742BE242A400A9F6F7 /* 鴨子_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C5732BE242A400A9F6F7 /* 鴨子_黃.gif */; };
+		AAC2C5762BE242AA00A9F6F7 /* 狼_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C5752BE242AA00A9F6F7 /* 狼_黃.gif */; };
+		AAC2C5782BE242B100A9F6F7 /* 狼_藍_紫.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C5772BE242B100A9F6F7 /* 狼_藍_紫.gif */; };
+		AAC2C57A2BE242BA00A9F6F7 /* 鵜鶘_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C5792BE242BA00A9F6F7 /* 鵜鶘_黃.gif */; };
+		AAC2C57D2BE242C700A9F6F7 /* 鵜鶘_粉_紅.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C57B2BE242C700A9F6F7 /* 鵜鶘_粉_紅.gif */; };
+		AAC2C57E2BE242C700A9F6F7 /* 鵜鶘_粉_黃.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAC2C57C2BE242C700A9F6F7 /* 鵜鶘_粉_黃.gif */; };
 		AAD109FB2A05422900DB02E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FA2A05422900DB02E3 /* Constants.swift */; };
 		AAD109FD2A05554200DB02E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD109FC2A05554200DB02E3 /* User.swift */; };
 		AAD10A002A0570C000DB02E3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AAD109FF2A0570C000DB02E3 /* FirebaseAuth */; };
@@ -264,6 +274,16 @@
 		AAB6160C2B1E0C2B00A372E0 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		AAB6160E2B1E10B200A372E0 /* close.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = close.mp3; sourceTree = "<group>"; };
 		AABBDFB52A53162000FB6CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAC2C56B2BE2428D00A9F6F7 /* 皇帝企鵝_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "皇帝企鵝_黃.gif"; path = "../../../圖/企鵝動畫/皇帝企鵝_黃.gif"; sourceTree = "<group>"; };
+		AAC2C56D2BE2429300A9F6F7 /* 海星_橙.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "海星_橙.gif"; path = "../../../圖/海星動畫/海星_橙.gif"; sourceTree = "<group>"; };
+		AAC2C56F2BE2429700A9F6F7 /* 海星_藍_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "海星_藍_紫.gif"; path = "../../../圖/海星動畫/海星_藍_紫.gif"; sourceTree = "<group>"; };
+		AAC2C5712BE2429E00A9F6F7 /* 獨角鯨_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "獨角鯨_紫.gif"; path = "../../../圖/獨角鯨動畫/獨角鯨_紫.gif"; sourceTree = "<group>"; };
+		AAC2C5732BE242A400A9F6F7 /* 鴨子_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "鴨子_黃.gif"; path = "../../../圖/鴨子動畫/鴨子_黃.gif"; sourceTree = "<group>"; };
+		AAC2C5752BE242AA00A9F6F7 /* 狼_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "狼_黃.gif"; path = "../../../圖/狼動畫/狼_黃.gif"; sourceTree = "<group>"; };
+		AAC2C5772BE242B100A9F6F7 /* 狼_藍_紫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "狼_藍_紫.gif"; path = "../../../圖/狼動畫/狼_藍_紫.gif"; sourceTree = "<group>"; };
+		AAC2C5792BE242BA00A9F6F7 /* 鵜鶘_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "鵜鶘_黃.gif"; path = "../../../圖/鵜鶘動畫/鵜鶘_黃.gif"; sourceTree = "<group>"; };
+		AAC2C57B2BE242C700A9F6F7 /* 鵜鶘_粉_紅.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "鵜鶘_粉_紅.gif"; path = "../../../圖/鵜鶘動畫/鵜鶘_粉_紅.gif"; sourceTree = "<group>"; };
+		AAC2C57C2BE242C700A9F6F7 /* 鵜鶘_粉_黃.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "鵜鶘_粉_黃.gif"; path = "../../../圖/鵜鶘動畫/鵜鶘_粉_黃.gif"; sourceTree = "<group>"; };
 		AAD109FA2A05422900DB02E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAD109FC2A05554200DB02E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAD10A0F2A0682F200DB02E3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -660,6 +680,16 @@
 				AA75D8A22BC9860C0030267E /* 長頸鹿_黃.gif */,
 				AA81B51A2BC0E6430039B7BC /* 北極熊_白.gif */,
 				AA75D8B02BCBDBFE0030267E /* 海象_橙.gif */,
+				AAC2C56B2BE2428D00A9F6F7 /* 皇帝企鵝_黃.gif */,
+				AAC2C56D2BE2429300A9F6F7 /* 海星_橙.gif */,
+				AAC2C56F2BE2429700A9F6F7 /* 海星_藍_紫.gif */,
+				AAC2C5712BE2429E00A9F6F7 /* 獨角鯨_紫.gif */,
+				AAC2C5732BE242A400A9F6F7 /* 鴨子_黃.gif */,
+				AAC2C5752BE242AA00A9F6F7 /* 狼_黃.gif */,
+				AAC2C5772BE242B100A9F6F7 /* 狼_藍_紫.gif */,
+				AAC2C5792BE242BA00A9F6F7 /* 鵜鶘_黃.gif */,
+				AAC2C57B2BE242C700A9F6F7 /* 鵜鶘_粉_紅.gif */,
+				AAC2C57C2BE242C700A9F6F7 /* 鵜鶘_粉_黃.gif */,
 			);
 			path = GIF;
 			sourceTree = "<group>";
@@ -741,10 +771,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAEED50F2BBAF78A00761056 /* 樹叢_綠.gif in Resources */,
+				AAC2C5782BE242B100A9F6F7 /* 狼_藍_紫.gif in Resources */,
 				AA81B5172BC012900039B7BC /* 大嘴鳥_橙.gif in Resources */,
 				AA75D8792BC577FC0030267E /* 樹形仙人掌_綠.gif in Resources */,
 				AA81B5132BBFEBEF0039B7BC /* 樹叢_藍_紫.gif in Resources */,
 				AA75D8A52BC9896E0030267E /* 刺羽耳蕨_綠.gif in Resources */,
+				AAC2C5762BE242AA00A9F6F7 /* 狼_黃.gif in Resources */,
+				AAC2C57D2BE242C700A9F6F7 /* 鵜鶘_粉_紅.gif in Resources */,
 				AA81B50E2BBFE4D20039B7BC /* 樹叢_黃_綠.gif in Resources */,
 				AAEED5032BB9A48D00761056 /* 鹿_橙.gif in Resources */,
 				AA81B5032BBFD0810039B7BC /* 虎鯨_白.gif in Resources */,
@@ -768,8 +801,10 @@
 				AAEED50E2BBAF78A00761056 /* 樹叢_紅.gif in Resources */,
 				AA75D8932BC918AB0030267E /* 駱駝_黃.gif in Resources */,
 				AA75D8B52BCBE0F40030267E /* 蠍子_紫.gif in Resources */,
+				AAC2C56E2BE2429300A9F6F7 /* 海星_橙.gif in Resources */,
 				AA75D8A32BC9860C0030267E /* 長頸鹿_黃.gif in Resources */,
 				AAB6160B2B1E0BD400A372E0 /* click.mp3 in Resources */,
+				AAC2C5742BE242A400A9F6F7 /* 鴨子_黃.gif in Resources */,
 				AA75D8832BC6CD0D0030267E /* 金合歡_綠.gif in Resources */,
 				AA81B50F2BBFE4D20039B7BC /* 樹叢_黃_黃.gif in Resources */,
 				AAB6160F2B1E10B200A372E0 /* close.mp3 in Resources */,
@@ -778,6 +813,7 @@
 				AA75D8862BC6D34F0030267E /* 金合歡_黃_橙.gif in Resources */,
 				AA75D8A72BC98B590030267E /* 刺羽耳蕨_紅_紅.gif in Resources */,
 				AA81B5072BBFDCD40039B7BC /* 針葉樹_橙.gif in Resources */,
+				AAC2C57A2BE242BA00A9F6F7 /* 鵜鶘_黃.gif in Resources */,
 				AA75D8AA2BCBCC650030267E /* 樹_紫_紫.gif in Resources */,
 				AA75D88F2BC8FF4D0030267E /* 螃蟹_紅.gif in Resources */,
 				AA81B4F72BBED6E70039B7BC /* 矢車菊_綠.gif in Resources */,
@@ -790,17 +826,21 @@
 				AAB6160A2B1E0BD400A372E0 /* login.mp3 in Resources */,
 				AA81B50B2BBFDF370039B7BC /* 針葉樹_紅_橙.gif in Resources */,
 				AA75D8B12BCBDBFE0030267E /* 海象_橙.gif in Resources */,
+				AAC2C57E2BE242C700A9F6F7 /* 鵜鶘_粉_黃.gif in Resources */,
 				AA8F08932A0173210069D180 /* GoogleService-Info.plist in Resources */,
 				AA75D8952BC91D4D0030267E /* 金合歡_黃_黃.gif in Resources */,
 				AA75D8822BC6CD0D0030267E /* 金合歡_橙.gif in Resources */,
 				AAEED5172BBC57C600761056 /* 矢車菊_粉_綠.gif in Resources */,
 				AA75D8AF2BCBD6200030267E /* 鹿_紅_紅.gif in Resources */,
 				AAEED5162BBC57C600761056 /* 矢車菊_粉_紅.gif in Resources */,
+				AAC2C5722BE2429E00A9F6F7 /* 獨角鯨_紫.gif in Resources */,
 				AA75D8B82BCBE3410030267E /* 刺蝟_白_紅.gif in Resources */,
 				AAB616092B1E0BD400A372E0 /* dateselected.mp3 in Resources */,
 				AAB616052B1E0BD400A372E0 /* success.mp3 in Resources */,
 				AA75D8B92BCBE3410030267E /* 刺蝟_白_白.gif in Resources */,
 				AABBDFB62A53162000FB6CCD /* Assets.xcassets in Resources */,
+				AAC2C5702BE2429700A9F6F7 /* 海星_藍_紫.gif in Resources */,
+				AAC2C56C2BE2428D00A9F6F7 /* 皇帝企鵝_黃.gif in Resources */,
 				AA75D89B2BC92E3F0030267E /* 獅子_橙.gif in Resources */,
 				AA75D8982BC920240030267E /* 大嘴鳥_紅_綠.gif in Resources */,
 				AAEED50A2BBAF18600761056 /* 樹_橙.gif in Resources */,
