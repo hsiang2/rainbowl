@@ -54,7 +54,7 @@ struct LoginView: View {
                     }.padding(.top, 42)
                     ZStack(alignment: .leading) {
                         if password.isEmpty {
-                            Text("6-12位數字與英文組合")
+                            Text("6-12位數字或英文")
                                 .padding(.top, 30)
                                 .foregroundColor(Color(red: 158/255, green: 155/255, blue: 145/255)).opacity(0.62)
                         }
@@ -71,7 +71,7 @@ struct LoginView: View {
                     }.padding(.top, 20)
                     
                     HStack {
-                        NavigationLink(destination: ResetPasswordView(email: $email) , label: {
+                        NavigationLink(destination: ResetPasswordView(email: $email).navigationBarBackButtonHidden() , label: {
                                 Text("忘記密碼？")
                                 .font(.system(size: 13, weight: .semibold))
                                 .foregroundColor(Color(red: 158/255, green: 155/255, blue: 145/255))

@@ -98,7 +98,7 @@ struct RegistrationView: View {
                 }.padding(.top, 20)
                 ZStack(alignment: .leading) {
                     if password.isEmpty {
-                        Text("6-12位數字與英文組合")
+                        Text("6-12位數字或英文")
                             .padding(.top, 30)
                             .foregroundColor(Color(red: 158/255, green: 155/255, blue: 145/255)).opacity(0.62)
                     }

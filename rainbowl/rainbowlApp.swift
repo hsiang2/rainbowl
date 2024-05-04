@@ -20,7 +20,8 @@ struct rainbowlApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(AuthViewModel.shared)
+//            ContentView()
+                SplashView().environmentObject(AuthViewModel.shared)
         }
     }
     
