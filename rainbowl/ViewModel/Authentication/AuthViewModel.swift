@@ -57,7 +57,7 @@ class AuthViewModel: ObservableObject {
                 "avatar": avatar,
                 "avatarColor": avatarColor,
                 "id": user.uid,
-                "money": 1000,
+                "money": 10000,
                 "red": [0, 0, 0, 0, 0],
                 "orange": [0, 0, 0, 0, 0],
                 "yellow": [0, 0, 0, 0, 0],
@@ -211,7 +211,6 @@ class AuthViewModel: ObservableObject {
                 break
             }
         }
-//        completion(true)
         
     }
     
