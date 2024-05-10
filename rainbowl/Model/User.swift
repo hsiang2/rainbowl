@@ -13,7 +13,6 @@ struct User: Identifiable, Decodable {
     let avatar: String
     let avatarColor: Int
     @DocumentID var id: String?
-//    var colors: [[Float]]
     var money: Int
     var red: [Float]?
     var orange: [Float]?

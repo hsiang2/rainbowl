@@ -12,7 +12,6 @@ struct SocialView: View {
      @Binding var show: Bool
 
     @State var searchText = ""
-    @State var inSearchMode = false
     @ObservedObject var socialViewModel: SocialViewModel
     @ObservedObject var backpackViewModel: BackpackViewModel
     
@@ -43,13 +42,13 @@ struct SocialView: View {
                 ZStack(alignment: .top) {
                     TabView(selection: self.$currentTab) {
                         ScrollView {
-                            SearchBar(text: $searchText, isEditing: $inSearchMode)
+                            SearchBar(text: $searchText)
                                .padding()
                             FriendListView(socialViewModel: socialViewModel, backpackViewModel: backpackViewModel, searchText: $searchText)
                           }.tag(0)
                         ScrollView {
                 
-                              SearchBar(text: $searchText, isEditing: $inSearchMode)
+                              SearchBar(text: $searchText)
                                   .padding()
                 
                             UserListView(socialViewModel: socialViewModel, searchText: $searchText)

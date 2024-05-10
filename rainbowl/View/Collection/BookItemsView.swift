@@ -31,9 +31,6 @@ struct BookItemsView: View {
     
     var bookCreatures: [CreatureInBook] {
         return viewModel.creatures
-//            .filter({
-//            $0.category.contains(selectedCategory)
-//        })
     }
     
     
@@ -60,12 +57,9 @@ struct BookItemsView: View {
         var status = "locked"
         if let i = bookCreatures.firstIndex(where: {$0.name == creature.name}) {
             status = bookCreatures[i].status
-//            print(status)
         } else {
             status = "locked"
         }
-        
-//        let status = statusManager.status[creature] ?? "locked"
         
         return AnyView(
             ZStack {

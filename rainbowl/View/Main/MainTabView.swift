@@ -9,11 +9,9 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct MainTabView: View {
-//    @StateObject private var viewModel = DateChangeViewModel()
     
     @ObservedObject var backpackViewModel: BackpackViewModel
     @ObservedObject var socialViewModel: SocialViewModel
-//    @StateObject var socialViewModel = SocialViewModel(backpackViewModel: backpackViewModel)
     let user: User
     @State private var previousDate = Date()
     @State private var openRecord = false
@@ -189,13 +187,7 @@ struct MainTabView: View {
             AuthViewModel.shared.updateColors()
             isEarnedMoney = false
         }
-//        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in
-//            if !Calendar.current.isDate(previousDate, inSameDayAs: viewModel.currentDate) {
-//                viewModel.handleDateChange()
-//                previousDate = viewModel.currentDate
-//                print("date change")
-//            }
-//        }
+
     }
     
 }

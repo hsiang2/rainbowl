@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct AddFoodTypeView: View {
-//    var food: Food
-//    let user: User
-    
     
     @Binding var selectedIndex: String
     
@@ -24,14 +21,6 @@ struct AddFoodTypeView: View {
     @State private var calorie: String = ""
 
     @ObservedObject var viewModel = FoodTypeViewModel()
-//    @StateObject var recordsViewModel = FetchRecordViewModel(date: Date())
-    
-//    @StateObject var authViewModel = AuthViewModel()
-    
-//    init(user: User, food: Food) {
-//        self.food = food
-//        self.user = user
-//    }
 
     
     var body: some View {
@@ -46,7 +35,6 @@ struct AddFoodTypeView: View {
                     Text("種類")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-                   //TODO
                     HStack (spacing: 20) {
                         RadioButtonView(category: "蔬菜", selectedCategory: $category)
                         RadioButtonView(category: "水果", selectedCategory: $category)
@@ -169,8 +157,7 @@ struct AddFoodTypeView: View {
                     .font(.system(size: 18))
                     .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
             }.padding(.top, 10)
-//            HStack {
-//                Spacer()
+
                 Button {
                     viewModel.addFoodType(color: selectedIndex, category: category, name: name, size: Float(size) ?? 0, unit: unit, gram: Float(gram) ?? 0, calorie: Float(calorie) ?? 0) { error in
                         if let error = error {

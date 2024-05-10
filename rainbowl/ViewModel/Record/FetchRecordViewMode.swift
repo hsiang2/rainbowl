@@ -47,7 +47,4 @@ class FetchRecordViewModel: ObservableObject {
             return false
         }
     }
-    
-
-    
 }

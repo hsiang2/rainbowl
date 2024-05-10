@@ -10,8 +10,6 @@ import Firebase
 
 class BookViewModel: ObservableObject {
  
-//    @Published var creatures = [Creature]()
-//    @Published var creaturesInUse = [CreatureInUse]()
     @Published var creatures = [CreatureInBook]()
     
     static let shared = BookViewModel()

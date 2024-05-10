@@ -35,7 +35,6 @@ struct PostcardView: View {
                     .font(.system(size: 18, design: .serif))
                     .foregroundStyle(LinearGradient(
                         stops: [.init(color: Color(red: 57/255, green: 57/255, blue: 57/255), location: 0.42), .init(color: Color(red: 155/255, green: 155/255, blue: 155/255), location: 0.74), .init(color:  Color(red: 83/255, green: 83/255, blue: 83/255), location: 1)], startPoint: .topLeading, endPoint: .bottomTrailing))
-//                    .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
                     .padding(.bottom, 10)
                 Text(message)
                     .font(.system(size: 14))

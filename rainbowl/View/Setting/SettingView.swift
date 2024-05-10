@@ -34,28 +34,22 @@ struct SettingView: View {
                     }
                 VStack {
                             Image("\(user.avatar)_彩色")
-//                        Image("蛋_彩色")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 66, height: 66)
                             .frame(width: 120, height: 120)
-//                            .background(Color(red: COLORS[0][0]/255, green: COLORS[0][1]/255, blue: COLORS[0][2]/255))
-                                .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
+                            .background(Color(red: COLORS[user.avatarColor][0]/255, green: COLORS[user.avatarColor][1]/255, blue: COLORS[user.avatarColor][2]/255))
                             .clipShape(Circle())
 
                         VStack {
                             Text(user.username)
-//                            Text("王小明")
                                 .font(.system(size: 20, weight: .semibold))
                                 .foregroundColor(Color(red: 25/255, green: 50/255, blue: 74/255))
-        //                    Text(user.fullname)
-        //                        .font(.system(size: 14))
                             Text(verbatim:user.email)
                                 .font(.system(size: 16))
                                 .foregroundColor(Color(red: 25/255, green: 50/255, blue: 74/255).opacity(0.7))
                                 .padding(.top, 0.5)
                         }.padding(.top, 10)
-    //                    .padding(.bottom, 50)
                         
                     NavigationLink(
                         destination: EditUserView(user: user).navigationBarHidden(true),
@@ -71,7 +65,6 @@ struct SettingView: View {
                         }
                     ).padding(.bottom, 20)
 
-    //                Spacer()
                     Button(action: {
                         AuthViewModel.shared.signout()
                         SoundPlayer.shared.playClickSound()

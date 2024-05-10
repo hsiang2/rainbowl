@@ -174,9 +174,6 @@ struct MailboxView: View {
                         .environment(\.defaultMinListRowHeight, 82)
                         .padding(.top, 80)
                 }
-           
-                   
-//                        .padding(.horizontal, 16)
             }
             .onAppear {
                            // Mark unread notifications as read when the mailbox view appears

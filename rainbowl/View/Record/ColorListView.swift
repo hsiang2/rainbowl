@@ -53,7 +53,6 @@ struct ColorListView: View {
                                 .scaledToFit()
                                 .frame(width: 50)
                                 .padding(.top, 15)
-//                                .blendMode(.darken)
                                 .mask( Rectangle().frame(width: 50).padding(.top, 55 - CGFloat((40 * opacity[index] )))
                                     
                                 )      

@@ -184,37 +184,12 @@ struct SendGiftView: View {
                                .ignoresSafeArea().onTapGesture {
                                 openBackpack.toggle()
                             }
-//                                .ignoresSafeArea()
                             ZStack {
                                 Color(red: 230/255, green: 229/255, blue: 222/255)
-    //                                .ignoresSafeArea()
                                 BackpackView(backpackViewModel: backpackViewModel, mode: "gift", targetCreature: $targetCreature, show: Binding<Bool?>(get: { self.openBackpack }, set: { self.openBackpack = $0 ?? false }))
                             }.frame(width: 360, height: 540).cornerRadius(33)
                         }.presentationBackground(.clear)
-//                        .presentationDetents([.fraction(0.8)])
                     }
-//            }
-//            
-//            if (openBackpack) {
-////                ZStack(alignment: .center) {
-//                    ZStack {
-//                        Color(red: 230/255, green: 229/255, blue: 222/255)
-//                            .ignoresSafeArea()
-//                        BackpackView(backpackViewModel: backpackViewModel, mode: "gift", targetCreature: $targetCreature, show: Binding<Bool?>(get: { self.openBackpack }, set: { self.openBackpack = $0 ?? false }))
-//                    }.frame(width: 338, height: 494)
-//                    
-////                }.frame(maxWidth: .infinity, maxHeight: .infinity)
-//            }
-//        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-       
-//            .sheet(isPresented: $openBackpack) {
-//                ZStack {
-//                    Color(red: 230/255, green: 229/255, blue: 222/255)
-//                        .ignoresSafeArea()
-//                    BackpackView(backpackViewModel: backpackViewModel, mode: "gift", targetCreature: $targetCreature, show: Binding<Bool?>(get: { self.openBackpack }, set: { self.openBackpack = $0 ?? false }))
-//                }.presentationDetents([.fraction(0.8)])
-//                
-//            }
         
     }
 }

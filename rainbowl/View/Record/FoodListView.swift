@@ -67,12 +67,10 @@ struct FoodListView: View {
                         //自訂蔬果列
                         ForEach(customFood, id: \.self) { food in
                             Button(action: {
-//                                selectedBtn = food
                             }) {
 
                                 ZStack{
                                     // Now 'food' can be treated as a Food instance
-
                                    
                                     if (selectedBtn == Food(color: food.color, name: food.name, size: food.size, unit: food.unit, gram: food.gram, calorie: food.calorie, category: food.category)) {
                                         Image("food_bg_focus")
@@ -82,24 +80,12 @@ struct FoodListView: View {
                                     Text(food.name.prefix(1))
                                         .font(.system(size: 25))
                                         .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-//                                    Image(food.name).resizable().scaledToFit().frame(width: 45, height: 45)
                                 }.padding(.leading, 10)
-                                  
-//                                    .gesture(
-//                                    LongPressGesture(minimumDuration: 0.5)
-//                                        .onEnded { _ in
-//                                            addFoodType = true
-//
-//                                        }
-//
-//                                )
-
+                                
                             }.simultaneousGesture(
                                 LongPressGesture()
                                     .onEnded { _ in
-//                                        print("Loooong")
                                         editFoodType = food
-//                                        addFoodType = true
                                     }
                             )
                             .highPriorityGesture(
@@ -115,7 +101,6 @@ struct FoodListView: View {
                         
                         //自訂按鈕
                         Button(action: {
-//                            selectedBtn = "custom"
                             addFoodType = true
                             SoundPlayer.shared.playClickSound()
                         }) {

@@ -15,7 +15,6 @@ class SocialViewModel: ObservableObject {
     @Published var friendList = [Friend]()
     // 分隔線
     @Published var users = [User]()
-//    @Published var creatures = [CreatureInUse]()
     
     init(backpackViewModel: BackpackViewModel) {
         self.backpackViewModel = backpackViewModel
@@ -56,22 +55,16 @@ class SocialViewModel: ObservableObject {
                    
                    creatureList = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
                    completion(creatureList)
-//            guard let documents = snapshot?.documents else { return }
-//            creatureList = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
-////            self.creatures = documents.compactMap({ try? $0.data(as: CreatureInUse.self) })
+
         }
-//        return creatureList
     }
     
     func filteredUsers(_ query: String) -> [User] {
         let lowercasedQuery = query.lowercased()
         return users.filter({ $0.username.lowercased().contains(lowercasedQuery) })
-//        return users.filter({ $0.fullname.lowercased().contains(lowercasedQuery) || $0.username.contains(lowercasedQuery) })
     }
     
     func fetchNameById(user: String) -> String {
-//        let index = users.firstIndex {$0.id == user}
-//        return users[index ?? 0].username
         return users.first {$0.id == user}?.username ?? ""
     }
     
@@ -169,7 +162,6 @@ class SocialViewModel: ObservableObject {
         return friendUserList.filter({
             $0.username.lowercased().contains(lowercasedQuery)
         })
-//        return users.filter({ $0.fullname.lowercased().contains(lowercasedQuery) || $0.username.contains(lowercasedQuery) })
     }
     
     //刪好友
@@ -244,11 +236,7 @@ class SocialViewModel: ObservableObject {
                 let documentID = document.documentID
                COLLECTION_FRIENDSLIST.document(user.id ?? "").collection("friendsList").document(documentID).updateData(["status": "friend"])
           
-        }
-
-//        COLLECTION_FRIENDSLIST.document(inviter).collection("friendsList").addDocument(data: ["id": user.id ?? "", "status": "friend"])
-//        COLLECTION_FRIENDSLIST.document(user.id ?? "").collection("friendsList").addDocument(data: ["id": inviter, "status":"friend"])
-        
+        }        
         COLLECTION_NOTIFICATION.document(inviter).collection("notification").addDocument(data: notificationData)
     }
     

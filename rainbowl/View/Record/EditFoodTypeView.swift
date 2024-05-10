@@ -44,7 +44,6 @@ struct EditFoodTypeView: View {
                         Text("種類")
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(Color(red: 139/255, green: 128/255, blue: 101/255))
-                       //TODO
                         HStack (spacing: 20) {
                             RadioButtonView(category: "蔬菜", selectedCategory: $category)
                             RadioButtonView(category: "水果", selectedCategory: $category)

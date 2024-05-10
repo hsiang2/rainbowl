@@ -13,7 +13,6 @@ struct TabBarView: View {
         
         var tabBarOptions: [String] = ["動物", "植物"]
         var body: some View {
-//            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(
                     spacing: 0
                 ) {
@@ -31,10 +30,6 @@ struct TabBarView: View {
                 }
                 .padding(.horizontal, 60)
                 .frame(height: 80)
-//            }
-//            .background(Color.white)
-//            .frame(height: 80)
-//            .edgesIgnoringSafeArea(.all)
         }
 }
 
@@ -58,8 +53,6 @@ struct TabBarItem: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 42, height: 42)
-              
-//                    Text(tabBarItemName)
                     Spacer()
                 }
                 

@@ -13,7 +13,6 @@ struct FriendItem: View {
     @ObservedObject var socialViewModel: SocialViewModel
     let user: User
         
-//    let status: String
     @State private var openSendGift = false
     
     
@@ -21,7 +20,6 @@ struct FriendItem: View {
         self.socialViewModel = socialViewModel
         self.backpackViewModel = backpackViewModel
         self.user = user
-//        self.status = viewModel.fetchFriendStatus(user: AuthViewModel.shared.currentUser?.id ?? "")
     }
         var body: some View {
             ZStack {
@@ -29,7 +27,6 @@ struct FriendItem: View {
                     ZStack(alignment: .topLeading) {
                         
                         GameSnapshotView(user: user, socialViewModel: socialViewModel)
-                        //                    .frame(width: 2358, height: 1825)
                             .scaleEffect(0.2)
                             .scaledToFit()
                             .frame(width: 318, height: 217)
@@ -90,10 +87,6 @@ struct FriendItem: View {
                     }.padding(.init(top: 20, leading: 55, bottom: 0, trailing: 55))
                     
                 }.padding(.vertical, 25)
-//                if (openBackpack) {
-//                    SendGiftConfirmView(show: $show, viewModel: socialViewModel, creature: targetCreature!, message: message, friendId: friendId)
-//                        
-//                }
             }
         }
 }

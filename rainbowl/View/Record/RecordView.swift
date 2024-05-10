@@ -147,10 +147,6 @@ struct RecordView: View {
                                 .frame(height: 80)
                                 .position(x: 270, y: 135)
                             
-//                            Image("紅蘿蔔")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 40)
                             plateItemImage(food: plate[0])
                                 .position(x: 65, y: 55)
                             

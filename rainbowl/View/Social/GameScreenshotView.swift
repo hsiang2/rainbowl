@@ -14,7 +14,6 @@ struct GameScreenshotView: View {
 
     @StateObject private var positionManager = CreaturePositionManager()
 
-//    @State private var creatures: [CreatureInUse] = []
     var creatures: [CreatureInUse]
     
 
@@ -41,9 +40,6 @@ struct GameScreenshotView: View {
             backgroundImage
             creatureViews
         }
-//        .onAppear {
-//            fetchCreatures()
-//        }
                
     }
 
@@ -117,7 +113,6 @@ struct GameScreenshotView: View {
     
     private func creatureItem(for creature: CreatureInUse) -> some View {
         let initialPosition = CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0))
-//        let position = positionManager.positions[creature] ?? initialPosition
         
         return AnyView(
             ZStack {
@@ -133,11 +128,6 @@ struct GameScreenshotView: View {
             
         )
     }
-//    func fetchCreatures() {
-//            socialViewModel.fetchCreatures(uid: user.id ?? "") { fetchedCreatures in
-//                self.creatures = fetchedCreatures
-//            }
-//        }
 }
 
 //

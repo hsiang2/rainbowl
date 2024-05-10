@@ -18,18 +18,7 @@ struct CalendarView: View {
            self._show = show
         _recordViewModel = StateObject(wrappedValue: FetchRecordViewModel(date: Date()))
        }
-//    @State private var recordDate = Date()
-//    @Binding var show: Bool
-//
-//    @StateObject var recordViewModel: FetchRecordViewModel = FetchRecordViewModel(date: Date())
-//
-//    init(show: Binding<Bool>) {
-//     
-//        self._show = show
-//        let viewModel = FetchRecordViewModel(date: recordDate)
-//        _recordViewModel = StateObject(wrappedValue: viewModel)
-//    }
-//    
+
     var body: some View {
         ZStack {
             Color(red: 225/255, green: 232/255, blue: 234/255)

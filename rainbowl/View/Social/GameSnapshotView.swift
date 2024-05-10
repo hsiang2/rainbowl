@@ -16,10 +16,6 @@ struct GameSnapshotView: View {
     @StateObject private var positionManager = CreaturePositionManager()
 
     @State private var creatures: [CreatureInUse] = []
-//    var creatures: [CreatureInUse] {
-//        return socialViewModel.fetchCreatures(uid: user.id ?? "")
-////        return socialViewModel.creatures
-//    }
     
 
     var red: Float
@@ -119,7 +115,6 @@ struct GameSnapshotView: View {
     
     private func creatureItem(for creature: CreatureInUse) -> some View {
         let initialPosition = CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0))
-//        let position = positionManager.positions[creature] ?? initialPosition
         
         return AnyView(
             ZStack {

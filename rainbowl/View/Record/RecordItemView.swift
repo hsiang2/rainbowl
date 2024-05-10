@@ -8,23 +8,14 @@
 import SwiftUI
 
 struct RecordItemView: View {
-    
-//    @Binding var selectedIndex: String
-   
-//    @StateObject var viewModel = FetchRecordViewModel(date: Date())
+
     @StateObject var recordViewModel = RecordViewModel()
     
     let colors = ["紅", "橙", "黃", "綠", "紫", "白"]
     
-    var records: [Record] 
-//    {
-//        return selectedIndex == "" ? viewModel.records : viewModel.records.filter({
-//            $0.color.contains(selectedIndex)
-//        })
-//    }
+    var records: [Record]
     
     var body: some View {
-        //        ScrollView(showsIndicators: false) {
         if( records.isEmpty ) {
             Color(red: 245/255, green: 245/255, blue: 245/255)
                 .ignoresSafeArea()

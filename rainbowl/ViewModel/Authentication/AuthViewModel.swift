@@ -58,7 +58,6 @@ class AuthViewModel: ObservableObject {
                 "avatarColor": avatarColor,
                 "id": user.uid,
                 "money": 1000,
-//                "colors": [0, 0, 0, 0, 0]
                 "red": [0, 0, 0, 0, 0],
                 "orange": [0, 0, 0, 0, 0],
                 "yellow": [0, 0, 0, 0, 0],

@@ -8,18 +8,6 @@
 import SwiftUI
 
 struct BackpackView: View {
-//    @State var currentTab: Int = 0
-//    var selectedCategory: String = ""
-//    
-//    @Binding var creature: Creature?
-//    @Binding var show: Bool?
-//    
-//    init(currentTab: Int, selectedCategory: String, creature: Binding<Creature?>, show: Binding<Bool?>) {
-//           self.currentTab = currentTab
-//           self.selectedCategory = selectedCategory
-//           self._creature = creature
-//           self._show = show
-//       }
     
     @ObservedObject var backpackViewModel: BackpackViewModel
     @State private var currentTab: Int

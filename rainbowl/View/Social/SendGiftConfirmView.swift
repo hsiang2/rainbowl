@@ -18,9 +18,6 @@ struct SendGiftConfirmView: View {
     
     var body: some View {
         ZStack {
-            //            Color(red: 230/255, green: 229/255, blue: 222/255)
-            //                .ignoresSafeArea()
-            //            ScrollView {
             VStack(alignment: .center) {
                 HStack {
                     Spacer()
@@ -57,11 +54,6 @@ struct SendGiftConfirmView: View {
                 Spacer()
             }
         }.presentationBackground(Color(red: 8/255, green: 8/255, blue: 8/255).opacity(0.64))
-//                .padding(.horizontal, 30)
-//                    .padding(.vertical, 20)
-//            }
-//            
-//        }.presentationDetents([.fraction(0.8)])
         
     }
 }

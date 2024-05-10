@@ -31,8 +31,6 @@ struct ItemsView: View {
         self._show = show ?? .constant(nil)
     }
     
-//    let tests = ["黑白鹿", "彩色鹿", "虎鯨_黑白", "樹_黑白"]
-    
     var body: some View {
         ScrollView {
             VStack {

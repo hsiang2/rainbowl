@@ -84,11 +84,6 @@ struct AddFoodView: View {
         }.padding(.horizontal, 40)
             .padding(.vertical, 20)
         
-//            .onReceive(currentColors.publisher) { newCurrentColors in
-//                    // Call the function to handle updates
-//                    handleCurrentColorsUpdate()
-//                }
-        
     }
 
 }

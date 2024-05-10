@@ -56,8 +56,6 @@ struct GifView: UIViewRepresentable {
 }
 
 
-
-
 class CreaturePositionManager: ObservableObject {
     @Published var positions: [CreatureInUse: CGPoint] = [:]
 }
@@ -66,9 +64,6 @@ class CreatureDirectionManager: ObservableObject {
     @Published var directions: [CreatureInUse: Int] = [:]
 }
 
-//class CreatureOpacityManager: ObservableObject {
-//    @Published var opacities: [CreatureInUse: Double] = [:]
-//}
 
 @available(iOS 17.0, *)
 struct GameView: View {
@@ -83,7 +78,6 @@ struct GameView: View {
     
     @StateObject private var positionManager = CreaturePositionManager()
     @StateObject private var directionManager = CreatureDirectionManager()
-//    @StateObject private var opacityManager = CreatureOpacityManager()
 
 
     @StateObject var viewModel = AuthViewModel()
@@ -203,18 +197,13 @@ struct GameView: View {
     private var backgroundImage: some View {
 
             ZStack {
-//                Image("背景_黑白")
                 Image("背景_藍")
-//                    .blendMode(.color)
                     .saturation(Double(purple))
                 Image("背景_黃")
-//                    .blendMode(.color)
                     .saturation(Double(yellow))
                 Image("背景_綠")
-//                    .blendMode(.color)
                     .saturation(Double(green))
                 Image("背景_白")
-//                    .blendMode(.color)
                     .saturation(Double(white))
             }
     }
@@ -261,13 +250,7 @@ struct GameView: View {
         }
 
         return AnyView( 
-            
-//            Image(imageName)
-//            .resizable()
-//            .scaledToFit()
-//            .frame(width: CGFloat(creature.width))
-//            .saturation(opacity)
-            
+
             GifView(imageName: "\(imageName)")
                 .scaleEffect(x: CGFloat(directionManager.directions[creature] ?? 1), y: 1)
                 .frame(width: CGFloat(creature.width), height: CGFloat(creature.width))
@@ -280,7 +263,6 @@ struct GameView: View {
         let initialPosition = CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0))
         let position = positionManager.positions[creature] ?? initialPosition
         
-//        let opacity = opacityManager.opacities[creature] ?? 1
         
         return AnyView(
             ZStack {
@@ -301,32 +283,25 @@ struct GameView: View {
                 
 
             }
-//                .opacity(opacity)
                 .position(position)
                 .zIndex(Double(creature.locationY ?? 1))
                 .gesture(
-                   
-                        LongPressGesture(minimumDuration: 0.5)
-                            .sequenced(before: DragGesture()
-                                .onChanged { gesture in
-                                    positionManager.positions[creature] = gesture.location
-                                }
-                                .onEnded { _ in
-        //                            opacityManager.opacities[creature] = 1
-                                    viewModel.updateCreaturePosition(id: creature.id ?? "", x: Float(positionManager.positions[creature]?.x ?? 0), y: Float(positionManager.positions[creature]?.y ?? 0))
-                                }
-                            )
-                        
-                
+                    LongPressGesture(minimumDuration: 0.5)
+                        .sequenced(before: DragGesture()
+                            .onChanged { gesture in
+                                positionManager.positions[creature] = gesture.location
+                            }
+                            .onEnded { _ in
+                                viewModel.updateCreaturePosition(id: creature.id ?? "", x: Float(positionManager.positions[creature]?.x ?? 0), y: Float(positionManager.positions[creature]?.y ?? 0))
+                            }
+                        )
                 )
                 .allowsHitTesting(showDelete)
                 .onChange(of: showDelete, initial: true) { oldValue, newValue in
-              
                     if creature.isMoving {
                         startAnimation(for: creature, at: position, initialPosition: initialPosition)
-                        }
-                   
-            }
+                    }
+                }
         )
     }
     
@@ -352,13 +327,9 @@ struct GameView: View {
                  positionManager.positions[creature] = CGPoint(x: position.x + CGFloat(creature.width) * CGFloat(directionManager.directions[creature] ?? 1), y: position.y)
                  positionManager.positions[creature] = initialPosition
 
-
-
              }
         }
-         
-        
-       }
+    }
 }
 
 

@@ -49,8 +49,6 @@ struct CollectionView: View {
                     Spacer()
 
                 }
-//                .padding(.bottom)
-//                .background(Color.green.edgesIgnoringSafeArea(.all))
                 
                 Spacer()
                 

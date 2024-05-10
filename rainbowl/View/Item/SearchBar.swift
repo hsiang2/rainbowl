@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var text: String
-    @Binding var isEditing: Bool
-    @State private var animate = false
     
     var body: some View {
         HStack {
@@ -30,30 +28,12 @@ struct SearchBar: View {
                     }
                 )
                 .padding(.horizontal, 24)
-                .onTapGesture {
-                    isEditing = true
-                }
-            if isEditing {
-                Button(action: {
-                    animate = false
-                    isEditing = false
-                    text = ""
-                    UIApplication.shared.endEditing()
-                }, label: {
-                    Text("取消")
-                        .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255))
-                })
-                .padding(.trailing, 8)
-                .transition(.move(edge: .trailing))
-                .animation(.default, value: animate)
-                .onAppear { animate = true }
-            }
         }
     }
 }
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant("Search..."), isEditing: .constant(true))
+        SearchBar(text: .constant("Search..."))
     }
 }

@@ -57,7 +57,6 @@ struct SocialTabBarItem: View {
                 }
                 
                 ZStack {
-//                    Color(red: 142/255, green: 135/255, blue: 129/255).frame(height: 5)       .cornerRadius(50)
                     if currentTab == tab {
                         Color(red: 217/255, green: 187/255, blue: 137/255)
                             .frame(width: 24, height: 5)

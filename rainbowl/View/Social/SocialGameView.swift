@@ -22,11 +22,6 @@ struct SocialGameView: View {
     @StateObject private var positionManager = CreaturePositionManager()
 
     @State private var creatures: [CreatureInUse] = []
-
-//    var creatures: [CreatureInUse] {
-//        return viewModel.fetchCreatures(uid: user.id ?? "")
-////        return viewModel.creatures
-//    }
     
 
     var red: Float
@@ -48,7 +43,7 @@ struct SocialGameView: View {
     }
 
     var body: some View {
-//        ZStack {
+
             ZStack {
                 ScrollView([.horizontal, .vertical], showsIndicators: false) {
                     content
@@ -63,7 +58,6 @@ struct SocialGameView: View {
                 
             }
             .defaultScrollAnchor(.center)
-//            .navigationTitle(user.username)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -100,29 +94,11 @@ struct SocialGameView: View {
                                 .background(Color(red: 184/255, green: 175/255, blue: 153/255))
                                 .cornerRadius(50)
                                 .shadow(color: Color(red: 54/255, green: 64/255, blue: 89/255).opacity(0.5), radius: 2, x: 3, y: 3)
-//                            Image(systemName: "xmark")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 20)
-//                                .padding()
-//                                .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
+
                         }
                     }
-//                    .padding(.top, 30)
                 }
             }.toolbarBackground(.hidden, for: .navigationBar)
-//            Button {
-//                show = false
-//            } label: {
-//                Image(systemName: "arrowshape.backward.circle.fill")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 20)
-//                    .padding()
-//                    .foregroundColor(Color(red: 167/255, green: 176/255, blue: 184/255)).padding()
-//
-//            }
-//        }
     }
 
     private var content: some View {
@@ -218,7 +194,6 @@ struct SocialGameView: View {
     
     private func creatureItem(for creature: CreatureInUse) -> some View {
         let initialPosition = CGPoint(x: Double(creature.locationX ?? 0), y: Double(creature.locationY ?? 0))
-//        let position = positionManager.positions[creature] ?? initialPosition
         
         return AnyView(
             ZStack {
