@@ -77,6 +77,22 @@ struct MainTabView: View {
                         SettingView(user: user, show: $openSetting)
                     }
                 }
+                HStack{
+                    Button(action: {
+                                openShare.toggle()
+                        SoundPlayer.shared.playIconSound()
+                    }, label: {
+                        Image("相機")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 48, height: 48)
+                            .padding()
+                    })
+                            .fullScreenCover(isPresented: $openShare) {
+                                ShareView(user: user, show: $openShare, socialViewModel: socialViewModel)
+                            }
+                    Spacer()
+                }.padding(.top, -20)
                 Spacer()
                 HStack {
                     Button(action: {
@@ -120,19 +136,7 @@ struct MainTabView: View {
                     .fullScreenCover(isPresented: $openMailbox) {
                         MailboxView(show: $openMailbox, socialViewModel: socialViewModel)
                     }
-//                    Button(action: {
-//                                openShare.toggle()
-//                        SoundPlayer.shared.playIconSound()
-//                    }, label: {
-//                        Image("相機")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 48, height: 48)
-//                            .padding()
-//                    })
-//                            .fullScreenCover(isPresented: $openShare) {
-//                                ShareView(user: user, show: $openShare)
-//                            }
+                  
                 }
                 HStack {
                     Button(action: {

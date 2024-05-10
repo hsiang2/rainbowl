@@ -11,16 +11,16 @@ import SwiftUI
 struct ShareView: View {
     let user: User
     @Binding var show: Bool
-    
     @ObservedObject var socialViewModel: SocialViewModel
     
-    @State private var renderedImage = Image(systemName: "photo")
+    @State private var renderedImage = Image(systemName: "")
         @Environment(\.displayScale) var displayScale
     
+    @State private var fetchedCreatures: [CreatureInUse] = []
 
     var body: some View {
         ZStack {
-            Color(red: 225/255, green: 232/255, blue: 234/255)
+            Color(red: 236/255, green: 246/255, blue: 245/255)
                 .ignoresSafeArea()
                 .overlay(alignment: .topTrailing) {
                     Button {
@@ -38,30 +38,60 @@ struct ShareView: View {
                         
                     }
                 }
-        
-            renderedImage
-//                .frame(width: 2358, height: 1825)
-//                .cornerRadius(350)
-                .scaleEffect(0.12)
+            VStack {
+                renderedImage
+                ShareLink(item: renderedImage, preview: SharePreview(Text("RAINBOWL"), image: renderedImage)) {
+                    ZStack {
+                      Image("按鈕_分享")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 126)
+                        Text("分享")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 6)
+                    }
+                        
+                    .padding(.top, 68.8)
+                }
+            }
+           
 
-                       ShareLink("Export", item: renderedImage, preview: SharePreview(Text("Shared image"), image: renderedImage))
-
-//            snapshot().resizable().aspectRatio(contentMode: .fit)
-//                .frame(height: 100).border(.red)
         }.onAppear {
-            render()
+            let group = DispatchGroup()
+               
+               group.enter()
+            fetchCreatures(completion: {_ in 
+                   group.leave()
+               })
+
+               group.notify(queue: .main) {
+                   render()
+               }
         }
     }
-//    @MainActor func snapshot() -> Image {
-//            let imagerenderer = ImageRenderer(
-//                content: GameView(user: user).frame(maxWidth: 100, maxHeight: 100)
-//            )
-//            return Image(uiImage: imagerenderer.uiImage!)
-//        }
+    func fetchCreatures(completion: @escaping ([CreatureInUse]) -> Void) {
+        socialViewModel.fetchCreatures(uid: user.id ?? "") { result in
+            self.fetchedCreatures = result
+            completion(result)
+        }
+    }
     
     @MainActor func render() {
-        let renderer = ImageRenderer(content:GameSnapshotView(user: user, socialViewModel: socialViewModel))
-//        let renderer = ImageRenderer(content:Text("hi"))
+        let renderer = ImageRenderer(content:ZStack{
+            Image("截圖背景").resizable().scaledToFit().frame(width: 332)
+            GameScreenshotView(user: user, creatures: fetchedCreatures) .scaleEffect(0.12)
+                .scaledToFit()
+                .foregroundStyle(
+                    .shadow(
+                        .inner(color: Color(red: 4/255, green: 4/255, blue: 4/255).opacity(0.16), radius: 5.3)
+                    )
+                )
+                .padding(.bottom, 21)
+                
+        }.frame(width: 332, height: 305)
+            
+            )
 
             // make sure and use the correct display scale for this device
             renderer.scale = displayScale

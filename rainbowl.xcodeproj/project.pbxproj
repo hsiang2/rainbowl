@@ -35,6 +35,7 @@
 		AA4BB34829FCD67C00F10479 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34729FCD67C00F10479 /* RecordView.swift */; };
 		AA4BB34B29FCE9BE00F10479 /* ColorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BB34A29FCE9BE00F10479 /* ColorListView.swift */; };
 		AA53543A2BE4B37B00FA8899 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5354392BE4B37B00FA8899 /* SplashView.swift */; };
+		AA53543C2BE62B0300FA8899 /* GameScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA53543B2BE62B0300FA8899 /* GameScreenshotView.swift */; };
 		AA5D0E982A4417CC002A32DC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E972A4417CC002A32DC /* GameView.swift */; };
 		AA5D0E9B2A46C5D6002A32DC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */; };
 		AA5D0E9E2A481125002A32DC /* DateChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D0E9D2A481125002A32DC /* DateChangeViewModel.swift */; };
@@ -192,6 +193,7 @@
 		AA4BB34729FCD67C00F10479 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		AA4BB34A29FCE9BE00F10479 /* ColorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListView.swift; sourceTree = "<group>"; };
 		AA5354392BE4B37B00FA8899 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		AA53543B2BE62B0300FA8899 /* GameScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenshotView.swift; sourceTree = "<group>"; };
 		AA5D0E972A4417CC002A32DC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		AA5D0E9A2A46C5D6002A32DC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		AA5D0E9D2A481125002A32DC /* DateChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChangeViewModel.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				AA8CD4E12B19787D00F32D63 /* SocialView.swift */,
 				AA8CD4ED2B19B22B00F32D63 /* SocialGameView.swift */,
 				AA8CD4F12B19D2DB00F32D63 /* GameSnapshotView.swift */,
+				AA53543B2BE62B0300FA8899 /* GameScreenshotView.swift */,
 				AA1BF5CC2BA1CCE700690768 /* MailboxView.swift */,
 				AA1BF5D92BA58D5600690768 /* SocialTabBarView.swift */,
 				AA1BF5DB2BA6D98500690768 /* SendGiftView.swift */,
@@ -896,6 +899,7 @@
 				AA8F08962A0205970069D180 /* RegistrationView.swift in Sources */,
 				AA1BF5D82BA585D900690768 /* FriendItem.swift in Sources */,
 				AAD4770E2A4CC5C000F57A46 /* CreatureProduct.swift in Sources */,
+				AA53543C2BE62B0300FA8899 /* GameScreenshotView.swift in Sources */,
 				AA5D0EA22A49F36B002A32DC /* BackpackView.swift in Sources */,
 				AA8CD4EA2B19A7A600F32D63 /* UserItem.swift in Sources */,
 				AA654B8F2B6CDEFD006CC1D0 /* ShareView.swift in Sources */,

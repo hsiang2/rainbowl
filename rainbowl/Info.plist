@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>可以把圖片存到你的相簿嗎？</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>UIBackgroundModes</key>
