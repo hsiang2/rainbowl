@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     let user: User
+    @State private var openKnowledge = false
     
     @Binding var show: Bool
     var body: some View {
@@ -50,6 +51,24 @@ struct SettingView: View {
                                 .foregroundColor(Color(red: 25/255, green: 50/255, blue: 74/255).opacity(0.7))
                                 .padding(.top, 0.5)
                         }.padding(.top, 10)
+                    
+                    Button(action: {
+                        openKnowledge.toggle()
+                        SoundPlayer.shared.playClickSound()
+                    }, label: {
+                        Text("認識彩虹飲食")
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(red: 241/255, green: 239/255, blue: 234/255))
+                            .frame(width: 340, height: 60)
+                            .background(Color(red: 153/255, green: 180/255, blue: 184/255))
+                            .cornerRadius(9)
+                            .shadow(color: Color(red: 108/255, green: 127/255, blue: 145/255).opacity(0.3), radius: 6, x: 0, y: 4)
+                            .padding(.top, 70)
+                    }).padding(.top, 20)
+                        .padding(.bottom, 20)
+                    .fullScreenCover(isPresented: $openKnowledge) {
+                        KnowledgeView(show: $openKnowledge)
+                    }
                         
                     NavigationLink(
                         destination: EditUserView(user: user).navigationBarHidden(true),
@@ -61,7 +80,7 @@ struct SettingView: View {
                                 .background(Color(red: 153/255, green: 180/255, blue: 184/255))
                                 .cornerRadius(9)
                                 .shadow(color: Color(red: 108/255, green: 127/255, blue: 145/255).opacity(0.3), radius: 6, x: 0, y: 4)
-                                .padding(.top, 70)
+//                                .padding(.top, 70)
                         }
                     ).padding(.bottom, 20)
 
