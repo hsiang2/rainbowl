@@ -32,7 +32,12 @@ struct KnowledgeView: View {
                 Text("蔬果知識")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(Color(red: 66/255, green: 59/255, blue: 58/255))
+                    .padding(.bottom, 22)
+                Text("攝取各種如彩虹一樣繽紛的天然蔬果，為身體補充不同的營養素，維持健康")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(Color(red: 89/255, green: 89/255, blue: 89/255))
                     .padding(.bottom, 34)
+                    .padding(.horizontal, 24)
                 
                 ForEach(allKnowledge, id: \.self) { knowledgeItem in
                     KnowledgeItemView(knowledgeData: knowledgeItem)
