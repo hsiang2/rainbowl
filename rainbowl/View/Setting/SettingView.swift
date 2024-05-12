@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct SettingView: View {
     let user: User
     @State private var openKnowledge = false

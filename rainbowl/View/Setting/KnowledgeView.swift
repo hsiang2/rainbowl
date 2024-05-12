@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct KnowledgeView: View {
     @State private var allKnowledge = [Knowledge]()
     @Binding var show: Bool
@@ -28,7 +29,6 @@ struct KnowledgeView: View {
                     }
                 }
             ScrollView(showsIndicators: false) {
-                //            VStack {
                 Text("蔬果知識")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(Color(red: 66/255, green: 59/255, blue: 58/255))
@@ -36,10 +36,13 @@ struct KnowledgeView: View {
                 
                 ForEach(allKnowledge, id: \.self) { knowledgeItem in
                     KnowledgeItemView(knowledgeData: knowledgeItem)
+                        .scrollTransition { content, phase in
+                                       content
+                                           .opacity(phase.isIdentity ? 1 : 0)
+                                           .scaleEffect(phase.isIdentity ? 1 : 0.75)
+                                   }
                         .padding(.bottom, 32)
                 }
-                
-                //            }
             }.padding(.top, 70)
                 
         }.onAppear {
