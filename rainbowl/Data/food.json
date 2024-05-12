@@ -3,72 +3,72 @@
         "category": "水果",
         "color": "紅",
         "name": "西瓜",
-        "size": 0.5,
-        "unit": "片",
-        "gram": 70,
+        "size": 0.8,
+        "unit": "碗",
+        "gram": 180,
         "calorie": 60
     },
     {
         "category": "水果",
         "color": "紅",
         "name": "草莓",
-        "size": 7,
+        "size": 11,
         "unit": "顆",
-        "gram": 70,
+        "gram": 168,
         "calorie": 60
     },
     {
         "category": "蔬菜",
         "color": "紅",
         "name": "番茄",
-        "size": 0.5,
+        "size": 0.8,
         "unit": "顆",
-        "gram": 70,
-        "calorie": 60
+        "gram": 131,
+        "calorie": 25
     },
     {
         "category": "蔬菜",
         "color": "紅",
         "name": "紅椒",
-        "size": 0.5,
+        "size": 0.2,
         "unit": "顆",
-        "gram": 70,
-        "calorie": 30
+        "gram": 26,
+        "calorie": 25
     },
     {
         "category": "水果",
         "color": "橙",
         "name": "橘子",
-        "size": 0.5,
+        "size": 1,
         "unit": "顆",
-        "gram": 70,
+        "gram": 151,
         "calorie": 60
     },
     {
         "category": "蔬菜",
         "color": "橙",
         "name": "南瓜",
-        "size": 0.5,
+        "size": 0.3,
         "unit": "碗",
-        "gram": 70,
-        "calorie": 60
+        "gram": 35,
+        "calorie": 25
     },
     {
         "category": "蔬菜",
         "color": "橙",
         "name": "紅蘿蔔",
-        "size": 0.5,
+        "size": 0.2,
         "unit": "根",
-        "gram": 70,
-        "calorie": 60
+        "gram": 62,
+        "calorie": 25
     },
     {
         "category": "水果",
         "color": "橙",
         "name": "木瓜",
-        "size": 0.8,
-        "unit": "碗",
-        "gram": 150,
+        "size": 0.2,
+        "unit": "顆",
+        "gram": 168,
         "calorie": 60
     },
     
@@ -76,10 +76,10 @@
         "category": "水果",
         "color": "黃",
         "name": "鳳梨",
-        "size": 1,
-        "unit": "片",
-        "gram": 70,
-        "calorie": 50
+        "size": 0.8,
+        "unit": "碗",
+        "gram": 110,
+        "calorie": 60
     },
     {
         "category": "水果",
@@ -94,46 +94,46 @@
         "category": "蔬菜",
         "color": "黃",
         "name": "玉米",
-        "size": 0.5,
+        "size": 0.3,
         "unit": "根",
-        "gram": 70,
+        "gram": 56,
         "calorie": 60
     },
     {
         "category": "水果",
         "color": "黃",
         "name": "檸檬",
-        "size": 0.5,
+        "size": 2,
         "unit": "顆",
-        "gram": 70,
-        "calorie": 31
+        "gram": 20,
+        "calorie": 60
     },
     {
         "category": "蔬菜",
         "color": "綠",
         "name": "綠花椰菜",
-        "size": 1,
+        "size": 0.9,
         "unit": "碗",
-        "gram": 70,
-        "calorie": 60
+        "gram": 100,
+        "calorie": 25
     },
     {
         "category": "水果",
         "color": "綠",
         "name": "奇異果",
-        "size": 2,
+        "size": 1.5,
         "unit": "顆",
-        "gram": 70,
+        "gram": 105,
         "calorie": 60
     },
     {
         "category": "蔬菜",
         "color": "綠",
         "name": "小黃瓜",
-        "size": 0.5,
+        "size": 1,
         "unit": "根",
-        "gram": 70,
-        "calorie": 60
+        "gram": 100,
+        "calorie": 25
     },
     {
         "category": "水果",
@@ -141,16 +141,16 @@
         "name": "酪梨",
         "size": 0.5,
         "unit": "顆",
-        "gram": 70,
+        "gram": 75,
         "calorie": 60
     },
     {
         "category": "水果",
         "color": "紫",
         "name": "藍莓",
-        "size": 0.5,
-        "unit": "顆",
-        "gram": 70,
+        "size": 1,
+        "unit": "盒",
+        "gram": 100,
         "calorie": 60
     },
     {
@@ -159,8 +159,8 @@
         "name": "茄子",
         "size": 0.5,
         "unit": "根",
-        "gram": 70,
-        "calorie": 60
+        "gram": 100,
+        "calorie": 25
     },
     {
         "category": "水果",
@@ -175,45 +175,45 @@
         "category": "蔬菜",
         "color": "紫",
         "name": "紫甘藍",
-        "size": 0.5,
-        "unit": "碗",
-        "gram": 70,
-        "calorie": 60
+        "size": 0.3,
+        "unit": "顆",
+        "gram": 90,
+        "calorie": 25
     },
     {
         "category": "蔬菜",
         "color": "白",
         "name": "蘑菇",
-        "size": 0.5,
+        "size": 1,
         "unit": "碗",
-        "gram": 70,
-        "calorie": 60
+        "gram": 100,
+        "calorie": 25
     },
     {
         "category": "蔬菜",
         "color": "白",
         "name": "洋蔥",
-        "size": 0.5,
-        "unit": "碗",
-        "gram": 70,
-        "calorie": 60
+        "size": 1,
+        "unit": "顆",
+        "gram": 100,
+        "calorie": 25
     },
     {
         "category": "蔬菜",
         "color": "白",
         "name": "白蘿蔔",
-        "size": 0.5,
+        "size": 0.4,
         "unit": "根",
-        "gram": 70,
-        "calorie": 60
+        "gram": 143,
+        "calorie": 25
     },
     {
         "category": "水果",
         "color": "白",
         "name": "白火龍果",
-        "size": 0.7,
-        "unit": "碗",
-        "gram": 110,
+        "size": 0.4,
+        "unit": "顆",
+        "gram": 117,
         "calorie": 60
     },
     
