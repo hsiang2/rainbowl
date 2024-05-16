@@ -20,7 +20,7 @@ struct KnowledgeItemView: View {
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color(red: knowledgeData.color[0]/255, green: knowledgeData.color[1]/255, blue: knowledgeData.color[2]/255))
-            Text("營養素：\(knowledgeData.nutrition)")
+            Text("植化素：\(knowledgeData.nutrition)")
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(Color(red: knowledgeData.wordColor[0]/255, green: knowledgeData.wordColor[1]/255, blue: knowledgeData.wordColor[2]/255))
                 .padding(.vertical, 14)
