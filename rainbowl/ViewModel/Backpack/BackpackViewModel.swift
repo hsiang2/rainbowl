@@ -77,8 +77,9 @@ class BackpackViewModel: ObservableObject {
     }
     
     func addToGame(category: String, name: String, colors: [String], width: Float, isMoving: Bool) {
-        
-        let data = [
+        DispatchQueue.global().async {
+            // Perform heavy tasks here, such as database operations or computations
+            let data = [
                 "category": category,
                 "name": name,
                 "colors": colors,
@@ -86,10 +87,15 @@ class BackpackViewModel: ObservableObject {
                 "locationX": 1179,
                 "locationY": 912,
                 "isMoving": isMoving
-        ] as [String : Any]
-        COLLECTION_USERS.document(userId ?? "").collection("creatures").addDocument(data: data)
-
-        deleteBackpack(name: name)
+            ] as [String : Any]
+            COLLECTION_USERS.document(self.userId ?? "").collection("creatures").addDocument(data: data)
+            
+            // Once heavy tasks are completed, update UI on the main thread
+            DispatchQueue.main.async {
+                // Update UI or trigger any additional actions
+                self.deleteBackpack(name: name)
+            }
+        }
     }
     
     func deleteGame(id: String, category: String, name: String, colors: [String], width: Float, isMoving: Bool) {

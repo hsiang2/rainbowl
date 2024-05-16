@@ -58,49 +58,50 @@ struct ShareView: View {
            
 
         }.onAppear {
-            let group = DispatchGroup()
-               
-               group.enter()
-            fetchCreatures(completion: {_ in 
-                   group.leave()
-               })
-
-               group.notify(queue: .main) {
-                   render()
-               }
+            fetchAndRender()
         }
     }
-    func fetchCreatures(completion: @escaping ([CreatureInUse]) -> Void) {
-        socialViewModel.fetchCreatures(uid: user.id ?? "") { result in
-            self.fetchedCreatures = result
-            completion(result)
-        }
-    }
-    
-    @MainActor func render() {
-        let renderer = ImageRenderer(content:ZStack{
-            Image("截圖背景").resizable().scaledToFit().frame(width: 332)
-            GameScreenshotView(user: user, creatures: fetchedCreatures) .scaleEffect(0.12)
-                .scaledToFit()
-                .foregroundStyle(
-                    .shadow(
-                        .inner(color: Color(red: 4/255, green: 4/255, blue: 4/255).opacity(0.16), radius: 5.3)
-                    )
-                )
-                .padding(.bottom, 21)
-                
-        }.frame(width: 332, height: 305)
-            
-            )
-
-            // make sure and use the correct display scale for this device
-            renderer.scale = displayScale
-
-        
-            if let uiImage = renderer.uiImage {
-                renderedImage = Image(uiImage: uiImage)
+    func fetchAndRender() {
+            fetchCreatures { creatures in
+                renderImage(with: creatures)
             }
         }
+    func fetchCreatures(completion: @escaping ([CreatureInUse]) -> Void) {
+           socialViewModel.fetchCreatures(uid: user.id ?? "") { result in
+               completion(result)
+           }
+       }
+    
+    struct RenderedImageView: View {
+        let user: User
+        let creatures: [CreatureInUse]
+        
+        var body: some View {
+            ZStack{
+                Image("截圖背景").resizable().scaledToFit().frame(width: 332)
+                GameScreenshotView(user: user, creatures: creatures) .scaleEffect(0.12)
+                    .scaledToFit()
+                    .foregroundStyle(
+                        .shadow(
+                            .inner(color: Color(red: 4/255, green: 4/255, blue: 4/255).opacity(0.16), radius: 5.3)
+                        )
+                    )
+                    .padding(.bottom, 21)
+
+            }.frame(width: 332, height: 305)
+        }
+    }
+
+    func renderImage(with creatures: [CreatureInUse]) {
+        let renderedImageView = RenderedImageView(user: user, creatures: creatures)
+        
+        let renderer = ImageRenderer(content: renderedImageView)
+        renderer.scale = displayScale
+        
+        if let uiImage = renderer.uiImage {
+            renderedImage = Image(uiImage: uiImage)
+        }
+    }
 }
 
 //#Preview {
