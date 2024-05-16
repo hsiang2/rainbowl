@@ -75,7 +75,7 @@ struct ShopView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: 48)
-                                Text("200").font(.system(size: 16)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.bottom, 6)
+                                Text("200").font(.system(size: 16, weight: .medium)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.leading, 8).padding(.bottom, 6)
                             }
                         })
                         Button(action: {
@@ -87,7 +87,7 @@ struct ShopView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: 48)
-                                Text("200").font(.system(size: 16)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.bottom, 6)
+                                Text("200").font(.system(size: 16, weight: .medium)).foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255)).padding(.leading, 8).padding(.bottom, 6)
                             }
                         })
                         
@@ -113,8 +113,15 @@ struct ShopView: View {
                             animalShown = false
                             SoundPlayer.shared.playClickSound()
                         }) {
-                            Image("btn_cancel")
-                                .resizable().scaledToFit().frame(width: 126)
+                            ZStack {
+                                Image("按鈕_取消購買")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("取消")
+                                    .font(.system(size: 15, weight: .medium))
+                                    .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255))
+                                    .padding(.bottom, 6)
+                            }.frame(width: 126, height: 48)
                         }
                         Button(action: {
                             SoundPlayer.shared.playClickSound()
@@ -136,8 +143,19 @@ struct ShopView: View {
                             }
                             
                         }) {
-                            Image("btn_confirm")
-                                .resizable().scaledToFit().frame(width: 126)
+                            ZStack {
+                                Image("按鈕_確認購買")
+                                    .resizable()
+                                    .scaledToFit()
+                                HStack {
+                                    Text("200")
+                                        .font(.system(size: 15, weight: .medium))
+                                        .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255))
+                                    Image("彩虹幣")
+                                }.padding(.leading, 14)
+                               
+                                    .padding(.bottom, 5)
+                            }.frame(width: 126, height: 48)
                         }
                     }
                 }.frame(width: 343, height: 185)
@@ -161,8 +179,15 @@ struct ShopView: View {
                             SoundPlayer.shared.playClickSound()
                             
                         }) {
-                            Image("btn_cancel")
-                                .resizable().scaledToFit().frame(width: 126)
+                            ZStack {
+                                Image("按鈕_取消購買")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("取消")
+                                    .font(.system(size: 15, weight: .medium))
+                                    .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255))
+                                    .padding(.bottom, 6)
+                            }.frame(width: 126, height: 48)
                         }
                         Button(action: {
                             SoundPlayer.shared.playClickSound()
@@ -182,8 +207,19 @@ struct ShopView: View {
                                 moneyWarnShown = true
                             }
                         }) {
-                            Image("btn_confirm")
-                                .resizable().scaledToFit().frame(width: 126)
+                            ZStack {
+                                Image("按鈕_確認購買")
+                                    .resizable()
+                                    .scaledToFit()
+                                HStack {
+                                    Text("200")
+                                        .font(.system(size: 15, weight: .medium))
+                                        .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255))
+                                    Image("彩虹幣")
+                                }.padding(.leading, 14)
+                               
+                                    .padding(.bottom, 5)
+                            }.frame(width: 126, height: 48)
                         }
                     }
                 }.frame(width: 343, height: 185)
