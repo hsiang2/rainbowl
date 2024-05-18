@@ -166,7 +166,7 @@ struct GameView: View {
                 } .padding(.top, 85)
                 .padding(.trailing, 25)
             
-        }
+        }.background(.white)
         
     }
 

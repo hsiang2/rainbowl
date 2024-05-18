@@ -39,10 +39,11 @@ struct CalendarView: View {
                 }
             VStack {
                 DatePicker("Date", selection: $recordDate, displayedComponents: .date)
+                    .colorScheme(.light) 
                     .environment(\.locale, Locale(identifier: "zh_Hant_TW"))
-//                   .environment(\.calendar, Calendar(identifier: .republicOfChina))
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .tint(Color(red: 49/255, green: 122/255, blue: 144/255))
+                        .foregroundColor(.cyan)
                         .background(Color(red: 239/255, green: 241/255, blue: 243/255))
                         .frame(width: 330)
                         .cornerRadius(25)
@@ -64,15 +65,10 @@ struct CalendarView: View {
                                         .frame(width: 45, height: 45)
                                 } else {
                                     Text(record.name.prefix(1))
-        //                                .font(.system(size: 14))
                                         .foregroundColor(Color(red: 45/255, green: 49/255, blue: 66/255).opacity(0.6))
-        //                                .padding()
                                         .frame(width: 45, height: 45)
                                         .background(Color(red: COLORS[colors.firstIndex(of: record.color) ?? 0][0]/255, green: COLORS[colors.firstIndex(of: record.color) ?? 0][1]/255, blue: COLORS[colors.firstIndex(of: record.color) ?? 0][2]/255))
                                         .cornerRadius(50)
-                                        
-        //                                .shadow(color: Color(red: 216/255, green: 214/255, blue: 209/255), radius: 6, x: 0, y: 4)
-        //                                .padding(.top, 70)
                                 }
                                 VStack(alignment: .leading) {
                                     Text(record.name)
